@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dhdm4uldt4yta"]
+
+[ext_resource type="Texture2D" uid="uid://bcybd4qor3tte" path="res://Assets/Imagenes/NPC/Personajes_principales/plus.png" id="1_5qkfu"]
+[ext_resource type="Script" uid="uid://boik52bsd81bk" path="res://Recursos/Scripts/Plus.gd" id="1_6iop6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjyff"]
+size = Vector2(62, 96)
+
+[node name="PLUS" type="Node2D" unique_id=2002740340]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1129610397]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Camera2D" unique_id=417803875]
+script = ExtResource("1_6iop6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CharacterBody2D" unique_id=827376229]
+position = Vector2(0, 1)
+texture = ExtResource("1_5qkfu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/CharacterBody2D" unique_id=1937404070]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_bjyff")

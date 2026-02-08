@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://b1eg8q351vubs"]
+
+[ext_resource type="Texture2D" uid="uid://b7ya2pt4w8216" path="res://Assets/Imagenes/Expresiones/Plus relajada.png" id="1_0y3ga"]
+
+[resource]
+Button/colors/font_color = Color(0.9497972, 0.82163334, 1, 1)
+Button/colors/font_focus_color = Color(1, 0.933811, 0.90937227, 1)
+Button/colors/font_hover_color = Color(0.99999946, 0.9590742, 0.6892119, 1)
+Button/constants/icon_max_width = 50
+Button/icons/icon = ExtResource("1_0y3ga")

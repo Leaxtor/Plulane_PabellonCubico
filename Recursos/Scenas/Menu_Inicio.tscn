@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://drxk1e34ju36a"]
+
+[ext_resource type="Texture2D" uid="uid://cavd6xqlm6t7n" path="res://Assets/Imagenes/Expresiones/Lambda Competitiva.png" id="1_2qlog"]
+[ext_resource type="Script" uid="uid://d1mjqqadt4fdm" path="res://Recursos/Scripts/menu_inicio.gd" id="1_q7iqv"]
+[ext_resource type="Theme" uid="uid://b1eg8q351vubs" path="res://Assets/Imagenes/Interfaces/Temas/TemaMenu.tres" id="3_q7iqv"]
+
+[node name="Node2D" type="Node2D" unique_id=175794701]
+script = ExtResource("1_q7iqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=853119542]
+position = Vector2(800, 267)
+texture = ExtResource("1_2qlog")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=354375326]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1912092003]
+offset_right = 150.0
+offset_bottom = 150.0
+theme = ExtResource("3_q7iqv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=516978507]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Inicio" type="Button" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=868669702]
+layout_mode = 2
+text = "Iniciar"
+
+[node name="Conf" type="Button" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=1727520255]
+layout_mode = 2
+text = "Configuración"
+
+[node name="Salir" type="Button" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=53714538]
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/HBoxContainer/Inicio" to="." method="_on_inicio_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/HBoxContainer/Conf" to="." method="_on_conf_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/HBoxContainer/Salir" to="." method="_on_salir_pressed"]
