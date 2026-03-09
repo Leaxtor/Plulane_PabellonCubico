@@ -1,7 +1,65 @@
 [gd_scene format=3 uid="uid://t8sjc3imvui8"]
 
+[ext_resource type="Texture2D" uid="uid://c04cnelihnx11" path="res://Assets/Imagenes/Fondos/Barrios Bajos-5.png" id="1_8m6f3"]
 [ext_resource type="PackedScene" uid="uid://dhdm4uldt4yta" path="res://Recursos/Scenas/NPC/Plus.tscn" id="1_wgpdg"]
+[ext_resource type="Script" uid="uid://oxmeu4qnx082" path="res://Recursos/Scripts/FinalNivel.gd" id="3_6buoh"]
+[ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Recursos/Scenas/Miselaneos/Carrito.tscn" id="4_5mnnw"]
+[ext_resource type="Texture2D" uid="uid://60g05lxllyrn" path="res://Assets/Imagenes/NPC/Personajes_principales/export202603082028598400.png" id="5_nx08k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8m6f3"]
+size = Vector2(1986, 268.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6buoh"]
+size = Vector2(3520, 109.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6buoh"]
+a = Vector2(154, -211)
+b = Vector2(184, -62)
 
 [node name="NivelTest" type="Node2D" unique_id=936101285]
 
-[node name="Node2D" parent="." unique_id=2002740340 instance=ExtResource("1_wgpdg")]
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1856137971]
+position = Vector2(1290, 89)
+texture = ExtResource("1_8m6f3")
+
+[node name="Muros" type="StaticBody2D" parent="." unique_id=1403442381]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muros" unique_id=20957814]
+position = Vector2(1064, 334.25)
+shape = SubResource("RectangleShape2D_8m6f3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Muros" unique_id=1870774010]
+position = Vector2(1286, -15.25)
+shape = SubResource("RectangleShape2D_6buoh")
+
+[node name="MetaNivel" type="Area2D" parent="." unique_id=1651960358]
+collision_layer = 16
+collision_mask = 18
+script = ExtResource("3_6buoh")
+Nivel_Nombre = "res://Recursos/Scenas/NivelTest2.tscn"
+
+[node name="FinalNivel" type="CollisionShape2D" parent="MetaNivel" unique_id=1503352505]
+position = Vector2(2602, 240)
+shape = SubResource("SegmentShape2D_6buoh")
+debug_color = Color(0.80999553, 0.0021903343, 0.9879258, 0.41960785)
+
+[node name="ActoresContenedor" type="Node2D" parent="." unique_id=1756002496]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ActoresContenedor" unique_id=1641159248]
+y_sort_enabled = true
+position = Vector2(-259, 228)
+texture = ExtResource("5_nx08k")
+offset = Vector2(0, -15)
+
+[node name="Carrito" parent="ActoresContenedor" unique_id=524723037 instance=ExtResource("4_5mnnw")]
+y_sort_enabled = true
+position = Vector2(-259, 221)
+
+[node name="PLUS" parent="ActoresContenedor" unique_id=2002740340 instance=ExtResource("1_wgpdg")]
+y_sort_enabled = true
+position = Vector2(-155, 128)
+
+[connection signal="body_entered" from="MetaNivel" to="MetaNivel" method="_on_body_entered"]

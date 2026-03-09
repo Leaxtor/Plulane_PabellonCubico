@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://wwq05poayoap"]
+
+[ext_resource type="Script" uid="uid://bhf3r5xtpchlo" path="res://Recursos/Scripts/Receptor_Damage.gd" id="1_8jfpi"]
+
+[node name="ReceptorDaño" type="Area2D" unique_id=1523650532]
+script = ExtResource("1_8jfpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1663036646]

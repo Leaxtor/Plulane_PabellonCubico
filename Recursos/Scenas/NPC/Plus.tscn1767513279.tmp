@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dhdm4uldt4yta"]
+
+[ext_resource type="Texture2D" uid="uid://bcybd4qor3tte" path="res://Assets/Imagenes/NPC/Personajes_principales/plus.png" id="1_5qkfu"]
+[ext_resource type="Script" uid="uid://boik52bsd81bk" path="res://Recursos/Scripts/Plus.gd" id="1_6iop6"]
+[ext_resource type="Script" uid="uid://cfyqw050fmli0" path="res://Recursos/Scripts/camara.gd" id="1_bjyff"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bjyff"]
+radius = 9.000004
+height = 58.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjyff"]
+size = Vector2(58, 90)
+
+[sub_resource type="Animation" id="Animation_gb8r4"]
+resource_name = "Caminar"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_gvmfh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bjyff"]
+resource_name = "Reposo"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 0, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gb8r4"]
+_data = {
+&"Caminar": SubResource("Animation_gb8r4"),
+&"RESET": SubResource("Animation_gvmfh"),
+&"Reposo": SubResource("Animation_bjyff")
+}
+
+[node name="PLUS" type="Node2D" unique_id=2002740340]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1129610397]
+script = ExtResource("1_bjyff")
+
+[node name="SpritePlus" type="CharacterBody2D" parent="." unique_id=417803875]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_6iop6")
+move_speed = 150.0
+
+[node name="Sprite2D" type="Sprite2D" parent="SpritePlus" unique_id=827376229]
+texture = ExtResource("1_5qkfu")
+
+[node name="CollisionFloor" type="CollisionShape2D" parent="SpritePlus" unique_id=579724996]
+position = Vector2(0, 43)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_bjyff")
+debug_color = Color(0.9584257, 3.080368e-06, 0.5298511, 0.41960785)
+
+[node name="Area2D" type="Area2D" parent="SpritePlus" unique_id=1655390374]
+
+[node name="CollisionBody" type="CollisionShape2D" parent="SpritePlus/Area2D" unique_id=1351523769]
+shape = SubResource("RectangleShape2D_bjyff")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpritePlus" unique_id=379652525]
+libraries/ = SubResource("AnimationLibrary_gb8r4")

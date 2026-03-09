@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cbttjfagglol"]
+
+[node name="EmitidorDaño" type="Area2D" unique_id=771478216]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1521075572]

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dx28bicle2qbb"]
+
+[ext_resource type="Texture2D" uid="uid://u6k4t7vdw6do" path="res://Assets/Imagenes/Fondos/MetroParallax.png" id="1_5fa5b"]
+[ext_resource type="Texture2D" uid="uid://7pulw8vwm745" path="res://Assets/Imagenes/Fondos/Metro_Vagon.png" id="1_glovy"]
+[ext_resource type="Texture2D" uid="uid://bhmsnjnliekx" path="res://Assets/Imagenes/Fondos/MetroParallaxB.png" id="2_lpmkb"]
+[ext_resource type="PackedScene" uid="uid://dhdm4uldt4yta" path="res://Recursos/Scenas/NPC/Plus.tscn" id="2_mtoug"]
+[ext_resource type="Texture2D" uid="uid://cjkxning3rrrs" path="res://Assets/Imagenes/Fondos/MetroParallaxA.png" id="3_ejwwm"]
+[ext_resource type="Script" uid="uid://oxmeu4qnx082" path="res://Recursos/Scripts/FinalNivel.gd" id="3_jjpvj"]
+[ext_resource type="Script" uid="uid://lvw6biqpmqfg" path="res://Recursos/Scripts/parallax_manejador.gd" id="7_lpmkb"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5fa5b"]
+a = Vector2(23, -193)
+b = Vector2(20, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fa5b"]
+size = Vector2(22.25, 719)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpmkb"]
+size = Vector2(26.75, 725)
+
+[node name="NivelTest3" type="Node2D" unique_id=1298551466]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=172215667]
+scroll_offset = Vector2(-877, 301)
+repeat_size = Vector2(907, 0)
+repeat_times = 2
+limit_begin = Vector2(-907, 0)
+limit_end = Vector2(10000000, 0)
+
+[node name="MetroParallax" type="Sprite2D" parent="Parallax2D" unique_id=660734496]
+position = Vector2(1360, 10)
+texture = ExtResource("1_5fa5b")
+
+[node name="Metro_final" type="Sprite2D" parent="." unique_id=1327101283]
+position = Vector2(4307, 267)
+texture = ExtResource("2_lpmkb")
+
+[node name="Metro_inicio" type="Sprite2D" parent="." unique_id=1487721518]
+position = Vector2(495, 272)
+texture = ExtResource("3_ejwwm")
+
+[node name="MetroCompleto" type="Sprite2D" parent="." unique_id=1332938268]
+visible = false
+position = Vector2(1137, -3)
+texture = ExtResource("1_glovy")
+
+[node name="PLUS" parent="." unique_id=2002740340 instance=ExtResource("2_mtoug")]
+position = Vector2(231, 365)
+
+[node name="Final" type="Area2D" parent="." unique_id=1235896806]
+collision_layer = 16
+collision_mask = 18
+script = ExtResource("3_jjpvj")
+Nivel_Nombre = "res://Recursos/Scenas/NivelTest.tscn"
+
+[node name="FinalNivel" type="CollisionShape2D" parent="Final" unique_id=1819471431]
+position = Vector2(4509, 362)
+shape = SubResource("SegmentShape2D_5fa5b")
+debug_color = Color(0.9532029, 3.7541986e-06, 0.5572459, 0.41960785)
+
+[node name="ParallaxManejador" type="Area2D" parent="." unique_id=785143865]
+collision_layer = 16
+collision_mask = 18
+script = ExtResource("7_lpmkb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxManejador" unique_id=564783394]
+position = Vector2(2843.125, 270.5)
+shape = SubResource("RectangleShape2D_5fa5b")
+debug_color = Color(0.6414931, 0.524546, 0, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ParallaxManejador" unique_id=804322340]
+position = Vector2(2309, 272)
+shape = SubResource("RectangleShape2D_lpmkb")
+debug_color = Color(0.65119547, 0.51965237, 5.7756904e-07, 0.41960785)
+
+[connection signal="body_entered" from="Final" to="Final" method="_on_body_entered"]
+[connection signal="body_entered" from="ParallaxManejador" to="ParallaxManejador" method="_on_body_entered"]

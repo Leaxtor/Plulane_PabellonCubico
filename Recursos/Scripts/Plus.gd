@@ -1,97 +1,87 @@
 extends CharacterBody2D
-
+#FinalNivel.gd solo funciona si el simbolo de persona sigue llamandose SpritePlus
+@export var damage : int
 @export var move_speed: float
-@export var jump_speed: float
-@onready var animated_sprite = $animatedSprite #Arrastro desde la scena
+@onready var animation_player = $AnimationPlayer
+@onready var character_sprite = $SpritesPlus
+@onready var NodoPadre = $".."
+@onready var emitidor_daño = $"EmitidorDaño"
 
-#Obtiene la referencia al player que vamos a controlar si estuviera en otro nodo.
-#@onready var player:Player_generico = self.owner
+
+#COMENTARIO RANDOMS
+enum State {
+	Reposo,
+	Caminar,
+	Golpe,
+	Bloqueo
+}
+
+var state = State.Reposo
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-"""
-enum STATE {
-	REPOSO,
-	CORRER,
-	SALTAR,
-	CAER
-}
+func _ready() ->void:
+	emitidor_daño.area_entered.connect(on_emit_damage.bind())
 
-var current_state:STATE = STATE.REPOSO
-"""
-func _physics_process(delta: float):
-	"""
-	match current_state:
-		STATE.REPOSO:
-			velocity.x = 0
-			animated_sprite.play("QUIETO")
-			if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
-				current_state = STATE.CORRER
-			#POR SI PRESIONA AMBAS TECLAS QUEDARSE QUUIETO SI SUELTA UNA COMIENZA A CORRER
-			if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
-				current_state = STATE.CORRER
-			if not Input.is_action_pressed("move_left") and Input.is_action_pressed("move_right"):
-				current_state = STATE.CORRER
-			#SI SALTA
-			elif Input.is_action_just_pressed("jump") and is_on_floor():
-				jump(delta)
-				current_state = STATE.SALTAR
-			pass
-		STATE.CORRER:
-			moverse(delta)
-			if velocity.x > 1: 
-				animated_sprite.play("DERECHA")
-			if velocity.x < -1: 
-				animated_sprite.play("IZQUIERDA")
-			#if velocity.x == 0: 
-			#	current_state = STATE.REPOSO
-			if not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
-				current_state = STATE.REPOSO
-			if  Input.is_action_pressed("move_left") and Input.is_action_pressed("move_right"):
-				current_state = STATE.REPOSO
-			elif Input.is_action_just_pressed("jump") and is_on_floor():
-				jump(delta)
-				current_state = STATE.SALTAR
-			pass
-		STATE.SALTAR:
-			moverse(delta)
-			if velocity.x > 1: 
-				animated_sprite.play("SALTOIDERECHA")
-			if velocity.x < -1: 
-				animated_sprite.play("SALTOIZQUIERDA")
-			if velocity.y > -1: 
-				current_state = STATE.CAER
-			pass
-		STATE.CAER:
-			moverse(delta)
-			if velocity.x > 1: 
-				animated_sprite.play("CAYENDODERECHA")
-			if velocity.x < -1: 
-				animated_sprite.play("CAYENDOIZQUIERDA")
-			if is_on_floor() and velocity.x == 0:
-				current_state = STATE.REPOSO
-			if is_on_floor() and velocity.x != 0:
-				current_state = STATE.CORRER
-			pass
-	
-"""
-	gravedad(delta)
+
+func _physics_process(_delta: float) ->void :
+	handle_input()
+	handle_movement()
+	handle_animation()
+	voltear_sprite() #talvez lo cambie
 	move_and_slide()
 	
+func handle_movement() -> void:
+	if can_move():
+		if velocity.length() == 0:
+			state = State.Reposo
+		else:
+			state = State.Caminar
+	else:
+		velocity = Vector2.ZERO
+	
+#GODOT NO ESPERA UNA RESPUESTA CON EL "TIPADO", POR ESO PONER VOID POR RENDIMIENTO
+func handle_input() -> void:
+	var direction := Input.get_vector("move_left","move_right","move_up","move_down")
+	velocity = direction * move_speed
+	if can_accion() and Input.is_action_just_pressed("ataque_golpear"):
+		print(NodoPadre.position.y)
+		state = State.Golpe
+	if can_accion() and Input.is_action_just_pressed("move_bloqueo"):
+		state = State.Bloqueo
+	
+func handle_animation() -> void:
+	if state == State.Reposo:
+		animation_player.play("Reposo")
+	elif state == State.Caminar:
+		animation_player.play("Caminar")
+	elif state == State.Golpe:
+		animation_player.play("Golpe")
+	elif state == State.Bloqueo:
+		animation_player.play("Bloqueo")
 
-#MANIPULAR LA VELOCIDAD
-func _ready():
-	Engine.time_scale = 1
-
-
-func jump(delta):
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y  = -jump_speed
+func voltear_sprite() -> void:
+	if velocity.x > 0:
+		character_sprite.flip_h = false
+	elif velocity.x < 0:
+		character_sprite.flip_h = true
 		
-func moverse(delta):
-	var input_axis = Input.get_axis("move_left","move_right")
-	velocity.x = input_axis * move_speed
+func can_accion() -> bool:
+	return state == State.Reposo or state== State.Caminar
 
-func gravedad(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
+func can_move() -> bool:
+	return state == State.Reposo or state == State.Caminar
+
+#LLAMO LAS FUNCIONES CON EL ANIMATION PLAYER
+func ataque_completo() -> void:
+	state = State.Reposo
+	
+func bloque_completo() -> void:
+	state = State.Reposo
+
+func on_emit_damage(damage_receiver: ReceptorDaño) -> void:
+	print(damage_receiver)
+	#Es como un contector, salta uno arriba y llama a la funcion get_damage
+	damage_receiver.damage_received.emit(damage)
+
+#ANIMACION CON ANIMATIONPLAYER: https://youtu.be/fuGiJdMrCAk?si=a5CSFPSm1-F9O4Wk&t=609
