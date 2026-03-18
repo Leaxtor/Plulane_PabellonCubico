@@ -12,8 +12,9 @@ size = Vector2(87, 66.5)
 
 [node name="Carrito" type="StaticBody2D" unique_id=524723037]
 collision_layer = 16
-collision_mask = 16
+collision_mask = 0
 script = ExtResource("1_1i0s6")
+knockball = 150.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=729976795]
 texture = ExtResource("1_fcm4c")

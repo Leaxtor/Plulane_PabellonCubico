@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://60g05lxllyrn"
-path="res://.godot/imported/export202603082028598400.png-eb3916c4fb53e33f772f22e369fe0181.ctex"
+path="res://.godot/imported/export202603082028598400.png-d25050b51a78a2c2aa7444088dc912e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/NPC/Personajes_principales/export202603082028598400.png"
-dest_files=["res://.godot/imported/export202603082028598400.png-eb3916c4fb53e33f772f22e369fe0181.ctex"]
+source_file="res://Assets/Imagenes/NPC/Enemigos/export202603082028598400.png"
+dest_files=["res://.godot/imported/export202603082028598400.png-d25050b51a78a2c2aa7444088dc912e6.ctex"]
 
 [params]
 

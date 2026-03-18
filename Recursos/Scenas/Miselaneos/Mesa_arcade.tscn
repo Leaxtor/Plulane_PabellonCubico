@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d3twcfyoy5hr5"]
+
+[ext_resource type="Script" uid="uid://bwms6kpnfxi56" path="res://Recursos/Scripts/DestruirObjeto.gd" id="1_x1g0y"]
+[ext_resource type="Texture2D" uid="uid://8k8meky75jo" path="res://Assets/Imagenes/Muebles/mesa_arcade.png" id="2_dueff"]
+[ext_resource type="PackedScene" uid="uid://wwq05poayoap" path="res://Recursos/Scenas/ReceptorDaño.tscn" id="3_n1ma7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2q8v"]
+size = Vector2(90, 46.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4lmg"]
+size = Vector2(89, 82)
+
+[node name="MesaArcade" type="StaticBody2D" unique_id=737910012]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_x1g0y")
+knockball = 350.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=852545389]
+texture = ExtResource("2_dueff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1961033960]
+position = Vector2(1, 23.25)
+shape = SubResource("RectangleShape2D_v2q8v")
+
+[node name="ReceptorDaño" parent="." unique_id=1523650532 instance=ExtResource("3_n1ma7")]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
+position = Vector2(0.5, -5)
+shape = SubResource("RectangleShape2D_n4lmg")
+debug_color = Color(0.9570816, 1.0588765e-06, 0.5370912, 0.41960785)
+
+[editable path="ReceptorDaño"]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dhdm4uldt4yta" path="res://Recursos/Scenas/NPC/Plus.tscn" id="1_wgpdg"]
 [ext_resource type="Script" uid="uid://oxmeu4qnx082" path="res://Recursos/Scripts/FinalNivel.gd" id="3_6buoh"]
 [ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Recursos/Scenas/Miselaneos/Carrito.tscn" id="4_5mnnw"]
-[ext_resource type="Texture2D" uid="uid://60g05lxllyrn" path="res://Assets/Imagenes/NPC/Personajes_principales/export202603082028598400.png" id="5_nx08k"]
+[ext_resource type="PackedScene" uid="uid://d3twcfyoy5hr5" path="res://Recursos/Scenas/Miselaneos/Mesa_arcade.tscn" id="5_nx08k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m6f3"]
 size = Vector2(1986, 268.5)
@@ -48,12 +48,6 @@ debug_color = Color(0.80999553, 0.0021903343, 0.9879258, 0.41960785)
 [node name="ActoresContenedor" type="Node2D" parent="." unique_id=1756002496]
 y_sort_enabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="ActoresContenedor" unique_id=1641159248]
-y_sort_enabled = true
-position = Vector2(-259, 228)
-texture = ExtResource("5_nx08k")
-offset = Vector2(0, -15)
-
 [node name="Carrito" parent="ActoresContenedor" unique_id=524723037 instance=ExtResource("4_5mnnw")]
 y_sort_enabled = true
 position = Vector2(-259, 221)
@@ -61,5 +55,8 @@ position = Vector2(-259, 221)
 [node name="PLUS" parent="ActoresContenedor" unique_id=2002740340 instance=ExtResource("1_wgpdg")]
 y_sort_enabled = true
 position = Vector2(-155, 128)
+
+[node name="MesaArcade" parent="ActoresContenedor" unique_id=737910012 instance=ExtResource("5_nx08k")]
+position = Vector2(-55, 243)
 
 [connection signal="body_entered" from="MetaNivel" to="MetaNivel" method="_on_body_entered"]
