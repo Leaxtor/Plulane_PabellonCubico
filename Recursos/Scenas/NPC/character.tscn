@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dp7g2lnnvf0i3"]
+
+[ext_resource type="Script" uid="uid://tu7bawxhrjmg" path="res://Recursos/Scenas/NPC/character.gd" id="1_laadx"]
+[ext_resource type="PackedScene" uid="uid://cbttjfagglol" path="res://Recursos/Scenas/EmitidorDaño.tscn" id="1_oysyt"]
+
+[node name="Character" type="CharacterBody2D" unique_id=106214172]
+script = ExtResource("1_laadx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=570534983]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1210923462]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1712265704]
+
+[node name="EmitidorDaño" parent="." unique_id=771478216 instance=ExtResource("1_oysyt")]
+
+[editable path="EmitidorDaño"]

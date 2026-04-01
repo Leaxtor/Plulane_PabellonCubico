@@ -6,7 +6,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_body_entered(body):
-	if body.name == "SpritePlus":
+	if body.name == "Jugador_Plus":
 		cambio_parallax()
 
 func cambio_parallax():

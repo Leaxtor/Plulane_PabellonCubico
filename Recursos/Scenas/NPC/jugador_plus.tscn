@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dwd3jcrrl8sma"]
+
+[ext_resource type="PackedScene" uid="uid://dp7g2lnnvf0i3" path="res://Recursos/Scenas/NPC/character.tscn" id="1_snlmh"]
+[ext_resource type="Texture2D" uid="uid://cdojfvvdycuel" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/plus_idle.png" id="2_j7s05"]
+[ext_resource type="AnimationLibrary" uid="uid://bxwh481lo0d3f" path="res://Recursos/Scenas/NPC/plus_animacion.res" id="3_kg235"]
+
+[sub_resource type="Animation" id="Animation_j7s05"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EmitidorDaño:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6qh13"]
+_data = {
+&"RESET": SubResource("Animation_j7s05")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kg235"]
+height = 54.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qh13"]
+size = Vector2(35, 20)
+
+[node name="Jugador_Plus" unique_id=106214172 instance=ExtResource("1_snlmh")]
+collision_layer = 2
+collision_mask = 18
+damage = 5
+health = 5
+salto_fuerza = 300.0
+velocidad_subida = 1.5
+velocidad_bajada = 1.5
+move_speed = 300.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=570534983]
+texture = ExtResource("2_j7s05")
+hframes = 5
+vframes = 7
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1210923462]
+libraries/ = SubResource("AnimationLibrary_6qh13")
+libraries/plus_animacion = ExtResource("3_kg235")
+
+[node name="CollisionShape2D2" parent="." index="2" unique_id=1712265704]
+position = Vector2(4, 66)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kg235")
+
+[node name="EmitidorDaño" parent="." index="3" unique_id=771478216]
+collision_layer = 0
+collision_mask = 384
+monitoring = false
+
+[node name="CollisionShape2D" parent="EmitidorDaño" index="0" unique_id=1521075572]
+position = Vector2(57.5, 5)
+shape = SubResource("RectangleShape2D_6qh13")
+debug_color = Color(0.91617966, 8.490265e-05, 0.715479, 0.41960785)
+
+[editable path="EmitidorDaño"]

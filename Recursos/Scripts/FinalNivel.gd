@@ -8,7 +8,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body):
 	print(body.name)
-	if body.name == "SpritePlus":
+	if body.name == "Jugador_Plus":
 		change_scene()
 
 func change_scene():

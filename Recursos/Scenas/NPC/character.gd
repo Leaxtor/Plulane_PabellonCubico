@@ -1,4 +1,3 @@
-class_name Character 
 extends CharacterBody2D
 
 const GRAVEDAD := 600.0
@@ -29,14 +28,14 @@ enum State {
 }
 
 var animation_map := {
-	State.Reposo: "Reposo",
-	State.Caminar: "Caminar",
-	State.Golpe: "Golpe",
-	State.Bloqueo: "Bloqueo",
-	State.Salto_Inicio: "Salto_Inicio",
-	State.Salto_Medio: "Salto_Medio",
-	State.Salto_Fin: "Salto_Fin",
-	State.Salto_Patada: "Salto_Patada",
+	State.Reposo: "plus_animacion/Reposo",
+	State.Caminar: "plus_animacion/Caminar",
+	State.Golpe: "plus_animacion/Golpe",
+	State.Bloqueo: "plus_animacion/Bloqueo",
+	State.Salto_Inicio: "plus_animacion/Salto_Inicio",
+	State.Salto_Medio: "plus_animacion/Salto_Medio",
+	State.Salto_Fin: "plus_animacion/Salto_Fin",
+	State.Salto_Patada: "plus_animacion/Salto_Patada",
 }
 
 #var height := 22.0
@@ -73,7 +72,6 @@ func handle_input() -> void:
 	var direction := Input.get_vector("move_left","move_right","move_up","move_down")
 	velocity = direction * move_speed
 	if can_accion() and Input.is_action_just_pressed("ataque_golpear"):
-		print(NodoPadre.position.y)
 		state = State.Golpe
 	if can_accion() and Input.is_action_just_pressed("move_bloqueo"):
 		state = State.Bloqueo

@@ -3,10 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://u6k4t7vdw6do" path="res://Assets/Imagenes/Fondos/MetroParallax.png" id="1_5fa5b"]
 [ext_resource type="Texture2D" uid="uid://7pulw8vwm745" path="res://Assets/Imagenes/Fondos/Metro_Vagon.png" id="1_glovy"]
 [ext_resource type="Texture2D" uid="uid://bhmsnjnliekx" path="res://Assets/Imagenes/Fondos/MetroParallaxB.png" id="2_lpmkb"]
-[ext_resource type="PackedScene" uid="uid://dhdm4uldt4yta" path="res://Recursos/Scenas/NPC/Plus.tscn" id="2_mtoug"]
 [ext_resource type="Texture2D" uid="uid://cjkxning3rrrs" path="res://Assets/Imagenes/Fondos/MetroParallaxA.png" id="3_ejwwm"]
 [ext_resource type="Script" uid="uid://oxmeu4qnx082" path="res://Recursos/Scripts/FinalNivel.gd" id="3_jjpvj"]
 [ext_resource type="Script" uid="uid://lvw6biqpmqfg" path="res://Recursos/Scripts/parallax_manejador.gd" id="7_lpmkb"]
+[ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Recursos/Scenas/NPC/camara.tscn" id="8_0yiy5"]
+[ext_resource type="PackedScene" uid="uid://dwd3jcrrl8sma" path="res://Recursos/Scenas/NPC/jugador_plus.tscn" id="9_wmbky"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5fa5b"]
 a = Vector2(23, -193)
@@ -44,9 +45,6 @@ visible = false
 position = Vector2(1137, -3)
 texture = ExtResource("1_glovy")
 
-[node name="PLUS" parent="." unique_id=2002740340 instance=ExtResource("2_mtoug")]
-position = Vector2(231, 365)
-
 [node name="Final" type="Area2D" parent="." unique_id=1235896806]
 collision_layer = 16
 collision_mask = 18
@@ -72,6 +70,14 @@ debug_color = Color(0.6414931, 0.524546, 0, 0.41960785)
 position = Vector2(2309, 272)
 shape = SubResource("RectangleShape2D_lpmkb")
 debug_color = Color(0.65119547, 0.51965237, 5.7756904e-07, 0.41960785)
+
+[node name="ActoresContenedor" type="Node2D" parent="." unique_id=1340094449]
+
+[node name="CamaraJugador" parent="ActoresContenedor" unique_id=171648781 node_paths=PackedStringArray("jugador") instance=ExtResource("8_0yiy5")]
+jugador = NodePath("../Jugador_Plus")
+
+[node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("9_wmbky")]
+position = Vector2(252, 354)
 
 [connection signal="body_entered" from="Final" to="Final" method="_on_body_entered"]
 [connection signal="body_entered" from="ParallaxManejador" to="ParallaxManejador" method="_on_body_entered"]

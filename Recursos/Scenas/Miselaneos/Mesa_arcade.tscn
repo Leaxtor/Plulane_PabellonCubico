@@ -17,10 +17,11 @@ script = ExtResource("1_x1g0y")
 knockball = 350.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=852545389]
+position = Vector2(0, 9)
 texture = ExtResource("2_dueff")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1961033960]
-position = Vector2(1, 23.25)
+position = Vector2(2, 36)
 shape = SubResource("RectangleShape2D_v2q8v")
 
 [node name="ReceptorDaño" parent="." unique_id=1523650532 instance=ExtResource("3_n1ma7")]
@@ -28,7 +29,7 @@ collision_layer = 256
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
-position = Vector2(0.5, -5)
+position = Vector2(1, 14)
 shape = SubResource("RectangleShape2D_n4lmg")
 debug_color = Color(0.9570816, 1.0588765e-06, 0.5370912, 0.41960785)
 
