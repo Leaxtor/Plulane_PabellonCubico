@@ -2,5 +2,16 @@
 
 [ext_resource type="Script" uid="uid://tvhqb628jo3i" path="res://Recursos/Scenas/NPC/camara.gd" id="1_1w0lv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w0lv"]
+size = Vector2(24, 1060)
+
 [node name="CamaraJugador" type="Camera2D" unique_id=171648781]
 script = ExtResource("1_1w0lv")
+
+[node name="MuroCamara" type="StaticBody2D" parent="." unique_id=1259163049]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MuroCamara" unique_id=2007907885]
+position = Vector2(-498, 44)
+shape = SubResource("RectangleShape2D_1w0lv")

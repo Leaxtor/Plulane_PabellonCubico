@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwd3jcrrl8sma" path="res://Recursos/Scenas/NPC/jugador_plus.tscn" id="5_5wrfm"]
 [ext_resource type="PackedScene" uid="uid://d3twcfyoy5hr5" path="res://Recursos/Scenas/Miselaneos/Mesa_arcade.tscn" id="5_nx08k"]
 [ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Recursos/Scenas/NPC/camara.tscn" id="6_36vfu"]
+[ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://Recursos/Scenas/NPC/enemigo_1.tscn" id="7_36vfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m6f3"]
 size = Vector2(1986, 268.5)
@@ -25,7 +26,7 @@ texture = ExtResource("1_8m6f3")
 
 [node name="Muros" type="StaticBody2D" parent="." unique_id=1403442381]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Muros" unique_id=20957814]
 position = Vector2(1064, 334.25)
@@ -51,6 +52,7 @@ y_sort_enabled = true
 
 [node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("5_5wrfm")]
 position = Vector2(-152, 98)
+max_health = 0
 
 [node name="Carrito" parent="ActoresContenedor" unique_id=524723037 instance=ExtResource("4_5mnnw")]
 y_sort_enabled = true
@@ -61,5 +63,17 @@ position = Vector2(164, 117)
 
 [node name="CamaraJugador" parent="ActoresContenedor" unique_id=171648781 node_paths=PackedStringArray("jugador") instance=ExtResource("6_36vfu")]
 jugador = NodePath("../Jugador_Plus")
+
+[node name="Enemigo_1" parent="ActoresContenedor" unique_id=1952712131 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
+position = Vector2(335, 87)
+player = NodePath("../Jugador_Plus")
+move_speed = 100.0
+knockback_intensidad = 50.0
+
+[node name="Enemigo_2" parent="ActoresContenedor" unique_id=370858909 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
+position = Vector2(1038, 71)
+player = NodePath("../Jugador_Plus")
+move_speed = 150.0
+knockback_intensidad = 50.0
 
 [connection signal="body_entered" from="MetaNivel" to="MetaNivel" method="_on_body_entered"]

@@ -1,17 +1,20 @@
+class_name Character
 extends CharacterBody2D
 
 const GRAVEDAD := 600.0
 
 @export var damage : int
-@export var health : int
+@export var max_health : int
 @export var salto_fuerza: float
 @export var velocidad_subida: float #talvez deberia hacerlo global
 @export var velocidad_bajada: float #talvez deberia hacerlo global
 @export var move_speed: float
-@onready var animation_player = $AnimationPlayer
-@onready var character_sprite = $Sprite2D
-@onready var NodoPadre = $".."
-@onready var emitidor_daño = $"EmitidorDaño"
+@export var knockback_intensidad: float
+
+@onready var animation_player := $AnimationPlayer
+@onready var character_sprite := $Sprite2D
+@onready var emitidor_daño := $"EmitidorDaño"
+@onready var receptor_daño : ReceptorDamage = $"ReceptorDaño"
 
 
 
@@ -24,7 +27,8 @@ enum State {
 	Salto_Inicio,
 	Salto_Medio,
 	Salto_Fin,
-	Salto_Patada
+	Salto_Patada,
+	Hurt,
 }
 
 var animation_map := {
@@ -36,9 +40,10 @@ var animation_map := {
 	State.Salto_Medio: "plus_animacion/Salto_Medio",
 	State.Salto_Fin: "plus_animacion/Salto_Fin",
 	State.Salto_Patada: "plus_animacion/Salto_Patada",
+	State.Hurt: "plus_animacion/Hurt",
 }
 
-#var height := 22.0
+var current_health := 0
 var height := 0.0
 var height_speed := 0.0
 var state = State.Reposo
@@ -47,7 +52,9 @@ var state = State.Reposo
 
 func _ready() ->void:
 	emitidor_daño.area_entered.connect(emitir_damage.bind())
-
+	receptor_daño.damage_received.connect(damage_received.bind())
+	current_health = max_health
+	print(current_health)
 
 func _physics_process(delta: float) ->void :
 	handle_input()
@@ -69,16 +76,7 @@ func handle_movement() -> void:
 	
 #GODOT NO ESPERA UNA RESPUESTA CON EL "TIPADO", POR ESO PONER VOID POR RENDIMIENTO
 func handle_input() -> void:
-	var direction := Input.get_vector("move_left","move_right","move_up","move_down")
-	velocity = direction * move_speed
-	if can_accion() and Input.is_action_just_pressed("ataque_golpear"):
-		state = State.Golpe
-	if can_accion() and Input.is_action_just_pressed("move_bloqueo"):
-		state = State.Bloqueo
-	if can_jump() and Input.is_action_just_pressed("move_saltar"):
-		state = State.Salto_Inicio
-	if can_jump_patada() and Input.is_action_just_pressed("ataque_golpear"):
-		state = State.Salto_Patada
+	pass
 	
 func handle_animation() -> void:
 	#Reemplaza tener que hacer in elseif para cada estado
@@ -133,5 +131,14 @@ func emitir_damage(damage_receiver: ReceptorDamage) -> void:
 	var dirrecion := Vector2.LEFT if damage_receiver.global_position.x < global_position.x else Vector2.RIGHT
 	#Se conecta a la funcion damage_received del receptor
 	damage_receiver.damage_received.emit(damage, dirrecion)
+	
+func damage_received(damage: int, direccion: Vector2) -> void:
+	current_health = clamp(current_health - damage, 0, max_health)
+	print(current_health)
+	if current_health <= 0:
+		queue_free()
+	else:
+		state = State.Hurt
+		#velocity = direccion * knockback_intensidad
 
 #ANIMACION CON ANIMATIONPLAYER: https://youtu.be/fuGiJdMrCAk?si=a5CSFPSm1-F9O4Wk&t=609

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dwd3jcrrl8sma"]
 
 [ext_resource type="PackedScene" uid="uid://dp7g2lnnvf0i3" path="res://Recursos/Scenas/NPC/character.tscn" id="1_snlmh"]
-[ext_resource type="Texture2D" uid="uid://cdojfvvdycuel" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/plus_idle.png" id="2_j7s05"]
+[ext_resource type="Script" uid="uid://cfntv3618q1qi" path="res://Recursos/Scenas/NPC/jugador_plus.gd" id="2_kg235"]
+[ext_resource type="Texture2D" uid="uid://cdojfvvdycuel" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/plus_idle.png" id="3_6qh13"]
 [ext_resource type="AnimationLibrary" uid="uid://bxwh481lo0d3f" path="res://Recursos/Scenas/NPC/plus_animacion.res" id="3_kg235"]
 
 [sub_resource type="Animation" id="Animation_j7s05"]
@@ -30,20 +31,24 @@ height = 54.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qh13"]
 size = Vector2(35, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg235"]
+size = Vector2(37, 65)
+
 [node name="Jugador_Plus" unique_id=106214172 instance=ExtResource("1_snlmh")]
 collision_layer = 2
 collision_mask = 18
-damage = 5
-health = 5
+script = ExtResource("2_kg235")
+damage = 3
 salto_fuerza = 300.0
 velocidad_subida = 1.5
 velocidad_bajada = 1.5
 move_speed = 300.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=570534983]
-texture = ExtResource("2_j7s05")
+texture = ExtResource("3_6qh13")
 hframes = 5
 vframes = 7
+frame = 26
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=1210923462]
 libraries/ = SubResource("AnimationLibrary_6qh13")
@@ -64,4 +69,14 @@ position = Vector2(57.5, 5)
 shape = SubResource("RectangleShape2D_6qh13")
 debug_color = Color(0.91617966, 8.490265e-05, 0.715479, 0.41960785)
 
+[node name="ReceptorDaño" parent="." index="4" unique_id=1523650532]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
+position = Vector2(2.5, 17.5)
+shape = SubResource("RectangleShape2D_kg235")
+debug_color = Color(5.7756904e-07, 0.6220253, 0.5521854, 0.41960785)
+
 [editable path="EmitidorDaño"]
+[editable path="ReceptorDaño"]
