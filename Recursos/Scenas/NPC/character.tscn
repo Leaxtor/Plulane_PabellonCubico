@@ -7,6 +7,7 @@
 [node name="Character" type="CharacterBody2D" unique_id=106214172]
 script = ExtResource("1_laadx")
 max_health = 10
+knockdown_intensidad = 600.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=570534983]
 

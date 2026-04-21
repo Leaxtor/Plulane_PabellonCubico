@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dp7g2lnnvf0i3" path="res://Recursos/Scenas/NPC/character.tscn" id="1_snlmh"]
 [ext_resource type="Script" uid="uid://cfntv3618q1qi" path="res://Recursos/Scenas/NPC/jugador_plus.gd" id="2_kg235"]
-[ext_resource type="Texture2D" uid="uid://cdojfvvdycuel" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/plus_idle.png" id="3_6qh13"]
+[ext_resource type="Texture2D" uid="uid://bpnsir3au3qaq" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/plus_caida.png" id="3_jpqfm"]
 [ext_resource type="AnimationLibrary" uid="uid://bxwh481lo0d3f" path="res://Recursos/Scenas/NPC/plus_animacion.res" id="3_kg235"]
+[ext_resource type="PackedScene" uid="uid://dddbyf155sudu" path="res://Recursos/Scenas/enemigo_slot.tscn" id="5_6qh13"]
+[ext_resource type="Texture2D" uid="uid://cbkkkomb3l6" path="res://Assets/Imagenes/Muebles/silla_arcade.png" id="6_jpqfm"]
 
 [sub_resource type="Animation" id="Animation_j7s05"]
 length = 0.001
@@ -18,6 +20,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_jpqfm")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:vframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6qh13"]
@@ -45,10 +95,7 @@ velocidad_bajada = 1.5
 move_speed = 300.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=570534983]
-texture = ExtResource("3_6qh13")
-hframes = 5
-vframes = 7
-frame = 26
+texture = ExtResource("3_jpqfm")
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=1210923462]
 libraries/ = SubResource("AnimationLibrary_6qh13")
@@ -77,6 +124,37 @@ collision_mask = 0
 position = Vector2(2.5, 17.5)
 shape = SubResource("RectangleShape2D_kg235")
 debug_color = Color(5.7756904e-07, 0.6220253, 0.5521854, 0.41960785)
+
+[node name="EnemySlots" type="Node2D" parent="." index="5" unique_id=350338050]
+position = Vector2(0, -50)
+
+[node name="EnemigoSlot" parent="EnemySlots" index="0" unique_id=1814701161 instance=ExtResource("5_6qh13")]
+position = Vector2(50, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot" index="0" unique_id=1320849147]
+scale = Vector2(0.3958333, 0.33783787)
+texture = ExtResource("6_jpqfm")
+
+[node name="EnemigoSlot2" parent="EnemySlots" index="1" unique_id=2030278729 instance=ExtResource("5_6qh13")]
+position = Vector2(50, 70)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot2" index="0" unique_id=948909322]
+scale = Vector2(0.3958333, 0.33783787)
+texture = ExtResource("6_jpqfm")
+
+[node name="EnemigoSlot3" parent="EnemySlots" index="2" unique_id=1633405638 instance=ExtResource("5_6qh13")]
+position = Vector2(-50, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot3" index="0" unique_id=1055207842]
+scale = Vector2(0.3958333, 0.33783787)
+texture = ExtResource("6_jpqfm")
+
+[node name="EnemigoSlot4" parent="EnemySlots" index="3" unique_id=1919209562 instance=ExtResource("5_6qh13")]
+position = Vector2(-50, 70)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot4" index="0" unique_id=615215373]
+scale = Vector2(0.3958333, 0.33783787)
+texture = ExtResource("6_jpqfm")
 
 [editable path="EmitidorDaño"]
 [editable path="ReceptorDaño"]

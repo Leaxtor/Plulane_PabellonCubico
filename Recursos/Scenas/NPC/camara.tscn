@@ -15,3 +15,8 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MuroCamara" unique_id=2007907885]
 position = Vector2(-498, 44)
 shape = SubResource("RectangleShape2D_1w0lv")
+
+[node name="Timer" type="Timer" parent="." unique_id=860138516]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

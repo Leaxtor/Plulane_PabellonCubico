@@ -10,11 +10,12 @@ const GRAVEDAD := 600.0
 @export var velocidad_bajada: float #talvez deberia hacerlo global
 @export var move_speed: float
 @export var knockback_intensidad: float
+@export var knockdown_intensidad: float
 
 @onready var animation_player := $AnimationPlayer
 @onready var character_sprite := $Sprite2D
 @onready var emitidor_daño := $"EmitidorDaño"
-@onready var receptor_daño : ReceptorDamage = $"ReceptorDaño"
+@onready var receptor_daño : ReceptorDamage = $"ReceptorDaño" 
 
 
 
@@ -29,6 +30,8 @@ enum State {
 	Salto_Fin,
 	Salto_Patada,
 	Hurt,
+	Caida,
+	Suelo_Caida
 }
 
 var animation_map := {
@@ -41,6 +44,8 @@ var animation_map := {
 	State.Salto_Fin: "plus_animacion/Salto_Fin",
 	State.Salto_Patada: "plus_animacion/Salto_Patada",
 	State.Hurt: "plus_animacion/Hurt",
+	State.Caida: "plus_animacion/Caida",
+	State.Suelo_Caida: "plus_animacion/Suelo_Caida",
 }
 
 var current_health := 0
@@ -51,10 +56,9 @@ var state = State.Reposo
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready() ->void:
-	emitidor_daño.area_entered.connect(emitir_damage.bind())
-	receptor_daño.damage_received.connect(damage_received.bind())
+	emitidor_daño.area_entered.connect(on_emit_damage.bind())
+	receptor_daño.damage_received.connect(on_receive_damage.bind())
 	current_health = max_health
-	print(current_health)
 
 func _physics_process(delta: float) ->void :
 	handle_input()
@@ -119,26 +123,36 @@ func bloque_completo() -> void:
 
 #MODIFICAR
 func handle_airtime(delta: float) -> void:
-	if state == State.Salto_Medio or state == State.Salto_Patada:
+	#if state == State.Salto_Medio or state == State.Salto_Patada:
+	if [State.Salto_Medio, State.Salto_Patada, State.Caida].has(state):
 		height += height_speed * delta * velocidad_subida #Aumentar para velocidad de subida
 		if height < 0:
 			height = 0
-			state = State.Salto_Fin
+			if state == State.Caida:
+				state = State.Suelo_Caida
+			else:
+				state = State.Salto_Fin
 		else:
 			height_speed -= GRAVEDAD * delta * velocidad_bajada #Aumentar para velocidad de bajada
 
-func emitir_damage(damage_receiver: ReceptorDamage) -> void:
-	var dirrecion := Vector2.LEFT if damage_receiver.global_position.x < global_position.x else Vector2.RIGHT
-	#Se conecta a la funcion damage_received del receptor
-	damage_receiver.damage_received.emit(damage, dirrecion)
+func on_emit_damage(receiver: ReceptorDamage) -> void:
+	var dirrecion := Vector2.LEFT if receiver.global_position.x < global_position.x else Vector2.RIGHT
+	var hit_type := ReceptorDamage.HitType.NORMAL
+	if state == State.Salto_Patada:
+		hit_type = ReceptorDamage.HitType.KNOCKDOWN
+	receiver.damage_received.emit(damage, dirrecion, hit_type)
+	print("DAÑO ENVIADO")
 	
-func damage_received(damage: int, direccion: Vector2) -> void:
-	current_health = clamp(current_health - damage, 0, max_health)
-	print(current_health)
-	if current_health <= 0:
-		queue_free()
+func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage.HitType) -> void:
+	current_health = clamp(current_health - amount, 0, max_health)
+	if current_health == 0 or hit_type == ReceptorDamage.HitType.KNOCKDOWN:
+		state = State.Salto_Fin
+		print("EN CAIDA LIBRE")
+		height_speed = knockdown_intensidad
 	else:
 		state = State.Hurt
-		#velocity = direccion * knockback_intensidad
+	velocity = direccion * knockback_intensidad
+	
+
 
 #ANIMACION CON ANIMATIONPLAYER: https://youtu.be/fuGiJdMrCAk?si=a5CSFPSm1-F9O4Wk&t=609
