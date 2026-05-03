@@ -86,13 +86,15 @@ size = Vector2(37, 65)
 
 [node name="Jugador_Plus" unique_id=106214172 instance=ExtResource("1_snlmh")]
 collision_layer = 2
-collision_mask = 18
+collision_mask = 530
 script = ExtResource("2_kg235")
-damage = 3
-salto_fuerza = 300.0
-velocidad_subida = 1.5
-velocidad_bajada = 1.5
+can_respawn = false
+damage = 1
+damage_power = 6
+max_health = 20
+flight_speed = 0.0
 move_speed = 300.0
+knockback_intensidad = 0.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=570534983]
 texture = ExtResource("3_jpqfm")
@@ -117,7 +119,7 @@ shape = SubResource("RectangleShape2D_6qh13")
 debug_color = Color(0.91617966, 8.490265e-05, 0.715479, 0.41960785)
 
 [node name="ReceptorDaño" parent="." index="4" unique_id=1523650532]
-collision_layer = 64
+collision_layer = 192
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
@@ -158,3 +160,4 @@ texture = ExtResource("6_jpqfm")
 
 [editable path="EmitidorDaño"]
 [editable path="ReceptorDaño"]
+[editable path="CollateralEmitidorDaño"]

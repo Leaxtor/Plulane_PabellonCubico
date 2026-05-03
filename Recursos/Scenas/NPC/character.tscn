@@ -6,8 +6,18 @@
 
 [node name="Character" type="CharacterBody2D" unique_id=106214172]
 script = ExtResource("1_laadx")
+can_respawn = null
+damage = null
+damage_power = null
 max_health = 10
-knockdown_intensidad = 600.0
+duracion_suelo = 2.0
+flight_speed = null
+salto_fuerza = 300.0
+velocidad_subida = 1.5
+velocidad_bajada = 1.5
+move_speed = null
+knockback_intensidad = null
+knockdown_intensidad = 300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=570534983]
 
@@ -19,5 +29,8 @@ knockdown_intensidad = 600.0
 
 [node name="ReceptorDaño" parent="." unique_id=1523650532 instance=ExtResource("3_np3df")]
 
+[node name="CollateralEmitidorDaño" parent="." unique_id=1093273836 instance=ExtResource("1_oysyt")]
+
 [editable path="EmitidorDaño"]
 [editable path="ReceptorDaño"]
+[editable path="CollateralEmitidorDaño"]

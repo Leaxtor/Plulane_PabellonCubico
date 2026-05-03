@@ -51,8 +51,8 @@ debug_color = Color(0.80999553, 0.0021903343, 0.9879258, 0.41960785)
 y_sort_enabled = true
 
 [node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("5_5wrfm")]
-position = Vector2(1337, 61)
-max_health = 0
+position = Vector2(-307, 130)
+duracion_suelo = 0.0
 knockdown_intensidad = 0.0
 
 [node name="Carrito" parent="ActoresContenedor" unique_id=524723037 instance=ExtResource("4_5mnnw")]
@@ -60,54 +60,57 @@ y_sort_enabled = true
 position = Vector2(19, 93)
 
 [node name="MesaArcade" parent="ActoresContenedor" unique_id=737910012 instance=ExtResource("5_nx08k")]
-position = Vector2(164, 117)
+position = Vector2(411, 77)
 
 [node name="CamaraJugador" parent="ActoresContenedor" unique_id=171648781 node_paths=PackedStringArray("jugador") instance=ExtResource("6_36vfu")]
 jugador = NodePath("../Jugador_Plus")
 
 [node name="Enemigo_1" parent="ActoresContenedor" unique_id=1709687776 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(999, 103)
+position = Vector2(124, 126)
 player = NodePath("../Jugador_Plus")
 damage = 2
 max_health = 10
+duracion_suelo = 5200.0
+salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
-knockdown_intensidad = 150.0
 
 [node name="Enemigo_2" parent="ActoresContenedor" unique_id=912435321 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(1777, 101)
+position = Vector2(448, 111)
 player = NodePath("../Jugador_Plus")
 damage = 2
 max_health = 10
+duracion_suelo = 20.0
+salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
-knockdown_intensidad = 30.0
 
 [node name="Enemigo_3" parent="ActoresContenedor" unique_id=453535358 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(1145, 107)
+position = Vector2(126, 60)
 player = NodePath("../Jugador_Plus")
 damage = 2
 max_health = 10
+duracion_suelo = 400.0
+salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
-knockdown_intensidad = 30.0
 
 [node name="Enemigo_4" parent="ActoresContenedor" unique_id=67212167 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(1692, 99)
+position = Vector2(310, 58)
 player = NodePath("../Jugador_Plus")
 damage = 2
 max_health = 10
+salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
-knockdown_intensidad = 30.0
 
 [node name="Enemigo_5" parent="ActoresContenedor" unique_id=226029317 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(1461, 106)
+position = Vector2(319, 125)
 player = NodePath("../Jugador_Plus")
 damage = 2
 max_health = 10
+salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
-knockdown_intensidad = 30.0
 
 [connection signal="body_entered" from="MetaNivel" to="MetaNivel" method="_on_body_entered"]

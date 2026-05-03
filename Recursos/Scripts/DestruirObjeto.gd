@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	sprite.position = Vector2.UP * peso
 	handle_air_time(delta)
 
-func on_receive_damage(damage: int, dirrecion: Vector2) -> void:
+func on_receive_damage(damage: int, dirrecion: Vector2, _hit_Type: ReceptorDamage.HitType) -> void:
 	if state == State.IDLE:
 		peso_velocidad = knockball
 		velocity = dirrecion * knockball

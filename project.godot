@@ -75,6 +75,7 @@ move_bloqueo={
 2d_physics/layer_7="JugadorDaño"
 2d_physics/layer_8="EnemigoDaño"
 2d_physics/layer_9="ObjetoDaño"
+2d_physics/layer_10="MurosInvisibles"
 
 [rendering]
 

@@ -4,3 +4,9 @@ ORDENAR OBJETOS: En Canvas/ORdering activar YSORY
 TANTO EN EL NODO CONTENEDOR COMO EN SUS HIJOS EN EL NIVEL (NO EN LA ESCENA INTERNA)
 
 Estoy usando ANIMATIONPLAYER, DENTRO METI LAS FUNCIONES
+
+
+ERROES
+-El contador de combo solo se resetea si fallo un golpe, tenog que hacer que se resetee si no doy el golpe.
+-Si el contador de combo esta a punto de finalizar, salto patada adquiere dicha propiedad
+-LOS MUROS DE LA CAMARA YA NO SIGUEN AL JUGADOR PROQUE EL TIPO LO TRANSFORMO
