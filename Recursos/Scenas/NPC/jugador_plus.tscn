@@ -5,7 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bpnsir3au3qaq" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/plus_caida.png" id="3_jpqfm"]
 [ext_resource type="AnimationLibrary" uid="uid://bxwh481lo0d3f" path="res://Recursos/Scenas/NPC/plus_animacion.res" id="3_kg235"]
 [ext_resource type="PackedScene" uid="uid://dddbyf155sudu" path="res://Recursos/Scenas/enemigo_slot.tscn" id="5_6qh13"]
+[ext_resource type="Texture2D" uid="uid://bekqqj6pf2tmm" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/plus_recoger.png" id="5_dynvn"]
 [ext_resource type="Texture2D" uid="uid://cbkkkomb3l6" path="res://Assets/Imagenes/Muebles/silla_arcade.png" id="6_jpqfm"]
+[ext_resource type="Texture2D" uid="uid://r4y0t3l2jfxa" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/cuchillo.png" id="7_a8clm"]
+[ext_resource type="Texture2D" uid="uid://cyrtcjv5i050v" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/pistola.png" id="9_e3bkt"]
 
 [sub_resource type="Animation" id="Animation_j7s05"]
 length = 0.001
@@ -69,32 +72,200 @@ tracks/4/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cuchillo:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cuchillo:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_a8clm")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cuchillo:hframes")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cuchillo:vframes")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("GunSprite:frame")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_e3bkt"]
+resource_name = "Recoger"
+length = 0.16667084
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_dynvn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cuchillo:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_a8clm")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cuchillo:hframes")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cuchillo:vframes")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cuchillo:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.041666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 2]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6qh13"]
 _data = {
-&"RESET": SubResource("Animation_j7s05")
+&"RESET": SubResource("Animation_j7s05"),
+&"Recoger": SubResource("Animation_e3bkt")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kg235"]
-height = 54.0
+height = 64.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qh13"]
 size = Vector2(35, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg235"]
-size = Vector2(37, 65)
+size = Vector2(37, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8clm"]
 
 [node name="Jugador_Plus" unique_id=106214172 instance=ExtResource("1_snlmh")]
 collision_layer = 2
 collision_mask = 530
 script = ExtResource("2_kg235")
-can_respawn = false
-damage = 1
+can_respawn = null
+can_respawn_knife = true
+damage = 3
 damage_power = 6
+damage_gunshot = 3
 max_health = 20
-flight_speed = 0.0
+duracion_between_knife_respawn = null
+flight_speed = 300.0
+has_knife = true
 move_speed = 300.0
-knockback_intensidad = 0.0
+knockback_intensidad = null
 
 [node name="Sprite2D" parent="." index="0" unique_id=570534983]
 texture = ExtResource("3_jpqfm")
@@ -104,17 +275,17 @@ libraries/ = SubResource("AnimationLibrary_6qh13")
 libraries/plus_animacion = ExtResource("3_kg235")
 
 [node name="CollisionShape2D2" parent="." index="2" unique_id=1712265704]
-position = Vector2(4, 66)
+position = Vector2(0, 66)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kg235")
 
 [node name="EmitidorDaño" parent="." index="3" unique_id=771478216]
 collision_layer = 0
-collision_mask = 384
+collision_mask = 388
 monitoring = false
 
 [node name="CollisionShape2D" parent="EmitidorDaño" index="0" unique_id=1521075572]
-position = Vector2(57.5, 5)
+position = Vector2(56, -18)
 shape = SubResource("RectangleShape2D_6qh13")
 debug_color = Color(0.91617966, 8.490265e-05, 0.715479, 0.41960785)
 
@@ -123,7 +294,7 @@ collision_layer = 192
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
-position = Vector2(2.5, 17.5)
+position = Vector2(-1, -29)
 shape = SubResource("RectangleShape2D_kg235")
 debug_color = Color(5.7756904e-07, 0.6220253, 0.5521854, 0.41960785)
 
@@ -157,6 +328,38 @@ position = Vector2(-50, 70)
 [node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot4" index="0" unique_id=615215373]
 scale = Vector2(0.3958333, 0.33783787)
 texture = ExtResource("6_jpqfm")
+
+[node name="CollateralEmitidorDaño" parent="." index="6" unique_id=1093273836]
+monitoring = false
+
+[node name="GunSprite" parent="." index="7" unique_id=378956244]
+position = Vector2(57, -28)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_e3bkt")
+hframes = 4
+vframes = 2
+
+[node name="Cuchillo" parent="." index="8" unique_id=313798195]
+position = Vector2(46, -40)
+scale = Vector2(0.58, 0.6)
+texture = ExtResource("7_a8clm")
+centered = false
+hframes = 3
+
+[node name="WeaponPosition" parent="Cuchillo" index="0" unique_id=983036064]
+position = Vector2(29.310347, 36.666664)
+
+[node name="ProyectilLanzable" parent="." index="9" unique_id=224289400]
+collision_mask = 20
+
+[node name="CollectibleSensor" parent="." index="10" unique_id=996763328]
+collision_mask = 1024
+monitorable = false
+
+[node name="CollisionShape2D" parent="CollectibleSensor" index="0" unique_id=2127295643]
+position = Vector2(2, 66)
+shape = SubResource("RectangleShape2D_a8clm")
+debug_color = Color(0.9526914, 1.4439225e-06, 0.5598293, 0.41960785)
 
 [editable path="EmitidorDaño"]
 [editable path="ReceptorDaño"]

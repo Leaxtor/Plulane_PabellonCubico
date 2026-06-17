@@ -2,11 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://c04cnelihnx11" path="res://Assets/Imagenes/Fondos/Barrios Bajos-5.png" id="1_8m6f3"]
 [ext_resource type="Script" uid="uid://oxmeu4qnx082" path="res://Recursos/Scripts/FinalNivel.gd" id="3_6buoh"]
+[ext_resource type="Script" uid="uid://djhqbwol0215r" path="res://Recursos/Scripts/actores_contenedor.gd" id="3_x3146"]
 [ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Recursos/Scenas/Miselaneos/Carrito.tscn" id="4_5mnnw"]
 [ext_resource type="PackedScene" uid="uid://dwd3jcrrl8sma" path="res://Recursos/Scenas/NPC/jugador_plus.tscn" id="5_5wrfm"]
 [ext_resource type="PackedScene" uid="uid://d3twcfyoy5hr5" path="res://Recursos/Scenas/Miselaneos/Mesa_arcade.tscn" id="5_nx08k"]
 [ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Recursos/Scenas/NPC/camara.tscn" id="6_36vfu"]
 [ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://Recursos/Scenas/NPC/enemigo_1.tscn" id="7_36vfu"]
+[ext_resource type="PackedScene" uid="uid://fgx5xp7h33by" path="res://Recursos/Scenas/Miselaneos/Knife.tscn" id="8_xfytv"]
+[ext_resource type="PackedScene" uid="uid://eey0g3xggcx0" path="res://Recursos/Scenas/Miselaneos/Shot.tscn" id="10_22wyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m6f3"]
 size = Vector2(1986, 268.5)
@@ -49,15 +52,23 @@ debug_color = Color(0.80999553, 0.0021903343, 0.9879258, 0.41960785)
 
 [node name="ActoresContenedor" type="Node2D" parent="." unique_id=1756002496]
 y_sort_enabled = true
+script = ExtResource("3_x3146")
 
 [node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("5_5wrfm")]
 position = Vector2(-307, 130)
-duracion_suelo = 0.0
-knockdown_intensidad = 0.0
+can_respawn = null
+can_respawn_knife = null
+damage = 2
+duracion_suelo = null
+duracion_between_knife_respawn = null
+has_knife = null
+has_gun = true
+knockback_intensidad = null
+knockdown_intensidad = null
 
 [node name="Carrito" parent="ActoresContenedor" unique_id=524723037 instance=ExtResource("4_5mnnw")]
 y_sort_enabled = true
-position = Vector2(19, 93)
+position = Vector2(318, 117)
 
 [node name="MesaArcade" parent="ActoresContenedor" unique_id=737910012 instance=ExtResource("5_nx08k")]
 position = Vector2(411, 77)
@@ -66,8 +77,11 @@ position = Vector2(411, 77)
 jugador = NodePath("../Jugador_Plus")
 
 [node name="Enemigo_1" parent="ActoresContenedor" unique_id=1709687776 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(124, 126)
+position = Vector2(1436, 75)
 player = NodePath("../Jugador_Plus")
+duracion_entre_ataques_melee = 0
+duracion_preparando_ataque_melee = 0
+duracion_preparando_ataque_range = 0
 damage = 2
 max_health = 10
 duracion_suelo = 5200.0
@@ -78,16 +92,21 @@ knockback_intensidad = 50.0
 [node name="Enemigo_2" parent="ActoresContenedor" unique_id=912435321 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
 position = Vector2(448, 111)
 player = NodePath("../Jugador_Plus")
-damage = 2
+duracion_preparando_ataque_melee = 500
+duracion_preparando_ataque_range = 500
 max_health = 10
-duracion_suelo = 20.0
+duracion_between_knife_respawn = 1000.0
+has_gun = true
 salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
 
 [node name="Enemigo_3" parent="ActoresContenedor" unique_id=453535358 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(126, 60)
+position = Vector2(1260, 77)
 player = NodePath("../Jugador_Plus")
+duracion_entre_ataques_melee = 0
+duracion_preparando_ataque_melee = 0
+duracion_preparando_ataque_range = 0
 damage = 2
 max_health = 10
 duracion_suelo = 400.0
@@ -96,8 +115,11 @@ move_speed = 200.0
 knockback_intensidad = 50.0
 
 [node name="Enemigo_4" parent="ActoresContenedor" unique_id=67212167 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(310, 58)
+position = Vector2(1101, 77)
 player = NodePath("../Jugador_Plus")
+duracion_entre_ataques_melee = 0
+duracion_preparando_ataque_melee = 0
+duracion_preparando_ataque_range = 0
 damage = 2
 max_health = 10
 salto_fuerza = 0.0
@@ -105,12 +127,23 @@ move_speed = 200.0
 knockback_intensidad = 50.0
 
 [node name="Enemigo_5" parent="ActoresContenedor" unique_id=226029317 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(319, 125)
+position = Vector2(1364, 109)
 player = NodePath("../Jugador_Plus")
+duracion_entre_ataques_melee = 0
+duracion_preparando_ataque_melee = 0
+duracion_preparando_ataque_range = 0
 damage = 2
 max_health = 10
 salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
+
+[node name="Knife" parent="ActoresContenedor" unique_id=31789068 instance=ExtResource("8_xfytv")]
+position = Vector2(-172, 156)
+knockdown_intensity = 400.0
+
+[node name="Shot" parent="ActoresContenedor" unique_id=776138299 instance=ExtResource("10_22wyd")]
+position = Vector2(-246, 160)
+points = PackedVector2Array(0, -50, 100, -50)
 
 [connection signal="body_entered" from="MetaNivel" to="MetaNivel" method="_on_body_entered"]

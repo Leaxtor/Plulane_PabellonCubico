@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://ctgabvc5ktlwg" path="res://Recursos/Scenas/NPC/enemigo.gd" id="2_wrc1r"]
 [ext_resource type="Texture2D" uid="uid://cs1l5dgikkb02" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/plus_fly.png" id="3_wrc1r"]
 [ext_resource type="AnimationLibrary" uid="uid://bxwh481lo0d3f" path="res://Recursos/Scenas/NPC/plus_animacion.res" id="4_wrc1r"]
+[ext_resource type="Texture2D" uid="uid://r4y0t3l2jfxa" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/cuchillo.png" id="5_exf3q"]
+[ext_resource type="Texture2D" uid="uid://cyrtcjv5i050v" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/pistola.png" id="5_iiyf8"]
 
 [sub_resource type="Animation" id="Animation_exf3q"]
 length = 0.001
@@ -55,6 +57,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GunSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iiyf8"]
 _data = {
@@ -68,23 +82,25 @@ height = 52.0
 size = Vector2(38, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrc1r"]
-size = Vector2(40, 64)
+size = Vector2(40, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iiyf8"]
-size = Vector2(16, 45)
+size = Vector2(16, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x0yl"]
 
 [node name="Enemigo_1" unique_id=106214172 instance=ExtResource("1_ukxfg")]
 collision_layer = 4
 collision_mask = 16
 script = ExtResource("2_wrc1r")
-duracion_entre_ataques = 4000
-duracion_preparando_ataque = 0
-can_respawn = false
+duracion_entre_ataques_melee = 2000
+duracion_preparando_ataque_melee = 1000
+duracion_entre_ataques_range = 1000
+duracion_preparando_ataque_range = 2000
 damage = 5
-damage_power = 0
+damage_gunshot = 3
 max_health = 20
 flight_speed = 600.0
-move_speed = 0.0
 knockback_intensidad = 5.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=570534983]
@@ -105,16 +121,16 @@ collision_mask = 128
 monitoring = false
 
 [node name="CollisionShape2D" parent="EmitidorDaño" index="0" unique_id=1521075572]
-position = Vector2(54, 1)
+position = Vector2(61, -20)
 shape = SubResource("RectangleShape2D_exf3q")
 debug_color = Color(0.9508149, 1.8289685e-06, 0.56915855, 0.41960785)
 
 [node name="ReceptorDaño" parent="." index="4" unique_id=1523650532]
 collision_layer = 128
-collision_mask = 0
+collision_mask = 128
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
-position = Vector2(0, 15)
+position = Vector2(0, -19.5)
 shape = SubResource("RectangleShape2D_wrc1r")
 debug_color = Color(2.2140146e-06, 0.6228773, 0.54512143, 0.41960785)
 
@@ -124,9 +140,37 @@ collision_mask = 640
 monitoring = false
 
 [node name="CollisionShape2D" parent="CollateralEmitidorDaño" index="0" unique_id=1521075572]
-position = Vector2(1, 19)
+position = Vector2(0, -20)
 shape = SubResource("RectangleShape2D_iiyf8")
 debug_color = Color(0.99662393, 0.054060645, 0, 0.41960785)
+
+[node name="GunSprite" parent="." index="6" unique_id=378956244]
+position = Vector2(64, -30)
+scale = Vector2(0.46, 0.5)
+texture = ExtResource("5_iiyf8")
+hframes = 4
+vframes = 2
+
+[node name="Cuchillo" parent="." index="7" unique_id=313798195]
+position = Vector2(64, -32)
+scale = Vector2(0.54, 0.6)
+texture = ExtResource("5_exf3q")
+hframes = 3
+
+[node name="WeaponPosition" parent="Cuchillo" index="0" unique_id=983036064]
+position = Vector2(-7.407407, 24.999998)
+
+[node name="ProyectilLanzable" parent="." index="8" unique_id=224289400]
+position = Vector2(0, 70)
+collision_mask = 2
+
+[node name="CollectibleSensor" parent="." index="9" unique_id=996763328]
+collision_mask = 1024
+
+[node name="CollisionShape2D" parent="CollectibleSensor" index="0" unique_id=2127295643]
+position = Vector2(1, 66)
+shape = SubResource("RectangleShape2D_0x0yl")
+debug_color = Color(0.9477927, 4.5242905e-06, 0.5837393, 0.41960785)
 
 [editable path="EmitidorDaño"]
 [editable path="ReceptorDaño"]

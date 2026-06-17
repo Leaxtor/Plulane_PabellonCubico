@@ -6,17 +6,11 @@
 
 [node name="Character" type="CharacterBody2D" unique_id=106214172]
 script = ExtResource("1_laadx")
-can_respawn = null
-damage = null
-damage_power = null
 max_health = 10
 duracion_suelo = 2.0
-flight_speed = null
 salto_fuerza = 300.0
 velocidad_subida = 1.5
 velocidad_bajada = 1.5
-move_speed = null
-knockback_intensidad = null
 knockdown_intensidad = 300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=570534983]
@@ -30,6 +24,22 @@ knockdown_intensidad = 300.0
 [node name="ReceptorDaño" parent="." unique_id=1523650532 instance=ExtResource("3_np3df")]
 
 [node name="CollateralEmitidorDaño" parent="." unique_id=1093273836 instance=ExtResource("1_oysyt")]
+
+[node name="GunSprite" type="Sprite2D" parent="." unique_id=378956244]
+
+[node name="Cuchillo" type="Sprite2D" parent="." unique_id=313798195]
+
+[node name="WeaponPosition" type="Node2D" parent="Cuchillo" unique_id=983036064]
+
+[node name="ProyectilLanzable" type="RayCast2D" parent="." unique_id=224289400]
+target_position = Vector2(900, 0)
+collision_mask = 0
+
+[node name="CollectibleSensor" type="Area2D" parent="." unique_id=996763328]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleSensor" unique_id=2127295643]
 
 [editable path="EmitidorDaño"]
 [editable path="ReceptorDaño"]

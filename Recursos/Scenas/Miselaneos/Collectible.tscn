@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ounbej5t3oee"]
+
+[ext_resource type="PackedScene" uid="uid://cbttjfagglol" path="res://Recursos/Scenas/EmitidorDaño.tscn" id="1_kso6q"]
+[ext_resource type="Script" uid="uid://hfi27md6fc1g" path="res://Recursos/Scripts/collectible.gd" id="1_ut4qa"]
+
+[node name="Collectible" type="Area2D" unique_id=31789068]
+collision_layer = 1024
+collision_mask = 6
+monitoring = false
+monitorable = false
+script = ExtResource("1_ut4qa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=491602718]
+
+[node name="EmitidorDaño" parent="." unique_id=771478216 instance=ExtResource("1_kso6q")]
+
+[node name="CollectibleSprite" type="Sprite2D" parent="." unique_id=1673113320]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=146327165]

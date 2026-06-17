@@ -18,6 +18,10 @@ config/name="Plulane"
 run/main_scene="uid://drxk1e34ju36a"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
+[autoload]
+
+EntityManager="*uid://c0pvln4tp6veu"
+
 [display]
 
 window/size/viewport_width=960
@@ -76,6 +80,7 @@ move_bloqueo={
 2d_physics/layer_8="EnemigoDaño"
 2d_physics/layer_9="ObjetoDaño"
 2d_physics/layer_10="MurosInvisibles"
+2d_physics/layer_11="Collectibles"
 
 [rendering]
 
