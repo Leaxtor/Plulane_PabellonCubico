@@ -333,7 +333,6 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 			time_since_knife_dissmiss = Time.get_ticks_msec()
 		if has_gun:
 			has_gun = false
-			
 		current_health = clamp(current_health - amount, 0, max_health)
 		print(current_health)
 		## LO ULTIMO (STATE CAIDA) quitar del cage get hurt para combear en el aire

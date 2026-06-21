@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ounbej5t3oee" path="res://Recursos/Scenas/Miselaneos/Collectible.tscn" id="1_vluyh"]
 [ext_resource type="Texture2D" uid="uid://b70tw5cedxpb7" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/cuchillo_proyectil.png" id="2_fa110"]
+[ext_resource type="Texture2D" uid="uid://b3yord4cpl16v" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/sombraplaceholder.png" id="3_mg13i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa110"]
 size = Vector2(45, 41)
@@ -159,10 +160,13 @@ shape = SubResource("RectangleShape2D_mg13i")
 debug_color = Color(0.95164937, 2.887845e-06, 0.565037, 0.41960785)
 
 [node name="CollectibleSprite" parent="." index="2" unique_id=1673113320]
-position = Vector2(-1, -30)
+position = Vector2(2, -1)
 texture = ExtResource("2_fa110")
 
 [node name="AnimationPlayer" parent="." index="3" unique_id=146327165]
 libraries/ = SubResource("AnimationLibrary_bnsvy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="4" unique_id=1453134864]
+texture = ExtResource("3_mg13i")
 
 [editable path="EmitidorDaño"]

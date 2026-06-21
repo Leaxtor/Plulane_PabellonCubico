@@ -56,15 +56,12 @@ script = ExtResource("3_x3146")
 
 [node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("5_5wrfm")]
 position = Vector2(-307, 130)
-can_respawn = null
-can_respawn_knife = null
+can_respawn_knife = false
 damage = 2
-duracion_suelo = null
-duracion_between_knife_respawn = null
-has_knife = null
+duracion_suelo = 0.0
+has_knife = false
 has_gun = true
-knockback_intensidad = null
-knockdown_intensidad = null
+knockdown_intensidad = 0.0
 
 [node name="Carrito" parent="ActoresContenedor" unique_id=524723037 instance=ExtResource("4_5mnnw")]
 y_sort_enabled = true
@@ -143,7 +140,8 @@ position = Vector2(-172, 156)
 knockdown_intensity = 400.0
 
 [node name="Shot" parent="ActoresContenedor" unique_id=776138299 instance=ExtResource("10_22wyd")]
-position = Vector2(-246, 160)
-points = PackedVector2Array(0, -50, 100, -50)
+position = Vector2(-192, 156)
+points = PackedVector2Array(0, -50, 50, -50)
+duration_shot_across_screen = 0.0
 
 [connection signal="body_entered" from="MetaNivel" to="MetaNivel" method="_on_body_entered"]

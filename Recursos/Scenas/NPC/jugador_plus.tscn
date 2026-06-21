@@ -255,17 +255,14 @@ size = Vector2(37, 33)
 collision_layer = 2
 collision_mask = 530
 script = ExtResource("2_kg235")
-can_respawn = null
 can_respawn_knife = true
 damage = 3
 damage_power = 6
 damage_gunshot = 3
 max_health = 20
-duracion_between_knife_respawn = null
 flight_speed = 300.0
 has_knife = true
 move_speed = 300.0
-knockback_intensidad = null
 
 [node name="Sprite2D" parent="." index="0" unique_id=570534983]
 texture = ExtResource("3_jpqfm")
@@ -350,6 +347,7 @@ hframes = 3
 position = Vector2(29.310347, 36.666664)
 
 [node name="ProyectilLanzable" parent="." index="9" unique_id=224289400]
+position = Vector2(0, 70)
 collision_mask = 20
 
 [node name="CollectibleSensor" parent="." index="10" unique_id=996763328]

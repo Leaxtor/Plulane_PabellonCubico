@@ -4,17 +4,17 @@ extends Character
 const EDGE_SCREEN_BUFFER = 100
 
 @export var player : Player
-@export var duracion_entre_ataques_melee : int
+@export var duration_between_melee_attacks : int
+@export var duration_between_range_attacks : int
 @export var duracion_preparando_ataque_melee : int
-@export var duracion_entre_ataques_range : int
 @export var duracion_preparando_ataque_range : int
 
 
 var player_slot : EnemigoSlot = null 
 var time_duracion_last_ataque_melee := Time.get_ticks_msec()
-var time_duracion_prep_ataque_melee := Time.get_ticks_msec()	
+var time_duracion_prep_ataque_melee := Time.get_ticks_msec()
 var time_duracion_last_ataque_range := Time.get_ticks_msec()
-var time_duracion_prep_ataque_range := Time.get_ticks_msec()	
+var time_duracion_prep_ataque_range := Time.get_ticks_msec()
 
 func _ready() ->void:
 	super._ready()
@@ -54,6 +54,9 @@ func go_to_range_position() -> void:
 	if can_range_attack() and has_gun and proyectil_lanzable.is_colliding():
 		state = State.Prep_shoot
 		time_duracion_prep_ataque_range = Time.get_ticks_msec()
+		#shoot_gun()
+		#time_since_knife_dissmiss = Time.get_ticks_msec()
+		#time_duracion_last_ataque_range = Time.get_ticks_msec()
 
 func handle_prep_shoot() -> void:
 	if state == State.Prep_shoot and (Time.get_ticks_msec() - time_duracion_prep_ataque_range > duracion_preparando_ataque_range):
@@ -90,12 +93,12 @@ func is_player_within_range():
 	return (player_slot.global_position - global_position).length() < 3
 
 func can_accion() -> bool:
-	if Time.get_ticks_msec() - time_duracion_last_ataque_melee < duracion_entre_ataques_melee:
+	if Time.get_ticks_msec() - time_duracion_last_ataque_melee < duration_between_melee_attacks:
 		return false
 	return super.can_accion()
 
 func can_range_attack()-> bool:
-	if Time.get_ticks_msec() - time_duracion_last_ataque_range < duracion_entre_ataques_range:
+	if Time.get_ticks_msec() - time_duracion_last_ataque_range < duration_between_range_attacks:
 		return false
 	return super.can_accion()
 	

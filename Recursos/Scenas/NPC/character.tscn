@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://tu7bawxhrjmg" path="res://Recursos/Scenas/NPC/character.gd" id="1_laadx"]
 [ext_resource type="PackedScene" uid="uid://cbttjfagglol" path="res://Recursos/Scenas/EmitidorDaño.tscn" id="1_oysyt"]
 [ext_resource type="PackedScene" uid="uid://wwq05poayoap" path="res://Recursos/Scenas/ReceptorDaño.tscn" id="3_np3df"]
+[ext_resource type="Texture2D" uid="uid://b3yord4cpl16v" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/sombraplaceholder.png" id="4_70oay"]
 
 [node name="Character" type="CharacterBody2D" unique_id=106214172]
 script = ExtResource("1_laadx")
@@ -40,6 +41,9 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleSensor" unique_id=2127295643]
+
+[node name="Sombra" type="Sprite2D" parent="." unique_id=813121135]
+texture = ExtResource("4_70oay")
 
 [editable path="EmitidorDaño"]
 [editable path="ReceptorDaño"]

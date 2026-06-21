@@ -8,7 +8,7 @@ const PREFAB_MAP := {
 
 func _ready() -> void:
 	EntityManager.spawn_collectible.connect(on_spawn_collectible.bind())
-	EntityManager.spawn_collectible.connect(on_spawn_shot.bind())
+	EntityManager.spawn_shot.connect(on_spawn_shot.bind())
 	
 func on_spawn_collectible(type: Collectible.Type, initial_state: Collectible.State, collectible_global_position: Vector2, collectible_direction: Vector2, initial_height: float) -> void:
 	var collectible : Collectible = PREFAB_MAP[type].instantiate()

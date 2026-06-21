@@ -6,6 +6,7 @@
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1)
 
 [node name="Shot" type="Line2D" unique_id=776138299]
+width = 5.0
 gradient = SubResource("Gradient_unkbd")
 script = ExtResource("1_lurbd")
-duration_shot_across_screen = 500.0
+duration_shot_across_screen = 200.0
