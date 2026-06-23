@@ -16,7 +16,7 @@ func initialize(distance: float, gun_height: float) -> void:
 	print("duration_shot_across_screen")
 	print(duration_shot_across_screen)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var elapsed := Time.get_ticks_msec() - time_start
 	var progress :=  elapsed / duration_shot
 	var new_x : float = lerp(0.0, shot_distance, progress)

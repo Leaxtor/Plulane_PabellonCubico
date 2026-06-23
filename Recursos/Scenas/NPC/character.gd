@@ -53,10 +53,11 @@ enum State {
 	Death,
 	Fly,
 	Preparar_Ataque,
+	Prep_shoot,
 	Throw_lanza,
 	Recogiendo,
 	Shoot,
-	Prep_shoot
+
 }
 
 var anim_attack := []
@@ -76,10 +77,11 @@ var animation_map := {
 	State.Death: "plus_animacion/Suelo_Caida",
 	State.Fly: "plus_animacion/Fly",
 	State.Preparar_Ataque: "plus_animacion/Reposo", #PODRIA PONER OTRA ANIMACION
+	State.Prep_shoot: "plus_animacion/Reposo",
 	State.Throw_lanza: "plus_animacion/Throw_lanza",
 	State.Recogiendo: "plus_animacion/Recogiendo",
 	State.Shoot: "plus_animacion/Shoot",
-	State.Prep_shoot: "plus_animacion/Reposo",
+
 }
 
 var attack_combo_index := 0
@@ -132,7 +134,7 @@ func handle_movement() -> void:
 	elif state == State.Golpe:
 		velocity = Vector2.ZERO
 	
-#GODOT NO ESPERA UNA RESPUESTA CON EL "TIPADO", POR ESO PONER VOID POR RENDIMIENTO
+
 func handle_input() -> void:
 	pass
 
@@ -202,6 +204,7 @@ func can_get_hurt() ->bool:
 	State.Reposo,
 	State.Caminar,
 	State.Preparar_Ataque,
+	State.Prep_shoot,
 	#State.Bloqueo,
 	#State.Salto_Medio,
 	#State.Salto_Fin,

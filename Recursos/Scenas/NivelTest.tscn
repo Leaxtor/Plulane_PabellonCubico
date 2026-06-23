@@ -76,9 +76,6 @@ jugador = NodePath("../Jugador_Plus")
 [node name="Enemigo_1" parent="ActoresContenedor" unique_id=1709687776 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
 position = Vector2(1436, 75)
 player = NodePath("../Jugador_Plus")
-duracion_entre_ataques_melee = 0
-duracion_preparando_ataque_melee = 0
-duracion_preparando_ataque_range = 0
 damage = 2
 max_health = 10
 duracion_suelo = 5200.0
@@ -86,24 +83,9 @@ salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
 
-[node name="Enemigo_2" parent="ActoresContenedor" unique_id=912435321 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(448, 111)
-player = NodePath("../Jugador_Plus")
-duracion_preparando_ataque_melee = 500
-duracion_preparando_ataque_range = 500
-max_health = 10
-duracion_between_knife_respawn = 1000.0
-has_gun = true
-salto_fuerza = 0.0
-move_speed = 200.0
-knockback_intensidad = 50.0
-
 [node name="Enemigo_3" parent="ActoresContenedor" unique_id=453535358 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
 position = Vector2(1260, 77)
 player = NodePath("../Jugador_Plus")
-duracion_entre_ataques_melee = 0
-duracion_preparando_ataque_melee = 0
-duracion_preparando_ataque_range = 0
 damage = 2
 max_health = 10
 duracion_suelo = 400.0
@@ -112,13 +94,12 @@ move_speed = 200.0
 knockback_intensidad = 50.0
 
 [node name="Enemigo_4" parent="ActoresContenedor" unique_id=67212167 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(1101, 77)
+position = Vector2(405, 116)
+duration_prep_range_attack = 2000
 player = NodePath("../Jugador_Plus")
-duracion_entre_ataques_melee = 0
-duracion_preparando_ataque_melee = 0
-duracion_preparando_ataque_range = 0
 damage = 2
 max_health = 10
+has_gun = true
 salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
@@ -126,9 +107,6 @@ knockback_intensidad = 50.0
 [node name="Enemigo_5" parent="ActoresContenedor" unique_id=226029317 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
 position = Vector2(1364, 109)
 player = NodePath("../Jugador_Plus")
-duracion_entre_ataques_melee = 0
-duracion_preparando_ataque_melee = 0
-duracion_preparando_ataque_range = 0
 damage = 2
 max_health = 10
 salto_fuerza = 0.0

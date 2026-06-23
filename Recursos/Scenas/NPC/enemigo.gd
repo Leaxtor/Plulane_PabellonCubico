@@ -3,18 +3,19 @@ extends Character
 
 const EDGE_SCREEN_BUFFER = 100
 
-@export var player : Player
 @export var duration_between_melee_attacks : int
 @export var duration_between_range_attacks : int
-@export var duracion_preparando_ataque_melee : int
-@export var duracion_preparando_ataque_range : int
+@export var duration_prep_melee_attack : int
+@export var duration_prep_range_attack : int
+@export var player : Player
+
 
 
 var player_slot : EnemigoSlot = null 
-var time_duracion_last_ataque_melee := Time.get_ticks_msec()
-var time_duracion_prep_ataque_melee := Time.get_ticks_msec()
-var time_duracion_last_ataque_range := Time.get_ticks_msec()
-var time_duracion_prep_ataque_range := Time.get_ticks_msec()
+var time_since_last_melee_attack := Time.get_ticks_msec()
+var time_since_prep_melee_attack := Time.get_ticks_msec()
+var time_since_last_range_attack := Time.get_ticks_msec()
+var time_since_prep_range_attack := Time.get_ticks_msec()
 
 func _ready() ->void:
 	super._ready()
@@ -49,19 +50,28 @@ func go_to_range_position() -> void:
 	if can_range_attack() and has_knife and proyectil_lanzable.is_colliding():
 		state = State.Throw_lanza
 		time_since_knife_dissmiss = Time.get_ticks_msec()
-		time_duracion_last_ataque_range = Time.get_ticks_msec()
+		time_since_last_range_attack = Time.get_ticks_msec()
 		
 	if can_range_attack() and has_gun and proyectil_lanzable.is_colliding():
-		state = State.Prep_shoot
-		time_duracion_prep_ataque_range = Time.get_ticks_msec()
 		#shoot_gun()
 		#time_since_knife_dissmiss = Time.get_ticks_msec()
-		#time_duracion_last_ataque_range = Time.get_ticks_msec()
+		#time_since_last_range_attack = Time.get_ticks_msec()
+		state = State.Prep_shoot
+		time_since_prep_range_attack = Time.get_ticks_msec()
 
-func handle_prep_shoot() -> void:
-	if state == State.Prep_shoot and (Time.get_ticks_msec() - time_duracion_prep_ataque_range > duracion_preparando_ataque_range):
+
+
+
+func handle_preb_shoot() -> void:
+	if state == State.Prep_shoot and (Time.get_ticks_msec() - time_since_prep_range_attack > duration_prep_range_attack):
 		shoot_gun()
-		time_duracion_last_ataque_range = Time.get_ticks_msec()
+		time_since_last_range_attack = Time.get_ticks_msec()
+
+func handle_prep_attack() -> void:
+	if state == State.Preparar_Ataque and (Time.get_ticks_msec() - time_since_prep_melee_attack > duration_prep_melee_attack):
+		state = State.Golpe
+		time_since_last_melee_attack  = Time.get_ticks_msec()
+		anim_attack.shuffle()
 
 
 func go_to_melee_position() -> void:
@@ -78,27 +88,21 @@ func go_to_melee_position() -> void:
 			velocity = Vector2.ZERO
 			if can_accion() :
 				state = State.Preparar_Ataque
-				duracion_preparando_ataque_melee = Time.get_ticks_msec()
+				time_since_prep_melee_attack = Time.get_ticks_msec()
 		else:
 			velocity = direction * move_speed 
 
-
-func handle_prep_attack() -> void:
-	if state == State.Preparar_Ataque and (Time.get_ticks_msec() - time_duracion_prep_ataque_melee > duracion_preparando_ataque_melee):
-		state = State.Golpe
-		time_duracion_last_ataque_melee  = Time.get_ticks_msec()
-		anim_attack.shuffle()
 
 func is_player_within_range():
 	return (player_slot.global_position - global_position).length() < 3
 
 func can_accion() -> bool:
-	if Time.get_ticks_msec() - time_duracion_last_ataque_melee < duration_between_melee_attacks:
+	if Time.get_ticks_msec() - time_since_last_melee_attack < duration_between_melee_attacks:
 		return false
 	return super.can_accion()
 
 func can_range_attack()-> bool:
-	if Time.get_ticks_msec() - time_duracion_last_ataque_range < duration_between_range_attacks:
+	if Time.get_ticks_msec() - time_since_last_range_attack < duration_between_range_attacks:
 		return false
 	return super.can_accion()
 	
