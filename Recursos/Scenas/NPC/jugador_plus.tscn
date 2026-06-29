@@ -255,6 +255,7 @@ size = Vector2(37, 33)
 collision_layer = 2
 collision_mask = 530
 script = ExtResource("2_kg235")
+max_ammo_per_gun = 3
 can_respawn_knife = true
 damage = 3
 damage_power = 6
@@ -264,19 +265,19 @@ flight_speed = 300.0
 has_knife = true
 move_speed = 300.0
 
-[node name="Sprite2D" parent="." index="0" unique_id=570534983]
+[node name="Sprite2D" parent="." index="1" unique_id=570534983]
 texture = ExtResource("3_jpqfm")
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=1210923462]
+[node name="AnimationPlayer" parent="." index="2" unique_id=1210923462]
 libraries/ = SubResource("AnimationLibrary_6qh13")
 libraries/plus_animacion = ExtResource("3_kg235")
 
-[node name="CollisionShape2D2" parent="." index="2" unique_id=1712265704]
+[node name="CollisionShape2D2" parent="." index="3" unique_id=1712265704]
 position = Vector2(0, 66)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kg235")
 
-[node name="EmitidorDaño" parent="." index="3" unique_id=771478216]
+[node name="EmitidorDaño" parent="." index="4" unique_id=771478216]
 collision_layer = 0
 collision_mask = 388
 monitoring = false
@@ -285,15 +286,6 @@ monitoring = false
 position = Vector2(56, -18)
 shape = SubResource("RectangleShape2D_6qh13")
 debug_color = Color(0.91617966, 8.490265e-05, 0.715479, 0.41960785)
-
-[node name="ReceptorDaño" parent="." index="4" unique_id=1523650532]
-collision_layer = 192
-collision_mask = 0
-
-[node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
-position = Vector2(-1, -29)
-shape = SubResource("RectangleShape2D_kg235")
-debug_color = Color(5.7756904e-07, 0.6220253, 0.5521854, 0.41960785)
 
 [node name="EnemySlots" type="Node2D" parent="." index="5" unique_id=350338050]
 position = Vector2(0, -50)
@@ -326,17 +318,26 @@ position = Vector2(-50, 70)
 scale = Vector2(0.3958333, 0.33783787)
 texture = ExtResource("6_jpqfm")
 
-[node name="CollateralEmitidorDaño" parent="." index="6" unique_id=1093273836]
+[node name="ReceptorDaño" parent="." index="6" unique_id=1523650532]
+collision_layer = 192
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
+position = Vector2(-1, -29)
+shape = SubResource("RectangleShape2D_kg235")
+debug_color = Color(5.7756904e-07, 0.6220253, 0.5521854, 0.41960785)
+
+[node name="CollateralEmitidorDaño" parent="." index="7" unique_id=1093273836]
 monitoring = false
 
-[node name="GunSprite" parent="." index="7" unique_id=378956244]
-position = Vector2(57, -28)
+[node name="GunSprite" parent="." index="8" unique_id=378956244]
+position = Vector2(57, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_e3bkt")
 hframes = 4
 vframes = 2
 
-[node name="Cuchillo" parent="." index="8" unique_id=313798195]
+[node name="Cuchillo" parent="." index="9" unique_id=313798195]
 position = Vector2(46, -40)
 scale = Vector2(0.58, 0.6)
 texture = ExtResource("7_a8clm")
@@ -346,11 +347,11 @@ hframes = 3
 [node name="WeaponPosition" parent="Cuchillo" index="0" unique_id=983036064]
 position = Vector2(29.310347, 36.666664)
 
-[node name="ProyectilLanzable" parent="." index="9" unique_id=224289400]
+[node name="ProyectilLanzable" parent="." index="10" unique_id=224289400]
 position = Vector2(0, 70)
 collision_mask = 20
 
-[node name="CollectibleSensor" parent="." index="10" unique_id=996763328]
+[node name="CollectibleSensor" parent="." index="11" unique_id=996763328]
 collision_mask = 1024
 monitorable = false
 

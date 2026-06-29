@@ -10,10 +10,12 @@ monitoring = false
 monitorable = false
 script = ExtResource("1_ut4qa")
 
+[node name="Sombra" type="Sprite2D" parent="." unique_id=778261327]
+
+[node name="CollectibleSprite" type="Sprite2D" parent="." unique_id=1673113320]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=491602718]
 
 [node name="EmitidorDaño" parent="." unique_id=771478216 instance=ExtResource("1_kso6q")]
-
-[node name="CollectibleSprite" type="Sprite2D" parent="." unique_id=1673113320]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=146327165]

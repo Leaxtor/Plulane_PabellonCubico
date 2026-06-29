@@ -2,9 +2,13 @@ extends StaticBody2D
 
 const gravedad = 500
 
+
 @onready var objeto_destruir := $"ReceptorDaño"
-@export var knockball : float
 @onready var sprite  := $Sprite2D
+
+@export var content_type : Collectible.Type
+@export var knockball : float
+
 var velocity := Vector2.ZERO
 var height := 0.0
 var height_speed := 0.0
@@ -24,8 +28,10 @@ func _process(delta: float) -> void:
 func on_receive_damage(damage: int, dirrecion: Vector2, _hit_Type: ReceptorDamage.HitType) -> void:
 	if state == State.IDLE:
 		height_speed = knockball
-		velocity = dirrecion * knockball
 		state = State.DESTROY
+		velocity = dirrecion * knockball
+		EntityManager.spawn_collectible.emit(content_type, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, false)
+
 
 func handle_air_time(delta: float) -> void:
 	if state == State.DESTROY:

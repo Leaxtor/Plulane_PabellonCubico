@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d3twcfyoy5hr5" path="res://Recursos/Scenas/Miselaneos/Mesa_arcade.tscn" id="5_nx08k"]
 [ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Recursos/Scenas/NPC/camara.tscn" id="6_36vfu"]
 [ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://Recursos/Scenas/NPC/enemigo_1.tscn" id="7_36vfu"]
-[ext_resource type="PackedScene" uid="uid://fgx5xp7h33by" path="res://Recursos/Scenas/Miselaneos/Knife.tscn" id="8_xfytv"]
 [ext_resource type="PackedScene" uid="uid://eey0g3xggcx0" path="res://Recursos/Scenas/Miselaneos/Shot.tscn" id="10_22wyd"]
+[ext_resource type="PackedScene" uid="uid://ccbbjf8on3gfe" path="res://Recursos/Scenas/Miselaneos/Food.tscn" id="10_ejajt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m6f3"]
 size = Vector2(1986, 268.5)
@@ -66,6 +66,7 @@ knockdown_intensidad = 0.0
 [node name="Carrito" parent="ActoresContenedor" unique_id=524723037 instance=ExtResource("4_5mnnw")]
 y_sort_enabled = true
 position = Vector2(318, 117)
+content_type = 1
 
 [node name="MesaArcade" parent="ActoresContenedor" unique_id=737910012 instance=ExtResource("5_nx08k")]
 position = Vector2(411, 77)
@@ -84,11 +85,12 @@ move_speed = 200.0
 knockback_intensidad = 50.0
 
 [node name="Enemigo_3" parent="ActoresContenedor" unique_id=453535358 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(1260, 77)
+position = Vector2(-23, 192)
 player = NodePath("../Jugador_Plus")
 damage = 2
 max_health = 10
 duracion_suelo = 400.0
+has_knife = true
 salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
@@ -97,9 +99,10 @@ knockback_intensidad = 50.0
 position = Vector2(405, 116)
 duration_prep_range_attack = 2000
 player = NodePath("../Jugador_Plus")
+can_respawn_knife = true
 damage = 2
 max_health = 10
-has_gun = true
+has_knife = true
 salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
@@ -113,13 +116,12 @@ salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
 
-[node name="Knife" parent="ActoresContenedor" unique_id=31789068 instance=ExtResource("8_xfytv")]
-position = Vector2(-172, 156)
-knockdown_intensity = 400.0
-
 [node name="Shot" parent="ActoresContenedor" unique_id=776138299 instance=ExtResource("10_22wyd")]
 position = Vector2(-192, 156)
 points = PackedVector2Array(0, -50, 50, -50)
 duration_shot_across_screen = 0.0
+
+[node name="Food" parent="ActoresContenedor" unique_id=31789068 instance=ExtResource("10_ejajt")]
+position = Vector2(-110, 223)
 
 [connection signal="body_entered" from="MetaNivel" to="MetaNivel" method="_on_body_entered"]

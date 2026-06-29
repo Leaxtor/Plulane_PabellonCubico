@@ -17,7 +17,13 @@ func handle_input() -> void:
 		if has_knife:
 			state = State.Throw_lanza
 		elif has_gun:
-			shoot_gun()
+			#print(ammo_left)
+			#ammo_left = 2
+			if ammo_left > 0:
+				shoot_gun()
+				ammo_left -= 1
+			else:
+				state = State.Throw_lanza
 		else:
 			if can_recogiendo_proyectil():
 				state = State.Recogiendo

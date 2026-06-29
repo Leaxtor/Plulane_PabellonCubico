@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const GRAVEDAD := 600.0
 
+@export var autodestroy_drop : bool
+@export var max_ammo_per_gun : int
 @export var can_respawn : bool
 @export var can_respawn_knife : bool
 @export var damage : int
@@ -60,6 +62,7 @@ enum State {
 
 }
 
+var ammo_left := 0
 var anim_attack := []
 
 var animation_map := {
@@ -227,22 +230,28 @@ func shoot_gun() -> void:
 	var target := proyectil_lanzable.get_collider()
 	if target != null:
 		target_point = proyectil_lanzable.get_collision_point()
+		#si le dispara al muro ocurre un error porque no puede recibir daño
 		target.on_receive_damage(damage_gunshot,heading, ReceptorDamage.HitType.KNOCKDOWN)
 	var weapon_root_position := Vector2(weapon_position.global_position.x, position.y)
 	var weapon_height := -weapon_position.position.y
 	var distance := target_point.x - weapon_position.global_position.x
 	EntityManager.spawn_shot.emit(weapon_root_position, distance, weapon_height)
  
-
+func is_carrying_weapong() -> bool:
+	return has_knife or has_gun
 
 func can_recogiendo_proyectil() ->bool:
+	if can_respawn_knife:
+		return false
 	var collectible_areas := collectible_sensor.get_overlapping_areas()
 	if collectible_areas.size() == 0:
 		return false
 	var collectible : Collectible = collectible_areas[0]
-	if collectible.type == Collectible.Type.KNIFE and not has_knife:
+	if collectible.type == Collectible.Type.KNIFE and not is_carrying_weapong():
 		return true
-	if collectible.type == Collectible.Type.GUN and not has_gun:
+	if collectible.type == Collectible.Type.GUN and not is_carrying_weapong():
+		return true
+	if collectible.type == Collectible.Type.FOOD: #talvez agregar algo para que no pueda agarrarlo si esta full
 		return true
 	return false
 
@@ -252,8 +261,13 @@ func recogiendo_proyectil() ->void:
 		var collectible : Collectible = collectible_areas[0]
 		if collectible.type == Collectible.Type.KNIFE and not has_knife:
 			has_knife = true
+			print("consiguio cuchillo")
 		if collectible.type == Collectible.Type.GUN and not has_gun:
 			has_gun = true
+			ammo_left = max_ammo_per_gun
+			print("consiguio arma")
+		if collectible.type == Collectible.Type.FOOD:
+			current_health = max_health
 		collectible.queue_free()
 
 func is_collision_disable() -> bool:
@@ -276,10 +290,15 @@ func ataque_completo() -> void:
 
 func on_throw_complete() -> void:
 	state = State.Reposo
-	has_knife = false
-	var knife_global_position := Vector2(weapon_position.global_position.x, global_position.y)
-	var knife_height := weapon_position.position.y 
-	EntityManager.spawn_collectible.emit(Collectible.Type.KNIFE, Collectible.State.FLY, knife_global_position, heading, knife_height)
+	var collectible_type := Collectible.Type.KNIFE
+	if has_gun:
+		collectible_type = Collectible.Type.GUN
+		has_gun = false
+	else:
+		has_knife = false
+	var collectible_global_position := Vector2(weapon_position.global_position.x, global_position.y)
+	var collectible_height := weapon_position.position.y 
+	EntityManager.spawn_collectible.emit(collectible_type, Collectible.State.FLY, collectible_global_position, heading, collectible_height, false)
 
 func bloque_completo() -> void:
 	state = State.Reposo
@@ -333,9 +352,12 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 		can_respawn_knife = false #le quita el cuchillo al gople
 		if has_knife:
 			has_knife = false
+			EntityManager.spawn_collectible.emit(Collectible.Type.KNIFE, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
 			time_since_knife_dissmiss = Time.get_ticks_msec()
 		if has_gun:
 			has_gun = false
+			EntityManager.spawn_collectible.emit(Collectible.Type.GUN, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+			
 		current_health = clamp(current_health - amount, 0, max_health)
 		print(current_health)
 		## LO ULTIMO (STATE CAIDA) quitar del cage get hurt para combear en el aire

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://6cyepy3wkfkn"]
+
+[ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://Recursos/Scenas/NPC/enemigo_1.tscn" id="1_mdb3e"]
+
+[node name="ThugEnemigo" unique_id=106214172 instance=ExtResource("1_mdb3e")]
+duration_between_melee_attacks = 1500
+duration_between_range_attacks = 2500
+duration_prep_melee_attack = 500
+duration_prep_range_attack = 500
+has_gun = true
+move_speed = 100.0
+
+[editable path="EmitidorDaño"]
+[editable path="ReceptorDaño"]
+[editable path="CollateralEmitidorDaño"]

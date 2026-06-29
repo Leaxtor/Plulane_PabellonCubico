@@ -13,8 +13,7 @@ func initialize(distance: float, gun_height: float) -> void:
 	add_point(Vector2(0,-height),0)
 	add_point(Vector2(distance,-height),1)
 	duration_shot = abs(shot_distance) * duration_shot_across_screen / get_viewport_rect().size.x
-	print("duration_shot_across_screen")
-	print(duration_shot_across_screen)
+
 	
 func _process(_delta: float) -> void:
 	var elapsed := Time.get_ticks_msec() - time_start

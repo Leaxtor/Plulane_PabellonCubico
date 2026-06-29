@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://ccbbjf8on3gfe"]
+
+[ext_resource type="PackedScene" uid="uid://ounbej5t3oee" path="res://Recursos/Scenas/Miselaneos/Collectible.tscn" id="1_8tath"]
+[ext_resource type="Texture2D" uid="uid://b3yord4cpl16v" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/sombraplaceholder.png" id="2_j0iwc"]
+[ext_resource type="Texture2D" uid="uid://dx2hh6lhrwyt" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/helado.png" id="3_0uvos"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(32, 30)
+
+[sub_resource type="Animation" id="Animation_j0iwc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectibleSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_0uvos")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollectibleSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0uvos"]
+resource_name = "fall"
+length = 0.2666700139079243
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectibleSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_0uvos")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollectibleSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06842421, 0.13380735, 0.19919048, 0.26609418),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5707964, 3.1415927, 4.712389, 6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_hh6r7"]
+resource_name = "grounded"
+length = 0.041670834575220944
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectibleSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_0uvos")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollectibleSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hh6r7"]
+_data = {
+&"RESET": SubResource("Animation_j0iwc"),
+&"fall": SubResource("Animation_0uvos"),
+&"grounded": SubResource("Animation_hh6r7")
+}
+
+[node name="Food" unique_id=31789068 instance=ExtResource("1_8tath")]
+knockdown_intensity = 200.0
+type = 2
+
+[node name="Sombra" parent="." index="0" unique_id=778261327]
+position = Vector2(3, -47)
+texture = ExtResource("2_j0iwc")
+
+[node name="CollectibleSprite" parent="." index="1" unique_id=1673113320]
+texture = ExtResource("3_0uvos")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=491602718]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="AnimationPlayer" parent="." index="4" unique_id=146327165]
+libraries/ = SubResource("AnimationLibrary_hh6r7")
