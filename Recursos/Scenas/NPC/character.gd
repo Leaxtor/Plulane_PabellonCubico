@@ -3,6 +3,20 @@ extends CharacterBody2D
 
 const GRAVEDAD := 600.0
 
+@export var max_health : int
+
+@export_group("Movimiento")
+@export var duracion_suelo : float
+@export var flight_speed : float
+@export var salto_fuerza: float
+@export var velocidad_subida: float #talvez deberia hacerlo global
+@export var velocidad_bajada: float #talvez deberia hacerlo global
+@export var move_speed: float
+@export var knockback_intensidad: float
+@export var knockdown_intensidad: float
+
+@export_group("Armas")
+
 @export var autodestroy_drop : bool
 @export var max_ammo_per_gun : int
 @export var can_respawn : bool
@@ -10,18 +24,10 @@ const GRAVEDAD := 600.0
 @export var damage : int
 @export var damage_power : int
 @export var damage_gunshot : int
-@export var max_health : int
-@export var duracion_suelo : float
 @export var duracion_between_knife_respawn : float
-@export var flight_speed : float
 @export var has_knife : bool
 @export var has_gun : bool
-@export var salto_fuerza: float
-@export var velocidad_subida: float #talvez deberia hacerlo global
-@export var velocidad_bajada: float #talvez deberia hacerlo global
-@export var move_speed: float
-@export var knockback_intensidad: float
-@export var knockdown_intensidad: float
+
 
 @onready var heading := Vector2.RIGHT
 @onready var animation_player := $AnimationPlayer
@@ -59,7 +65,7 @@ enum State {
 	Throw_lanza,
 	Recogiendo,
 	Shoot,
-
+	Recover
 }
 
 var ammo_left := 0
@@ -84,7 +90,7 @@ var animation_map := {
 	State.Throw_lanza: "plus_animacion/Throw_lanza",
 	State.Recogiendo: "plus_animacion/Recogiendo",
 	State.Shoot: "plus_animacion/Shoot",
-
+	State.Recover: "recover"
 }
 
 var attack_combo_index := 0
@@ -105,7 +111,7 @@ func _ready() ->void:
 	collateral_damage_emmiter.body_entered.connect(on_wall_hit.bind())
 	current_health = max_health
 
-func _physics_process(delta: float) ->void :
+func _process(delta: float) ->void :
 	handle_input()
 	handle_movement()
 	handle_animation()
@@ -349,6 +355,7 @@ func on_wall_hit(_wall: AnimatableBody2D) ->void:
 	
 func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage.HitType) -> void:
 	if can_get_hurt():
+		attack_combo_index = 0
 		can_respawn_knife = false #le quita el cuchillo al gople
 		if has_knife:
 			has_knife = false

@@ -255,15 +255,16 @@ size = Vector2(37, 33)
 collision_layer = 2
 collision_mask = 530
 script = ExtResource("2_kg235")
+max_duration_between_succesful_hits = 1000
+max_health = 20
+flight_speed = 300.0
+move_speed = 300.0
 max_ammo_per_gun = 3
 can_respawn_knife = true
 damage = 3
 damage_power = 6
 damage_gunshot = 3
-max_health = 20
-flight_speed = 300.0
 has_knife = true
-move_speed = 300.0
 
 [node name="Sprite2D" parent="." index="1" unique_id=570534983]
 texture = ExtResource("3_jpqfm")

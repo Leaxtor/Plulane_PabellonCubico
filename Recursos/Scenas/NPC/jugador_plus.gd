@@ -1,13 +1,22 @@
 class_name Player
 extends Character
 
+@export var max_duration_between_succesful_hits : int
 @onready var enemy_slots : Array =$EnemySlots.get_children()
 
+var time_since_last_succesful_attack := Time.get_ticks_msec()
 
 func _ready() ->void:
 	super._ready()
 	anim_attack = ["plus_animacion/Golpe","plus_animacion/Golpe_2","plus_animacion/Golpe_3","plus_animacion/Golpe_4"]
 
+func _process(delta: float) -> void:
+	super._process(delta)
+	process_time_between_combo()
+
+func process_time_between_combo() -> void:
+	if Time.get_ticks_msec() - time_since_last_succesful_attack > max_duration_between_succesful_hits:
+		attack_combo_index = 0
 
 func handle_input() -> void:
 	if can_move():
@@ -30,6 +39,7 @@ func handle_input() -> void:
 			else:
 				state = State.Golpe
 				if is_ultimo_hit_acertado:
+					time_since_last_succesful_attack = Time.get_ticks_msec()
 					#Avanza 1 x 1 en la lista de animaciones de ataque y obtiene el resto, dando la vuelta si se pasa
 					attack_combo_index = (attack_combo_index+1) % anim_attack.size()
 					is_ultimo_hit_acertado = false
@@ -37,8 +47,10 @@ func handle_input() -> void:
 					attack_combo_index = 0
 	if can_accion() and Input.is_action_just_pressed("move_bloqueo"):
 		state = State.Bloqueo
+		attack_combo_index = 0
 	if can_jump() and Input.is_action_just_pressed("move_saltar"):
 		state = State.Salto_Inicio
+		attack_combo_index = 0
 	if can_jump_patada() and Input.is_action_just_pressed("ataque_golpear"):
 		state = State.Salto_Patada
 
