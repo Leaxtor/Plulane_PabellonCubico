@@ -72,25 +72,25 @@ var ammo_left := 0
 var anim_attack := []
 
 var animation_map := {
-	State.Reposo: "plus_animacion/Reposo",
-	State.Caminar: "plus_animacion/Caminar",
-	State.Bloqueo: "plus_animacion/Bloqueo",
-	State.Salto_Inicio: "plus_animacion/Salto_Inicio",
-	State.Salto_Medio: "plus_animacion/Salto_Medio",
-	State.Salto_Fin: "plus_animacion/Salto_Fin",
-	State.Salto_Patada: "plus_animacion/Salto_Patada",
-	State.Hurt: "plus_animacion/Hurt",
-	State.Caida: "plus_animacion/Caida",
-	State.Suelo_Caida: "plus_animacion/Suelo_Caida",
-	State.Parandose: "plus_animacion/Parandose",
-	State.Death: "plus_animacion/Suelo_Caida",
-	State.Fly: "plus_animacion/Fly",
-	State.Preparar_Ataque: "plus_animacion/Reposo", #PODRIA PONER OTRA ANIMACION
-	State.Prep_shoot: "plus_animacion/Reposo",
-	State.Throw_lanza: "plus_animacion/Throw_lanza",
-	State.Recogiendo: "plus_animacion/Recogiendo",
-	State.Shoot: "plus_animacion/Shoot",
-	State.Recover: "recover"
+	State.Reposo: "Reposo",
+	State.Caminar: "Caminar",
+	State.Bloqueo: "Bloqueo",
+	State.Salto_Inicio: "Salto_Inicio",
+	State.Salto_Medio: "Salto_Medio",
+	State.Salto_Fin: "Salto_Fin",
+	State.Salto_Patada: "Salto_Patada",
+	State.Hurt: "Hurt",
+	State.Caida: "Caida",
+	State.Suelo_Caida: "Suelo_Caida",
+	State.Parandose: "Parandose",
+	State.Death: "Suelo_Caida",
+	State.Fly: "Fly",
+	State.Preparar_Ataque: "Reposo", #PODRIA PONER OTRA ANIMACION
+	State.Prep_shoot: "Reposo",
+	State.Throw_lanza: "Throw_lanza",
+	State.Recogiendo: "Recogiendo",
+	State.Shoot: "Shoot",
+	State.Recover: "Recover"
 }
 
 var attack_combo_index := 0
@@ -374,7 +374,6 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 			height_speed = knockdown_intensidad
 		elif hit_type == ReceptorDamage.HitType.POWER:
 			state = State.Fly
-			print("VOLANDO")
 			velocity = direccion * flight_speed #No esta funcionando al velocidad
 		else:
 			state = State.Hurt

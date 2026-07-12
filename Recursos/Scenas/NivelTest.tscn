@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://Recursos/Scenas/NPC/enemigo_1.tscn" id="7_36vfu"]
 [ext_resource type="PackedScene" uid="uid://eey0g3xggcx0" path="res://Recursos/Scenas/Miselaneos/Shot.tscn" id="10_22wyd"]
 [ext_resource type="PackedScene" uid="uid://ccbbjf8on3gfe" path="res://Recursos/Scenas/Miselaneos/Food.tscn" id="10_ejajt"]
+[ext_resource type="PackedScene" uid="uid://13u7bx6lwxod" path="res://Recursos/Scenas/NPC/boss_tutorial.tscn" id="11_ejajt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m6f3"]
 size = Vector2(1986, 268.5)
@@ -56,12 +57,12 @@ script = ExtResource("3_x3146")
 
 [node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("5_5wrfm")]
 position = Vector2(-307, 130)
+duracion_suelo = 0.0
+knockdown_intensidad = 0.0
 can_respawn_knife = false
 damage = 2
-duracion_suelo = 0.0
 has_knife = false
 has_gun = true
-knockdown_intensidad = 0.0
 
 [node name="Carrito" parent="ActoresContenedor" unique_id=524723037 instance=ExtResource("4_5mnnw")]
 y_sort_enabled = true
@@ -77,44 +78,35 @@ jugador = NodePath("../Jugador_Plus")
 [node name="Enemigo_1" parent="ActoresContenedor" unique_id=1709687776 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
 position = Vector2(1436, 75)
 player = NodePath("../Jugador_Plus")
-damage = 2
 max_health = 10
 duracion_suelo = 5200.0
 salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
+damage = 2
 
 [node name="Enemigo_3" parent="ActoresContenedor" unique_id=453535358 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(-23, 192)
+position = Vector2(1004, 106)
 player = NodePath("../Jugador_Plus")
-damage = 2
 max_health = 10
 duracion_suelo = 400.0
-has_knife = true
 salto_fuerza = 0.0
 move_speed = 200.0
 knockback_intensidad = 50.0
+damage = 2
+has_knife = true
 
 [node name="Enemigo_4" parent="ActoresContenedor" unique_id=67212167 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(405, 116)
+position = Vector2(410, 116)
 duration_prep_range_attack = 2000
 player = NodePath("../Jugador_Plus")
+max_health = 10
+salto_fuerza = 0.0
+move_speed = 200.0
+knockback_intensidad = 50.0
 can_respawn_knife = true
 damage = 2
-max_health = 10
 has_knife = true
-salto_fuerza = 0.0
-move_speed = 200.0
-knockback_intensidad = 50.0
-
-[node name="Enemigo_5" parent="ActoresContenedor" unique_id=226029317 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(1364, 109)
-player = NodePath("../Jugador_Plus")
-damage = 2
-max_health = 10
-salto_fuerza = 0.0
-move_speed = 200.0
-knockback_intensidad = 50.0
 
 [node name="Shot" parent="ActoresContenedor" unique_id=776138299 instance=ExtResource("10_22wyd")]
 position = Vector2(-192, 156)
@@ -123,5 +115,11 @@ duration_shot_across_screen = 0.0
 
 [node name="Food" parent="ActoresContenedor" unique_id=31789068 instance=ExtResource("10_ejajt")]
 position = Vector2(-110, 223)
+
+[node name="boss_tutorial" parent="ActoresContenedor" unique_id=774268132 node_paths=PackedStringArray("player") instance=ExtResource("11_ejajt")]
+position = Vector2(-137, 180)
+player = NodePath("../Jugador_Plus")
+distance_from_player = 100
+max_health = 10
 
 [connection signal="body_entered" from="MetaNivel" to="MetaNivel" method="_on_body_entered"]

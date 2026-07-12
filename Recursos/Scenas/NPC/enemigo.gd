@@ -19,7 +19,7 @@ var time_since_prep_range_attack := Time.get_ticks_msec()
 
 func _ready() ->void:
 	super._ready()
-	anim_attack = ["plus_animacion/Golpe","plus_animacion/Golpe_2"]
+	anim_attack = ["Golpe","Golpe_2"]
 
 
 func handle_input() -> void:

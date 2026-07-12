@@ -8,7 +8,7 @@ var time_since_last_succesful_attack := Time.get_ticks_msec()
 
 func _ready() ->void:
 	super._ready()
-	anim_attack = ["plus_animacion/Golpe","plus_animacion/Golpe_2","plus_animacion/Golpe_3","plus_animacion/Golpe_4"]
+	anim_attack = ["Golpe","Golpe_2","Golpe_3","Golpe_4"]
 
 func _process(delta: float) -> void:
 	super._process(delta)
