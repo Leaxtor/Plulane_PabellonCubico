@@ -34,7 +34,7 @@ func go_to_range_position() -> void:
 	var screen_width := get_viewport_rect().size.x
 	var screen_left_edge := camera.position.x - screen_width/2
 	var screen_right_edge := camera.position.x + screen_width/2
-	var left_destination := Vector2(screen_right_edge - EDGE_SCREEN_BUFFER, player.position.y)
+	var left_destination := Vector2(screen_right_edge - EDGE_SCREEN_BUFFER, player.position.y) #ARREGLAR ese -70
 	var right_destination := Vector2(screen_left_edge + EDGE_SCREEN_BUFFER, player.position.y)
 	var closest_destination := Vector2.ZERO
 	if (left_destination - position).length() < (right_destination - position).length() :

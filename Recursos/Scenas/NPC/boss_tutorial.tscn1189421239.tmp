@@ -171,17 +171,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 0, 1, 1, 2, 2, 1, 1]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
 
 [sub_resource type="Animation" id="Animation_h0hll"]
 resource_name = "Caminar"
@@ -351,7 +340,7 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.29166666),
+"times": PackedFloat32Array(0.33333334),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -719,7 +708,7 @@ max_health = 15
 duracion_suelo = 2000.0
 flight_speed = 1000.0
 salto_fuerza = 200.0
-move_speed = 200.0
+move_speed = 500.0
 knockback_intensidad = 100.0
 damage = 5
 
@@ -748,7 +737,7 @@ debug_color = Color(0.9496196, 2.9841065e-06, 0.58490294, 0.41960785)
 
 [node name="ReceptorDaño" parent="." index="5" unique_id=1523650532]
 collision_layer = 128
-collision_mask = 128
+collision_mask = 0
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
 position = Vector2(-9, -128.5)
@@ -765,7 +754,6 @@ shape = SubResource("RectangleShape2D_5h3d5")
 debug_color = Color(1, 0.010665437, 0.05865115, 0.41960785)
 
 [node name="ProyectilLanzable" parent="." index="9" unique_id=224289400]
-position = Vector2(0, -10)
 target_position = Vector2(400, 0)
 collision_mask = 2
 

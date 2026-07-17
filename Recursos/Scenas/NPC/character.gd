@@ -131,6 +131,7 @@ func _process(delta: float) ->void :
 	collision_shape.disabled = is_collision_disable()
 	emitidor_daño.monitoring = is_attacking()
 	receptor_daño.monitorable = can_get_hurt()
+	collateral_damage_emmiter.monitoring = state == State.Fly
 	move_and_slide()
 	
 	
@@ -209,6 +210,7 @@ func can_jump_patada() -> bool:
 #LO QUE ESTA ACTIVADO ES CUANDO LO PUEDEN GOLPEAR
 func can_get_hurt() ->bool:
 	return [
+	#State.Recover,
 	State.Golpe,
 	State.Reposo,
 	State.Caminar,
@@ -291,7 +293,7 @@ func on_recogiendo_completo() -> void:
 	recogiendo_proyectil()
 
 #LLAMO LAS FUNCIONES CON EL ANIMATION PLAYER
-func ataque_completo() -> void:
+func ataque_completo() -> void: #on_action_complete
 	state = State.Reposo
 
 func on_throw_complete() -> void:
@@ -370,8 +372,8 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 		## LO ULTIMO (STATE CAIDA) quitar del cage get hurt para combear en el aire
 		if current_health == 0 or hit_type == ReceptorDamage.HitType.KNOCKDOWN or state == State.Caida:
 			state = State.Caida
-			
 			height_speed = knockdown_intensidad
+			velocity = direccion * knockback_intensidad
 		elif hit_type == ReceptorDamage.HitType.POWER:
 			state = State.Fly
 			velocity = direccion * flight_speed #No esta funcionando al velocidad

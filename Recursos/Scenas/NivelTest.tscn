@@ -56,9 +56,8 @@ y_sort_enabled = true
 script = ExtResource("3_x3146")
 
 [node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("5_5wrfm")]
-position = Vector2(-307, 130)
+position = Vector2(-269, 200)
 duracion_suelo = 0.0
-knockdown_intensidad = 0.0
 can_respawn_knife = false
 damage = 2
 has_knife = false
@@ -81,28 +80,28 @@ player = NodePath("../Jugador_Plus")
 max_health = 10
 duracion_suelo = 5200.0
 salto_fuerza = 0.0
-move_speed = 200.0
+move_speed = 50.0
 knockback_intensidad = 50.0
 damage = 2
 
 [node name="Enemigo_3" parent="ActoresContenedor" unique_id=453535358 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(1004, 106)
+position = Vector2(1963, 149)
 player = NodePath("../Jugador_Plus")
 max_health = 10
 duracion_suelo = 400.0
 salto_fuerza = 0.0
-move_speed = 200.0
+move_speed = 100.0
 knockback_intensidad = 50.0
 damage = 2
 has_knife = true
 
 [node name="Enemigo_4" parent="ActoresContenedor" unique_id=67212167 node_paths=PackedStringArray("player") instance=ExtResource("7_36vfu")]
-position = Vector2(410, 116)
+position = Vector2(1689, 184)
 duration_prep_range_attack = 2000
 player = NodePath("../Jugador_Plus")
 max_health = 10
 salto_fuerza = 0.0
-move_speed = 200.0
+move_speed = 50.0
 knockback_intensidad = 50.0
 can_respawn_knife = true
 damage = 2
@@ -117,9 +116,12 @@ duration_shot_across_screen = 0.0
 position = Vector2(-110, 223)
 
 [node name="boss_tutorial" parent="ActoresContenedor" unique_id=774268132 node_paths=PackedStringArray("player") instance=ExtResource("11_ejajt")]
-position = Vector2(-137, 180)
+position = Vector2(66, 135)
 player = NodePath("../Jugador_Plus")
 distance_from_player = 100
 max_health = 10
+move_speed = 100.0
+knockback_intensidad = 50.0
+knockdown_intensidad = 100.0
 
 [connection signal="body_entered" from="MetaNivel" to="MetaNivel" method="_on_body_entered"]

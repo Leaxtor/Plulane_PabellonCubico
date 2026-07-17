@@ -1,14 +1,16 @@
 class_name IgorBoss
 extends Character
 
-const GROUND_FRICTION := 50
+const GROUND_FRICTION := 250
 
 @export var player: Player
 @export var distance_from_player : int
 @export var duration_between_attacks : int
+@export var duration_vulnerable : int
 
 var knockback_force := Vector2.ZERO
 var time_last_attack := Time.get_ticks_msec()
+var time_start_vulnerable := Time.get_ticks_msec()
 
 func _process(delta: float) ->void:
 	super._process(delta)
@@ -24,8 +26,17 @@ func get_target_destination() -> Vector2:
 
 func is_player_within_range() -> bool:
 	var target := get_target_destination()
-	return (target - position).length() < 15
+	return (target - position).length() < 10
 	#AQUI HAY UN PROBLEMA A REALIZA SI CORRE MUY RAPIDO Y SE PASA SE PONE A CORRER POR SIEMPRE
+
+func handle_grounded() ->void:
+	if state == State.Suelo_Caida and current_health > 0:
+		state = State.Recover #NO CONFUNDIR RECOVER CON PARANDOSE
+		time_start_vulnerable = Time.get_ticks_msec()
+	elif state == State.Recover and Time.get_ticks_msec() - time_start_vulnerable > duration_vulnerable:
+		state = State.Reposo
+		time_last_attack = Time.get_ticks_msec()
+
 
 func handle_input() -> void:
 	if player != null and can_move():
@@ -61,6 +72,13 @@ func handle_input() -> void:
 #			var direction := (target_destination - position).normalized()
 #			velocity = direction * move_speed
 
+func ataque_completo() -> void:
+	print("COMPLETO ATAQUE")
+	if state == State.Hurt:
+		state = State.Recover
+		return
+	super.ataque_completo()
+
 func set_heading() -> void:
 	if player == null or not can_move():
 		return
@@ -77,7 +95,26 @@ func can_accion() -> bool:
 func is_vulnerable() -> bool:
 	return state == State.Recover
 	
-func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage.HitType) -> void:
+func on_receive_damage(amount: int, direccion: Vector2, _hit_type: ReceptorDamage.HitType) -> void:
+	print("ME ATACO")
 	if not is_vulnerable():
-		knockback_force = direccion * knockback_intensidad
+		knockback_force = direccion * knockback_intensidad/2 #sino divido sale mucho
 		return 
+	current_health = clamp(current_health - amount, 0, max_health)
+	print(current_health)
+	if current_health == 0:
+		state = State.Caida
+		height_speed = knockdown_intensidad
+	else:
+		velocity = Vector2.ZERO
+		state = State.Hurt
+	
+	#BOSS SOLO PUEDE HACER DAÑO ASI ANUMALOS LO DEMAS
+func on_emit_damage(receiver: ReceptorDamage) -> void:
+	receiver.damage_received.emit(damage, heading, ReceptorDamage.HitType.KNOCKDOWN)
+	time_last_attack = Time.get_ticks_msec()
+	state = State.Reposo
+
+	#BOSS PUEDE HACER DAÑO EN ESTADO FLY
+func is_attacking() -> bool:
+	return state == State.Fly

@@ -1486,6 +1486,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kg235"]
+radius = 13.0
 height = 64.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qh13"]
@@ -1505,6 +1506,7 @@ max_health = 20
 duracion_suelo = 2000.0
 flight_speed = 300.0
 move_speed = 300.0
+knockback_intensidad = 10.0
 max_ammo_per_gun = 3
 can_respawn_knife = true
 damage = 3
@@ -1512,14 +1514,18 @@ damage_power = 6
 damage_gunshot = 3
 has_knife = true
 
+[node name="Sombra" parent="." index="0" unique_id=813121135]
+position = Vector2(3, -73)
+
 [node name="Sprite2D" parent="." index="1" unique_id=570534983]
 texture = ExtResource("3_otvmr")
+offset = Vector2(0, -75)
 
 [node name="AnimationPlayer" parent="." index="2" unique_id=1210923462]
 libraries/ = SubResource("AnimationLibrary_6qh13")
 
 [node name="CollisionShape2D2" parent="." index="3" unique_id=1712265704]
-position = Vector2(0, 66)
+position = Vector2(0, -10)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kg235")
 
@@ -1529,7 +1535,7 @@ collision_mask = 388
 monitoring = false
 
 [node name="CollisionShape2D" parent="EmitidorDaño" index="0" unique_id=1521075572]
-position = Vector2(56, -18)
+position = Vector2(61, -96)
 shape = SubResource("RectangleShape2D_6qh13")
 debug_color = Color(0.91617966, 8.490265e-05, 0.715479, 0.41960785)
 
@@ -1537,28 +1543,29 @@ debug_color = Color(0.91617966, 8.490265e-05, 0.715479, 0.41960785)
 position = Vector2(0, -50)
 
 [node name="EnemigoSlot" parent="EnemySlots" index="0" unique_id=1814701161 instance=ExtResource("5_6qh13")]
-position = Vector2(50, 50)
+position = Vector2(55, 27)
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot" index="0" unique_id=1320849147]
+position = Vector2(-0.9999999, -9.999999)
 scale = Vector2(0.3958333, 0.33783787)
 texture = ExtResource("6_jpqfm")
 
 [node name="EnemigoSlot2" parent="EnemySlots" index="1" unique_id=2030278729 instance=ExtResource("5_6qh13")]
-position = Vector2(50, 70)
+position = Vector2(55, 38)
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot2" index="0" unique_id=948909322]
 scale = Vector2(0.3958333, 0.33783787)
 texture = ExtResource("6_jpqfm")
 
 [node name="EnemigoSlot3" parent="EnemySlots" index="2" unique_id=1633405638 instance=ExtResource("5_6qh13")]
-position = Vector2(-50, 50)
+position = Vector2(-54, 18)
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot3" index="0" unique_id=1055207842]
 scale = Vector2(0.3958333, 0.33783787)
 texture = ExtResource("6_jpqfm")
 
 [node name="EnemigoSlot4" parent="EnemySlots" index="3" unique_id=1919209562 instance=ExtResource("5_6qh13")]
-position = Vector2(-50, 70)
+position = Vector2(-54, 38)
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot4" index="0" unique_id=615215373]
 scale = Vector2(0.3958333, 0.33783787)
@@ -1569,7 +1576,7 @@ collision_layer = 192
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
-position = Vector2(-1, -29)
+position = Vector2(-2, -106)
 shape = SubResource("RectangleShape2D_kg235")
 debug_color = Color(5.7756904e-07, 0.6220253, 0.5521854, 0.41960785)
 
@@ -1577,14 +1584,14 @@ debug_color = Color(5.7756904e-07, 0.6220253, 0.5521854, 0.41960785)
 monitoring = false
 
 [node name="GunSprite" parent="." index="8" unique_id=378956244]
-position = Vector2(57, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_e3bkt")
+offset = Vector2(0, -70)
 hframes = 4
 vframes = 2
 
 [node name="Cuchillo" parent="." index="9" unique_id=313798195]
-position = Vector2(46, -40)
+position = Vector2(59, -100)
 scale = Vector2(0.58, 0.6)
 texture = ExtResource("7_a8clm")
 centered = false
@@ -1592,10 +1599,9 @@ hframes = 3
 frame = 2
 
 [node name="WeaponPosition" parent="Cuchillo" index="0" unique_id=983036064]
-position = Vector2(29.310347, 36.666664)
+position = Vector2(17.241379, 126.66666)
 
 [node name="ProyectilLanzable" parent="." index="10" unique_id=224289400]
-position = Vector2(0, 70)
 collision_mask = 20
 
 [node name="CollectibleSensor" parent="." index="11" unique_id=996763328]
@@ -1603,7 +1609,7 @@ collision_mask = 1024
 monitorable = false
 
 [node name="CollisionShape2D" parent="CollectibleSensor" index="0" unique_id=2127295643]
-position = Vector2(2, 66)
+position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_a8clm")
 debug_color = Color(0.9526914, 1.4439225e-06, 0.5598293, 0.41960785)
 
