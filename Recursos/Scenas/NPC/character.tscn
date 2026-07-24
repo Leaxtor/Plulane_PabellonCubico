@@ -8,6 +8,7 @@
 [node name="Character" type="CharacterBody2D" unique_id=106214172]
 script = ExtResource("1_laadx")
 max_health = 10
+type = 2
 duracion_suelo = 2.0
 salto_fuerza = 300.0
 velocidad_subida = 1.5

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://wwq05poayoap" path="res://Recursos/Scenas/ReceptorDaño.tscn" id="2_vfpih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfpih"]
-size = Vector2(88.5, 27.375)
+size = Vector2(79.25, 27.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1i0s6"]
 size = Vector2(87, 66.5)
@@ -18,9 +18,10 @@ knockball = 150.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=729976795]
 texture = ExtResource("1_fcm4c")
+offset = Vector2(0, -70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=422925338]
-position = Vector2(-7.25, 56.3125)
+position = Vector2(-5, -15)
 shape = SubResource("RectangleShape2D_vfpih")
 
 [node name="ReceptorDaño" parent="." unique_id=1523650532 instance=ExtResource("2_vfpih")]
@@ -28,7 +29,7 @@ collision_layer = 256
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
-position = Vector2(-7, 31.25)
+position = Vector2(-6, -43)
 shape = SubResource("RectangleShape2D_1i0s6")
 debug_color = Color(0.9485412, 4.6205523e-06, 0.580177, 0.41960785)
 

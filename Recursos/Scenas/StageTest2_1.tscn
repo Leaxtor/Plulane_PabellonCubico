@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://1cbvldi8oi3r"]
+
+[ext_resource type="PackedScene" uid="uid://dhneiks81x4m8" path="res://Recursos/Scenas/Stage.tscn" id="1_o3pk0"]
+[ext_resource type="Texture2D" uid="uid://biaw5ueakyy5f" path="res://Assets/Imagenes/Fondos/Metro 2 estacion.png" id="2_6luqs"]
+[ext_resource type="PackedScene" uid="uid://dxhcvovw1gwo0" path="res://Recursos/Scenas/checkpoint.tscn" id="3_7kqje"]
+[ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://Recursos/Scenas/NPC/enemigo_1.tscn" id="4_tehcr"]
+[ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Recursos/Scenas/Miselaneos/Carrito.tscn" id="5_tehcr"]
+
+[node name="StageTest2_1" unique_id=520458551 instance=ExtResource("1_o3pk0")]
+
+[node name="MainBackground" parent="Background" parent_id_path=PackedInt32Array(60433559) index="0" unique_id=2129333041]
+position = Vector2(899.5, 280.24997)
+scale = Vector2(2.491511, 1.091337)
+texture = ExtResource("2_6luqs")
+
+[node name="CollisionShape2D" parent="WorldColliders/StaticBody2D" parent_id_path=PackedInt32Array(2146609693) index="0" unique_id=1348963494]
+position = Vector2(1105, 416)
+
+[node name="CollisionShape2D" parent="WorldColliders/StaticBody2D2" parent_id_path=PackedInt32Array(1451548887) index="0" unique_id=1024615516]
+position = Vector2(813, 579)
+
+[node name="Checkpoint" parent="Chechpoints" parent_id_path=PackedInt32Array(124746635) index="0" unique_id=904931730 instance=ExtResource("3_7kqje")]
+position = Vector2(288, 13)
+
+[node name="Enemigo_1" parent="Chechpoints/Checkpoint/Enemies" parent_id_path=PackedInt32Array(904931730, 1021542459) index="0" unique_id=106214172 instance=ExtResource("4_tehcr")]
+position = Vector2(-56, 494)
+duration_prep_melee_attack = 51410
+
+[node name="Enemigo_2" parent="Chechpoints/Checkpoint/Enemies" parent_id_path=PackedInt32Array(904931730, 1021542459) index="1" unique_id=1038868916 instance=ExtResource("4_tehcr")]
+position = Vector2(1087, 521)
+
+[node name="CollisionShape2D" parent="Chechpoints/Checkpoint/PlayerDetectionArea" parent_id_path=PackedInt32Array(904931730, 165721204) index="0" unique_id=1674740212]
+debug_color = Color(0.9500212, 2.5027991e-06, 0.57303935, 0.41960785)
+
+[node name="Carrito" parent="Containers" parent_id_path=PackedInt32Array(3021457) index="0" unique_id=524723037 instance=ExtResource("5_tehcr")]
+position = Vector2(518, 469)
+
+[node name="Carrito2" parent="Containers" parent_id_path=PackedInt32Array(3021457) index="1" unique_id=301918807 instance=ExtResource("5_tehcr")]
+position = Vector2(99, 475)
+content_type = 2
+
+[editable path="Chechpoints/Checkpoint"]

@@ -8,9 +8,20 @@ const PREFAB_MAP := {
 	Collectible.Type.FOOD: preload("res://Recursos/Scenas/Miselaneos/Food.tscn") 
 }
 
-func _ready() -> void:
+const ENEMY_MAP := {
+	Character.Type.ENEMIGO_1: preload("res://Recursos/Scenas/NPC/enemigo_1.tscn"), 
+	Character.Type.ENEMIGO_GOON: preload("res://Recursos/Scenas/NPC/enemigo_goon.tscn"),
+	Character.Type.THUG_ENEMIGO: preload("res://Recursos/Scenas/NPC/thug_enemigo.tscn"),
+	Character.Type.BOSS_TUTORIAL: preload("res://Recursos/Scenas/NPC/boss_tutorial.tscn")
+}
+
+@export var player: Player #El NODO CAPTURA AL JUGADOR PARA DECIRLE A LOS ENEMIGOS QUE IMPRIMA
+
+func _init () -> void:
 	EntityManager.spawn_collectible.connect(on_spawn_collectible.bind())
 	EntityManager.spawn_shot.connect(on_spawn_shot.bind())
+	EntityManager.spawn_enemy.connect(on_spawn_enemy.bind())
+	EntityManager.orphan_actor.connect(on_orphan_actor.bind())
 	
 func on_spawn_collectible(type: Collectible.Type, initial_state: Collectible.State, collectible_global_position: Vector2, collectible_direction: Vector2, initial_height: float, autodestroy: bool) -> void:
 	var collectible : Collectible = PREFAB_MAP[type].instantiate()
@@ -21,10 +32,20 @@ func on_spawn_collectible(type: Collectible.Type, initial_state: Collectible.Sta
 	collectible.autodestroy = autodestroy
 	add_child.call_deferred(collectible) #add child pero se ejecuta luego de calcular la fisica
 	#call_deferred("add_child", collectible) forma vieja del tutorial
-	#add_child(collectible)
+	
 	#el "knockdown_intensity" determina que tanto va a girar en el aire
+
 func on_spawn_shot(gun_root_position: Vector2, distance_traveled: float, height: float) -> void:
 	var shot: Shot = SHOT_PREFAB.instantiate()
 	add_child(shot)
 	shot.position = gun_root_position
 	shot.initialize(distance_traveled, height)
+
+func on_spawn_enemy(enemy_data: EnemyData) -> void:
+	var enemy : Character = ENEMY_MAP[enemy_data.type].instantiate()
+	enemy.global_position = enemy_data.global_position
+	enemy.player = player #EL enemigo debe fijar al jugador
+	add_child(enemy) 
+	
+func on_orphan_actor(orphan: Node2D) -> void:
+	orphan.reparent(self)

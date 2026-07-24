@@ -4,7 +4,7 @@ extends CharacterBody2D
 const GRAVEDAD := 600.0
 
 @export var max_health : int
-
+@export var type : Type
 @export_group("Movimiento")
 @export var duracion_suelo : float
 @export var flight_speed : float
@@ -67,6 +67,8 @@ enum State {
 	Shoot,
 	Recover
 }
+
+enum Type {PLAYER, ENEMIGO_1, ENEMIGO_GOON, THUG_ENEMIGO, BOSS_TUTORIAL}
 
 var ammo_left := 0
 var anim_attack := []
@@ -251,6 +253,8 @@ func is_carrying_weapong() -> bool:
 func can_recogiendo_proyectil() ->bool:
 	if can_respawn_knife:
 		return false
+	if Time.get_ticks_msec() - time_since_knife_dissmiss < duracion_between_knife_respawn:
+		return false #evita que recogan el cuchillo al milisegundo de soltarlo
 	var collectible_areas := collectible_sensor.get_overlapping_areas()
 	if collectible_areas.size() == 0:
 		return false

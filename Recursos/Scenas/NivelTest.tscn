@@ -29,7 +29,7 @@ position = Vector2(1290, 89)
 texture = ExtResource("1_8m6f3")
 
 [node name="Muros" type="StaticBody2D" parent="." unique_id=1403442381]
-collision_layer = 2
+collision_layer = 513
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Muros" unique_id=20957814]
@@ -57,11 +57,10 @@ script = ExtResource("3_x3146")
 
 [node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("5_5wrfm")]
 position = Vector2(-269, 200)
+type = 0
 duracion_suelo = 0.0
 can_respawn_knife = false
 damage = 2
-has_knife = false
-has_gun = true
 
 [node name="Carrito" parent="ActoresContenedor" unique_id=524723037 instance=ExtResource("4_5mnnw")]
 y_sort_enabled = true
@@ -78,6 +77,7 @@ jugador = NodePath("../Jugador_Plus")
 position = Vector2(1436, 75)
 player = NodePath("../Jugador_Plus")
 max_health = 10
+type = 0
 duracion_suelo = 5200.0
 salto_fuerza = 0.0
 move_speed = 50.0
@@ -88,6 +88,7 @@ damage = 2
 position = Vector2(1963, 149)
 player = NodePath("../Jugador_Plus")
 max_health = 10
+type = 0
 duracion_suelo = 400.0
 salto_fuerza = 0.0
 move_speed = 100.0
@@ -100,6 +101,7 @@ position = Vector2(1689, 184)
 duration_prep_range_attack = 2000
 player = NodePath("../Jugador_Plus")
 max_health = 10
+type = 0
 salto_fuerza = 0.0
 move_speed = 50.0
 knockback_intensidad = 50.0
@@ -120,6 +122,7 @@ position = Vector2(66, 135)
 player = NodePath("../Jugador_Plus")
 distance_from_player = 100
 max_health = 10
+type = 0
 move_speed = 100.0
 knockback_intensidad = 50.0
 knockdown_intensidad = 100.0

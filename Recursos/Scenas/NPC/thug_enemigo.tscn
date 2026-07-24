@@ -7,8 +7,9 @@ duration_between_melee_attacks = 1500
 duration_between_range_attacks = 2500
 duration_prep_melee_attack = 500
 duration_prep_range_attack = 500
-has_gun = true
+type = 3
 move_speed = 100.0
+has_gun = true
 
 [editable path="EmitidorDaño"]
 [editable path="ReceptorDaño"]

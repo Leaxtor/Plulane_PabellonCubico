@@ -17,6 +17,9 @@ var time_since_prep_melee_attack := Time.get_ticks_msec()
 var time_since_last_range_attack := Time.get_ticks_msec()
 var time_since_prep_range_attack := Time.get_ticks_msec()
 
+#SI SE PUEDE GOLPEAR SU CADAVER AYUDA A QUE NO EMITA OTRAS SEÑALES
+var is_death := false
+
 func _ready() ->void:
 	super._ready()
 	anim_attack = ["Golpe","Golpe_2"]
@@ -116,3 +119,6 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_Type: ReceptorDamage
 	super.on_receive_damage(amount, direccion, hit_Type)
 	if current_health == 0:
 			player.free_slot(self)
+			if not is_death:
+				EntityManager.death_enemy.emit(self)
+			is_death = true

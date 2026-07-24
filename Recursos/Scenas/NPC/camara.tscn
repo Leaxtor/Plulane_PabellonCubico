@@ -6,6 +6,8 @@
 size = Vector2(24, 1060)
 
 [node name="CamaraJugador" type="Camera2D" unique_id=171648781]
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
 script = ExtResource("1_1w0lv")
 
 [node name="Timer" type="Timer" parent="." unique_id=860138516]

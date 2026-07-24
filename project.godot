@@ -21,6 +21,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 [autoload]
 
 EntityManager="*uid://c0pvln4tp6veu"
+StageManager="*uid://bvvgf32yxthh0"
 
 [display]
 

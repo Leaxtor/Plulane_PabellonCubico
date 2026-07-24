@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dhneiks81x4m8"]
+
+[ext_resource type="Script" uid="uid://cra62lkip544r" path="res://Recursos/Scripts/stage.gd" id="1_guior"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(3461.75, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
+size = Vector2(3427.5, 51)
+
+[node name="Stage" type="Node2D" unique_id=520458551]
+script = ExtResource("1_guior")
+
+[node name="Background" type="Node2D" parent="." unique_id=60433559]
+
+[node name="MainBackground" type="Sprite2D" parent="Background" unique_id=2129333041]
+
+[node name="WorldColliders" type="Node2D" parent="." unique_id=1823892226]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WorldColliders" unique_id=2146609693]
+collision_layer = 513
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/StaticBody2D" unique_id=1348963494]
+position = Vector2(1123.125, 0)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WorldColliders" unique_id=1451548887]
+collision_layer = 513
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/StaticBody2D2" unique_id=1024615516]
+position = Vector2(1121.25, 439)
+shape = SubResource("RectangleShape2D_riqys")
+
+[node name="Chechpoints" type="Node2D" parent="." unique_id=124746635]
+
+[node name="Containers" type="Node2D" parent="." unique_id=3021457]
