@@ -13,6 +13,7 @@ b = Vector2(0, 220)
 [node name="NivelTest2" type="Node2D" unique_id=1173936784]
 
 [node name="StageTest2_1" parent="." unique_id=520458551 instance=ExtResource("1_u7gu4")]
+position = Vector2(38, -430)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=190955764]
 collision_layer = 16
@@ -21,7 +22,7 @@ script = ExtResource("3_tduga")
 Nivel_Nombre = "res://Recursos/Scenas/NivelTest3.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1164999380]
-position = Vector2(2131, 347)
+position = Vector2(2153, -74)
 shape = SubResource("SegmentShape2D_sdg83")
 debug_color = Color(0.9485412, 4.6205523e-06, 0.580177, 0.41960785)
 
@@ -35,8 +36,10 @@ position = Vector2(-71, 259)
 jugador = NodePath("../Jugador_Plus")
 
 [node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("4_u7gu4")]
-position = Vector2(-350, 516)
+position = Vector2(-30, 104)
 type = 0
+can_respawn_knife = false
+has_knife = false
 
 [node name="Node2D" type="Node2D" parent="." unique_id=914154982]
 

@@ -29,7 +29,6 @@ position = Vector2(1290, 89)
 texture = ExtResource("1_8m6f3")
 
 [node name="Muros" type="StaticBody2D" parent="." unique_id=1403442381]
-collision_layer = 513
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Muros" unique_id=20957814]

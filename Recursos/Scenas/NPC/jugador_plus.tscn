@@ -1490,7 +1490,7 @@ radius = 13.0
 height = 64.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qh13"]
-size = Vector2(35, 20)
+size = Vector2(35, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg235"]
 size = Vector2(37, 33)
@@ -1499,7 +1499,7 @@ size = Vector2(37, 33)
 
 [node name="Jugador_Plus" unique_id=106214172 instance=ExtResource("1_snlmh")]
 collision_layer = 2
-collision_mask = 530
+collision_mask = 531
 script = ExtResource("2_kg235")
 max_duration_between_succesful_hits = 1000
 max_health = 20
@@ -1535,7 +1535,7 @@ collision_mask = 388
 monitoring = false
 
 [node name="CollisionShape2D" parent="EmitidorDaño" index="0" unique_id=1521075572]
-position = Vector2(61, -96)
+position = Vector2(61, -99)
 shape = SubResource("RectangleShape2D_6qh13")
 debug_color = Color(0.91617966, 8.490265e-05, 0.715479, 0.41960785)
 

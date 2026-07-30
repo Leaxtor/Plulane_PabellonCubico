@@ -65,7 +65,8 @@ enum State {
 	Throw_lanza,
 	Recogiendo,
 	Shoot,
-	Recover
+	Recover,
+	Drop
 }
 
 enum Type {PLAYER, ENEMIGO_1, ENEMIGO_GOON, THUG_ENEMIGO, BOSS_TUTORIAL}
@@ -92,7 +93,8 @@ var animation_map := {
 	State.Throw_lanza: "Throw_lanza",
 	State.Recogiendo: "Recogiendo",
 	State.Shoot: "Shoot",
-	State.Recover: "Recover"
+	State.Recover: "Recover",
+	State.Drop: "Reposo"
 }
 
 var attack_combo_index := 0
@@ -124,19 +126,27 @@ func _process(delta: float) ->void :
 	handle_preb_shoot()
 	handle_knife_respawn()
 	set_heading()
+	voltear_sprite() #talvez lo cambie
+	set_sprite_visibility()
+	set_sprite_height_position()
+	setup_collision()
+	move_and_slide()
+	
+func set_sprite_visibility() -> void:
 	knife_sprite.visible = has_knife
 	gun_sprite.visible = has_gun
-	voltear_sprite() #talvez lo cambie
-	character_sprite.position = Vector2.UP * height #IMPORTANTE EL SPRITE DEBE ESTAR EN X:0 Y:0 sino se descoloca
+
+func set_sprite_height_position() -> void:
+	character_sprite.position = Vector2.UP * height #IMPORTANTE EL OFFSET MANEJA LA POSICION DEL SPRITE
 	knife_sprite.position = Vector2.UP * height
 	gun_sprite.position = Vector2.UP * height
+
+func setup_collision() -> void:
 	collision_shape.disabled = is_collision_disable()
 	emitidor_daño.monitoring = is_attacking()
 	receptor_daño.monitorable = can_get_hurt()
 	collateral_damage_emmiter.monitoring = state == State.Fly
-	move_and_slide()
-	
-	
+
 func handle_movement() -> void:
 	if can_move():
 		if velocity.length() == 0:

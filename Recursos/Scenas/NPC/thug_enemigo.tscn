@@ -9,7 +9,8 @@ duration_prep_melee_attack = 500
 duration_prep_range_attack = 500
 type = 3
 move_speed = 100.0
-has_gun = true
+can_respawn_knife = true
+has_knife = true
 
 [editable path="EmitidorDaño"]
 [editable path="ReceptorDaño"]

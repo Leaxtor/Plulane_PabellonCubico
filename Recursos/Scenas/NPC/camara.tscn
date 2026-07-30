@@ -7,7 +7,7 @@ size = Vector2(24, 1060)
 
 [node name="CamaraJugador" type="Camera2D" unique_id=171648781]
 position_smoothing_enabled = true
-position_smoothing_speed = 4.0
+position_smoothing_speed = 15.0
 script = ExtResource("1_1w0lv")
 
 [node name="Timer" type="Timer" parent="." unique_id=860138516]
@@ -21,7 +21,7 @@ collision_mask = 0
 sync_to_physics = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Muros/MuroCamara" unique_id=2007907885]
-position = Vector2(-497, 49)
+position = Vector2(-514, 48)
 shape = SubResource("RectangleShape2D_1w0lv")
 
 [node name="MuroCamara2" type="AnimatableBody2D" parent="Muros" unique_id=1295020912]
@@ -30,7 +30,7 @@ collision_mask = 0
 sync_to_physics = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Muros/MuroCamara2" unique_id=1986814515]
-position = Vector2(497, 35)
+position = Vector2(524, 35)
 shape = SubResource("RectangleShape2D_1w0lv")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

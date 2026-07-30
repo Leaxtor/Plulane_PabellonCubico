@@ -8,7 +8,7 @@
 size = Vector2(79.25, 27.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1i0s6"]
-size = Vector2(87, 66.5)
+size = Vector2(87, 46.25)
 
 [node name="Carrito" type="StaticBody2D" unique_id=524723037]
 collision_layer = 16
@@ -29,7 +29,7 @@ collision_layer = 256
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
-position = Vector2(-6, -43)
+position = Vector2(-4, -68)
 shape = SubResource("RectangleShape2D_1i0s6")
 debug_color = Color(0.9485412, 4.6205523e-06, 0.580177, 0.41960785)
 
