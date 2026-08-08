@@ -54,17 +54,17 @@ debug_color = Color(0.80999553, 0.0021903343, 0.9879258, 0.41960785)
 y_sort_enabled = true
 script = ExtResource("3_x3146")
 
-[node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("5_5wrfm")]
-position = Vector2(-269, 200)
-type = 0
-duracion_suelo = 0.0
-can_respawn_knife = false
-damage = 2
-
 [node name="Carrito" parent="ActoresContenedor" unique_id=524723037 instance=ExtResource("4_5mnnw")]
 y_sort_enabled = true
 position = Vector2(318, 117)
 content_type = 1
+
+[node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("5_5wrfm")]
+position = Vector2(315, 159)
+type = 0
+duracion_suelo = 0.0
+can_respawn_knife = false
+damage = 2
 
 [node name="MesaArcade" parent="ActoresContenedor" unique_id=737910012 instance=ExtResource("5_nx08k")]
 position = Vector2(411, 77)
@@ -117,7 +117,7 @@ duration_shot_across_screen = 0.0
 position = Vector2(-110, 223)
 
 [node name="boss_tutorial" parent="ActoresContenedor" unique_id=774268132 node_paths=PackedStringArray("player") instance=ExtResource("11_ejajt")]
-position = Vector2(66, 135)
+position = Vector2(-118, 164)
 player = NodePath("../Jugador_Plus")
 distance_from_player = 100
 max_health = 10

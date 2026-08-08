@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://4glibyt812qp"]
+
+[ext_resource type="Script" uid="uid://bmf4316gvw71e" path="res://Recursos/Scripts/door.gd" id="1_re6wg"]
+[ext_resource type="Texture2D" uid="uid://pkffaem4dkes" path="res://Assets/Imagenes/Fondos/PuertaMetro.png" id="2_qgc8w"]
+
+[node name="Door" type="Node2D" unique_id=2144243154 node_paths=PackedStringArray("enemies")]
+script = ExtResource("1_re6wg")
+duration_open = 1000.0
+enemies = [null]
+
+[node name="PuertaMetro" type="Sprite2D" parent="." unique_id=402119199]
+scale = Vector2(2.425926, 1)
+texture = ExtResource("2_qgc8w")
+centered = false
+offset = Vector2(-25, -115)

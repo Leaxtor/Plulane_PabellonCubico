@@ -34,3 +34,5 @@ shape = SubResource("RectangleShape2D_riqys")
 [node name="Chechpoints" type="Node2D" parent="." unique_id=124746635]
 
 [node name="Containers" type="Node2D" parent="." unique_id=3021457]
+
+[node name="Doors" type="Node2D" parent="." unique_id=810179608]

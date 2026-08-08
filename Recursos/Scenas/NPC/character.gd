@@ -66,7 +66,8 @@ enum State {
 	Recogiendo,
 	Shoot,
 	Recover,
-	Drop
+	Drop,
+	Wait
 }
 
 enum Type {PLAYER, ENEMIGO_1, ENEMIGO_GOON, THUG_ENEMIGO, BOSS_TUTORIAL}
@@ -94,7 +95,8 @@ var animation_map := {
 	State.Recogiendo: "Recogiendo",
 	State.Shoot: "Shoot",
 	State.Recover: "Recover",
-	State.Drop: "Reposo"
+	State.Drop: "Reposo",
+	State.Wait: "Reposo"
 }
 
 var attack_combo_index := 0
@@ -114,7 +116,7 @@ func _ready() ->void:
 	collateral_damage_emmiter.area_entered.connect(on_emit_collateral_damage.bind())
 	collateral_damage_emmiter.body_entered.connect(on_wall_hit.bind())
 	current_health = max_health
-
+	set_sprite_height_position() #detemina si esta flotando o no antes de dibujarse
 func _process(delta: float) ->void :
 	handle_input()
 	handle_movement()
@@ -328,7 +330,7 @@ func bloque_completo() -> void:
 #MODIFICAR
 func handle_airtime(delta: float) -> void:
 	#if state == State.Salto_Medio or state == State.Salto_Patada:
-	if [State.Salto_Medio, State.Salto_Patada, State.Caida].has(state):
+	if [State.Salto_Medio, State.Salto_Patada, State.Caida, State.Drop].has(state):
 		height += height_speed * delta * velocidad_subida #Aumentar para velocidad de subida
 		if height < 0:
 			height = 0

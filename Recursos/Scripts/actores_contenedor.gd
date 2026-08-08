@@ -17,6 +17,8 @@ const ENEMY_MAP := {
 
 @export var player: Player #El NODO CAPTURA AL JUGADOR PARA DECIRLE A LOS ENEMIGOS QUE IMPRIMA
 
+var doors : Array[Door] = []
+
 func _init () -> void:
 	EntityManager.spawn_collectible.connect(on_spawn_collectible.bind())
 	EntityManager.spawn_shot.connect(on_spawn_shot.bind())
@@ -43,9 +45,16 @@ func on_spawn_shot(gun_root_position: Vector2, distance_traveled: float, height:
 
 func on_spawn_enemy(enemy_data: EnemyData) -> void:
 	var enemy : Character = ENEMY_MAP[enemy_data.type].instantiate()
+	print("POSICION GLOBAL ENEMIGO ", enemy_data.global_position)
 	enemy.global_position = enemy_data.global_position
 	enemy.player = player #EL enemigo debe fijar al jugador
+	enemy.height = enemy_data.height
+	enemy.state = enemy_data.state
+	if enemy_data.door_index > -1:
+		enemy.assign_door(doors[enemy_data.door_index])
 	add_child(enemy) 
 	
 func on_orphan_actor(orphan: Node2D) -> void:
+	if orphan is Door:
+		doors.append(orphan)
 	orphan.reparent(self)
