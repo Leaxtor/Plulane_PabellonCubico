@@ -12,4 +12,4 @@ enemies = [null]
 scale = Vector2(2.425926, 1)
 texture = ExtResource("2_qgc8w")
 centered = false
-offset = Vector2(-25, -115)
+offset = Vector2(-25, -150)

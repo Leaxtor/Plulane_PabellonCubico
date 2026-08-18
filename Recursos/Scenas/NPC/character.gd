@@ -67,7 +67,8 @@ enum State {
 	Shoot,
 	Recover,
 	Drop,
-	Wait
+	Wait,
+	Appearing
 }
 
 enum Type {PLAYER, ENEMIGO_1, ENEMIGO_GOON, THUG_ENEMIGO, BOSS_TUTORIAL}
@@ -96,7 +97,8 @@ var animation_map := {
 	State.Shoot: "Shoot",
 	State.Recover: "Recover",
 	State.Drop: "Reposo",
-	State.Wait: "Reposo"
+	State.Wait: "Reposo",
+	State.Appearing: "Reposo"
 }
 
 var attack_combo_index := 0
@@ -115,7 +117,7 @@ func _ready() ->void:
 	receptor_daño.damage_received.connect(on_receive_damage.bind())
 	collateral_damage_emmiter.area_entered.connect(on_emit_collateral_damage.bind())
 	collateral_damage_emmiter.body_entered.connect(on_wall_hit.bind())
-	current_health = max_health
+	set_health(max_health, type == Character.Type.PLAYER)
 	set_sprite_height_position() #detemina si esta flotando o no antes de dibujarse
 func _process(delta: float) ->void :
 	handle_input()
@@ -252,7 +254,7 @@ func shoot_gun() -> void:
 	var target := proyectil_lanzable.get_collider()
 	if target != null:
 		target_point = proyectil_lanzable.get_collision_point()
-		#si le dispara al muro ocurre un error porque no puede recibir daño
+		EntityManager.spawn_spark.emit(target.position)
 		target.on_receive_damage(damage_gunshot,heading, ReceptorDamage.HitType.KNOCKDOWN)
 	var weapon_root_position := Vector2(weapon_position.global_position.x, position.y)
 	var weapon_height := -weapon_position.position.y
@@ -291,7 +293,7 @@ func recogiendo_proyectil() ->void:
 			ammo_left = max_ammo_per_gun
 			print("consiguio arma")
 		if collectible.type == Collectible.Type.FOOD:
-			current_health = max_health
+			set_health(max_health)
 		collectible.queue_free()
 
 func is_collision_disable() -> bool:
@@ -382,9 +384,7 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 		if has_gun:
 			has_gun = false
 			EntityManager.spawn_collectible.emit(Collectible.Type.GUN, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
-			
-		current_health = clamp(current_health - amount, 0, max_health)
-		print(current_health)
+		set_health(current_health - amount)
 		## LO ULTIMO (STATE CAIDA) quitar del cage get hurt para combear en el aire
 		if current_health == 0 or hit_type == ReceptorDamage.HitType.KNOCKDOWN or state == State.Caida:
 			state = State.Caida
@@ -394,9 +394,12 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 			state = State.Fly
 			velocity = direccion * flight_speed #No esta funcionando al velocidad
 		else:
-			state = State.Hurt
+			state = State.Hurt 
 			velocity = direccion * knockback_intensidad
 		
-
+func set_health(health: int, is_emit_signal: bool = true) -> void:
+	current_health = clamp(health, 0, max_health)
+	if is_emit_signal:
+		DamageManager.health_change.emit(type, current_health, max_health)
 
 #ANIMACION CON ANIMATIONPLAYER: https://youtu.be/fuGiJdMrCAk?si=a5CSFPSm1-F9O4Wk&t=609

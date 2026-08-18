@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://gpvvudyx6k0v"]
+
+[ext_resource type="Script" uid="uid://bqq34ywowvi6b" path="res://Assets/Imagenes/Interfaces/health_bar.gd" id="1_e170x"]
+[ext_resource type="Texture2D" uid="uid://d1phopmxr6dvs" path="res://Assets/Imagenes/Interfaces/Healthbar.png" id="1_gvkpf"]
+
+[node name="HealthBar" type="Control" unique_id=915520155]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -760.0
+offset_bottom = -490.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e170x")
+
+[node name="WhiteBorder" type="ColorRect" parent="." unique_id=323303265]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 50.0
+
+[node name="ContentBackground" type="ColorRect" parent="." unique_id=1689879816]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 15.0
+offset_bottom = 45.0
+color = Color(0.6666667, 0.1882353, 0.050980393, 1)
+
+[node name="HealthGauge" type="TextureRect" parent="." unique_id=1429115605]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 15.0
+offset_bottom = 45.0
+texture = ExtResource("1_gvkpf")
+expand_mode = 1
+stretch_mode = 1

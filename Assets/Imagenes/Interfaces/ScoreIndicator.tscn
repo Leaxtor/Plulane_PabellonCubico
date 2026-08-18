@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dfa03jxnky12w"]
+
+[ext_resource type="Theme" uid="uid://b5a4p6htutqre" path="res://Assets/Imagenes/Interfaces/Temas/gui_theme.tres" id="1_8igwt"]
+[ext_resource type="Script" uid="uid://cwbgqiksxfis1" path="res://Assets/Imagenes/Interfaces/score_indicator.gd" id="2_uvgwg"]
+
+[node name="ScoreIndicator" type="Label" unique_id=356022241]
+theme = ExtResource("1_8igwt")
+text = "100"
+script = ExtResource("2_uvgwg")
+duration_score_update = 300.0

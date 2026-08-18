@@ -1594,6 +1594,7 @@ scale = Vector2(0.58, 0.6)
 texture = ExtResource("7_a8clm")
 centered = false
 hframes = 3
+frame = 1
 
 [node name="WeaponPosition" parent="Cuchillo" index="0" unique_id=983036064]
 position = Vector2(17.241379, 126.66666)

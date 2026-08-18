@@ -26,27 +26,33 @@ nb_simultaneous_enemy = 2
 
 [node name="Enemigo_1" parent="Chechpoints/Checkpoint/Enemies" parent_id_path=PackedInt32Array(904931730, 1021542459) index="0" unique_id=106214172 instance=ExtResource("4_tehcr")]
 position = Vector2(473, -57)
-duration_prep_melee_attack = 51410
 
 [node name="Enemigo_2" parent="Chechpoints/Checkpoint/Enemies" parent_id_path=PackedInt32Array(904931730, 1021542459) index="1" unique_id=1038868916 instance=ExtResource("4_tehcr")]
-position = Vector2(778, 460)
+position = Vector2(784, 442)
 type = 3
+
+[node name="Enemigo_3" parent="Chechpoints/Checkpoint/Enemies" parent_id_path=PackedInt32Array(904931730, 1021542459) index="2" unique_id=1908894073 instance=ExtResource("4_tehcr")]
+position = Vector2(783, 441)
 
 [node name="CollisionShape2D" parent="Chechpoints/Checkpoint/PlayerDetectionArea" parent_id_path=PackedInt32Array(904931730, 165721204) index="0" unique_id=1674740212]
 debug_color = Color(0.9500212, 2.5027991e-06, 0.57303935, 0.41960785)
 
 [node name="CollisionShape2D" parent="Chechpoints/Checkpoint/CheckpointPlayerArea" parent_id_path=PackedInt32Array(904931730, 192106489) index="0" unique_id=1349556189]
-position = Vector2(499, 260)
+position = Vector2(-291, 193)
 
 [node name="Checkpoint2" parent="Chechpoints" parent_id_path=PackedInt32Array(124746635) index="1" unique_id=217150146 instance=ExtResource("3_7kqje")]
 position = Vector2(545, -1)
 
 [node name="Enemigo_1" parent="Chechpoints/Checkpoint2/Enemies" parent_id_path=PackedInt32Array(217150146, 1021542459) index="0" unique_id=2000375494 instance=ExtResource("4_tehcr")]
 position = Vector2(1741, -57)
-duration_prep_melee_attack = 51410
+duration_appear = 0.0
 
 [node name="Enemigo_2" parent="Chechpoints/Checkpoint2/Enemies" parent_id_path=PackedInt32Array(217150146, 1021542459) index="1" unique_id=452155293 instance=ExtResource("4_tehcr")]
 position = Vector2(395, 526)
+
+[node name="Enemigo_3" parent="Chechpoints/Checkpoint2/Enemies" parent_id_path=PackedInt32Array(217150146, 1021542459) index="2" unique_id=270336078 instance=ExtResource("4_tehcr")]
+position = Vector2(800, 446)
+type = 2
 
 [node name="CollisionShape2D" parent="Chechpoints/Checkpoint2/PlayerDetectionArea" parent_id_path=PackedInt32Array(217150146, 165721204) index="0" unique_id=1674740212]
 position = Vector2(1533, 263)
@@ -63,8 +69,8 @@ position = Vector2(636, 533)
 content_type = 2
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(810179608) index="0" unique_id=2144243154 node_paths=PackedStringArray("enemies") instance=ExtResource("6_rl63f")]
-position = Vector2(1321, 477)
-enemies = [NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_2")]
+position = Vector2(1324, 471)
+enemies = [NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_2"), NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_3")]
 
 [editable path="Chechpoints/Checkpoint"]
 [editable path="Chechpoints/Checkpoint2"]

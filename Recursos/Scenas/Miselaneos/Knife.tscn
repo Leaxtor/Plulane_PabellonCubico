@@ -51,7 +51,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333752),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [0.0, 1.5707964, 3.141592653589793, 4.71238898038469, 6.283185307179586]
 }
 

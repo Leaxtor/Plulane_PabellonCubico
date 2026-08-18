@@ -96,13 +96,13 @@ func is_vulnerable() -> bool:
 	return state == State.Recover
 	
 func on_receive_damage(amount: int, direccion: Vector2, _hit_type: ReceptorDamage.HitType) -> void:
-	print("ME ATACO")
+	ComboManager.register_hit.emit()
 	if not is_vulnerable():
 		knockback_force = direccion * knockback_intensidad/2 #sino divido sale mucho
 		return 
 	current_health = clamp(current_health - amount, 0, max_health)
-	print(current_health)
 	if current_health == 0:
+		EntityManager.spawn_spark.emit(position)
 		state = State.Caida
 		height_speed = knockdown_intensidad
 		EntityManager.death_enemy.emit(self)

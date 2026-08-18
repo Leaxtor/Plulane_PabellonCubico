@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmw4phi0ftl4l"]
 
 [ext_resource type="PackedScene" uid="uid://1cbvldi8oi3r" path="res://Recursos/Scenas/StageTest2_1.tscn" id="1_u7gu4"]
+[ext_resource type="PackedScene" uid="uid://ceb6yc2mk6nva" path="res://Assets/Imagenes/Interfaces/ui.tscn" id="1_ujv62"]
 [ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Recursos/Scenas/NPC/camara.tscn" id="3_sdg83"]
 [ext_resource type="Script" uid="uid://oxmeu4qnx082" path="res://Recursos/Scripts/FinalNivel.gd" id="3_tduga"]
 [ext_resource type="Script" uid="uid://djhqbwol0215r" path="res://Recursos/Scripts/actores_contenedor.gd" id="3_u7gu4"]
@@ -11,6 +12,8 @@ a = Vector2(0, 84)
 b = Vector2(0, 220)
 
 [node name="NivelTest2" type="Node2D" unique_id=1173936784]
+
+[node name="UI" parent="." unique_id=405288705 instance=ExtResource("1_ujv62")]
 
 [node name="StageTest2_1" parent="." unique_id=520458551 instance=ExtResource("1_u7gu4")]
 position = Vector2(206, -438)

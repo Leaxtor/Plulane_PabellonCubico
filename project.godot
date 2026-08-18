@@ -22,6 +22,8 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 
 EntityManager="*uid://c0pvln4tp6veu"
 StageManager="*uid://bvvgf32yxthh0"
+DamageManager="*uid://bvs8hnj0pwp2k"
+ComboManager="*uid://b62w0i063kwdk"
 
 [display]
 

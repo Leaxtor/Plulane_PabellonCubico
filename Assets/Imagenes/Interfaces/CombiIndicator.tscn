@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bnbvpb8p4d35r"]
+
+[ext_resource type="Theme" uid="uid://b5a4p6htutqre" path="res://Assets/Imagenes/Interfaces/Temas/gui_theme.tres" id="1_slwkq"]
+[ext_resource type="Script" uid="uid://oculdu4yc6eg" path="res://Assets/Imagenes/Interfaces/combi_indicator.gd" id="2_4tivt"]
+
+[node name="CombiIndicator" type="Label" unique_id=1391740175]
+theme = ExtResource("1_slwkq")
+text = "X10"
+script = ExtResource("2_4tivt")
+duration_combo_timeout = 2000

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://t8sjc3imvui8"]
 
 [ext_resource type="Texture2D" uid="uid://c04cnelihnx11" path="res://Assets/Imagenes/Fondos/Barrios Bajos-5.png" id="1_8m6f3"]
+[ext_resource type="PackedScene" uid="uid://ceb6yc2mk6nva" path="res://Assets/Imagenes/Interfaces/ui.tscn" id="1_w7msa"]
 [ext_resource type="Script" uid="uid://oxmeu4qnx082" path="res://Recursos/Scripts/FinalNivel.gd" id="3_6buoh"]
 [ext_resource type="Script" uid="uid://djhqbwol0215r" path="res://Recursos/Scripts/actores_contenedor.gd" id="3_x3146"]
 [ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Recursos/Scenas/Miselaneos/Carrito.tscn" id="4_5mnnw"]
@@ -23,6 +24,8 @@ a = Vector2(154, -211)
 b = Vector2(184, -62)
 
 [node name="NivelTest" type="Node2D" unique_id=936101285]
+
+[node name="UI" parent="." unique_id=405288705 instance=ExtResource("1_w7msa")]
 
 [node name="Fondo" type="Sprite2D" parent="." unique_id=1856137971]
 position = Vector2(1290, 89)
