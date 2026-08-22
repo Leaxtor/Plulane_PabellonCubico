@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ck33j1q5b2iib"]
+
+[ext_resource type="Script" uid="uid://cuj55q84meggr" path="res://Assets/Imagenes/Interfaces/avanzar_texture_rect.gd" id="1_u8kuy"]
+
+[node name="AvanzarTextureRect" type="TextureRect" unique_id=1630362302]
+script = ExtResource("1_u8kuy")
+duration_flocker = 400
+total_flickers = 5

@@ -105,6 +105,7 @@ func on_receive_damage(amount: int, direccion: Vector2, _hit_type: ReceptorDamag
 		EntityManager.spawn_spark.emit(position)
 		state = State.Caida
 		height_speed = knockdown_intensidad
+		SoundPlayer.play(SoundManager.Sound.GRUNT)
 		EntityManager.death_enemy.emit(self)
 	else:
 		velocity = Vector2.ZERO

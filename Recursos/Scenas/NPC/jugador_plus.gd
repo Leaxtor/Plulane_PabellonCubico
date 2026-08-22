@@ -38,6 +38,7 @@ func handle_input() -> void:
 				state = State.Recogiendo
 			else:
 				state = State.Golpe
+				SoundPlayer.play(SoundManager.Sound.SWOOSH)
 				if is_ultimo_hit_acertado:
 					time_since_last_succesful_attack = Time.get_ticks_msec()
 					#Avanza 1 x 1 en la lista de animaciones de ataque y obtiene el resto, dando la vuelta si se pasa
@@ -53,6 +54,7 @@ func handle_input() -> void:
 		attack_combo_index = 0
 	if can_jump_patada() and Input.is_action_just_pressed("ataque_golpear"):
 		state = State.Salto_Patada
+		SoundPlayer.play(SoundManager.Sound.SWOOSH)
 
 func set_heading() -> void:
 	if can_move():

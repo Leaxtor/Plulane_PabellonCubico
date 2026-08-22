@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ck2tl7d1jn82n"
+path="res://.godot/imported/Ambient Vol10 Dreth Mirage Cut 30.wav-5f931496a70acc89b45d5365b0df233b.sample"
+
+[deps]
+
+source_file="res://Assets/Audios/Musica/MP3/Ambient Vol10 Dreth Mirage Cut 30.wav"
+dest_files=["res://.godot/imported/Ambient Vol10 Dreth Mirage Cut 30.wav-5f931496a70acc89b45d5365b0df233b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

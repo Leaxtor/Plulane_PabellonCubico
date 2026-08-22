@@ -221,7 +221,7 @@ func can_jump() -> bool:
 	return state == State.Reposo or state == State.Caminar
 
 func can_jump_patada() -> bool:
-	return state == State.Salto_Medio
+	return state == State.Salto_Medio #REVISAR
 
 #LO QUE ESTA ACTIVADO ES CUANDO LO PUEDEN GOLPEAR
 func can_get_hurt() ->bool:
@@ -256,6 +256,7 @@ func shoot_gun() -> void:
 		target_point = proyectil_lanzable.get_collision_point()
 		EntityManager.spawn_spark.emit(target.position)
 		target.on_receive_damage(damage_gunshot,heading, ReceptorDamage.HitType.KNOCKDOWN)
+	SoundPlayer.play(SoundManager.Sound.GUNSHOT)
 	var weapon_root_position := Vector2(weapon_position.global_position.x, position.y)
 	var weapon_height := -weapon_position.position.y
 	var distance := target_point.x - weapon_position.global_position.x
@@ -287,21 +288,22 @@ func recogiendo_proyectil() ->void:
 		var collectible : Collectible = collectible_areas[0]
 		if collectible.type == Collectible.Type.KNIFE and not has_knife:
 			has_knife = true
-			print("consiguio cuchillo")
+			SoundPlayer.play(SoundManager.Sound.SWOOSH)
 		if collectible.type == Collectible.Type.GUN and not has_gun:
 			has_gun = true
 			ammo_left = max_ammo_per_gun
-			print("consiguio arma")
 		if collectible.type == Collectible.Type.FOOD:
 			set_health(max_health)
+			SoundPlayer.play(SoundManager.Sound.FOOD)
 		collectible.queue_free()
 
 func is_collision_disable() -> bool:
 	return [State.Suelo_Caida, State.Death, State.Fly].has(state)
 
 func salto_inicial_completo() -> void:
-	state = State.Salto_Medio
+	state = State.Salto_Medio #DEBERIA SER SALTO INICIO
 	height_speed = salto_fuerza
+	SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	
 func salto_final_completo() -> void:
 	state = State.Reposo
@@ -322,6 +324,7 @@ func on_throw_complete() -> void:
 		has_gun = false
 	else:
 		has_knife = false
+	SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	var collectible_global_position := Vector2(weapon_position.global_position.x, global_position.y)
 	var collectible_height := weapon_position.position.y 
 	EntityManager.spawn_collectible.emit(collectible_type, Collectible.State.FLY, collectible_global_position, heading, collectible_height, false)
@@ -385,6 +388,9 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 			has_gun = false
 			EntityManager.spawn_collectible.emit(Collectible.Type.GUN, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
 		set_health(current_health - amount)
+		#SONIDO DE DAÑO MÁS GOLPE AL AZAR
+		SoundPlayer.play(SoundManager.Sound.HIT2, true)
+		
 		## LO ULTIMO (STATE CAIDA) quitar del cage get hurt para combear en el aire
 		if current_health == 0 or hit_type == ReceptorDamage.HitType.KNOCKDOWN or state == State.Caida:
 			state = State.Caida
@@ -393,6 +399,7 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 		elif hit_type == ReceptorDamage.HitType.POWER:
 			state = State.Fly
 			velocity = direccion * flight_speed #No esta funcionando al velocidad
+			DamageManager.heavy_blow_received.emit()
 		else:
 			state = State.Hurt 
 			velocity = direccion * knockback_intensidad

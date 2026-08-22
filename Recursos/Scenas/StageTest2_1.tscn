@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://4glibyt812qp" path="res://Recursos/Scenas/Miselaneos/Door.tscn" id="6_rl63f"]
 
 [node name="StageTest2_1" unique_id=520458551 instance=ExtResource("1_o3pk0")]
+music = 3
 
 [node name="MainBackground" parent="Background" parent_id_path=PackedInt32Array(60433559) index="0" unique_id=2129333041]
 position = Vector2(1468, 293)

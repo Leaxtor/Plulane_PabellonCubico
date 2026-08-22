@@ -1,12 +1,23 @@
+class_name Camera
 extends Camera2D
 
 @export var jugador : CharacterBody2D
+@export var duration_shake : int
+@export var shake_intensity : int
+
+
 @onready var timer := $Timer
 
 var is_camera_locked := false
+var is_shaking := false
+var time_start_shaking := Time.get_ticks_msec()
+
 
 var deadzone = 100.0
 var target_y = position.y
+
+func _init() -> void:
+	DamageManager.heavy_blow_received.connect(on_heavy_blow_received.bind())
 
 func _ready() -> void:
 	StageManager.checkpoint_start.connect(on_checkpoint_start.bind())
@@ -27,6 +38,14 @@ func _process(delta: float) -> void:
 	# Bajamos el multiplicador (de 20 a 5 o 10) para que sea más fluido
 	position.y = lerp(position.y, target_y, delta * 5)
 	#timer.timeout.connect(mover_camara)
+	
+	#MOVER CAMARA ANTE GOLPE
+	if is_shaking and (Time.get_ticks_msec() - time_start_shaking < 	duration_shake):
+		offset = Vector2(randi_range(-shake_intensity, shake_intensity),randi_range(-shake_intensity, shake_intensity) )
+		print("CAMARA SHAKING")
+	else:
+		offset = Vector2.ZERO
+		is_shaking = false
 
 	#Fija la camara
 func _on_timer_timeout() -> void:
@@ -39,3 +58,8 @@ func on_checkpoint_start() -> void:
 
 func on_checkpoint_complete() -> void:
 	is_camera_locked = false
+	
+func on_heavy_blow_received() -> void:
+	is_shaking = true
+	time_start_shaking = Time.get_ticks_msec()
+	
