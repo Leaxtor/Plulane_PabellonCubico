@@ -36,3 +36,5 @@ shape = SubResource("RectangleShape2D_riqys")
 [node name="Containers" type="Node2D" parent="." unique_id=3021457]
 
 [node name="Doors" type="Node2D" parent="." unique_id=810179608]
+
+[node name="PlayerSpawnLocation" type="Node2D" parent="." unique_id=1232413828]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bng2ngwik62ov"]
+
+[ext_resource type="Script" uid="uid://cca4vp6ooe5l4" path="res://Assets/Imagenes/Interfaces/Controls/activable_control.gd" id="1_cd6r3"]
+
+[node name="ActivableControl" type="HBoxContainer" unique_id=1242679272]
+theme_override_constants/separation = 10
+script = ExtResource("1_cd6r3")
+color_default = Color(0.6872149, 0.68721503, 0.6872149, 1)
+color_active = Color(0.89998215, 0.77725214, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=31576117]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "texto1"
+horizontal_alignment = 1

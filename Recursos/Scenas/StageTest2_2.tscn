@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://4x4ye8pdgb08"]
+
+[ext_resource type="PackedScene" uid="uid://dhneiks81x4m8" path="res://Recursos/Scenas/Stage.tscn" id="1_7ufcx"]
+[ext_resource type="Texture2D" uid="uid://cjkxning3rrrs" path="res://Assets/Imagenes/Fondos/MetroParallaxA.png" id="2_p51ph"]
+[ext_resource type="Texture2D" uid="uid://bhmsnjnliekx" path="res://Assets/Imagenes/Fondos/MetroParallaxB.png" id="3_spoy5"]
+[ext_resource type="PackedScene" uid="uid://dxhcvovw1gwo0" path="res://Recursos/Scenas/checkpoint.tscn" id="4_gic4y"]
+[ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://Recursos/Scenas/NPC/enemigo_1.tscn" id="5_jpi8o"]
+
+[node name="StageTest2_2" unique_id=520458551 instance=ExtResource("1_7ufcx")]
+music = 3
+
+[node name="MainBackground" parent="Background" parent_id_path=PackedInt32Array(60433559) index="0" unique_id=2129333041]
+position = Vector2(458, 191)
+texture = ExtResource("2_p51ph")
+
+[node name="finnivel" type="Sprite2D" parent="Background" parent_id_path=PackedInt32Array(60433559) index="1" unique_id=755398664]
+position = Vector2(1600, 194)
+texture = ExtResource("3_spoy5")
+
+[node name="CollisionShape2D" parent="WorldColliders/StaticBody2D" parent_id_path=PackedInt32Array(2146609693) index="0" unique_id=1348963494]
+position = Vector2(1161, 217)
+
+[node name="Checkpoint" parent="Chechpoints" parent_id_path=PackedInt32Array(124746635) index="0" unique_id=904931730 instance=ExtResource("4_gic4y")]
+
+[node name="Enemigo_1" parent="Chechpoints/Checkpoint/Enemies" parent_id_path=PackedInt32Array(904931730, 1021542459) index="0" unique_id=106214172 instance=ExtResource("5_jpi8o")]
+position = Vector2(1050, 304)
+type = 3
+
+[node name="CollisionShape2D" parent="Chechpoints/Checkpoint/PlayerDetectionArea" parent_id_path=PackedInt32Array(904931730, 165721204) index="0" unique_id=1674740212]
+position = Vector2(757, 278)
+
+[node name="CollisionShape2D" parent="Chechpoints/Checkpoint/CheckpointPlayerArea" parent_id_path=PackedInt32Array(904931730, 192106489) index="0" unique_id=1349556189]
+position = Vector2(757, 277)
+
+[node name="PlayerSpawnLocation" parent="." index="5" unique_id=1232413828]
+position = Vector2(117, 340)
+
+[editable path="Chechpoints/Checkpoint"]

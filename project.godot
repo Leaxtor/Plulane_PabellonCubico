@@ -30,6 +30,7 @@ DamageManager="*uid://bvs8hnj0pwp2k"
 ComboManager="*uid://b62w0i063kwdk"
 MusicPlayer="*uid://oqbutvv2rrek"
 SoundPlayer="*uid://cx0ep85ulpays"
+OptionsManager="*uid://cj4gw7vd80qw2"
 
 [display]
 

@@ -30,7 +30,7 @@ func create_enemy_data() -> void:
 func on_enemy_death(_enemy : Character) ->void:
 	active_enemy_count -= 1
 	if active_enemy_count == 0 and enemy_data.size() == 0:
-		StageManager.checkpoint_complete.emit()
+		StageManager.checkpoint_complete.emit(self)
 		queue_free()
 
 func can_spawn_enemies() -> bool:

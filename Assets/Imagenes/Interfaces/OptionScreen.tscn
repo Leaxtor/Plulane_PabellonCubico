@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cdkdk2tdi87h2"]
+
+[ext_resource type="Theme" uid="uid://b5a4p6htutqre" path="res://Assets/Imagenes/Interfaces/Temas/gui_theme.tres" id="1_qqkul"]
+[ext_resource type="PackedScene" uid="uid://b17xg134x8bpg" path="res://Assets/Imagenes/Interfaces/Controls/ranger_picker.tscn" id="2_2j2yh"]
+[ext_resource type="Script" uid="uid://d14i80sj77218" path="res://Assets/Imagenes/Interfaces/option_screen.gd" id="2_hh2rt"]
+[ext_resource type="PackedScene" uid="uid://pwqyhx1uj3ae" path="res://Assets/Imagenes/Interfaces/Controls/toggle_picker.tscn" id="3_hh2rt"]
+[ext_resource type="PackedScene" uid="uid://wyqg61hu5k03" path="res://Assets/Imagenes/Interfaces/Controls/label_picker.tscn" id="4_klb3j"]
+
+[node name="OptionScreen" type="Control" unique_id=103774195]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qqkul")
+script = ExtResource("2_hh2rt")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1001905760]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Background" unique_id=2031843801]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer" unique_id=1522198840]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="OptionsLbael" type="Label" parent="Background/MarginContainer/VBoxContainer" unique_id=1493433652]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Options"
+horizontal_alignment = 1
+
+[node name="MusicVolumen" parent="Background/MarginContainer/VBoxContainer" unique_id=1242679272 instance=ExtResource("2_2j2yh")]
+layout_mode = 2
+max_value = 10
+text = "Musica"
+
+[node name="SoundVolumen" parent="Background/MarginContainer/VBoxContainer" unique_id=513542198 instance=ExtResource("2_2j2yh")]
+layout_mode = 2
+max_value = 10
+text = "SFX"
+
+[node name="ShakeToggle" parent="Background/MarginContainer/VBoxContainer" unique_id=889524762 instance=ExtResource("3_hh2rt")]
+layout_mode = 2
+text = "Temblor"
+
+[node name="ReturnButton" parent="Background/MarginContainer/VBoxContainer" unique_id=368638933 instance=ExtResource("4_klb3j")]
+layout_mode = 2
+alignment = 1
+text = "Regresar"

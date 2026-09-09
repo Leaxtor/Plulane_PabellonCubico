@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dfa03jxnky12w" path="res://Assets/Imagenes/Interfaces/ScoreIndicator.tscn" id="6_12jls"]
 [ext_resource type="PackedScene" uid="uid://ck33j1q5b2iib" path="res://Assets/Imagenes/Interfaces/avanzar_texture_rect.tscn" id="7_uwyxe"]
 [ext_resource type="Texture2D" uid="uid://cxbmgpcvuo5gb" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/cirnoflecha.png" id="8_xai41"]
+[ext_resource type="PackedScene" uid="uid://b3hdbiicq3js6" path="res://Assets/Imagenes/Interfaces/Transiciones/StageTransition.tscn" id="9_xai41"]
 
 [node name="UI" type="CanvasLayer" unique_id=405288705]
+process_mode = 3
 script = ExtResource("1_ayetn")
 duration_healthbar_visible = 2000
 
@@ -107,5 +109,8 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("8_xai41")
 expand_mode = 3
+
+[node name="StageTransition" parent="UIContainer" unique_id=1509884231 instance=ExtResource("9_xai41")]
+layout_mode = 1
 
 [editable path="UIContainer/EnemyHealthBar"]

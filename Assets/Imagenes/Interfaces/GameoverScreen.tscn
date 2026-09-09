@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://11ft4qswbk1g"]
+
+[ext_resource type="Theme" uid="uid://b5a4p6htutqre" path="res://Assets/Imagenes/Interfaces/Temas/gui_theme.tres" id="1_5ej5l"]
+[ext_resource type="Script" uid="uid://1ole8acvhret" path="res://Assets/Imagenes/Interfaces/gameover_screen.gd" id="2_1vpb8"]
+[ext_resource type="PackedScene" uid="uid://dfa03jxnky12w" path="res://Assets/Imagenes/Interfaces/ScoreIndicator.tscn" id="2_ieg2f"]
+
+[node name="GameoverScreen" type="Control" unique_id=72114250]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5ej5l")
+script = ExtResource("2_1vpb8")
+
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=1932292275]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="BackgroundColor" unique_id=1571550918]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundColor/MarginContainer" unique_id=80298276]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BackgroundColor/MarginContainer/VBoxContainer" unique_id=76941146]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94509804, 0, 0, 1)
+text = "FIN DEL JUEGO"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackgroundColor/MarginContainer/VBoxContainer" unique_id=1317919943]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BackgroundColor/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1590823274]
+layout_mode = 2
+text = "SCORE:"
+
+[node name="ScoreIndicator" parent="BackgroundColor/MarginContainer/VBoxContainer/HBoxContainer" unique_id=356022241 instance=ExtResource("2_ieg2f")]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=1307798853]
+wait_time = 2.0
+one_shot = true
+autostart = true

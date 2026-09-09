@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://wyqg61hu5k03"]
+
+[ext_resource type="PackedScene" uid="uid://bng2ngwik62ov" path="res://Assets/Imagenes/Interfaces/Controls/activable_control.tscn" id="1_nrtlu"]
+[ext_resource type="Script" uid="uid://dc7a8if8gswbe" path="res://Assets/Imagenes/Interfaces/Controls/label_picker.gd" id="2_8b6hl"]
+
+[node name="LabelPicker" unique_id=1242679272 instance=ExtResource("1_nrtlu")]
+script = ExtResource("2_8b6hl")

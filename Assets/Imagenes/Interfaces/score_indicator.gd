@@ -2,16 +2,20 @@ class_name ScoreIndicator
 extends Label
 
 @export var duration_score_update : float 
+@export var points_per_life : int
 
 var display_score := 0
 var prior_score := 0
 var real_score := 0
 var time_start_update := Time.get_ticks_msec()
 
+func _init() -> void:
+	DamageManager.player_revive.connect(on_player_revive.bind())
 
 func _ready() -> void:
 	display_score = 0
 	refresh()
+	
 
 func _process(delta: float) -> void:
 	if real_score != display_score:
@@ -23,10 +27,20 @@ func _process(delta: float) -> void:
 		refresh()
 
 func add_combo(points: int) -> void:
-	real_score += int((points * (points + 1)) / 2.0) #poner float si se quiere entero
+	add_point(int((points * (points + 1)) / 2.0))
+
+func start_update() -> void:
+	#poner float si se quiere entero
 	prior_score = display_score
 	time_start_update = Time.get_ticks_msec()
 	refresh()
 
 func refresh() -> void:
 	text = str(display_score)
+
+func add_point(points: int) -> void:
+	real_score = max(0, real_score + points)
+	start_update()
+
+func on_player_revive() -> void:
+	add_point(-points_per_life)

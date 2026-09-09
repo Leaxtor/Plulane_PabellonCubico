@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b4xfpk5hcfns7"]
+
+[ext_resource type="Script" uid="uid://b5ws8kcokrq6l" path="res://Assets/Imagenes/Interfaces/death_scene.gd" id="1_8vor2"]
+[ext_resource type="Theme" uid="uid://b5a4p6htutqre" path="res://Assets/Imagenes/Interfaces/Temas/gui_theme.tres" id="1_e6ldf"]
+
+[node name="DeathScene" type="MarginContainer" unique_id=259221119]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+script = ExtResource("1_8vor2")
+countdown_start = 10
+
+[node name="Border" type="ColorRect" parent="." unique_id=1201192639]
+layout_mode = 2
+color = Color(0.53333336, 0.53333336, 0.53333336, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Border" unique_id=834890944]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ColorRect" type="ColorRect" parent="Border/MarginContainer" unique_id=1867829382]
+layout_mode = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Border/MarginContainer/ColorRect" unique_id=469270918]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Border/MarginContainer/ColorRect/VBoxContainer" unique_id=950475806]
+layout_mode = 2
+theme = ExtResource("1_e6ldf")
+theme_override_font_sizes/font_size = 80
+text = "Revivir?"
+horizontal_alignment = 1
+
+[node name="Cuenta" type="Label" parent="Border/MarginContainer/ColorRect/VBoxContainer" unique_id=1162422970]
+layout_mode = 2
+theme = ExtResource("1_e6ldf")
+theme_override_font_sizes/font_size = 80
+text = "10"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1879827845]
+autostart = true
