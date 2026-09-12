@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dasm4yqmk22fm"
-path="res://.godot/imported/gogogo.wav-249f1b01125f2095b2ad2b51b7653ac0.sample"
+uid="uid://ck771tln3o5uy"
+path="res://.godot/imported/miss.wav-e3f0d1d19e8b8518f81d858df70c74c6.sample"
 
 [deps]
 
-source_file="res://Assets/Audios/SFX/gogogo.wav"
-dest_files=["res://.godot/imported/gogogo.wav-249f1b01125f2095b2ad2b51b7653ac0.sample"]
+source_file="res://Global/Audio/SFX/miss.wav"
+dest_files=["res://.godot/imported/miss.wav-e3f0d1d19e8b8518f81d858df70c74c6.sample"]
 
 [params]
 

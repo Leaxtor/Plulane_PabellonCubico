@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://ck771tln3o5uy"
-path="res://.godot/imported/miss.wav-479e1a955256d0f0f5ebf6a2cc81b4c2.sample"
+uid="uid://ybceoay6stjl"
+path="res://.godot/imported/knife-hit.wav-cf379de36c5ef5fbd05c6e54a0a32bbe.sample"
 
 [deps]
 
-source_file="res://Assets/Audios/SFX/miss.wav"
-dest_files=["res://.godot/imported/miss.wav-479e1a955256d0f0f5ebf6a2cc81b4c2.sample"]
+source_file="res://Global/Audio/SFX/knife-hit.wav"
+dest_files=["res://.godot/imported/knife-hit.wav-cf379de36c5ef5fbd05c6e54a0a32bbe.sample"]
 
 [params]
 
