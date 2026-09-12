@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdxyt2lufjjyc"]
 
-[ext_resource type="Script" uid="uid://bwms6kpnfxi56" path="res://Recursos/Scripts/DestruirObjeto.gd" id="1_1i0s6"]
+[ext_resource type="Script" uid="uid://bwms6kpnfxi56" path="res://Recursos/Scripts/Objeto.gd" id="1_1i0s6"]
 [ext_resource type="Texture2D" uid="uid://fscen2k473ms" path="res://Assets/Imagenes/Muebles/carrito_salchicha.png" id="1_fcm4c"]
 [ext_resource type="PackedScene" uid="uid://wwq05poayoap" path="res://Recursos/Scenas/ReceptorDaño.tscn" id="2_vfpih"]
 

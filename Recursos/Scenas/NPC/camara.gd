@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 		#MOVER CAMARA ANTE GOLPE
 		if is_shaking and (Time.get_ticks_msec() - time_start_shaking < 	duration_shake):
 			offset = Vector2(randi_range(-shake_intensity, shake_intensity),randi_range(-shake_intensity, shake_intensity) )
-			print("CAMARA SHAKING")
+
 		else:
 			offset = Vector2.ZERO
 			is_shaking = false

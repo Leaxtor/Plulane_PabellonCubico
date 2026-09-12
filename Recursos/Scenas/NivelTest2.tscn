@@ -3,12 +3,7 @@
 [ext_resource type="Script" uid="uid://dv5r5kfnp08n6" path="res://Recursos/Scenas/World.gd" id="1_iad6c"]
 [ext_resource type="PackedScene" uid="uid://ceb6yc2mk6nva" path="res://Assets/Imagenes/Interfaces/ui.tscn" id="1_ujv62"]
 [ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Recursos/Scenas/NPC/camara.tscn" id="3_sdg83"]
-[ext_resource type="Script" uid="uid://oxmeu4qnx082" path="res://Recursos/Scripts/FinalNivel.gd" id="3_tduga"]
 [ext_resource type="Script" uid="uid://djhqbwol0215r" path="res://Recursos/Scripts/actores_contenedor.gd" id="3_u7gu4"]
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_sdg83"]
-a = Vector2(0, 84)
-b = Vector2(0, 220)
 
 [node name="World" type="Node2D" unique_id=1173936784]
 script = ExtResource("1_iad6c")
@@ -22,17 +17,6 @@ position = Vector2(295, 325)
 duration_shake = 100
 shake_intensity = 20
 
-[node name="PrototipoCambioNivel" type="Area2D" parent="." unique_id=190955764]
-collision_layer = 16
-collision_mask = 18
-script = ExtResource("3_tduga")
-Nivel_Nombre = "res://Recursos/Scenas/NivelTest3.tscn"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototipoCambioNivel" unique_id=1164999380]
-position = Vector2(2849, -137)
-shape = SubResource("SegmentShape2D_sdg83")
-debug_color = Color(0.9485412, 4.6205523e-06, 0.580177, 0.41960785)
-
 [node name="ActoresContenedor" type="Node2D" parent="." unique_id=283359600]
 y_sort_enabled = true
 script = ExtResource("3_u7gu4")
@@ -41,5 +25,3 @@ script = ExtResource("3_u7gu4")
 
 [node name="ANCLA" type="Node2D" parent="." unique_id=1991106379]
 position = Vector2(143, -251)
-
-[connection signal="body_entered" from="PrototipoCambioNivel" to="PrototipoCambioNivel" method="_on_body_entered"]

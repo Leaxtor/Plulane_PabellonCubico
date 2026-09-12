@@ -5,6 +5,13 @@ const OPTION_SCREEN_PREFAB := preload("res://Assets/Imagenes/Interfaces/OptionSc
 const DEATH_SCREEN_PREFAB := preload("res://Assets/Imagenes/Interfaces/death_scene.tscn")
 const GAMEOVER_SCREEN_PREFAB := preload("res://Assets/Imagenes/Interfaces/GameoverScreen.tscn")
 
+const avatar_map : Dictionary = {
+	Character.Type.ENEMIGO_1: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarEnemy.png"),
+	Character.Type.ENEMIGO_GOON: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarEnemy.png"),
+	Character.Type.THUG_ENEMIGO: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarEnemy.png"),
+	Character.Type.BOSS_TUTORIAL: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarSigma.png")
+}
+
 @onready var player_healthbar : Healthbar = $UIContainer/PlayerHealthBar
 @onready var enemy_avatar : TextureRect = $UIContainer/EnemyAvatar
 @onready var enemy_healthbar : Healthbar = $UIContainer/EnemyHealthBar
@@ -20,12 +27,7 @@ var death_screen : DeathScene = null
 var option_screen : OptionsScreen = null
 var time_start_healthbar_visible := Time.get_ticks_msec()
 
-const avatar_map : Dictionary = {
-	Character.Type.ENEMIGO_1: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarEnemy.png"),
-	Character.Type.ENEMIGO_GOON: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarEnemy.png"),
-	Character.Type.THUG_ENEMIGO: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarEnemy.png"),
-	Character.Type.BOSS_TUTORIAL: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarSigma.png")
-}
+
 
 func _init() -> void:
 	DamageManager.health_change.connect(on_character_health_change.bind())
@@ -63,10 +65,7 @@ func on_combo_reset(points: int) -> void:
 func on_character_health_change(type: Character.Type, current_health: int, max_health: int) -> void:
 	if type == Character.Type.PLAYER:
 		player_healthbar.refresh(current_health, max_health)
-		print("Vida actual")
-		print(current_health)
 		if current_health == 0 and death_screen == null:
-			print("MUERTO")
 			death_screen = DEATH_SCREEN_PREFAB.instantiate()
 			death_screen.game_over.connect(on_game_over.bind())
 			add_child(death_screen)

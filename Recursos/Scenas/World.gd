@@ -40,7 +40,6 @@ func _ready() -> void:
 func load_next_stage() -> void:
 	current_stage_index += 1
 	if current_stage_index < STAGE_PREFAB.size():
-		
 		for actor : Node2D in actors_container.get_children():
 			actor.queue_free()
 			#pass

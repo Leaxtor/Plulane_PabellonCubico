@@ -4,14 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://7pulw8vwm745" path="res://Assets/Imagenes/Fondos/Metro_Vagon.png" id="1_glovy"]
 [ext_resource type="Texture2D" uid="uid://bhmsnjnliekx" path="res://Assets/Imagenes/Fondos/MetroParallaxB.png" id="2_lpmkb"]
 [ext_resource type="Texture2D" uid="uid://cjkxning3rrrs" path="res://Assets/Imagenes/Fondos/MetroParallaxA.png" id="3_ejwwm"]
-[ext_resource type="Script" uid="uid://oxmeu4qnx082" path="res://Recursos/Scripts/FinalNivel.gd" id="3_jjpvj"]
 [ext_resource type="Script" uid="uid://lvw6biqpmqfg" path="res://Recursos/Scripts/parallax_manejador.gd" id="7_lpmkb"]
 [ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Recursos/Scenas/NPC/camara.tscn" id="8_0yiy5"]
 [ext_resource type="PackedScene" uid="uid://dwd3jcrrl8sma" path="res://Recursos/Scenas/NPC/jugador_plus.tscn" id="9_wmbky"]
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_5fa5b"]
-a = Vector2(23, -193)
-b = Vector2(20, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fa5b"]
 size = Vector2(22.25, 719)
@@ -45,17 +40,6 @@ visible = false
 position = Vector2(1137, -3)
 texture = ExtResource("1_glovy")
 
-[node name="Final" type="Area2D" parent="." unique_id=1235896806]
-collision_layer = 16
-collision_mask = 18
-script = ExtResource("3_jjpvj")
-Nivel_Nombre = "res://Recursos/Scenas/NivelTest.tscn"
-
-[node name="FinalNivel" type="CollisionShape2D" parent="Final" unique_id=1819471431]
-position = Vector2(4509, 362)
-shape = SubResource("SegmentShape2D_5fa5b")
-debug_color = Color(0.9532029, 3.7541986e-06, 0.5572459, 0.41960785)
-
 [node name="ParallaxManejador" type="Area2D" parent="." unique_id=785143865]
 collision_layer = 16
 collision_mask = 18
@@ -79,5 +63,4 @@ jugador = NodePath("../Jugador_Plus")
 [node name="Jugador_Plus" parent="ActoresContenedor" unique_id=106214172 instance=ExtResource("9_wmbky")]
 position = Vector2(252, 354)
 
-[connection signal="body_entered" from="Final" to="Final" method="_on_body_entered"]
 [connection signal="body_entered" from="ParallaxManejador" to="ParallaxManejador" method="_on_body_entered"]
