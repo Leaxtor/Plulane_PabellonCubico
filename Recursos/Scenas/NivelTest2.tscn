@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmw4phi0ftl4l"]
 
 [ext_resource type="Script" uid="uid://dv5r5kfnp08n6" path="res://Recursos/Scenas/World.gd" id="1_iad6c"]
-[ext_resource type="PackedScene" uid="uid://ceb6yc2mk6nva" path="res://Assets/Imagenes/Interfaces/ui.tscn" id="1_ujv62"]
+[ext_resource type="PackedScene" uid="uid://ceb6yc2mk6nva" path="res://Interfaces/ui.tscn" id="1_ujv62"]
 [ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Recursos/Scenas/NPC/camara.tscn" id="3_sdg83"]
 [ext_resource type="Script" uid="uid://djhqbwol0215r" path="res://Recursos/Scripts/actores_contenedor.gd" id="3_u7gu4"]
 

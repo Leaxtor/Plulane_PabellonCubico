@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b17xg134x8bpg"]
 
-[ext_resource type="PackedScene" uid="uid://bng2ngwik62ov" path="res://Assets/Imagenes/Interfaces/Controls/activable_control.tscn" id="1_l54jb"]
-[ext_resource type="Texture2D" uid="uid://btoomrtmnabm0" path="res://Assets/Imagenes/Interfaces/Controls/cuadradoblanco.png" id="2_in7pv"]
-[ext_resource type="Script" uid="uid://p0hgsa8g2xjm" path="res://Assets/Imagenes/Interfaces/Controls/ranger_picker.gd" id="2_v0io1"]
+[ext_resource type="PackedScene" uid="uid://bng2ngwik62ov" path="res://Interfaces/Controls/activable_control.tscn" id="1_l54jb"]
+[ext_resource type="Texture2D" uid="uid://btoomrtmnabm0" path="res://Interfaces/Controls/cuadradoblanco.png" id="2_in7pv"]
+[ext_resource type="Script" uid="uid://p0hgsa8g2xjm" path="res://Interfaces/Controls/ranger_picker.gd" id="2_v0io1"]
 
 [node name="RangerPicker" unique_id=1242679272 instance=ExtResource("1_l54jb")]
 script = ExtResource("2_v0io1")

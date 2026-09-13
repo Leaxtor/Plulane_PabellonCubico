@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hbrl8xnq8m8l"
-path="res://.godot/imported/rojo.png-e5184ca74d0b90ead9ee58be42c15d0c.ctex"
+uid="uid://m3dr1fbyms2e"
+path="res://.godot/imported/azul.png-bc3912fc908fa91625063f97db98a95f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/Interfaces/Transiciones/rojo.png"
-dest_files=["res://.godot/imported/rojo.png-e5184ca74d0b90ead9ee58be42c15d0c.ctex"]
+source_file="res://Interfaces/Transiciones/azul.png"
+dest_files=["res://.godot/imported/azul.png-bc3912fc908fa91625063f97db98a95f.ctex"]
 
 [params]
 

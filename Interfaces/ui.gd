@@ -1,9 +1,9 @@
 class_name UI
 extends CanvasLayer
 
-const OPTION_SCREEN_PREFAB := preload("res://Assets/Imagenes/Interfaces/OptionScreen.tscn")
-const DEATH_SCREEN_PREFAB := preload("res://Assets/Imagenes/Interfaces/death_scene.tscn")
-const GAMEOVER_SCREEN_PREFAB := preload("res://Assets/Imagenes/Interfaces/GameoverScreen.tscn")
+const OPTION_SCREEN_PREFAB := preload("res://Interfaces/Opciones/OptionScreen.tscn")
+const DEATH_SCREEN_PREFAB := preload("res://Interfaces/Death/death_scene.tscn")
+const GAMEOVER_SCREEN_PREFAB := preload("res://Interfaces/GameOver/GameoverScreen.tscn")
 
 const avatar_map : Dictionary = {
 	Character.Type.ENEMIGO_1: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarEnemy.png"),

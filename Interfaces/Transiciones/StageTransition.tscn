@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b3hdbiicq3js6"]
 
-[ext_resource type="Texture2D" uid="uid://m3dr1fbyms2e" path="res://Assets/Imagenes/Interfaces/Transiciones/azul.png" id="1_0ged8"]
-[ext_resource type="Script" uid="uid://rnong1fblqs1" path="res://Assets/Imagenes/Interfaces/Transiciones/stage_transition.gd" id="1_ybwcy"]
-[ext_resource type="Texture2D" uid="uid://hbrl8xnq8m8l" path="res://Assets/Imagenes/Interfaces/Transiciones/rojo.png" id="2_ybwcy"]
+[ext_resource type="Texture2D" uid="uid://m3dr1fbyms2e" path="res://Interfaces/Transiciones/azul.png" id="1_0ged8"]
+[ext_resource type="Script" uid="uid://rnong1fblqs1" path="res://Interfaces/Transiciones/stage_transition.gd" id="1_ybwcy"]
+[ext_resource type="Texture2D" uid="uid://hbrl8xnq8m8l" path="res://Interfaces/Transiciones/rojo.png" id="2_ybwcy"]
 
 [sub_resource type="Animation" id="Animation_gqpy2"]
 length = 0.001

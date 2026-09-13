@@ -1,8 +1,8 @@
 class_name RangePicker
 extends ActivableControl
 
-const TICK_OFF  := preload("res://Assets/Imagenes/Interfaces/Controls/cuadradoblanco.png")
-const TICK_ON := preload("res://Assets/Imagenes/Interfaces/Controls/cuadradoblanco2.png")
+const TICK_OFF  := preload("res://Interfaces/Controls/cuadradoblanco.png")
+const TICK_ON := preload("res://Interfaces/Controls/cuadradoblanco2.png")
 
 @onready var ticks_container : HBoxContainer = $TicksContainer
 

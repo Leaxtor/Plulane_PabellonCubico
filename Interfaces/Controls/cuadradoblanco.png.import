@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m3dr1fbyms2e"
-path="res://.godot/imported/azul.png-7bf7861f5c0cb45b3c825fc24f931928.ctex"
+uid="uid://btoomrtmnabm0"
+path="res://.godot/imported/cuadradoblanco.png-7d525a6007fd4004c597eea173331d43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/Interfaces/Transiciones/azul.png"
-dest_files=["res://.godot/imported/azul.png-7bf7861f5c0cb45b3c825fc24f931928.ctex"]
+source_file="res://Interfaces/Controls/cuadradoblanco.png"
+dest_files=["res://.godot/imported/cuadradoblanco.png-7d525a6007fd4004c597eea173331d43.ctex"]
 
 [params]
 

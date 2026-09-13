@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b4xfpk5hcfns7"]
 
-[ext_resource type="Script" uid="uid://b5ws8kcokrq6l" path="res://Assets/Imagenes/Interfaces/death_scene.gd" id="1_8vor2"]
-[ext_resource type="Theme" uid="uid://b5a4p6htutqre" path="res://Assets/Imagenes/Interfaces/Temas/gui_theme.tres" id="1_e6ldf"]
+[ext_resource type="Script" uid="uid://b5ws8kcokrq6l" path="res://Interfaces/Death/death_scene.gd" id="1_8vor2"]
+[ext_resource type="Theme" uid="uid://b5a4p6htutqre" path="res://Interfaces/Temas/gui_theme.tres" id="1_e6ldf"]
 
 [node name="DeathScene" type="MarginContainer" unique_id=259221119]
 anchors_preset = 15

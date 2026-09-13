@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bng2ngwik62ov"]
 
-[ext_resource type="Script" uid="uid://cca4vp6ooe5l4" path="res://Assets/Imagenes/Interfaces/Controls/activable_control.gd" id="1_cd6r3"]
+[ext_resource type="Script" uid="uid://cca4vp6ooe5l4" path="res://Interfaces/Controls/activable_control.gd" id="1_cd6r3"]
 
 [node name="ActivableControl" type="HBoxContainer" unique_id=1242679272]
 theme_override_constants/separation = 10
