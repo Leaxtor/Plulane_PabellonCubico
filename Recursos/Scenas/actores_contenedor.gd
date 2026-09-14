@@ -11,9 +11,9 @@ const PREFAB_MAP := {
 }
 
 const ENEMY_MAP := {
-	Character.Type.ENEMIGO_1: preload("res://Recursos/Scenas/NPC/enemigo_1.tscn"), 
-	Character.Type.ENEMIGO_GOON: preload("res://Recursos/Scenas/NPC/enemigo_goon.tscn"),
-	Character.Type.THUG_ENEMIGO: preload("res://Recursos/Scenas/NPC/thug_enemigo.tscn"),
+	Character.Type.ENEMIGO_1: preload("res://NPC/Enemigo_Base1/enemigo_1.tscn"), 
+	Character.Type.ENEMIGO_GOON: preload("res://NPC/Enemigo_Base1/enemigo_goon.tscn"),
+	Character.Type.THUG_ENEMIGO: preload("res://NPC/Enemigo_Base1/thug_enemigo.tscn"),
 	Character.Type.BOSS_TUTORIAL: preload("res://NPC/Sigma/boss_tutorial.tscn")
 }
 

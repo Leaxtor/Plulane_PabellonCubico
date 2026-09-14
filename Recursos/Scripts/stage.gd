@@ -33,7 +33,6 @@ func get_player_spawn_location() -> Vector2:
 func on_checkpoint_complete(checkpoint : Checkpoint) -> void:
 	#StageManager.stage_complete.emit()
 	print("Cantidad de checkpoints: " + str(checkpoints.get_children().size()))
-	print(checkpoints.get_children(0))
 	if checkpoints.get_children().size() < 2: #Personalizar para que no siempre se cumpla
 	#if checkpoints.get_child(-1) == checkpoint:
 		StageManager.stage_complete.emit()

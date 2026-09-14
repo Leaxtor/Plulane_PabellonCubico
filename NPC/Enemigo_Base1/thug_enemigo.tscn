@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://6cyepy3wkfkn"]
+
+[ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://NPC/Enemigo_Base1/enemigo_1.tscn" id="1_mdb3e"]
+
+[node name="ThugEnemigo" unique_id=106214172 instance=ExtResource("1_mdb3e")]
+duration_between_melee_attacks = 1500
+duration_between_range_attacks = 2500
+duration_prep_melee_attack = 500
+duration_prep_range_attack = 500
+type = 3
+move_speed = 100.0
+can_respawn_knife = true
+has_knife = true
+
+[editable path="EmitidorDaño"]
+[editable path="ReceptorDaño"]
+[editable path="CollateralEmitidorDaño"]

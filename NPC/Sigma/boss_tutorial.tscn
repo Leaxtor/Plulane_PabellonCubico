@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://13u7bx6lwxod"]
 
-[ext_resource type="PackedScene" uid="uid://dp7g2lnnvf0i3" path="res://Recursos/Scenas/NPC/character.tscn" id="1_gdgq5"]
+[ext_resource type="PackedScene" uid="uid://dp7g2lnnvf0i3" path="res://NPC/Character_Base/character.tscn" id="1_gdgq5"]
 [ext_resource type="Script" uid="uid://6mlbglog1o77" path="res://NPC/Sigma/boss_tutorial.gd" id="2_ans8e"]
 [ext_resource type="Texture2D" uid="uid://7wuhtif7hbfy" path="res://NPC/Sigma/Sigma_Sprites/Sigma.png" id="2_wou2b"]
 [ext_resource type="Texture2D" uid="uid://colrbmiqwb2fk" path="res://NPC/Sigma/Sigma_Sprites/Sigma_ataque1.png" id="3_4h42g"]

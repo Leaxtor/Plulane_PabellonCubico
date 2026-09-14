@@ -1,32 +1,30 @@
-[gd_scene format=3 uid="uid://dwd3jcrrl8sma"]
+[gd_scene format=3 uid="uid://2eemiufhdlvj"]
 
-[ext_resource type="PackedScene" uid="uid://dp7g2lnnvf0i3" path="res://NPC/Character_Base/character.tscn" id="1_snlmh"]
-[ext_resource type="Script" uid="uid://cfntv3618q1qi" path="res://Recursos/Scenas/NPC/jugador_plus.gd" id="2_kg235"]
-[ext_resource type="Texture2D" uid="uid://bpnsir3au3qaq" path="res://NPC/Plus/Plus_Sprites/plus_caida.png" id="3_jpqfm"]
-[ext_resource type="Texture2D" uid="uid://by5u3hjj5fm3f" path="res://NPC/Plus/Plus_Sprites/plus.png" id="3_otvmr"]
-[ext_resource type="Texture2D" uid="uid://dxvqa7n30xlvn" path="res://NPC/Plus/Plus_Sprites/plus_bloqueando.png" id="4_suljb"]
-[ext_resource type="PackedScene" uid="uid://dddbyf155sudu" path="res://Recursos/Scenas/enemigo_slot.tscn" id="5_6qh13"]
-[ext_resource type="Texture2D" uid="uid://bekqqj6pf2tmm" path="res://NPC/Plus/Plus_Sprites/plus_recoger.png" id="5_dynvn"]
-[ext_resource type="Texture2D" uid="uid://dqtpqbpd1chbj" path="res://NPC/Plus/Plus_Sprites/plus_caminata.png" id="6_223r7"]
-[ext_resource type="Texture2D" uid="uid://cbkkkomb3l6" path="res://Assets/Imagenes/Muebles/silla_arcade.png" id="6_jpqfm"]
-[ext_resource type="Texture2D" uid="uid://r4y0t3l2jfxa" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/cuchillo.png" id="7_a8clm"]
-[ext_resource type="Texture2D" uid="uid://cs1l5dgikkb02" path="res://NPC/Plus/Plus_Sprites/plus_fly.png" id="7_axixi"]
-[ext_resource type="Texture2D" uid="uid://d0moifm24i1hn" path="res://NPC/Plus/Plus_Sprites/plus_golpe_1.png" id="8_6m2rk"]
-[ext_resource type="Texture2D" uid="uid://cyrtcjv5i050v" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/pistola.png" id="9_e3bkt"]
-[ext_resource type="Texture2D" uid="uid://pyuklonvs8tk" path="res://NPC/Plus/Plus_Sprites/plus_golpe2.png" id="9_ijuh6"]
-[ext_resource type="Texture2D" uid="uid://btnmnppvox2r1" path="res://NPC/Plus/Plus_Sprites/plus_golpe3.png" id="10_st6rk"]
-[ext_resource type="Texture2D" uid="uid://bsylnmxpmlmml" path="res://NPC/Plus/Plus_Sprites/plus_golpe4.png" id="11_1dw2i"]
-[ext_resource type="Texture2D" uid="uid://dm8enmiif0emm" path="res://NPC/Plus/Plus_Sprites/plus_damage.png" id="12_5a2lx"]
-[ext_resource type="Texture2D" uid="uid://cv4bdwo486wi1" path="res://NPC/Plus/Plus_Sprites/plus_parado.png" id="13_abf26"]
-[ext_resource type="Texture2D" uid="uid://cdojfvvdycuel" path="res://NPC/Plus/Plus_Sprites/plus_idle.png" id="16_84wa5"]
-[ext_resource type="Texture2D" uid="uid://dm8ynp661kyjp" path="res://NPC/Plus/Plus_Sprites/SaltoFin.png" id="17_1tgbg"]
-[ext_resource type="Texture2D" uid="uid://c8nafrq7vxmcy" path="res://NPC/Plus/Plus_Sprites/SaltoInicio.png" id="18_0je13"]
-[ext_resource type="Texture2D" uid="uid://d2hrtul3c3tdq" path="res://NPC/Plus/Plus_Sprites/SaltoMedio.png" id="19_wdp6s"]
-[ext_resource type="Texture2D" uid="uid://cdp5l6rcqxxq0" path="res://NPC/Plus/Plus_Sprites/SaltoPatada.png" id="20_f774a"]
-[ext_resource type="Texture2D" uid="uid://ddv2xx6x0r2d8" path="res://NPC/Plus/Plus_Sprites/plus_disparo.png" id="21_8ypwx"]
-[ext_resource type="Texture2D" uid="uid://cn3umrosbuiih" path="res://NPC/Plus/Plus_Sprites/plus_suelocaida.png" id="22_kfvhx"]
+[ext_resource type="PackedScene" uid="uid://dp7g2lnnvf0i3" path="res://NPC/Character_Base/character.tscn" id="1_3mpwt"]
+[ext_resource type="Script" uid="uid://ctgabvc5ktlwg" path="res://NPC/Enemigo_Base1/enemigo_1.gd" id="2_jqdh0"]
+[ext_resource type="Texture2D" uid="uid://by5u3hjj5fm3f" path="res://NPC/Plus/Plus_Sprites/plus.png" id="3_cshin"]
+[ext_resource type="Texture2D" uid="uid://dxvqa7n30xlvn" path="res://NPC/Plus/Plus_Sprites/plus_bloqueando.png" id="4_olnhw"]
+[ext_resource type="Texture2D" uid="uid://bpnsir3au3qaq" path="res://NPC/Plus/Plus_Sprites/plus_caida.png" id="5_iug6n"]
+[ext_resource type="Texture2D" uid="uid://dqtpqbpd1chbj" path="res://NPC/Plus/Plus_Sprites/plus_caminata.png" id="6_h1ii5"]
+[ext_resource type="Texture2D" uid="uid://cs1l5dgikkb02" path="res://NPC/Plus/Plus_Sprites/plus_fly.png" id="7_lcoay"]
+[ext_resource type="Texture2D" uid="uid://d0moifm24i1hn" path="res://NPC/Plus/Plus_Sprites/plus_golpe_1.png" id="8_nf0ei"]
+[ext_resource type="Texture2D" uid="uid://pyuklonvs8tk" path="res://NPC/Plus/Plus_Sprites/plus_golpe2.png" id="9_lliio"]
+[ext_resource type="Texture2D" uid="uid://btnmnppvox2r1" path="res://NPC/Plus/Plus_Sprites/plus_golpe3.png" id="10_whal6"]
+[ext_resource type="Texture2D" uid="uid://bsylnmxpmlmml" path="res://NPC/Plus/Plus_Sprites/plus_golpe4.png" id="11_umdty"]
+[ext_resource type="Texture2D" uid="uid://dm8enmiif0emm" path="res://NPC/Plus/Plus_Sprites/plus_damage.png" id="12_griwa"]
+[ext_resource type="Texture2D" uid="uid://cv4bdwo486wi1" path="res://NPC/Plus/Plus_Sprites/plus_parado.png" id="13_t58oo"]
+[ext_resource type="Texture2D" uid="uid://bekqqj6pf2tmm" path="res://NPC/Plus/Plus_Sprites/plus_recoger.png" id="14_f4wx0"]
+[ext_resource type="Texture2D" uid="uid://r4y0t3l2jfxa" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/cuchillo.png" id="15_d8wi6"]
+[ext_resource type="Texture2D" uid="uid://cdojfvvdycuel" path="res://NPC/Plus/Plus_Sprites/plus_idle.png" id="16_5krm3"]
+[ext_resource type="Texture2D" uid="uid://dm8ynp661kyjp" path="res://NPC/Plus/Plus_Sprites/SaltoFin.png" id="17_r5ugs"]
+[ext_resource type="Texture2D" uid="uid://c8nafrq7vxmcy" path="res://NPC/Plus/Plus_Sprites/SaltoInicio.png" id="18_ghmx2"]
+[ext_resource type="Texture2D" uid="uid://d2hrtul3c3tdq" path="res://NPC/Plus/Plus_Sprites/SaltoMedio.png" id="19_hul3l"]
+[ext_resource type="Texture2D" uid="uid://cdp5l6rcqxxq0" path="res://NPC/Plus/Plus_Sprites/SaltoPatada.png" id="20_rfni5"]
+[ext_resource type="Texture2D" uid="uid://ddv2xx6x0r2d8" path="res://NPC/Plus/Plus_Sprites/plus_disparo.png" id="21_tymu7"]
+[ext_resource type="Texture2D" uid="uid://cn3umrosbuiih" path="res://NPC/Plus/Plus_Sprites/plus_suelocaida.png" id="22_ufkwr"]
+[ext_resource type="Texture2D" uid="uid://cyrtcjv5i050v" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/pistola.png" id="23_sq5s2"]
 
-[sub_resource type="Animation" id="Animation_6aasy"]
+[sub_resource type="Animation" id="Animation_clpxd"]
 resource_name = "Bloqueo"
 length = 0.7916667
 step = 0.041666668
@@ -76,7 +74,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("4_suljb")]
+"values": [ExtResource("4_olnhw")]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -93,7 +91,7 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_b64ni"]
+[sub_resource type="Animation" id="Animation_khbde"]
 resource_name = "Caida"
 length = 0.12500417
 step = 0.041666668
@@ -143,7 +141,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_jpqfm")]
+"values": [ExtResource("5_iug6n")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -158,7 +156,7 @@ tracks/4/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_t8bge"]
+[sub_resource type="Animation" id="Animation_y7fmj"]
 resource_name = "Caminar"
 length = 0.95833755
 step = 0.041666668
@@ -172,7 +170,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("6_223r7")]
+"values": [ExtResource("6_h1ii5")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -235,9 +233,10 @@ tracks/5/keys = {
 "values": [0, 0]
 }
 
-[sub_resource type="Animation" id="Animation_u0ns0"]
+[sub_resource type="Animation" id="Animation_sxaje"]
 resource_name = "Fly"
 length = 0.16667084
+loop_mode = 1
 step = 0.041666668
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -285,22 +284,10 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("7_axixi")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CollateralEmitidorDaño:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [ExtResource("7_lcoay")]
 }
 
-[sub_resource type="Animation" id="Animation_5rnas"]
+[sub_resource type="Animation" id="Animation_fypxc"]
 resource_name = "Golpe"
 length = 0.58333755
 step = 0.041666668
@@ -350,7 +337,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("8_6m2rk")]
+"values": [ExtResource("8_nf0ei")]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -379,7 +366,7 @@ tracks/5/keys = {
 "values": [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 0, 0, 0, 0, 0]
 }
 
-[sub_resource type="Animation" id="Animation_xrcpa"]
+[sub_resource type="Animation" id="Animation_ljgkr"]
 resource_name = "Golpe_2"
 length = 0.0833375
 step = 0.041666668
@@ -429,7 +416,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("9_ijuh6")]
+"values": [ExtResource("9_lliio")]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -446,7 +433,7 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_sfthr"]
+[sub_resource type="Animation" id="Animation_17c84"]
 resource_name = "Golpe_3"
 length = 0.2083375
 step = 0.041666668
@@ -496,7 +483,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("10_st6rk")]
+"values": [ExtResource("10_whal6")]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -513,7 +500,7 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_7gkap"]
+[sub_resource type="Animation" id="Animation_6n152"]
 resource_name = "Golpe_4"
 length = 0.2083375
 step = 0.041666668
@@ -563,7 +550,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("11_1dw2i")]
+"values": [ExtResource("11_umdty")]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -580,7 +567,7 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_kdj1l"]
+[sub_resource type="Animation" id="Animation_qluax"]
 resource_name = "Hurt"
 length = 0.16667084
 loop_mode = 1
@@ -631,7 +618,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("12_5a2lx")]
+"values": [ExtResource("12_griwa")]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -648,7 +635,7 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_pulal"]
+[sub_resource type="Animation" id="Animation_rpya4"]
 resource_name = "Parandose"
 length = 0.12500417
 step = 0.041666668
@@ -698,7 +685,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_abf26")]
+"values": [ExtResource("13_t58oo")]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -715,9 +702,10 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_que0q"]
+[sub_resource type="Animation" id="Animation_668pi"]
 resource_name = "RESET"
 length = 0.001
+step = 0.041666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -776,22 +764,10 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("3_otvmr")]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollateralEmitidorDaño:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"values": [ExtResource("3_cshin")]
 }
 
-[sub_resource type="Animation" id="Animation_8y3p5"]
+[sub_resource type="Animation" id="Animation_aumjx"]
 resource_name = "Recogiendo"
 length = 0.12500417
 step = 0.041666668
@@ -805,7 +781,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_dynvn")]
+"values": [ExtResource("14_f4wx0")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -853,7 +829,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_a8clm")]
+"values": [ExtResource("15_d8wi6")]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -906,9 +882,10 @@ tracks/8/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_j2cjy"]
+[sub_resource type="Animation" id="Animation_xgnmf"]
 resource_name = "Reposo"
 length = 1.6250042
+loop_mode = 1
 step = 0.041666668
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -956,7 +933,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("16_84wa5")]
+"values": [ExtResource("16_5krm3")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -983,7 +960,7 @@ tracks/5/keys = {
 "values": [0, 0]
 }
 
-[sub_resource type="Animation" id="Animation_80eny"]
+[sub_resource type="Animation" id="Animation_tsg2a"]
 resource_name = "Salto_Fin"
 length = 0.0833375
 step = 0.041666668
@@ -1045,7 +1022,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("17_1tgbg")]
+"values": [ExtResource("17_r5ugs")]
 }
 tracks/5/type = "method"
 tracks/5/imported = false
@@ -1062,7 +1039,7 @@ tracks/5/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_5jiib"]
+[sub_resource type="Animation" id="Animation_j8foo"]
 resource_name = "Salto_Inicio"
 length = 0.0833375
 step = 0.041666668
@@ -1112,7 +1089,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("18_0je13")]
+"values": [ExtResource("18_ghmx2")]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -1129,7 +1106,7 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_fhowg"]
+[sub_resource type="Animation" id="Animation_dhilw"]
 resource_name = "Salto_Medio"
 length = 0.0833375
 step = 0.041666668
@@ -1179,10 +1156,10 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("19_wdp6s")]
+"values": [ExtResource("19_hul3l")]
 }
 
-[sub_resource type="Animation" id="Animation_onnrg"]
+[sub_resource type="Animation" id="Animation_ql8gp"]
 resource_name = "Salto_Patada"
 length = 0.0833375
 step = 0.041666668
@@ -1232,10 +1209,10 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("20_f774a")]
+"values": [ExtResource("20_rfni5")]
 }
 
-[sub_resource type="Animation" id="Animation_yf6ty"]
+[sub_resource type="Animation" id="Animation_lh3l7"]
 resource_name = "Shoot"
 length = 0.16667084
 loop_mode = 1
@@ -1286,7 +1263,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("21_8ypwx")]
+"values": [ExtResource("21_tymu7")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1315,7 +1292,7 @@ tracks/5/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_wmefi"]
+[sub_resource type="Animation" id="Animation_3uy8q"]
 resource_name = "Suelo_Caida"
 length = 0.12500417
 step = 0.041666668
@@ -1365,10 +1342,10 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("22_kfvhx")]
+"values": [ExtResource("22_ufkwr")]
 }
 
-[sub_resource type="Animation" id="Animation_i0pf6"]
+[sub_resource type="Animation" id="Animation_iil6q"]
 resource_name = "Throw_lanza"
 length = 0.16667084
 step = 0.041666668
@@ -1430,7 +1407,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("8_6m2rk")]
+"values": [ExtResource("8_nf0ei")]
 }
 tracks/5/type = "method"
 tracks/5/imported = false
@@ -1459,157 +1436,133 @@ tracks/6/keys = {
 "values": [1, 2, 2]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6qh13"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iiyf8"]
 _data = {
-&"Bloqueo": SubResource("Animation_6aasy"),
-&"Caida": SubResource("Animation_b64ni"),
-&"Caminar": SubResource("Animation_t8bge"),
-&"Fly": SubResource("Animation_u0ns0"),
-&"Golpe": SubResource("Animation_5rnas"),
-&"Golpe_2": SubResource("Animation_xrcpa"),
-&"Golpe_3": SubResource("Animation_sfthr"),
-&"Golpe_4": SubResource("Animation_7gkap"),
-&"Hurt": SubResource("Animation_kdj1l"),
-&"Parandose": SubResource("Animation_pulal"),
-&"RESET": SubResource("Animation_que0q"),
-&"Recogiendo": SubResource("Animation_8y3p5"),
-&"Reposo": SubResource("Animation_j2cjy"),
-&"Salto_Fin": SubResource("Animation_80eny"),
-&"Salto_Inicio": SubResource("Animation_5jiib"),
-&"Salto_Medio": SubResource("Animation_fhowg"),
-&"Salto_Patada": SubResource("Animation_onnrg"),
-&"Shoot": SubResource("Animation_yf6ty"),
-&"Suelo_Caida": SubResource("Animation_wmefi"),
-&"Throw_lanza": SubResource("Animation_i0pf6")
+&"Bloqueo": SubResource("Animation_clpxd"),
+&"Caida": SubResource("Animation_khbde"),
+&"Caminar": SubResource("Animation_y7fmj"),
+&"Fly": SubResource("Animation_sxaje"),
+&"Golpe": SubResource("Animation_fypxc"),
+&"Golpe_2": SubResource("Animation_ljgkr"),
+&"Golpe_3": SubResource("Animation_17c84"),
+&"Golpe_4": SubResource("Animation_6n152"),
+&"Hurt": SubResource("Animation_qluax"),
+&"Parandose": SubResource("Animation_rpya4"),
+&"RESET": SubResource("Animation_668pi"),
+&"Recogiendo": SubResource("Animation_aumjx"),
+&"Reposo": SubResource("Animation_xgnmf"),
+&"Salto_Fin": SubResource("Animation_tsg2a"),
+&"Salto_Inicio": SubResource("Animation_j8foo"),
+&"Salto_Medio": SubResource("Animation_dhilw"),
+&"Salto_Patada": SubResource("Animation_ql8gp"),
+&"Shoot": SubResource("Animation_lh3l7"),
+&"Suelo_Caida": SubResource("Animation_3uy8q"),
+&"Throw_lanza": SubResource("Animation_iil6q")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kg235"]
-radius = 13.0
-height = 64.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wrc1r"]
+height = 52.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qh13"]
-size = Vector2(35, 26)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exf3q"]
+size = Vector2(38, 27)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg235"]
-size = Vector2(37, 33)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrc1r"]
+size = Vector2(40, 43)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8clm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiyf8"]
+size = Vector2(16, 34)
 
-[node name="Jugador_Plus" unique_id=106214172 instance=ExtResource("1_snlmh")]
-collision_layer = 2
-collision_mask = 531
-script = ExtResource("2_kg235")
-max_duration_between_succesful_hits = 1000
-type = 0
-duracion_suelo = 300.0
-flight_speed = 300.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x0yl"]
+
+[node name="Enemigo_1" unique_id=106214172 instance=ExtResource("1_3mpwt")]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("2_jqdh0")
+duration_appear = 1000.0
+duration_between_melee_attacks = 1000
+duration_between_range_attacks = 1000
+duration_prep_melee_attack = 1000
+duration_prep_range_attack = 1000
+max_health = 4
+type = 1
+flight_speed = 600.0
 move_speed = 300.0
-knockback_intensidad = 10.0
-max_ammo_per_gun = 3
-can_respawn = true
-can_respawn_knife = true
-damage = 3
-damage_power = 6
+knockback_intensidad = 5.0
+damage = 5
 damage_gunshot = 3
-has_knife = true
 
 [node name="Sombra" parent="." index="0" unique_id=813121135]
-position = Vector2(3, -73)
+position = Vector2(0, -75)
 
 [node name="Sprite2D" parent="." index="1" unique_id=570534983]
-texture = ExtResource("3_otvmr")
+texture = ExtResource("3_cshin")
 offset = Vector2(0, -75)
 
 [node name="AnimationPlayer" parent="." index="2" unique_id=1210923462]
-libraries/ = SubResource("AnimationLibrary_6qh13")
+libraries/ = SubResource("AnimationLibrary_iiyf8")
 
 [node name="CollisionShape2D2" parent="." index="3" unique_id=1712265704]
-position = Vector2(0, -10)
+position = Vector2(1, -9)
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_kg235")
+shape = SubResource("CapsuleShape2D_wrc1r")
 
 [node name="EmitidorDaño" parent="." index="4" unique_id=771478216]
 collision_layer = 0
-collision_mask = 388
+collision_mask = 128
 monitoring = false
 
 [node name="CollisionShape2D" parent="EmitidorDaño" index="0" unique_id=1521075572]
-position = Vector2(61, -99)
-shape = SubResource("RectangleShape2D_6qh13")
-debug_color = Color(0.91617966, 8.490265e-05, 0.715479, 0.41960785)
+position = Vector2(57, -92)
+shape = SubResource("RectangleShape2D_exf3q")
+debug_color = Color(0.9508149, 1.8289685e-06, 0.56915855, 0.41960785)
 
-[node name="EnemySlots" type="Node2D" parent="." index="5" unique_id=350338050]
-position = Vector2(0, -50)
-
-[node name="EnemigoSlot" parent="EnemySlots" index="0" unique_id=1814701161 instance=ExtResource("5_6qh13")]
-position = Vector2(55, 27)
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot" index="0" unique_id=1320849147]
-position = Vector2(-0.9999999, -9.999999)
-scale = Vector2(0.3958333, 0.33783787)
-texture = ExtResource("6_jpqfm")
-
-[node name="EnemigoSlot2" parent="EnemySlots" index="1" unique_id=2030278729 instance=ExtResource("5_6qh13")]
-position = Vector2(55, 38)
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot2" index="0" unique_id=948909322]
-scale = Vector2(0.3958333, 0.33783787)
-texture = ExtResource("6_jpqfm")
-
-[node name="EnemigoSlot3" parent="EnemySlots" index="2" unique_id=1633405638 instance=ExtResource("5_6qh13")]
-position = Vector2(-54, 18)
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot3" index="0" unique_id=1055207842]
-scale = Vector2(0.3958333, 0.33783787)
-texture = ExtResource("6_jpqfm")
-
-[node name="EnemigoSlot4" parent="EnemySlots" index="3" unique_id=1919209562 instance=ExtResource("5_6qh13")]
-position = Vector2(-54, 38)
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot4" index="0" unique_id=615215373]
-scale = Vector2(0.3958333, 0.33783787)
-texture = ExtResource("6_jpqfm")
-
-[node name="ReceptorDaño" parent="." index="6" unique_id=1523650532]
-collision_layer = 192
-collision_mask = 0
+[node name="ReceptorDaño" parent="." index="5" unique_id=1523650532]
+collision_layer = 128
+collision_mask = 128
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
-position = Vector2(-2, -106)
-shape = SubResource("RectangleShape2D_kg235")
-debug_color = Color(5.7756904e-07, 0.6220253, 0.5521854, 0.41960785)
+position = Vector2(-2, -98)
+shape = SubResource("RectangleShape2D_wrc1r")
+debug_color = Color(2.2140146e-06, 0.6228773, 0.54512143, 0.41960785)
 
-[node name="CollateralEmitidorDaño" parent="." index="7" unique_id=1093273836]
+[node name="CollateralEmitidorDaño" parent="." index="6" unique_id=1093273836]
+collision_layer = 0
+collision_mask = 640
 monitoring = false
 
-[node name="GunSprite" parent="." index="8" unique_id=378956244]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_e3bkt")
-offset = Vector2(0, -70)
+[node name="CollisionShape2D" parent="CollateralEmitidorDaño" index="0" unique_id=1521075572]
+position = Vector2(-2, -101)
+shape = SubResource("RectangleShape2D_iiyf8")
+debug_color = Color(0.99662393, 0.054060645, 0, 0.41960785)
+
+[node name="GunSprite" parent="." index="7" unique_id=378956244]
+position = Vector2(64, -90)
+scale = Vector2(0.46, 0.5)
+texture = ExtResource("23_sq5s2")
 hframes = 4
 vframes = 2
 
-[node name="Cuchillo" parent="." index="9" unique_id=313798195]
-position = Vector2(59, -100)
-scale = Vector2(0.58, 0.6)
-texture = ExtResource("7_a8clm")
-centered = false
+[node name="Cuchillo" parent="." index="8" unique_id=313798195]
+position = Vector2(64, -91)
+scale = Vector2(0.54, 0.6)
+texture = ExtResource("15_d8wi6")
 hframes = 3
+frame = 1
 
 [node name="WeaponPosition" parent="Cuchillo" index="0" unique_id=983036064]
-position = Vector2(17.241379, 126.66666)
+position = Vector2(-7.407407, 24.999998)
 
-[node name="ProyectilLanzable" parent="." index="10" unique_id=224289400]
-collision_mask = 20
+[node name="ProyectilLanzable" parent="." index="9" unique_id=224289400]
+position = Vector2(0, -5)
+collision_mask = 2
 
-[node name="CollectibleSensor" parent="." index="11" unique_id=996763328]
+[node name="CollectibleSensor" parent="." index="10" unique_id=996763328]
 collision_mask = 1024
-monitorable = false
 
 [node name="CollisionShape2D" parent="CollectibleSensor" index="0" unique_id=2127295643]
-position = Vector2(1, -10)
-shape = SubResource("RectangleShape2D_a8clm")
-debug_color = Color(0.9526914, 1.4439225e-06, 0.5598293, 0.41960785)
+position = Vector2(1, -9)
+shape = SubResource("RectangleShape2D_0x0yl")
+debug_color = Color(0.9477927, 4.5242905e-06, 0.5837393, 0.41960785)
 
 [editable path="EmitidorDaño"]
 [editable path="ReceptorDaño"]

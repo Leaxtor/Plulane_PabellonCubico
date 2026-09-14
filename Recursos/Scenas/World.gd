@@ -2,8 +2,8 @@ extends Node2D
 
 const PLAYER_PREFAB := preload("res://Recursos/Scenas/NPC/jugador_plus.tscn")
 const STAGE_PREFAB := [
-	preload("res://Recursos/Scenas/StageTest2_1.tscn"),
-	preload("res://Recursos/Scenas/StageTest2_2.tscn")
+	preload("res://Mundo/Niveles/StageTest2_1.tscn"),
+	preload("res://Mundo/Niveles/StageTest2_2.tscn")
 ]
 
 

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cig75s7sekbib"]
+
+[ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://NPC/Enemigo_Base1/enemigo_1.tscn" id="1_haue7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_haue7"]
+
+[node name="GoonEnemy" unique_id=106214172 instance=ExtResource("1_haue7")]
+type = 2
+autodestroy_drop = true
+
+[node name="WeaponPosition" parent="Cuchillo" parent_id_path=PackedInt32Array(313798195) index="0" unique_id=983036064]
+position = Vector2(-5.5555553, 26.666664)
+
+[node name="CollisionShape2D" parent="CollectibleSensor" parent_id_path=PackedInt32Array(996763328) index="0" unique_id=2127295643]
+shape = SubResource("RectangleShape2D_haue7")
+debug_color = Color(0.9572142, 0, 0.5363842, 0.41960785)
+
+[editable path="EmitidorDaño"]
+[editable path="ReceptorDaño"]
+[editable path="CollateralEmitidorDaño"]

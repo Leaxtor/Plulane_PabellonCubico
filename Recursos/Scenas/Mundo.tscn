@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dv5r5kfnp08n6" path="res://Recursos/Scenas/World.gd" id="1_ry826"]
 [ext_resource type="PackedScene" uid="uid://ceb6yc2mk6nva" path="res://Interfaces/GameplayInterfaz/ui.tscn" id="2_0coas"]
-[ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Recursos/Scenas/NPC/camara.tscn" id="3_dgq3k"]
+[ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Mundo/Camara/camara.tscn" id="3_dgq3k"]
 [ext_resource type="Script" uid="uid://djhqbwol0215r" path="res://Recursos/Scenas/actores_contenedor.gd" id="4_ry826"]
 
 [node name="World" type="Node2D" unique_id=1173936784]
