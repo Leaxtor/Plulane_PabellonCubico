@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://wwq05poayoap"]
 
-[ext_resource type="Script" uid="uid://bhf3r5xtpchlo" path="res://Recursos/Scenas/Receptor_Damage.gd" id="1_8jfpi"]
+[ext_resource type="Script" uid="uid://bhf3r5xtpchlo" path="res://Mundo/HitBoxes/Receptor_Damage.gd" id="1_8jfpi"]
 
 [node name="ReceptorDaño" type="Area2D" unique_id=1523650532]
 script = ExtResource("1_8jfpi")

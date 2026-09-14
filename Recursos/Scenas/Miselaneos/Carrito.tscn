@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwms6kpnfxi56" path="res://Recursos/Scenas/Miselaneos/Objeto.gd" id="1_1i0s6"]
 [ext_resource type="Texture2D" uid="uid://fscen2k473ms" path="res://Assets/Imagenes/Muebles/carrito_salchicha.png" id="1_fcm4c"]
-[ext_resource type="PackedScene" uid="uid://wwq05poayoap" path="res://Recursos/Scenas/ReceptorDaño.tscn" id="2_vfpih"]
+[ext_resource type="PackedScene" uid="uid://wwq05poayoap" path="res://Mundo/HitBoxes/ReceptorDaño.tscn" id="2_vfpih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfpih"]
 size = Vector2(79.25, 27.375)
