@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://1cbvldi8oi3r"]
 
-[ext_resource type="PackedScene" uid="uid://dhneiks81x4m8" path="res://Recursos/Scenas/Stage.tscn" id="1_o3pk0"]
+[ext_resource type="PackedScene" uid="uid://dhneiks81x4m8" path="res://Mundo/Estructura/Stage.tscn" id="1_o3pk0"]
 [ext_resource type="Texture2D" uid="uid://biaw5ueakyy5f" path="res://Assets/Imagenes/Fondos/Metro 2 estacion.png" id="2_6luqs"]
-[ext_resource type="PackedScene" uid="uid://dxhcvovw1gwo0" path="res://Recursos/Scenas/checkpoint.tscn" id="3_7kqje"]
+[ext_resource type="PackedScene" uid="uid://dxhcvovw1gwo0" path="res://Mundo/Estructura/checkpoint.tscn" id="3_7kqje"]
 [ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://NPC/Enemigo_Base1/enemigo_1.tscn" id="4_tehcr"]
 [ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Recursos/Scenas/Miselaneos/Carrito.tscn" id="5_tehcr"]
 [ext_resource type="PackedScene" uid="uid://4glibyt812qp" path="res://Recursos/Scenas/Miselaneos/Door.tscn" id="6_rl63f"]

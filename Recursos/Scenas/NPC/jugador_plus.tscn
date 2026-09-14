@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bpnsir3au3qaq" path="res://NPC/Plus/Plus_Sprites/plus_caida.png" id="3_jpqfm"]
 [ext_resource type="Texture2D" uid="uid://by5u3hjj5fm3f" path="res://NPC/Plus/Plus_Sprites/plus.png" id="3_otvmr"]
 [ext_resource type="Texture2D" uid="uid://dxvqa7n30xlvn" path="res://NPC/Plus/Plus_Sprites/plus_bloqueando.png" id="4_suljb"]
-[ext_resource type="PackedScene" uid="uid://dddbyf155sudu" path="res://Recursos/Scenas/enemigo_slot.tscn" id="5_6qh13"]
+[ext_resource type="PackedScene" uid="uid://dddbyf155sudu" path="res://NPC/Plus/enemigo_slot.tscn" id="5_6qh13"]
 [ext_resource type="Texture2D" uid="uid://bekqqj6pf2tmm" path="res://NPC/Plus/Plus_Sprites/plus_recoger.png" id="5_dynvn"]
 [ext_resource type="Texture2D" uid="uid://dqtpqbpd1chbj" path="res://NPC/Plus/Plus_Sprites/plus_caminata.png" id="6_223r7"]
 [ext_resource type="Texture2D" uid="uid://cbkkkomb3l6" path="res://Assets/Imagenes/Muebles/silla_arcade.png" id="6_jpqfm"]

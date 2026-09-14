@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxhcvovw1gwo0"]
 
-[ext_resource type="Script" uid="uid://b64ey2wu68gpe" path="res://Recursos/Scenas/checkpoint.gd" id="1_1bdxs"]
+[ext_resource type="Script" uid="uid://b64ey2wu68gpe" path="res://Mundo/Estructura/checkpoint.gd" id="1_1eyj8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
 size = Vector2(17, 571)
@@ -9,7 +9,7 @@ size = Vector2(17, 571)
 size = Vector2(963, 552)
 
 [node name="Checkpoint" type="Node2D" unique_id=904931730]
-script = ExtResource("1_1bdxs")
+script = ExtResource("1_1eyj8")
 nb_simultaneous_enemy = 1
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1021542459]

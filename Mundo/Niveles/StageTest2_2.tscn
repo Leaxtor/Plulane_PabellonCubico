@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://4x4ye8pdgb08"]
 
-[ext_resource type="PackedScene" uid="uid://dhneiks81x4m8" path="res://Recursos/Scenas/Stage.tscn" id="1_epxfy"]
+[ext_resource type="PackedScene" uid="uid://dhneiks81x4m8" path="res://Mundo/Estructura/Stage.tscn" id="1_epxfy"]
 [ext_resource type="Texture2D" uid="uid://cjkxning3rrrs" path="res://Assets/Imagenes/Fondos/MetroParallaxA.png" id="2_eevlo"]
 [ext_resource type="Texture2D" uid="uid://bhmsnjnliekx" path="res://Assets/Imagenes/Fondos/MetroParallaxB.png" id="3_7c6fs"]
-[ext_resource type="PackedScene" uid="uid://dxhcvovw1gwo0" path="res://Recursos/Scenas/checkpoint.tscn" id="4_fgk1o"]
+[ext_resource type="PackedScene" uid="uid://dxhcvovw1gwo0" path="res://Mundo/Estructura/checkpoint.tscn" id="4_fgk1o"]
 [ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://NPC/Enemigo_Base1/enemigo_1.tscn" id="5_gihnq"]
 
 [node name="StageTest2_2" unique_id=520458551 instance=ExtResource("1_epxfy")]

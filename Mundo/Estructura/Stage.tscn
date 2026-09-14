@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhneiks81x4m8"]
 
-[ext_resource type="Script" uid="uid://cra62lkip544r" path="res://Recursos/Scripts/stage.gd" id="1_guior"]
+[ext_resource type="Script" uid="uid://cra62lkip544r" path="res://Recursos/Scripts/stage.gd" id="1_xtlpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
 size = Vector2(3461.75, 33)
@@ -9,7 +9,7 @@ size = Vector2(3461.75, 33)
 size = Vector2(3427.5, 51)
 
 [node name="Stage" type="Node2D" unique_id=520458551]
-script = ExtResource("1_guior")
+script = ExtResource("1_xtlpc")
 
 [node name="Background" type="Node2D" parent="." unique_id=60433559]
 

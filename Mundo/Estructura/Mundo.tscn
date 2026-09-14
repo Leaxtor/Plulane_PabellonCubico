@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cmw4phi0ftl4l"]
+
+[ext_resource type="Script" uid="uid://dv5r5kfnp08n6" path="res://Mundo/Estructura/World.gd" id="1_fgc2t"]
+[ext_resource type="PackedScene" uid="uid://ceb6yc2mk6nva" path="res://Interfaces/GameplayInterfaz/ui.tscn" id="2_w0gtt"]
+[ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Mundo/Camara/camara.tscn" id="3_xm5i6"]
+[ext_resource type="Script" uid="uid://djhqbwol0215r" path="res://Mundo/Estructura/actores_contenedor.gd" id="4_rbgi5"]
+
+[node name="World" type="Node2D" unique_id=1173936784]
+script = ExtResource("1_fgc2t")
+
+[node name="UI" parent="." unique_id=405288705 instance=ExtResource("2_w0gtt")]
+
+[node name="StageContainers" type="Node2D" parent="." unique_id=1167865393]
+
+[node name="CamaraJugador" parent="." unique_id=171648781 instance=ExtResource("3_xm5i6")]
+position = Vector2(295, 325)
+duration_shake = 100
+shake_intensity = 20
+
+[node name="ActoresContenedor" type="Node2D" parent="." unique_id=283359600]
+y_sort_enabled = true
+script = ExtResource("4_rbgi5")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=914154982]
+
+[node name="ANCLA" type="Node2D" parent="." unique_id=1991106379]
+position = Vector2(143, -251)

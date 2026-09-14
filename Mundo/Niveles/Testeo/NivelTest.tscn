@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ceb6yc2mk6nva" path="res://Interfaces/GameplayInterfaz/ui.tscn" id="1_la3ur"]
 [ext_resource type="Texture2D" uid="uid://c04cnelihnx11" path="res://Assets/Imagenes/Fondos/Barrios Bajos-5.png" id="2_wgohp"]
-[ext_resource type="Script" uid="uid://djhqbwol0215r" path="res://Recursos/Scenas/actores_contenedor.gd" id="3_crit0"]
+[ext_resource type="Script" uid="uid://djhqbwol0215r" path="res://Mundo/Estructura/actores_contenedor.gd" id="3_crit0"]
 [ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Recursos/Scenas/Miselaneos/Carrito.tscn" id="4_mhtvu"]
 [ext_resource type="PackedScene" uid="uid://dwd3jcrrl8sma" path="res://Recursos/Scenas/NPC/jugador_plus.tscn" id="5_2qyd1"]
 [ext_resource type="PackedScene" uid="uid://d3twcfyoy5hr5" path="res://Recursos/Scenas/Miselaneos/Mesa_arcade.tscn" id="6_hfkx8"]
