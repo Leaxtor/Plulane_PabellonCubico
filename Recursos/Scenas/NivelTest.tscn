@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://t8sjc3imvui8"]
 
 [ext_resource type="Texture2D" uid="uid://c04cnelihnx11" path="res://Assets/Imagenes/Fondos/Barrios Bajos-5.png" id="1_8m6f3"]
-[ext_resource type="PackedScene" uid="uid://ceb6yc2mk6nva" path="res://Interfaces/ui.tscn" id="1_w7msa"]
-[ext_resource type="Script" uid="uid://djhqbwol0215r" path="res://Recursos/Scripts/actores_contenedor.gd" id="3_x3146"]
+[ext_resource type="PackedScene" uid="uid://ceb6yc2mk6nva" path="res://Interfaces/GameplayInterfaz/ui.tscn" id="1_w7msa"]
+[ext_resource type="Script" uid="uid://djhqbwol0215r" path="res://Recursos/Scenas/actores_contenedor.gd" id="3_x3146"]
 [ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Recursos/Scenas/Miselaneos/Carrito.tscn" id="4_5mnnw"]
 [ext_resource type="PackedScene" uid="uid://dwd3jcrrl8sma" path="res://Recursos/Scenas/NPC/jugador_plus.tscn" id="5_5wrfm"]
 [ext_resource type="PackedScene" uid="uid://d3twcfyoy5hr5" path="res://Recursos/Scenas/Miselaneos/Mesa_arcade.tscn" id="5_nx08k"]

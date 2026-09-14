@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0gctg6t88xb2"
-path="res://.godot/imported/AvatarEnemy.png-0e46233d7560a09bae5907be47154cb1.ctex"
+uid="uid://cxbmgpcvuo5gb"
+path="res://.godot/imported/cirnoflecha.png-836bdaf3d3ae1a0767105b90cab3523e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarEnemy.png"
-dest_files=["res://.godot/imported/AvatarEnemy.png-0e46233d7560a09bae5907be47154cb1.ctex"]
+source_file="res://Interfaces/GameplayInterfaz/cirnoflecha.png"
+dest_files=["res://.godot/imported/cirnoflecha.png-836bdaf3d3ae1a0767105b90cab3523e.ctex"]
 
 [params]
 

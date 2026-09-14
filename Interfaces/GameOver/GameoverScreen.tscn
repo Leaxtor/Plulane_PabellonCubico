@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b5a4p6htutqre" path="res://Interfaces/Temas/gui_theme.tres" id="1_5ej5l"]
 [ext_resource type="Script" uid="uid://1ole8acvhret" path="res://Interfaces/GameOver/gameover_screen.gd" id="2_1vpb8"]
-[ext_resource type="PackedScene" uid="uid://dfa03jxnky12w" path="res://Interfaces/ScoreIndicator.tscn" id="2_ieg2f"]
+[ext_resource type="PackedScene" uid="uid://dfa03jxnky12w" path="res://Interfaces/GameplayInterfaz/ScoreIndicator.tscn" id="2_ieg2f"]
 
 [node name="GameoverScreen" type="Control" unique_id=72114250]
 layout_mode = 3

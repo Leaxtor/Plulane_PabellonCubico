@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4glibyt812qp"]
 
-[ext_resource type="Script" uid="uid://bmf4316gvw71e" path="res://Recursos/Scripts/door.gd" id="1_re6wg"]
+[ext_resource type="Script" uid="uid://bmf4316gvw71e" path="res://Recursos/Scenas/Miselaneos/door.gd" id="1_re6wg"]
 [ext_resource type="Texture2D" uid="uid://pkffaem4dkes" path="res://Assets/Imagenes/Fondos/PuertaMetro.png" id="2_qgc8w"]
 
 [node name="Door" type="Node2D" unique_id=2144243154 node_paths=PackedStringArray("enemies")]

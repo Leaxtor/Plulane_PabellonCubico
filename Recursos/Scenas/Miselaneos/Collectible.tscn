@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ounbej5t3oee"]
 
 [ext_resource type="PackedScene" uid="uid://cbttjfagglol" path="res://Recursos/Scenas/EmitidorDaño.tscn" id="1_kso6q"]
-[ext_resource type="Script" uid="uid://hfi27md6fc1g" path="res://Recursos/Scripts/collectible.gd" id="1_ut4qa"]
+[ext_resource type="Script" uid="uid://hfi27md6fc1g" path="res://Recursos/Scenas/Miselaneos/collectible.gd" id="1_ut4qa"]
 
 [node name="Collectible" type="Area2D" unique_id=31789068]
 collision_layer = 1024

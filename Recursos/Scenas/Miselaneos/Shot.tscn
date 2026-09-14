@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://eey0g3xggcx0"]
 
-[ext_resource type="Script" uid="uid://canldhl6bqnf1" path="res://Recursos/Scripts/shot.gd" id="1_lurbd"]
+[ext_resource type="Script" uid="uid://canldhl6bqnf1" path="res://Recursos/Scenas/Miselaneos/shot.gd" id="1_lurbd"]
 
 [sub_resource type="Gradient" id="Gradient_unkbd"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1)

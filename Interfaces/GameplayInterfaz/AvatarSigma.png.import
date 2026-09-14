@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxbmgpcvuo5gb"
-path="res://.godot/imported/cirnoflecha.png-c7b7c603817e387635219dc6349201a8.ctex"
+uid="uid://ci52gq7x1q8gh"
+path="res://.godot/imported/AvatarSigma.png-de0eb7af98723a7297b8b484b1f85898.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/NPC/Personajes_principales/Plus/cirnoflecha.png"
-dest_files=["res://.godot/imported/cirnoflecha.png-c7b7c603817e387635219dc6349201a8.ctex"]
+source_file="res://Interfaces/GameplayInterfaz/AvatarSigma.png"
+dest_files=["res://.godot/imported/AvatarSigma.png-de0eb7af98723a7297b8b484b1f85898.ctex"]
 
 [params]
 

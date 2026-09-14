@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://gpvvudyx6k0v"]
 
-[ext_resource type="Script" uid="uid://bqq34ywowvi6b" path="res://Interfaces/health_bar.gd" id="1_e170x"]
-[ext_resource type="Texture2D" uid="uid://d1phopmxr6dvs" path="res://Interfaces/Healthbar.png" id="1_gvkpf"]
+[ext_resource type="Script" uid="uid://bqq34ywowvi6b" path="res://Interfaces/GameplayInterfaz/health_bar.gd" id="1_e170x"]
+[ext_resource type="Texture2D" uid="uid://d1phopmxr6dvs" path="res://Interfaces/GameplayInterfaz/Healthbar.png" id="1_gvkpf"]
 
 [node name="HealthBar" type="Control" unique_id=915520155]
 layout_mode = 3

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci52gq7x1q8gh"
-path="res://.godot/imported/AvatarSigma.png-5cddf6b7feac39e43d87631c157a951e.ctex"
+uid="uid://c0gctg6t88xb2"
+path="res://.godot/imported/AvatarEnemy.png-869e77cce47b0225b059dd6a63638665.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarSigma.png"
-dest_files=["res://.godot/imported/AvatarSigma.png-5cddf6b7feac39e43d87631c157a951e.ctex"]
+source_file="res://Interfaces/GameplayInterfaz/AvatarEnemy.png"
+dest_files=["res://.godot/imported/AvatarEnemy.png-869e77cce47b0225b059dd6a63638665.ctex"]
 
 [params]
 

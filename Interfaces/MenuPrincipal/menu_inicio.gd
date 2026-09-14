@@ -14,9 +14,6 @@ func _process(delta: float) -> void:
 func _on_inicio_pressed() -> void:
 	get_tree().change_scene_to_file("res://Recursos/Scenas/NivelTest.tscn")
 	
-
-
-
 func _on_conf_pressed() -> void:
 	pass # Replace with function body.
 

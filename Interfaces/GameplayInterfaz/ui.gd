@@ -6,10 +6,10 @@ const DEATH_SCREEN_PREFAB := preload("res://Interfaces/Death/death_scene.tscn")
 const GAMEOVER_SCREEN_PREFAB := preload("res://Interfaces/GameOver/GameoverScreen.tscn")
 
 const avatar_map : Dictionary = {
-	Character.Type.ENEMIGO_1: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarEnemy.png"),
-	Character.Type.ENEMIGO_GOON: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarEnemy.png"),
-	Character.Type.THUG_ENEMIGO: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarEnemy.png"),
-	Character.Type.BOSS_TUTORIAL: preload("res://Assets/Imagenes/NPC/Personajes_principales/Plus/AvatarSigma.png")
+	Character.Type.ENEMIGO_1: preload("res://Interfaces/GameplayInterfaz/AvatarEnemy.png"),
+	Character.Type.ENEMIGO_GOON: preload("res://Interfaces/GameplayInterfaz/AvatarEnemy.png"),
+	Character.Type.THUG_ENEMIGO: preload("res://Interfaces/GameplayInterfaz/AvatarEnemy.png"),
+	Character.Type.BOSS_TUTORIAL: preload("res://Interfaces/GameplayInterfaz/AvatarSigma.png")
 }
 
 @onready var player_healthbar : Healthbar = $UIContainer/PlayerHealthBar
