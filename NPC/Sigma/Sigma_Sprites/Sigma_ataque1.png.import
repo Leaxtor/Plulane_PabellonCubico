@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0djdvcdna8o8"
-path="res://.godot/imported/Sigma_caminando.png-30f7ec861c74c37c071664dc1888fdd3.ctex"
+uid="uid://colrbmiqwb2fk"
+path="res://.godot/imported/Sigma_ataque1.png-82a4c95e516cbc4dbb36f79f2449383e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/NPC/Enemigos/Sigma/Sigma_caminando.png"
-dest_files=["res://.godot/imported/Sigma_caminando.png-30f7ec861c74c37c071664dc1888fdd3.ctex"]
+source_file="res://NPC/Sigma/Sigma_Sprites/Sigma_ataque1.png"
+dest_files=["res://.godot/imported/Sigma_ataque1.png-82a4c95e516cbc4dbb36f79f2449383e.ctex"]
 
 [params]
 

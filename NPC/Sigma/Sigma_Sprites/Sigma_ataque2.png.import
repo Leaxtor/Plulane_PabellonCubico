@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh30hpy15nwuy"
-path="res://.godot/imported/Sigma_herido.png-4f89a97b9a9f47d2b0464e6833a2b9ff.ctex"
+uid="uid://bydushwsui6xc"
+path="res://.godot/imported/Sigma_ataque2.png-d5315e17ddd997ac4b2e48b595d5aea7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/NPC/Enemigos/Sigma/Sigma_herido.png"
-dest_files=["res://.godot/imported/Sigma_herido.png-4f89a97b9a9f47d2b0464e6833a2b9ff.ctex"]
+source_file="res://NPC/Sigma/Sigma_Sprites/Sigma_ataque2.png"
+dest_files=["res://.godot/imported/Sigma_ataque2.png-d5315e17ddd997ac4b2e48b595d5aea7.ctex"]
 
 [params]
 

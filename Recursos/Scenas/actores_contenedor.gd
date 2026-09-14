@@ -14,7 +14,7 @@ const ENEMY_MAP := {
 	Character.Type.ENEMIGO_1: preload("res://Recursos/Scenas/NPC/enemigo_1.tscn"), 
 	Character.Type.ENEMIGO_GOON: preload("res://Recursos/Scenas/NPC/enemigo_goon.tscn"),
 	Character.Type.THUG_ENEMIGO: preload("res://Recursos/Scenas/NPC/thug_enemigo.tscn"),
-	Character.Type.BOSS_TUTORIAL: preload("res://Recursos/Scenas/NPC/boss_tutorial.tscn")
+	Character.Type.BOSS_TUTORIAL: preload("res://NPC/Sigma/boss_tutorial.tscn")
 }
 
 @export var player: Player #El NODO CAPTURA AL JUGADOR PARA DECIRLE A LOS ENEMIGOS QUE IMPRIMA

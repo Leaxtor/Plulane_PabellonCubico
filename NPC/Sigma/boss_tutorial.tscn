@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://13u7bx6lwxod"]
 
 [ext_resource type="PackedScene" uid="uid://dp7g2lnnvf0i3" path="res://Recursos/Scenas/NPC/character.tscn" id="1_gdgq5"]
-[ext_resource type="Script" uid="uid://6mlbglog1o77" path="res://Recursos/Scenas/NPC/boss_tutorial.gd" id="2_ans8e"]
-[ext_resource type="Texture2D" uid="uid://7wuhtif7hbfy" path="res://Assets/Imagenes/NPC/Enemigos/Sigma/Sigma.png" id="2_wou2b"]
-[ext_resource type="Texture2D" uid="uid://colrbmiqwb2fk" path="res://Assets/Imagenes/NPC/Enemigos/Sigma/Sigma_ataque1.png" id="3_4h42g"]
-[ext_resource type="Texture2D" uid="uid://bydushwsui6xc" path="res://Assets/Imagenes/NPC/Enemigos/Sigma/Sigma_ataque2.png" id="4_j8eik"]
-[ext_resource type="Texture2D" uid="uid://copp4j3v3wyu1" path="res://Assets/Imagenes/NPC/Enemigos/Sigma/Sigma_caido.png" id="5_o57ey"]
-[ext_resource type="Texture2D" uid="uid://d0djdvcdna8o8" path="res://Assets/Imagenes/NPC/Enemigos/Sigma/Sigma_caminando.png" id="5_v0s13"]
-[ext_resource type="Texture2D" uid="uid://bh30hpy15nwuy" path="res://Assets/Imagenes/NPC/Enemigos/Sigma/Sigma_herido.png" id="6_towl1"]
-[ext_resource type="Texture2D" uid="uid://dwasxdtvkgiqr" path="res://Assets/Imagenes/NPC/Enemigos/Sigma/Sigma_patada.png" id="7_h0hll"]
+[ext_resource type="Script" uid="uid://6mlbglog1o77" path="res://NPC/Sigma/boss_tutorial.gd" id="2_ans8e"]
+[ext_resource type="Texture2D" uid="uid://7wuhtif7hbfy" path="res://NPC/Sigma/Sigma_Sprites/Sigma.png" id="2_wou2b"]
+[ext_resource type="Texture2D" uid="uid://colrbmiqwb2fk" path="res://NPC/Sigma/Sigma_Sprites/Sigma_ataque1.png" id="3_4h42g"]
+[ext_resource type="Texture2D" uid="uid://bydushwsui6xc" path="res://NPC/Sigma/Sigma_Sprites/Sigma_ataque2.png" id="4_j8eik"]
+[ext_resource type="Texture2D" uid="uid://copp4j3v3wyu1" path="res://NPC/Sigma/Sigma_Sprites/Sigma_caido.png" id="5_o57ey"]
+[ext_resource type="Texture2D" uid="uid://d0djdvcdna8o8" path="res://NPC/Sigma/Sigma_Sprites/Sigma_caminando.png" id="5_v0s13"]
+[ext_resource type="Texture2D" uid="uid://bh30hpy15nwuy" path="res://NPC/Sigma/Sigma_Sprites/Sigma_herido.png" id="6_towl1"]
+[ext_resource type="Texture2D" uid="uid://dwasxdtvkgiqr" path="res://NPC/Sigma/Sigma_Sprites/Sigma_patada.png" id="7_h0hll"]
 
 [sub_resource type="Animation" id="Animation_v0s13"]
 resource_name = "Ataque1"

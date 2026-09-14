@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://Recursos/Scenas/NPC/enemigo_1.tscn" id="7_36vfu"]
 [ext_resource type="PackedScene" uid="uid://eey0g3xggcx0" path="res://Recursos/Scenas/Miselaneos/Shot.tscn" id="10_22wyd"]
 [ext_resource type="PackedScene" uid="uid://ccbbjf8on3gfe" path="res://Recursos/Scenas/Miselaneos/Food.tscn" id="10_ejajt"]
-[ext_resource type="PackedScene" uid="uid://13u7bx6lwxod" path="res://Recursos/Scenas/NPC/boss_tutorial.tscn" id="11_ejajt"]
+[ext_resource type="PackedScene" uid="uid://13u7bx6lwxod" path="res://NPC/Sigma/boss_tutorial.tscn" id="11_ejajt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m6f3"]
 size = Vector2(1986, 268.5)
