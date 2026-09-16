@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3yord4cpl16v"
-path="res://.godot/imported/sombraplaceholder.png-c9809079c3d6c703cc92c5b87a8f5fa7.ctex"
+uid="uid://cyrtcjv5i050v"
+path="res://.godot/imported/pistola.png-fa3d775cd8d269ee6756be2195e3e42b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/NPC/Personajes_principales/Plus/sombraplaceholder.png"
-dest_files=["res://.godot/imported/sombraplaceholder.png-c9809079c3d6c703cc92c5b87a8f5fa7.ctex"]
+source_file="res://Mundo/Items/Assets/pistola.png"
+dest_files=["res://.godot/imported/pistola.png-fa3d775cd8d269ee6756be2195e3e42b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx2hh6lhrwyt"
-path="res://.godot/imported/helado.png-c6ffc508825486f060ff9fc56a91ac06.ctex"
+uid="uid://r4y0t3l2jfxa"
+path="res://.godot/imported/cuchillo.png-0b9318e5fc467bb6c863a0d4b178b8f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mundo/Items/helado.png"
-dest_files=["res://.godot/imported/helado.png-c6ffc508825486f060ff9fc56a91ac06.ctex"]
+source_file="res://Mundo/Items/Assets_anim/cuchillo.png"
+dest_files=["res://.godot/imported/cuchillo.png-0b9318e5fc467bb6c863a0d4b178b8f8.ctex"]
 
 [params]
 

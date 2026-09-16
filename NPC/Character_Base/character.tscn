@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://tu7bawxhrjmg" path="res://NPC/Character_Base/character.gd" id="1_laadx"]
 [ext_resource type="PackedScene" uid="uid://cbttjfagglol" path="res://Mundo/HitBoxes/EmitidorDaño.tscn" id="1_oysyt"]
 [ext_resource type="PackedScene" uid="uid://wwq05poayoap" path="res://Mundo/HitBoxes/ReceptorDaño.tscn" id="3_np3df"]
-[ext_resource type="Texture2D" uid="uid://b3yord4cpl16v" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/sombraplaceholder.png" id="4_70oay"]
+[ext_resource type="Texture2D" uid="uid://b3yord4cpl16v" path="res://Mundo/Sombra/sombraplaceholder.png" id="4_70oay"]
 
 [node name="Character" type="CharacterBody2D" unique_id=106214172]
 script = ExtResource("1_laadx")

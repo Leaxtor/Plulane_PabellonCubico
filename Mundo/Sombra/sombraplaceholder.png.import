@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b70tw5cedxpb7"
-path="res://.godot/imported/cuchillo_proyectil.png-968ef20fab11c821b9dfc7540285148b.ctex"
+uid="uid://b3yord4cpl16v"
+path="res://.godot/imported/sombraplaceholder.png-4b4ae64d65380b61c494f371e4273687.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/NPC/Personajes_principales/Plus/cuchillo_proyectil.png"
-dest_files=["res://.godot/imported/cuchillo_proyectil.png-968ef20fab11c821b9dfc7540285148b.ctex"]
+source_file="res://Mundo/Sombra/sombraplaceholder.png"
+dest_files=["res://.godot/imported/sombraplaceholder.png-4b4ae64d65380b61c494f371e4273687.ctex"]
 
 [params]
 

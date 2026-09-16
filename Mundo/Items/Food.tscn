@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ccdkthvpcn01s"]
 
-[ext_resource type="PackedScene" uid="uid://ounbej5t3oee" path="res://Mundo/Items/Collectible.tscn" id="1_godol"]
-[ext_resource type="Texture2D" uid="uid://b6t1w75ql5c2p" path="res://Mundo/Sombra/sombra_placeholder.png" id="2_7ueyp"]
-[ext_resource type="Texture2D" uid="uid://dx2hh6lhrwyt" path="res://Mundo/Items/helado.png" id="3_21adc"]
+[ext_resource type="PackedScene" uid="uid://ounbej5t3oee" path="res://Mundo/Items/Collectible.tscn" id="1_mw41l"]
+[ext_resource type="Texture2D" uid="uid://b3yord4cpl16v" path="res://Mundo/Sombra/sombraplaceholder.png" id="2_mw41l"]
+[ext_resource type="Texture2D" uid="uid://dx2hh6lhrwyt" path="res://Mundo/Items/Assets/helado.png" id="3_ewmqf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2h2wv"]
 size = Vector2(51.5, 42)
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_21adc")]
+"values": [ExtResource("3_ewmqf")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -48,7 +48,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_21adc")]
+"values": [ExtResource("3_ewmqf")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -77,7 +77,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_21adc")]
+"values": [ExtResource("3_ewmqf")]
 }
 
 [sub_resource type="Animation" id="Animation_7ueyp"]
@@ -94,7 +94,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_21adc")]
+"values": [ExtResource("3_ewmqf")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_21adc"]
@@ -105,16 +105,16 @@ _data = {
 &"grounded": SubResource("Animation_7ueyp")
 }
 
-[node name="Food2" unique_id=31789068 instance=ExtResource("1_godol")]
+[node name="Food2" unique_id=31789068 instance=ExtResource("1_mw41l")]
 speed = 300.0
 type = 2
 
 [node name="Sombra" parent="." index="0" unique_id=778261327]
-texture = ExtResource("2_7ueyp")
+texture = ExtResource("2_mw41l")
 offset = Vector2(0, -50)
 
 [node name="CollectibleSprite" parent="." index="1" unique_id=1673113320]
-texture = ExtResource("3_21adc")
+texture = ExtResource("3_ewmqf")
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=491602718]
 position = Vector2(2, -1)

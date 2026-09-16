@@ -5,9 +5,9 @@ const SHOT_PREFAB := preload("res://Mundo/Items/Proyectil/Shot.tscn")
 const SPARK_PREFAB := preload("res://Mundo/Items/Proyectil/spark.tscn")
 
 const PREFAB_MAP := {
-	Collectible.Type.KNIFE: preload("res://Mundo/Items/Knife_2.tscn"), 
-	Collectible.Type.GUN: preload("res://Mundo/Items/Gun_2.tscn"),
-	Collectible.Type.FOOD: preload("res://Mundo/Items/Food_2.tscn") 
+	Collectible.Type.KNIFE: preload("res://Mundo/Items/Knife.tscn"), 
+	Collectible.Type.GUN: preload("res://Mundo/Items/Gun.tscn"),
+	Collectible.Type.FOOD: preload("res://Mundo/Items/Food.tscn") 
 }
 
 const ENEMY_MAP := {

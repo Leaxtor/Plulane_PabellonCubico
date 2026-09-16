@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyrtcjv5i050v"
-path="res://.godot/imported/pistola.png-d223358370ef29f5def968f45996a882.ctex"
+uid="uid://b70tw5cedxpb7"
+path="res://.godot/imported/cuchillo_proyectil.png-e85cd7ba75735bf6ef116661e9615409.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/NPC/Personajes_principales/Plus/pistola.png"
-dest_files=["res://.godot/imported/pistola.png-d223358370ef29f5def968f45996a882.ctex"]
+source_file="res://Mundo/Items/Assets/cuchillo_proyectil.png"
+dest_files=["res://.godot/imported/cuchillo_proyectil.png-e85cd7ba75735bf6ef116661e9615409.ctex"]
 
 [params]
 

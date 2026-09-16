@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r4y0t3l2jfxa"
-path="res://.godot/imported/cuchillo.png-ee7cd56bc9eeee538ce94267c0b256c0.ctex"
+uid="uid://dx2hh6lhrwyt"
+path="res://.godot/imported/helado.png-9cef0095db7e24bf0964db95f64a7c08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Imagenes/NPC/Personajes_principales/Plus/cuchillo.png"
-dest_files=["res://.godot/imported/cuchillo.png-ee7cd56bc9eeee538ce94267c0b256c0.ctex"]
+source_file="res://Mundo/Items/Assets/helado.png"
+dest_files=["res://.godot/imported/helado.png-9cef0095db7e24bf0964db95f64a7c08.ctex"]
 
 [params]
 

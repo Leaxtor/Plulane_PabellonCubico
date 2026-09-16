@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dm8enmiif0emm" path="res://NPC/Plus/Plus_Sprites/plus_damage.png" id="12_griwa"]
 [ext_resource type="Texture2D" uid="uid://cv4bdwo486wi1" path="res://NPC/Plus/Plus_Sprites/plus_parado.png" id="13_t58oo"]
 [ext_resource type="Texture2D" uid="uid://bekqqj6pf2tmm" path="res://NPC/Plus/Plus_Sprites/plus_recoger.png" id="14_f4wx0"]
-[ext_resource type="Texture2D" uid="uid://r4y0t3l2jfxa" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/cuchillo.png" id="15_d8wi6"]
+[ext_resource type="Texture2D" uid="uid://r4y0t3l2jfxa" path="res://Mundo/Items/Assets_anim/cuchillo.png" id="15_d8wi6"]
 [ext_resource type="Texture2D" uid="uid://cdojfvvdycuel" path="res://NPC/Plus/Plus_Sprites/plus_idle.png" id="16_5krm3"]
 [ext_resource type="Texture2D" uid="uid://dm8ynp661kyjp" path="res://NPC/Plus/Plus_Sprites/SaltoFin.png" id="17_r5ugs"]
 [ext_resource type="Texture2D" uid="uid://c8nafrq7vxmcy" path="res://NPC/Plus/Plus_Sprites/SaltoInicio.png" id="18_ghmx2"]
@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cdp5l6rcqxxq0" path="res://NPC/Plus/Plus_Sprites/SaltoPatada.png" id="20_rfni5"]
 [ext_resource type="Texture2D" uid="uid://ddv2xx6x0r2d8" path="res://NPC/Plus/Plus_Sprites/plus_disparo.png" id="21_tymu7"]
 [ext_resource type="Texture2D" uid="uid://cn3umrosbuiih" path="res://NPC/Plus/Plus_Sprites/plus_suelocaida.png" id="22_ufkwr"]
-[ext_resource type="Texture2D" uid="uid://cyrtcjv5i050v" path="res://Assets/Imagenes/NPC/Personajes_principales/Plus/pistola.png" id="23_sq5s2"]
+[ext_resource type="Texture2D" uid="uid://cyrtcjv5i050v" path="res://Mundo/Items/Assets/pistola.png" id="23_sq5s2"]
 
 [sub_resource type="Animation" id="Animation_clpxd"]
 resource_name = "Bloqueo"
