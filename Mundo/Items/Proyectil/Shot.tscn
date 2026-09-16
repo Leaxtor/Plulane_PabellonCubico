@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://eey0g3xggcx0"]
 
-[ext_resource type="Script" uid="uid://canldhl6bqnf1" path="res://Recursos/Scenas/Miselaneos/shot.gd" id="1_lurbd"]
+[ext_resource type="Script" uid="uid://canldhl6bqnf1" path="res://Mundo/Items/Proyectil/shot.gd" id="1_tdvk8"]
 
 [sub_resource type="Gradient" id="Gradient_unkbd"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1)
@@ -8,5 +8,5 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1)
 [node name="Shot" type="Line2D" unique_id=776138299]
 width = 5.0
 gradient = SubResource("Gradient_unkbd")
-script = ExtResource("1_lurbd")
+script = ExtResource("1_tdvk8")
 duration_shot_across_screen = 200.0

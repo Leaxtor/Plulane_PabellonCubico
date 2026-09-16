@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cdxyt2lufjjyc"]
 
-[ext_resource type="Script" uid="uid://bwms6kpnfxi56" path="res://Recursos/Scenas/Miselaneos/Objeto.gd" id="1_1i0s6"]
-[ext_resource type="Texture2D" uid="uid://fscen2k473ms" path="res://Assets/Imagenes/Muebles/carrito_salchicha.png" id="1_fcm4c"]
-[ext_resource type="PackedScene" uid="uid://wwq05poayoap" path="res://Mundo/HitBoxes/ReceptorDaño.tscn" id="2_vfpih"]
+[ext_resource type="Script" uid="uid://bwms6kpnfxi56" path="res://Mundo/Objetos/Objeto.gd" id="1_tlrt1"]
+[ext_resource type="Texture2D" uid="uid://fscen2k473ms" path="res://Assets/Imagenes/Muebles/carrito_salchicha.png" id="2_7h70a"]
+[ext_resource type="PackedScene" uid="uid://wwq05poayoap" path="res://Mundo/HitBoxes/ReceptorDaño.tscn" id="3_a8m58"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfpih"]
 size = Vector2(79.25, 27.375)
@@ -13,11 +13,11 @@ size = Vector2(87, 46.25)
 [node name="Carrito" type="StaticBody2D" unique_id=524723037]
 collision_layer = 16
 collision_mask = 0
-script = ExtResource("1_1i0s6")
+script = ExtResource("1_tlrt1")
 knockball = 150.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=729976795]
-texture = ExtResource("1_fcm4c")
+texture = ExtResource("2_7h70a")
 centered = false
 offset = Vector2(-50, -140)
 
@@ -25,7 +25,7 @@ offset = Vector2(-50, -140)
 position = Vector2(-5, -15)
 shape = SubResource("RectangleShape2D_vfpih")
 
-[node name="ReceptorDaño" parent="." unique_id=1523650532 instance=ExtResource("2_vfpih")]
+[node name="ReceptorDaño" parent="." unique_id=1523650532 instance=ExtResource("3_a8m58")]
 collision_layer = 256
 collision_mask = 0
 
