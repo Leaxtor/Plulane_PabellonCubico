@@ -1,6 +1,6 @@
 extends Node2D
 
-const PLAYER_PREFAB := preload("res://Recursos/Scenas/NPC/jugador_plus.tscn")
+const PLAYER_PREFAB := preload("res://NPC/Plus/jugador_plus.tscn")
 const STAGE_PREFAB := [
 	preload("res://Mundo/Niveles/StageTest2_1.tscn"),
 	preload("res://Mundo/Niveles/StageTest2_2.tscn")
@@ -18,7 +18,7 @@ var camera_initial_position := Vector2.ZERO
 var is_stage_ready_for_loading := false
 var  player : Player = null
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_stage_ready_for_loading:
 		is_stage_ready_for_loading = false
 		var stage : Stage = STAGE_PREFAB[current_stage_index].instantiate()

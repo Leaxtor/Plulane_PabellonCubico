@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://1cbvldi8oi3r"]
 
 [ext_resource type="PackedScene" uid="uid://dhneiks81x4m8" path="res://Mundo/Estructura/Stage.tscn" id="1_o3pk0"]
-[ext_resource type="Texture2D" uid="uid://biaw5ueakyy5f" path="res://Assets/Imagenes/Fondos/Metro 2 estacion.png" id="2_6luqs"]
+[ext_resource type="Texture2D" uid="uid://biaw5ueakyy5f" path="res://Mundo/Niveles/Fondos/Metro 2 estacion.png" id="2_6luqs"]
 [ext_resource type="PackedScene" uid="uid://dxhcvovw1gwo0" path="res://Mundo/Estructura/checkpoint.tscn" id="3_7kqje"]
 [ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://NPC/Enemigo_Base1/enemigo_1.tscn" id="4_tehcr"]
 [ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Mundo/Objetos/Carrito.tscn" id="5_tehcr"]
-[ext_resource type="PackedScene" uid="uid://4glibyt812qp" path="res://Recursos/Scenas/Miselaneos/Door.tscn" id="6_rl63f"]
+[ext_resource type="PackedScene" uid="uid://4glibyt812qp" path="res://Mundo/Estructura/Gimmicks/Door.tscn" id="6_rl63f"]
 
 [node name="StageTest2_1" unique_id=520458551 instance=ExtResource("1_o3pk0")]
 music = 3
@@ -61,11 +61,11 @@ debug_color = Color(0.9500212, 2.5027991e-06, 0.57303935, 0.41960785)
 position = Vector2(1526, 256)
 
 [node name="Carrito" parent="Containers" parent_id_path=PackedInt32Array(3021457) index="0" unique_id=524723037 instance=ExtResource("5_tehcr")]
-position = Vector2(517, 535)
+position = Vector2(777, 535)
+content_type = 1
 
 [node name="Carrito2" parent="Containers" parent_id_path=PackedInt32Array(3021457) index="1" unique_id=301918807 instance=ExtResource("5_tehcr")]
 position = Vector2(636, 533)
-content_type = 2
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(810179608) index="0" unique_id=1281635078 node_paths=PackedStringArray("enemies") instance=ExtResource("6_rl63f")]
 position = Vector2(1324, 471)

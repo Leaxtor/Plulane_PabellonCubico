@@ -34,7 +34,7 @@ func _init() -> void:
 	StageManager.checkpoint_complete.connect(on_checkpoint_complete.bind())
 	StageManager.stage_complete.connect(on_stage_complete.bind())
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if enemy_healthbar.visible and (Time.get_ticks_msec() - time_start_healthbar_visible > duration_healthbar_visible):
 		enemy_avatar.visible = false
 		enemy_healthbar.visible = false

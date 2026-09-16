@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cofvqn17wpqnv"]
 
-[ext_resource type="Texture2D" uid="uid://b275b0sbqcre7" path="res://Assets/Imagenes/efectos/healfinal.png" id="1_u6lp0"]
+[ext_resource type="Texture2D" uid="uid://b275b0sbqcre7" path="res://Mundo/Efectos/healfinal.png" id="1_u6lp0"]
 
 [sub_resource type="Animation" id="Animation_vd5q6"]
 length = 0.001

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://b1eg8q351vubs"]
 
-[ext_resource type="Texture2D" uid="uid://b7ya2pt4w8216" path="res://Assets/Imagenes/Expresiones/Plus relajada.png" id="1_0y3ga"]
+[ext_resource type="Texture2D" uid="uid://b7ya2pt4w8216" path="res://Interfaces/Dialogos/Plus relajada.png" id="1_0y3ga"]
 
 [resource]
 Button/colors/font_color = Color(0.9497972, 0.82163334, 1, 1)

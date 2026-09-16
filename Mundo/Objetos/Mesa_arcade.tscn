@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d3twcfyoy5hr5"]
 
 [ext_resource type="Script" uid="uid://bwms6kpnfxi56" path="res://Mundo/Objetos/Objeto.gd" id="1_x1g0y"]
-[ext_resource type="Texture2D" uid="uid://8k8meky75jo" path="res://Assets/Imagenes/Muebles/mesa_arcade.png" id="2_dueff"]
+[ext_resource type="Texture2D" uid="uid://8k8meky75jo" path="res://Mundo/Objetos/mesa_arcade.png" id="2_dueff"]
 [ext_resource type="PackedScene" uid="uid://wwq05poayoap" path="res://Mundo/HitBoxes/ReceptorDaño.tscn" id="3_n1ma7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2q8v"]

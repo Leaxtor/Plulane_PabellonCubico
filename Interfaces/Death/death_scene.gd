@@ -15,7 +15,7 @@ func _ready() -> void:
 	timer.timeout.connect(on_timer_timeout.bind())
 	refresh()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if current_count < countdown_start and (Input.is_action_just_pressed("ataque_golpear") or Input.is_action_just_pressed("move_saltar")):
 		DamageManager.player_revive.emit()
 		queue_free()

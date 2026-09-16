@@ -17,7 +17,7 @@ func _ready() -> void:
 	refresh()
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if real_score != display_score:
 		var progress := (Time.get_ticks_msec() - time_start_update) / duration_score_update 
 		if progress < 1:

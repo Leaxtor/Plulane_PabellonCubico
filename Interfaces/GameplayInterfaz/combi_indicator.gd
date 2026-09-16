@@ -8,7 +8,7 @@ signal combo_reset(points: int)
 var current_combo := 0
 var time_since_register_hit := Time.get_ticks_msec()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if current_combo > 0 and (Time.get_ticks_msec() - time_since_register_hit > duration_combo_timeout):
 		combo_reset.emit(current_combo)
 		current_combo = 0

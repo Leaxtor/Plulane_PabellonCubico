@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dx28bicle2qbb"]
 
-[ext_resource type="Texture2D" uid="uid://u6k4t7vdw6do" path="res://Assets/Imagenes/Fondos/MetroParallax.png" id="1_5fa5b"]
-[ext_resource type="Texture2D" uid="uid://7pulw8vwm745" path="res://Assets/Imagenes/Fondos/Metro_Vagon.png" id="1_glovy"]
-[ext_resource type="Texture2D" uid="uid://bhmsnjnliekx" path="res://Assets/Imagenes/Fondos/MetroParallaxB.png" id="2_lpmkb"]
-[ext_resource type="Texture2D" uid="uid://cjkxning3rrrs" path="res://Assets/Imagenes/Fondos/MetroParallaxA.png" id="3_ejwwm"]
-[ext_resource type="Script" uid="uid://lvw6biqpmqfg" path="res://Recursos/Scripts/parallax_manejador.gd" id="7_lpmkb"]
+[ext_resource type="Texture2D" uid="uid://u6k4t7vdw6do" path="res://Mundo/Niveles/Fondos/MetroParallax.png" id="1_5fa5b"]
+[ext_resource type="Texture2D" uid="uid://7pulw8vwm745" path="res://Mundo/Niveles/Fondos/Metro_Vagon.png" id="1_glovy"]
+[ext_resource type="Texture2D" uid="uid://bhmsnjnliekx" path="res://Mundo/Niveles/Fondos/MetroParallaxB.png" id="2_lpmkb"]
+[ext_resource type="Texture2D" uid="uid://cjkxning3rrrs" path="res://Mundo/Niveles/Fondos/MetroParallaxA.png" id="3_ejwwm"]
+[ext_resource type="Script" uid="uid://lvw6biqpmqfg" path="res://Mundo/Niveles/Testeo/parallax_manejador.gd" id="7_lpmkb"]
 [ext_resource type="PackedScene" uid="uid://cs1odq1lbisbx" path="res://Mundo/Camara/camara.tscn" id="8_0yiy5"]
-[ext_resource type="PackedScene" uid="uid://dwd3jcrrl8sma" path="res://Recursos/Scenas/NPC/jugador_plus.tscn" id="9_wmbky"]
+[ext_resource type="PackedScene" uid="uid://dwd3jcrrl8sma" path="res://NPC/Plus/jugador_plus.tscn" id="9_wmbky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fa5b"]
 size = Vector2(22.25, 719)

@@ -5,7 +5,7 @@ extends ActivableControl
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_active and has_input_togle():
 		set_value(1 if current_value == 0 else 0)
 
