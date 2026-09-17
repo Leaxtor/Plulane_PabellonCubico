@@ -32,11 +32,12 @@ const GRAVEDAD := 600.0
 @onready var heading := Vector2.RIGHT
 @onready var animation_player := $AnimationPlayer
 @onready var character_sprite := $Sprite2D
+@onready var receptor_daño : ReceptorDamage = $"ReceptorDaño" 
 @onready var collateral_damage_emmiter : Area2D = $CollateralEmitidorDaño
 @onready var collectible_sensor : Area2D = $CollectibleSensor
 @onready var collision_shape := $CollisionShape2D2
 @onready var emitidor_daño := $"EmitidorDaño"
-@onready var receptor_daño : ReceptorDamage = $"ReceptorDaño" 
+
 @onready var knife_sprite := $"Cuchillo"
 @onready var gun_sprite := $"GunSprite"
 @onready var proyectil_lanzable : RayCast2D = $ProyectilLanzable #proyectil_aim
@@ -146,6 +147,9 @@ func set_sprite_height_position() -> void:
 	character_sprite.position = Vector2.UP * height #IMPORTANTE EL OFFSET MANEJA LA POSICION DEL SPRITE
 	knife_sprite.position = Vector2.UP * height
 	gun_sprite.position = Vector2.UP * height
+	receptor_daño.position = Vector2.UP * height
+	collateral_damage_emmiter.position = Vector2.UP * height
+	#POSICIONES DE SUBIDA
 
 func setup_collision() -> void:
 	collision_shape.disabled = is_collision_disable()
