@@ -54,6 +54,7 @@ enum State {
 	Salto_Medio,
 	Salto_Fin,
 	Salto_Patada,
+	Salto_Patada_Cayendo,
 	Hurt,
 	Caida,
 	Suelo_Caida,
@@ -84,6 +85,7 @@ var animation_map := {
 	State.Salto_Medio: "Salto_Medio",
 	State.Salto_Fin: "Salto_Fin",
 	State.Salto_Patada: "Salto_Patada",
+	State.Salto_Patada_Cayendo: "Salto_Patada_Cayendo",
 	State.Hurt: "Hurt",
 	State.Caida: "Caida",
 	State.Suelo_Caida: "Suelo_Caida",
@@ -151,13 +153,15 @@ func setup_collision() -> void:
 	receptor_daño.monitorable = can_get_hurt()
 	collateral_damage_emmiter.monitoring = state == State.Fly
 
+#DETERMINAR SI SE PUEDE MOVER DURANTE ACCION
 func handle_movement() -> void:
 	if can_move():
 		if velocity.length() == 0:
 			state = State.Reposo
 		else:
 			state = State.Caminar
-	elif state == State.Golpe:
+	#REINICIAR VELOCIDAD
+	elif state in [State.Golpe, State.Bloqueo]:
 		velocity = Vector2.ZERO
 	
 
@@ -236,6 +240,7 @@ func can_get_hurt() ->bool:
 	#State.Salto_Medio,
 	#State.Salto_Fin,
 	#State.Salto_Patada,
+	#State.Salto_Patada_Cayendo,
 	#State.Hurt,
 	State.Caida,
 	#State.Suelo_Caida,
@@ -244,7 +249,7 @@ func can_get_hurt() ->bool:
 	].has(state)
 
 func  is_attacking() -> bool:
-	return [State.Golpe, State.Salto_Patada].has(state)
+	return [State.Golpe, State.Salto_Patada, State.Salto_Patada_Cayendo].has(state)
 
 
 func shoot_gun() -> void:
@@ -301,7 +306,7 @@ func is_collision_disable() -> bool:
 	return [State.Suelo_Caida, State.Death, State.Fly].has(state)
 
 func salto_inicial_completo() -> void:
-	state = State.Salto_Medio #DEBERIA SER SALTO INICIO
+	state = State.Salto_Medio
 	height_speed = salto_fuerza
 	SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	
@@ -315,6 +320,9 @@ func on_recogiendo_completo() -> void:
 #LLAMO LAS FUNCIONES CON EL ANIMATION PLAYER
 func ataque_completo() -> void: #on_action_complete
 	state = State.Reposo
+	
+func ataque_salto_patada_complesto() -> void: #on_action_complete
+	state = State.Salto_Patada_Cayendo
 
 func on_throw_complete() -> void:
 	state = State.Reposo
@@ -324,6 +332,12 @@ func on_throw_complete() -> void:
 		has_gun = false
 	else:
 		has_knife = false
+
+#LANZA A MITAD DE LA ANIMACION
+func on_throw_lanzado() -> void:
+	var collectible_type := Collectible.Type.KNIFE
+	if has_gun:
+		collectible_type = Collectible.Type.GUN
 	SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	var collectible_global_position := Vector2(weapon_position.global_position.x, global_position.y)
 	var collectible_height := weapon_position.position.y 
@@ -335,7 +349,7 @@ func bloque_completo() -> void:
 #MODIFICAR
 func handle_airtime(delta: float) -> void:
 	#if state == State.Salto_Medio or state == State.Salto_Patada:
-	if [State.Salto_Medio, State.Salto_Patada, State.Caida, State.Drop].has(state):
+	if [State.Salto_Medio, State.Salto_Patada, State.Salto_Patada_Cayendo, State.Caida, State.Drop].has(state):
 		height += height_speed * delta * velocidad_subida #Aumentar para velocidad de subida
 		if height < 0:
 			height = 0
@@ -353,8 +367,7 @@ func on_emit_damage(receiver: ReceptorDamage) -> void:
 	var dirrecion := Vector2.LEFT if receiver.global_position.x < global_position.x else Vector2.RIGHT
 	var hit_type := ReceptorDamage.HitType.NORMAL
 	var current_damage = damage 
-	if state == State.Salto_Patada:
-		print("SALTO PATADA")
+	if state == State.Salto_Patada or state == State.Salto_Patada_Cayendo:
 		hit_type = ReceptorDamage.HitType.KNOCKDOWN
 	if attack_combo_index == anim_attack.size() -1: #HAY UN ERROR SI HAGO SALTO PATADA NO SE RESETEA
 		hit_type = ReceptorDamage.HitType.POWER
