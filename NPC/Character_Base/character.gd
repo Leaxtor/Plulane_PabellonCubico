@@ -25,9 +25,15 @@ const GRAVEDAD := 600.0
 @export var damage_power : int
 @export var damage_gunshot : int
 @export var duracion_between_knife_respawn : float
+
+
+#testeo
 @export var has_knife : bool
 @export var has_gun : bool
-
+#ARMAS DE MANO
+@export var has_baston : bool
+@export var has_espada : bool
+@export var has_paraguas : bool
 
 @onready var heading := Vector2.RIGHT
 @onready var animation_player := $AnimationPlayer
@@ -272,39 +278,55 @@ func shoot_gun() -> void:
 	EntityManager.spawn_shot.emit(weapon_root_position, distance, weapon_height)
  
 func is_carrying_weapong() -> bool:
-	return has_knife or has_gun
+	return has_knife or has_gun or has_baston or has_espada or has_paraguas
 
-func can_recogiendo_proyectil() ->bool:
+func can_recogiendo_proyectil(collectible : Collectible) ->bool:
 	if can_respawn_knife:
 		return false
 	if Time.get_ticks_msec() - time_since_knife_dissmiss < duracion_between_knife_respawn:
 		return false #evita que recogan el cuchillo al milisegundo de soltarlo
-	var collectible_areas := collectible_sensor.get_overlapping_areas()
-	if collectible_areas.size() == 0:
-		return false
-	var collectible : Collectible = collectible_areas[0]
 	if collectible.type == Collectible.Type.KNIFE and not is_carrying_weapong():
-		return true
+		return true 
 	if collectible.type == Collectible.Type.GUN and not is_carrying_weapong():
 		return true
 	if collectible.type == Collectible.Type.FOOD: #talvez agregar algo para que no pueda agarrarlo si esta full
 		return true
+	if collectible.type == Collectible.Type.BASTON and not is_carrying_weapong():
+		return true
+	if collectible.type == Collectible.Type.ESPADA and not is_carrying_weapong():
+		return true
+	if collectible.type == Collectible.Type.PARAGUAS and not is_carrying_weapong(): 
+		return true
+	return false
+	
+func can_intercambiando_arma(collectible : Collectible) ->bool:
+	#evitar que intercambie el arma de forma instantanea
+	return collectible.type in [
+		Collectible.Type.GUN,
+		Collectible.Type.BASTON,
+		Collectible.Type.ESPADA,
+		Collectible.Type.PARAGUAS
+		]
 	return false
 
 func recogiendo_proyectil() ->void:
-	if can_recogiendo_proyectil():
-		var collectible_areas := collectible_sensor.get_overlapping_areas()
-		var collectible : Collectible = collectible_areas[0]
-		if collectible.type == Collectible.Type.KNIFE and not has_knife:
-			has_knife = true
-			SoundPlayer.play(SoundManager.Sound.SWOOSH)
-		if collectible.type == Collectible.Type.GUN and not has_gun:
-			has_gun = true
-			ammo_left = max_ammo_per_gun
-		if collectible.type == Collectible.Type.FOOD:
-			set_health(max_health)
+	var collectible_areas := collectible_sensor.get_overlapping_areas()
+	var collectible : Collectible = collectible_areas[0]
+	if collectible_areas.size() > 0:
+		if can_recogiendo_proyectil(collectible):
+			if collectible.type == Collectible.Type.KNIFE and not has_knife:
+				has_knife = true
+				SoundPlayer.play(SoundManager.Sound.SWOOSH)
+			if collectible.type == Collectible.Type.GUN and not has_gun:
+				has_gun = true
+				ammo_left = max_ammo_per_gun
+			if collectible.type == Collectible.Type.FOOD:
+				set_health(max_health)
+				SoundPlayer.play(SoundManager.Sound.FOOD)
+			collectible.queue_free()
+		elif can_intercambiando_arma(collectible):
 			SoundPlayer.play(SoundManager.Sound.FOOD)
-		collectible.queue_free()
+		
 
 func is_collision_disable() -> bool:
 	return [State.Suelo_Caida, State.Death, State.Fly].has(state)

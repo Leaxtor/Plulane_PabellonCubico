@@ -41,8 +41,11 @@ func handle_input() -> void:
 			else:
 				state = State.Throw_lanza
 		else:
-			if can_recogiendo_proyectil():
-				state = State.Recogiendo
+			var collectible_areas := collectible_sensor.get_overlapping_areas()
+			if collectible_areas.size() > 0:
+				var collectible : Collectible = collectible_areas[0]
+				if can_recogiendo_proyectil(collectible):
+					state = State.Recogiendo
 			else:
 				state = State.Golpe
 				SoundPlayer.play(SoundManager.Sound.SWOOSH)

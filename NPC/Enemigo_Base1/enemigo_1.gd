@@ -102,10 +102,13 @@ func handle_prep_attack() -> void:
 
 
 func go_to_melee_position() -> void:
-	if can_recogiendo_proyectil():
-		state = State.Recogiendo
-		if player_slot != null:
-			player.free_slot(self)
+	var collectible_areas := collectible_sensor.get_overlapping_areas()
+	if collectible_areas.size() > 0:
+		var collectible : Collectible = collectible_areas[0]
+		if can_recogiendo_proyectil(collectible):
+			state = State.Recogiendo
+			if player_slot != null:
+				player.free_slot(self)
 	elif player_slot == null:
 		player_slot = player.reserve_slot(self)
 		
