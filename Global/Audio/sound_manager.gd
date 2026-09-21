@@ -24,7 +24,6 @@ func play(sfx: Sound, tweak_pitch : bool = false) -> void:
 	if tweak_pitch:
 		added_pitch = randf_range(-0.3, 0.3)
 	sounds[sfx as int].pitch_scale = 1 + added_pitch
-	print(sfx as int)
 	sounds[sfx as int].play()
 	
 	

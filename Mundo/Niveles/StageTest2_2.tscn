@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bhmsnjnliekx" path="res://Mundo/Niveles/Fondos/MetroParallaxB.png" id="3_7c6fs"]
 [ext_resource type="PackedScene" uid="uid://dxhcvovw1gwo0" path="res://Mundo/Estructura/checkpoint.tscn" id="4_fgk1o"]
 [ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://NPC/Enemigo_Base1/enemigo_1.tscn" id="5_gihnq"]
+[ext_resource type="PackedScene" uid="uid://13u7bx6lwxod" path="res://NPC/Sigma/boss_tutorial.tscn" id="6_eevlo"]
 
 [node name="StageTest2_2" unique_id=520458551 instance=ExtResource("1_epxfy")]
 music = 3
@@ -25,6 +26,9 @@ position = Vector2(1161, 217)
 [node name="Enemigo_1" parent="Chechpoints/Checkpoint/Enemies" parent_id_path=PackedInt32Array(904931730, 1021542459) index="0" unique_id=106214172 instance=ExtResource("5_gihnq")]
 position = Vector2(1050, 304)
 type = 3
+
+[node name="boss_tutorial" parent="Chechpoints/Checkpoint/Enemies" parent_id_path=PackedInt32Array(904931730, 1021542459) index="1" unique_id=685232309 instance=ExtResource("6_eevlo")]
+type = 4
 
 [node name="CollisionShape2D" parent="Chechpoints/Checkpoint/PlayerDetectionArea" parent_id_path=PackedInt32Array(904931730, 165721204) index="0" unique_id=1674740212]
 position = Vector2(757, 278)

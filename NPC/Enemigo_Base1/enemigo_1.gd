@@ -66,6 +66,7 @@ func go_to_range_position() -> void:
 		
 	if can_range_attack() and has_knife and proyectil_lanzable.is_colliding():
 		state = State.Throw_lanza
+		velocity = Vector2.ZERO
 		time_since_knife_dissmiss = Time.get_ticks_msec()
 		time_since_last_range_attack = Time.get_ticks_msec()
 		

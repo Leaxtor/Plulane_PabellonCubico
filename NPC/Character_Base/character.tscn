@@ -32,6 +32,14 @@ texture = ExtResource("4_70oay")
 
 [node name="GunSprite" type="Sprite2D" parent="." unique_id=378956244]
 
+[node name="Espada" type="Sprite2D" parent="." unique_id=2026693454]
+
+[node name="Paraguas" type="Sprite2D" parent="." unique_id=1846004306]
+
+[node name="Martillo" type="Sprite2D" parent="." unique_id=1078172413]
+
+[node name="Baston" type="Sprite2D" parent="." unique_id=2131934695]
+
 [node name="Cuchillo" type="Sprite2D" parent="." unique_id=313798195]
 
 [node name="WeaponPosition" type="Node2D" parent="Cuchillo" unique_id=983036064]

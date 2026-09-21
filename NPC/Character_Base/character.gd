@@ -34,6 +34,7 @@ const GRAVEDAD := 600.0
 @export var has_baston : bool
 @export var has_espada : bool
 @export var has_paraguas : bool
+@export var has_martillo : bool
 
 @onready var heading := Vector2.RIGHT
 @onready var animation_player := $AnimationPlayer
@@ -46,6 +47,12 @@ const GRAVEDAD := 600.0
 
 @onready var knife_sprite := $"Cuchillo"
 @onready var gun_sprite := $"GunSprite"
+@onready var Espada_sprite := $Espada
+@onready var Paraguas_sprite := $Paraguas
+@onready var Martillo_sprite := $Martillo
+@onready var Baston_sprite := $Baston
+
+
 @onready var proyectil_lanzable : RayCast2D = $ProyectilLanzable #proyectil_aim
 @onready var weapon_position : Node2D = $Cuchillo/WeaponPosition
 
@@ -54,6 +61,7 @@ const GRAVEDAD := 600.0
 
 enum State {
 	Reposo,
+	Idle_arma,
 	Caminar,
 	Golpe,
 	Bloqueo,
@@ -86,6 +94,7 @@ var anim_attack := []
 
 var animation_map := {
 	State.Reposo: "Reposo",
+	State.Idle_arma: "Idle_arma",
 	State.Caminar: "Caminar",
 	State.Bloqueo: "Bloqueo",
 	State.Salto_Inicio: "Salto_Inicio",
@@ -138,6 +147,7 @@ func _process(delta: float) ->void :
 	handle_prep_attack()
 	handle_preb_shoot()
 	handle_knife_respawn()
+	handle_idle_arma()
 	set_heading()
 	voltear_sprite() #talvez lo cambie
 	set_sprite_visibility()
@@ -148,14 +158,23 @@ func _process(delta: float) ->void :
 func set_sprite_visibility() -> void:
 	knife_sprite.visible = has_knife
 	gun_sprite.visible = has_gun
+	Espada_sprite.visible = has_espada
+	Paraguas_sprite.visible = has_paraguas
+	Martillo_sprite.visible = has_martillo
+	Baston_sprite.visible = has_baston
 
 func set_sprite_height_position() -> void:
 	character_sprite.position = Vector2.UP * height #IMPORTANTE EL OFFSET MANEJA LA POSICION DEL SPRITE
-	knife_sprite.position = Vector2.UP * height
-	gun_sprite.position = Vector2.UP * height
+
 	receptor_daño.position = Vector2.UP * height
 	collateral_damage_emmiter.position = Vector2.UP * height
-	#POSICIONES DE SUBIDA
+	#POSICIONES DE SUBIDA ARMAS
+	knife_sprite.position = Vector2.UP * height
+	gun_sprite.position = Vector2.UP * height
+	#Espada_sprite.position = Vector2.UP * height
+	#Paraguas_sprite.position = Vector2.UP * height
+	#Martillo_sprite.position = Vector2.UP * height
+	#Baston_sprite.position = Vector2.UP * height
 
 func setup_collision() -> void:
 	collision_shape.disabled = is_collision_disable()
@@ -211,17 +230,30 @@ func handle_animation() -> void:
 func set_heading() -> void:
 	pass
 
+func handle_idle_arma() -> void:
+	if state == State.Reposo and is_carrying_arma_mano():
+		print("IDLEATE ARMA")
+		#state = State.Idle_arma
+ 
 func voltear_sprite() -> void:
 	if heading == Vector2.RIGHT:
 		character_sprite.flip_h = false
 		knife_sprite.scale.x = 1
 		gun_sprite.scale.x = 1
+		Espada_sprite.scale.x = 1
+		Paraguas_sprite.scale.x = 1
+		Martillo_sprite.scale.x = 1
+		Baston_sprite.scale.x = 1
 		proyectil_lanzable.scale.x = 1
 		emitidor_daño.scale.x = 1
 	else:
 		character_sprite.flip_h = true
 		knife_sprite.scale.x = -1
 		gun_sprite.scale.x = -1
+		Espada_sprite.scale.x = -1
+		Paraguas_sprite.scale.x = -1
+		Martillo_sprite.scale.x = -1
+		Baston_sprite.scale.x = -1
 		proyectil_lanzable.scale.x = -1
 		emitidor_daño.scale.x = -1
 		
@@ -278,7 +310,10 @@ func shoot_gun() -> void:
 	EntityManager.spawn_shot.emit(weapon_root_position, distance, weapon_height)
  
 func is_carrying_weapong() -> bool:
-	return has_knife or has_gun or has_baston or has_espada or has_paraguas
+	return has_knife or has_gun or has_baston or has_espada or has_paraguas or has_martillo
+
+func is_carrying_arma_mano() -> bool:
+	return has_baston or has_espada or has_paraguas or has_martillo
 
 func can_recogiendo_proyectil(collectible : Collectible) ->bool:
 	if can_respawn_knife:
@@ -302,7 +337,8 @@ func can_recogiendo_proyectil(collectible : Collectible) ->bool:
 func can_intercambiando_arma(collectible : Collectible) ->bool:
 	#evitar que intercambie el arma de forma instantanea
 	return collectible.type in [
-		Collectible.Type.GUN,
+		#Collectible.Type.KNIFE,
+		#Collectible.Type.GUN,
 		Collectible.Type.BASTON,
 		Collectible.Type.ESPADA,
 		Collectible.Type.PARAGUAS
@@ -311,22 +347,40 @@ func can_intercambiando_arma(collectible : Collectible) ->bool:
 
 func recogiendo_proyectil() ->void:
 	var collectible_areas := collectible_sensor.get_overlapping_areas()
-	var collectible : Collectible = collectible_areas[0]
 	if collectible_areas.size() > 0:
+		var collectible : Collectible = collectible_areas[0] #crei que lo habia corregido
 		if can_recogiendo_proyectil(collectible):
-			if collectible.type == Collectible.Type.KNIFE and not has_knife:
-				has_knife = true
-				SoundPlayer.play(SoundManager.Sound.SWOOSH)
-			if collectible.type == Collectible.Type.GUN and not has_gun:
-				has_gun = true
-				ammo_left = max_ammo_per_gun
-			if collectible.type == Collectible.Type.FOOD:
-				set_health(max_health)
-				SoundPlayer.play(SoundManager.Sound.FOOD)
-			collectible.queue_free()
+			print("RECOGE")
+			recogiendo_proyectil_accion(collectible)
 		elif can_intercambiando_arma(collectible):
-			SoundPlayer.play(SoundManager.Sound.FOOD)
-		
+			print("SUELTA PARA RECOGER")
+			soltar_arma()
+			recogiendo_proyectil_accion(collectible)
+			
+func recogiendo_proyectil_accion(collectible : Collectible) ->void:
+	if collectible.type == Collectible.Type.BASTON and not has_baston:
+		has_baston = true
+		SoundPlayer.play(SoundManager.Sound.SWOOSH)
+	if collectible.type == Collectible.Type.ESPADA and not has_espada:
+		has_espada = true
+		SoundPlayer.play(SoundManager.Sound.SWOOSH)
+	if collectible.type == Collectible.Type.PARAGUAS and not has_martillo:
+		has_martillo = true
+		SoundPlayer.play(SoundManager.Sound.SWOOSH)
+	if collectible.type == Collectible.Type.MARTILLO and not has_paraguas:
+		has_paraguas = true
+		SoundPlayer.play(SoundManager.Sound.SWOOSH)
+	if collectible.type == Collectible.Type.KNIFE and not has_knife:
+		has_knife = true
+		SoundPlayer.play(SoundManager.Sound.SWOOSH)
+	if collectible.type == Collectible.Type.GUN and not has_gun:
+		has_gun = true
+		ammo_left = max_ammo_per_gun
+	if collectible.type == Collectible.Type.FOOD:
+		set_health(max_health)
+		SoundPlayer.play(SoundManager.Sound.FOOD)
+	collectible.queue_free() #DESTRUYE EL PROYECTIL RECOGIDO
+	
 
 func is_collision_disable() -> bool:
 	return [State.Suelo_Caida, State.Death, State.Fly].has(state)
@@ -419,17 +473,10 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 	if can_get_hurt():
 		attack_combo_index = 0
 		can_respawn_knife = false #le quita el cuchillo al gople
-		if has_knife:
-			has_knife = false
-			EntityManager.spawn_collectible.emit(Collectible.Type.KNIFE, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
-			time_since_knife_dissmiss = Time.get_ticks_msec()
-		if has_gun:
-			has_gun = false
-			EntityManager.spawn_collectible.emit(Collectible.Type.GUN, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
 		set_health(current_health - amount)
 		#SONIDO DE DAÑO MÁS GOLPE AL AZAR
 		SoundPlayer.play(SoundManager.Sound.HIT2, true)
-		
+		soltar_arma()
 		## LO ULTIMO (STATE CAIDA) quitar del cage get hurt para combear en el aire
 		if current_health == 0 or hit_type == ReceptorDamage.HitType.KNOCKDOWN or state == State.Caida:
 			state = State.Caida
@@ -442,7 +489,16 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 		else:
 			state = State.Hurt 
 			velocity = direccion * knockback_intensidad
-		
+
+func soltar_arma()-> void :
+	if has_knife:
+		has_knife = false
+		EntityManager.spawn_collectible.emit(Collectible.Type.KNIFE, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+		time_since_knife_dissmiss = Time.get_ticks_msec()
+	if has_gun:
+		has_gun = false
+		EntityManager.spawn_collectible.emit(Collectible.Type.GUN, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+
 func set_health(health: int, is_emit_signal: bool = true) -> void:
 	current_health = clamp(health, 0, max_health)
 	if is_emit_signal:

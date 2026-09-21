@@ -14,7 +14,7 @@ const gravedad := 600.0
 @export var type : Type
 
 enum State {FALL, GROUNDED, FLY}
-enum Type {KNIFE, GUN, FOOD, BASTON, ESPADA, PARAGUAS }
+enum Type {KNIFE, GUN, FOOD, BASTON, ESPADA, PARAGUAS, MARTILLO }
 
 
 var anim_map := {

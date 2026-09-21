@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dp7g2lnnvf0i3" path="res://NPC/Character_Base/character.tscn" id="1_3mpwt"]
 [ext_resource type="Script" uid="uid://ctgabvc5ktlwg" path="res://NPC/Enemigo_Base1/enemigo_1.gd" id="2_jqdh0"]
+[ext_resource type="Texture2D" uid="uid://cwdmib8hye478" path="res://Mundo/Items/Espada/idle_espada.png" id="6_oj2t7"]
+[ext_resource type="Texture2D" uid="uid://b8213pimgrg13" path="res://Mundo/Items/Paraguas/paraguas_idle.png" id="7_cojyb"]
+[ext_resource type="Texture2D" uid="uid://bht8ord7gbsmg" path="res://Mundo/Items/Martillo/martillo_idle.png" id="8_bfs4e"]
+[ext_resource type="Texture2D" uid="uid://bqyrixi3mln1q" path="res://Mundo/Items/Baston/bastón_idle.png" id="9_un8w2"]
 [ext_resource type="Texture2D" uid="uid://r4y0t3l2jfxa" path="res://Mundo/Items/Assets_anim/cuchillo.png" id="15_d8wi6"]
 [ext_resource type="Texture2D" uid="uid://cdojfvvdycuel" path="res://NPC/Plus/Plus_Sprites/plus_idle.png" id="16_5krm3"]
 [ext_resource type="Texture2D" uid="uid://cyrtcjv5i050v" path="res://Mundo/Items/Assets/pistola.png" id="23_sq5s2"]
@@ -32,6 +36,7 @@ duration_prep_melee_attack = 1000
 duration_prep_range_attack = 1000
 max_health = 15
 type = 1
+duracion_suelo = 1000.0
 flight_speed = 600.0
 move_speed = 300.0
 knockback_intensidad = 5.0
@@ -91,7 +96,27 @@ texture = ExtResource("23_sq5s2")
 hframes = 4
 vframes = 2
 
-[node name="Cuchillo" parent="." index="8" unique_id=313798195]
+[node name="Espada" parent="." index="8" unique_id=2026693454]
+texture = ExtResource("6_oj2t7")
+hframes = 5
+vframes = 7
+
+[node name="Paraguas" parent="." index="9" unique_id=1846004306]
+texture = ExtResource("7_cojyb")
+hframes = 5
+vframes = 7
+
+[node name="Martillo" parent="." index="10" unique_id=1078172413]
+texture = ExtResource("8_bfs4e")
+hframes = 5
+vframes = 7
+
+[node name="Baston" parent="." index="11" unique_id=2131934695]
+texture = ExtResource("9_un8w2")
+hframes = 5
+vframes = 7
+
+[node name="Cuchillo" parent="." index="12" unique_id=313798195]
 position = Vector2(64, -91)
 scale = Vector2(0.54, 0.6)
 texture = ExtResource("15_d8wi6")
@@ -101,11 +126,11 @@ frame = 1
 [node name="WeaponPosition" parent="Cuchillo" index="0" unique_id=983036064]
 position = Vector2(-7.407407, 24.999998)
 
-[node name="ProyectilLanzable" parent="." index="9" unique_id=224289400]
+[node name="ProyectilLanzable" parent="." index="13" unique_id=224289400]
 position = Vector2(0, -5)
 collision_mask = 2
 
-[node name="CollectibleSensor" parent="." index="10" unique_id=996763328]
+[node name="CollectibleSensor" parent="." index="14" unique_id=996763328]
 collision_mask = 1024
 
 [node name="CollisionShape2D" parent="CollectibleSensor" index="0" unique_id=2127295643]

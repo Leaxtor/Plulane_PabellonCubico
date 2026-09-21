@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dp7g2lnnvf0i3" path="res://NPC/Character_Base/character.tscn" id="1_jvw74"]
 [ext_resource type="Script" uid="uid://cfntv3618q1qi" path="res://NPC/Plus/jugador_plus.gd" id="2_2dehs"]
 [ext_resource type="AnimationLibrary" uid="uid://bmog7wssb8gha" path="res://NPC/Plus/ANIMACIONESPLUS.res" id="4_m1pe0"]
+[ext_resource type="Texture2D" uid="uid://cwdmib8hye478" path="res://Mundo/Items/Espada/idle_espada.png" id="8_0rflr"]
+[ext_resource type="Texture2D" uid="uid://b8213pimgrg13" path="res://Mundo/Items/Paraguas/paraguas_idle.png" id="8_61wkc"]
+[ext_resource type="Texture2D" uid="uid://bqyrixi3mln1q" path="res://Mundo/Items/Baston/bastón_idle.png" id="10_bxsks"]
+[ext_resource type="Texture2D" uid="uid://bht8ord7gbsmg" path="res://Mundo/Items/Martillo/martillo_idle.png" id="10_ee3ov"]
 [ext_resource type="Texture2D" uid="uid://r4y0t3l2jfxa" path="res://Mundo/Items/Assets_anim/cuchillo.png" id="15_c8wjn"]
 [ext_resource type="Texture2D" uid="uid://cdojfvvdycuel" path="res://NPC/Plus/Plus_Sprites/plus_idle.png" id="16_cygpa"]
 [ext_resource type="PackedScene" uid="uid://dddbyf155sudu" path="res://NPC/Plus/enemigo_slot.tscn" id="23_xsnqb"]
@@ -29,11 +33,12 @@ max_duration_between_succesful_hits = 1000
 type = 0
 duracion_suelo = 300.0
 flight_speed = 300.0
+salto_fuerza = 500.0
 move_speed = 300.0
 knockback_intensidad = 10.0
 max_ammo_per_gun = 3
 can_respawn = true
-damage = 3
+damage = 2
 damage_power = 6
 damage_gunshot = 3
 has_knife = true
@@ -116,21 +121,45 @@ offset = Vector2(0, -70)
 hframes = 4
 vframes = 2
 
-[node name="Cuchillo" parent="." index="9" unique_id=313798195]
+[node name="Espada" parent="." index="9" unique_id=2026693454]
+texture = ExtResource("8_0rflr")
+offset = Vector2(0, -100)
+hframes = 5
+vframes = 7
+
+[node name="Paraguas" parent="." index="10" unique_id=1846004306]
+texture = ExtResource("8_61wkc")
+offset = Vector2(0, -100)
+hframes = 5
+vframes = 7
+frame = 21
+
+[node name="Martillo" parent="." index="11" unique_id=1078172413]
+texture = ExtResource("10_ee3ov")
+offset = Vector2(0, -100)
+hframes = 5
+vframes = 7
+
+[node name="Baston" parent="." index="12" unique_id=2131934695]
+texture = ExtResource("10_bxsks")
+offset = Vector2(0, -100)
+hframes = 5
+vframes = 7
+
+[node name="Cuchillo" parent="." index="13" unique_id=313798195]
 position = Vector2(59, -100)
 scale = Vector2(0.58, 0.6)
 texture = ExtResource("15_c8wjn")
 centered = false
 hframes = 3
-frame = 1
 
 [node name="WeaponPosition" parent="Cuchillo" index="0" unique_id=983036064]
 position = Vector2(17.241379, 126.66666)
 
-[node name="ProyectilLanzable" parent="." index="10" unique_id=224289400]
+[node name="ProyectilLanzable" parent="." index="14" unique_id=224289400]
 collision_mask = 20
 
-[node name="CollectibleSensor" parent="." index="11" unique_id=996763328]
+[node name="CollectibleSensor" parent="." index="15" unique_id=996763328]
 collision_mask = 1024
 monitorable = false
 

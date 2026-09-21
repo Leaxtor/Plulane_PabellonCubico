@@ -32,21 +32,22 @@ func handle_input() -> void:
 		velocity = direction * move_speed
 	if can_accion() and Input.is_action_just_pressed("ataque_golpear"):
 		velocity = Vector2.ZERO
-		if has_knife:
-			state = State.Throw_lanza
-		elif has_gun:
-			if ammo_left > 0:
-				shoot_gun()
-				ammo_left -= 1
-			else:
-				state = State.Throw_lanza
+		
+		var collectible_areas := collectible_sensor.get_overlapping_areas()
+		if collectible_areas.size() > 0:
+			var collectible : Collectible = collectible_areas[0]
+			if can_recogiendo_proyectil(collectible) or can_intercambiando_arma(collectible) :
+				state = State.Recogiendo
 		else:
-			var collectible_areas := collectible_sensor.get_overlapping_areas()
-			if collectible_areas.size() > 0:
-				var collectible : Collectible = collectible_areas[0]
-				if can_recogiendo_proyectil(collectible):
-					state = State.Recogiendo
-			else:
+			if has_knife:
+				state = State.Throw_lanza
+			elif has_gun:
+				if ammo_left > 0:
+					shoot_gun()
+					ammo_left -= 1
+				else:
+					state = State.Throw_lanza
+			else: #sino tiene armas golpe normal
 				state = State.Golpe
 				SoundPlayer.play(SoundManager.Sound.SWOOSH)
 				if is_ultimo_hit_acertado:
@@ -56,11 +57,14 @@ func handle_input() -> void:
 					is_ultimo_hit_acertado = false
 				else:
 					attack_combo_index = 0
+
+
 	if can_accion() and Input.is_action_just_pressed("move_bloqueo"):
 		state = State.Bloqueo
 		attack_combo_index = 0
 	if can_jump() and Input.is_action_just_pressed("move_saltar"):
 		state = State.Salto_Inicio
+		velocity = Vector2.ZERO
 		attack_combo_index = 0
 	if can_jump_patada() and Input.is_action_just_pressed("ataque_golpear"):
 		state = State.Salto_Patada

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dxhcvovw1gwo0" path="res://Mundo/Estructura/checkpoint.tscn" id="3_7kqje"]
 [ext_resource type="PackedScene" uid="uid://2eemiufhdlvj" path="res://NPC/Enemigo_Base1/enemigo_1.tscn" id="4_tehcr"]
 [ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Mundo/Objetos/Carrito.tscn" id="5_tehcr"]
+[ext_resource type="PackedScene" uid="uid://13u7bx6lwxod" path="res://NPC/Sigma/boss_tutorial.tscn" id="5_tkq2i"]
 [ext_resource type="PackedScene" uid="uid://4glibyt812qp" path="res://Mundo/Estructura/Gimmicks/Door.tscn" id="6_rl63f"]
 
 [node name="StageTest2_1" unique_id=520458551 instance=ExtResource("1_o3pk0")]
@@ -44,14 +45,18 @@ position = Vector2(500, 271)
 [node name="Checkpoint2" parent="Chechpoints" parent_id_path=PackedInt32Array(124746635) index="1" unique_id=217150146 instance=ExtResource("3_7kqje")]
 position = Vector2(545, -1)
 
-[node name="Enemigo_1" parent="Chechpoints/Checkpoint2/Enemies" parent_id_path=PackedInt32Array(217150146, 1021542459) index="0" unique_id=2000375494 instance=ExtResource("4_tehcr")]
+[node name="boss_tutorial" parent="Chechpoints/Checkpoint2/Enemies" parent_id_path=PackedInt32Array(217150146, 1021542459) index="0" unique_id=1491485188 instance=ExtResource("5_tkq2i")]
+position = Vector2(2132, 532)
+type = 4
+
+[node name="Enemigo_1" parent="Chechpoints/Checkpoint2/Enemies" parent_id_path=PackedInt32Array(217150146, 1021542459) index="1" unique_id=2000375494 instance=ExtResource("4_tehcr")]
 position = Vector2(1741, -57)
 
-[node name="Enemigo_2" parent="Chechpoints/Checkpoint2/Enemies" parent_id_path=PackedInt32Array(217150146, 1021542459) index="1" unique_id=452155293 instance=ExtResource("4_tehcr")]
+[node name="Enemigo_2" parent="Chechpoints/Checkpoint2/Enemies" parent_id_path=PackedInt32Array(217150146, 1021542459) index="2" unique_id=452155293 instance=ExtResource("4_tehcr")]
 position = Vector2(395, 526)
 
-[node name="Enemigo_3" parent="Chechpoints/Checkpoint2/Enemies" parent_id_path=PackedInt32Array(217150146, 1021542459) index="2" unique_id=270336078 instance=ExtResource("4_tehcr")]
-position = Vector2(889, 537)
+[node name="Enemigo_3" parent="Chechpoints/Checkpoint2/Enemies" parent_id_path=PackedInt32Array(217150146, 1021542459) index="3" unique_id=270336078 instance=ExtResource("4_tehcr")]
+position = Vector2(900, 525)
 
 [node name="CollisionShape2D" parent="Chechpoints/Checkpoint2/PlayerDetectionArea" parent_id_path=PackedInt32Array(217150146, 165721204) index="0" unique_id=1674740212]
 position = Vector2(1533, 263)
@@ -61,18 +66,19 @@ debug_color = Color(0.9500212, 2.5027991e-06, 0.57303935, 0.41960785)
 position = Vector2(1526, 256)
 
 [node name="Carrito" parent="Containers" parent_id_path=PackedInt32Array(3021457) index="0" unique_id=524723037 instance=ExtResource("5_tehcr")]
-position = Vector2(1087, 532)
+position = Vector2(839, 542)
 content_type = 1
 
 [node name="Carrito2" parent="Containers" parent_id_path=PackedInt32Array(3021457) index="1" unique_id=301918807 instance=ExtResource("5_tehcr")]
-position = Vector2(1180, 534)
+position = Vector2(941, 545)
+content_type = 2
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(810179608) index="0" unique_id=1281635078 node_paths=PackedStringArray("enemies") instance=ExtResource("6_rl63f")]
 position = Vector2(1324, 471)
 enemies = [NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_2"), NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_3")]
 
 [node name="PlayerSpawnLocation" parent="." index="5" unique_id=1232413828]
-position = Vector2(665, 533)
+position = Vector2(626, 527)
 
 [editable path="Chechpoints/Checkpoint"]
 [editable path="Chechpoints/Checkpoint2"]
