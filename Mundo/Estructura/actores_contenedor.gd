@@ -7,8 +7,14 @@ const SPARK_PREFAB := preload("res://Mundo/Items/Proyectil/spark.tscn")
 const PREFAB_MAP := {
 	Collectible.Type.KNIFE: preload("res://Mundo/Items/Knife.tscn"), 
 	Collectible.Type.GUN: preload("res://Mundo/Items/Gun.tscn"),
-	Collectible.Type.FOOD: preload("res://Mundo/Items/Food.tscn") 
+	Collectible.Type.FOOD: preload("res://Mundo/Items/Food.tscn"),
+	Collectible.Type.BASTON: preload("res://Mundo/Items/Baston/baston.tscn"),
+	Collectible.Type.PARAGUAS: preload("res://Mundo/Items/Paraguas/paraguas.tscn"),
+	Collectible.Type.MARTILLO: preload("res://Mundo/Items/Martillo/martillo.tscn"),
+	Collectible.Type.ESPADA: preload("res://Mundo/Items/Espada/espada.tscn")  
 }
+
+
 
 const ENEMY_MAP := {
 	Character.Type.ENEMIGO_1: preload("res://NPC/Enemigo_Base1/enemigo_1.tscn"), 

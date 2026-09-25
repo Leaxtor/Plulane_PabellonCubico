@@ -30,6 +30,7 @@ collision_layer = 2
 collision_mask = 531
 script = ExtResource("2_2dehs")
 max_duration_between_succesful_hits = 1000
+max_health = 100
 type = 0
 duracion_suelo = 300.0
 flight_speed = 300.0
@@ -122,25 +123,28 @@ hframes = 4
 vframes = 2
 
 [node name="Espada" parent="." index="9" unique_id=2026693454]
+visible = false
 texture = ExtResource("8_0rflr")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
 
 [node name="Paraguas" parent="." index="10" unique_id=1846004306]
+visible = false
 texture = ExtResource("8_61wkc")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
-frame = 21
 
 [node name="Martillo" parent="." index="11" unique_id=1078172413]
+visible = false
 texture = ExtResource("10_ee3ov")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
 
 [node name="Baston" parent="." index="12" unique_id=2131934695]
+visible = false
 texture = ExtResource("10_bxsks")
 offset = Vector2(0, -100)
 hframes = 5

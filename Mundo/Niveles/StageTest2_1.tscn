@@ -66,19 +66,27 @@ debug_color = Color(0.9500212, 2.5027991e-06, 0.57303935, 0.41960785)
 position = Vector2(1526, 256)
 
 [node name="Carrito" parent="Containers" parent_id_path=PackedInt32Array(3021457) index="0" unique_id=524723037 instance=ExtResource("5_tehcr")]
-position = Vector2(839, 542)
-content_type = 1
+position = Vector2(734, 539)
+content_type = 5
 
 [node name="Carrito2" parent="Containers" parent_id_path=PackedInt32Array(3021457) index="1" unique_id=301918807 instance=ExtResource("5_tehcr")]
-position = Vector2(941, 545)
-content_type = 2
+position = Vector2(830, 540)
+content_type = 4
+
+[node name="Carrito3" parent="Containers" parent_id_path=PackedInt32Array(3021457) index="2" unique_id=1163354894 instance=ExtResource("5_tehcr")]
+position = Vector2(620, 540)
+content_type = 6
+
+[node name="Carrito4" parent="Containers" parent_id_path=PackedInt32Array(3021457) index="3" unique_id=393755162 instance=ExtResource("5_tehcr")]
+position = Vector2(523, 543)
+content_type = 3
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(810179608) index="0" unique_id=1281635078 node_paths=PackedStringArray("enemies") instance=ExtResource("6_rl63f")]
 position = Vector2(1324, 471)
 enemies = [NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_2"), NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_3")]
 
 [node name="PlayerSpawnLocation" parent="." index="5" unique_id=1232413828]
-position = Vector2(626, 527)
+position = Vector2(450, 520)
 
 [editable path="Chechpoints/Checkpoint"]
 [editable path="Chechpoints/Checkpoint2"]

@@ -61,7 +61,6 @@ const GRAVEDAD := 600.0
 
 enum State {
 	Reposo,
-	Idle_arma,
 	Caminar,
 	Golpe,
 	Bloqueo,
@@ -94,7 +93,6 @@ var anim_attack := []
 
 var animation_map := {
 	State.Reposo: "Reposo",
-	State.Idle_arma: "Idle_arma",
 	State.Caminar: "Caminar",
 	State.Bloqueo: "Bloqueo",
 	State.Salto_Inicio: "Salto_Inicio",
@@ -147,7 +145,7 @@ func _process(delta: float) ->void :
 	handle_prep_attack()
 	handle_preb_shoot()
 	handle_knife_respawn()
-	handle_idle_arma()
+	#handle_idle_arma()
 	set_heading()
 	voltear_sprite() #talvez lo cambie
 	set_sprite_visibility()
@@ -230,7 +228,7 @@ func handle_animation() -> void:
 func set_heading() -> void:
 	pass
 
-func handle_idle_arma() -> void:
+func handle_idle_arma() -> void: #BORRAR HANLDE IDLE ARMA
 	if state == State.Reposo and is_carrying_arma_mano():
 		print("IDLEATE ARMA")
 		#state = State.Idle_arma
@@ -332,6 +330,8 @@ func can_recogiendo_proyectil(collectible : Collectible) ->bool:
 		return true
 	if collectible.type == Collectible.Type.PARAGUAS and not is_carrying_weapong(): 
 		return true
+	if collectible.type == Collectible.Type.MARTILLO and not is_carrying_weapong(): 
+		return true
 	return false
 	
 func can_intercambiando_arma(collectible : Collectible) ->bool:
@@ -341,7 +341,8 @@ func can_intercambiando_arma(collectible : Collectible) ->bool:
 		#Collectible.Type.GUN,
 		Collectible.Type.BASTON,
 		Collectible.Type.ESPADA,
-		Collectible.Type.PARAGUAS
+		Collectible.Type.PARAGUAS,
+		Collectible.Type.MARTILLO
 		]
 	return false
 
@@ -360,15 +361,19 @@ func recogiendo_proyectil() ->void:
 func recogiendo_proyectil_accion(collectible : Collectible) ->void:
 	if collectible.type == Collectible.Type.BASTON and not has_baston:
 		has_baston = true
+		animation_map[State.Reposo] = "Idle_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	if collectible.type == Collectible.Type.ESPADA and not has_espada:
 		has_espada = true
+		animation_map[State.Reposo] = "Idle_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
-	if collectible.type == Collectible.Type.PARAGUAS and not has_martillo:
+	if collectible.type == Collectible.Type.MARTILLO and not has_martillo:
 		has_martillo = true
+		animation_map[State.Reposo] = "Idle_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
-	if collectible.type == Collectible.Type.MARTILLO and not has_paraguas:
+	if collectible.type == Collectible.Type.PARAGUAS and not has_paraguas:
 		has_paraguas = true
+		animation_map[State.Reposo] = "Idle_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	if collectible.type == Collectible.Type.KNIFE and not has_knife:
 		has_knife = true
@@ -498,6 +503,18 @@ func soltar_arma()-> void :
 	if has_gun:
 		has_gun = false
 		EntityManager.spawn_collectible.emit(Collectible.Type.GUN, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+	if has_espada:
+		has_espada = false
+		EntityManager.spawn_collectible.emit(Collectible.Type.ESPADA, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+	if has_baston:
+		has_baston = false
+		EntityManager.spawn_collectible.emit(Collectible.Type.BASTON, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+	if has_paraguas:
+		has_paraguas = false
+		EntityManager.spawn_collectible.emit(Collectible.Type.PARAGUAS, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+	if has_martillo:
+		has_martillo = false
+		EntityManager.spawn_collectible.emit(Collectible.Type.MARTILLO, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
 
 func set_health(health: int, is_emit_signal: bool = true) -> void:
 	current_health = clamp(health, 0, max_health)
