@@ -18,7 +18,7 @@ radius = 13.0
 height = 64.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qh13"]
-size = Vector2(35, 26)
+size = Vector2(45.5, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg235"]
 size = Vector2(37, 33)
@@ -30,7 +30,7 @@ collision_layer = 2
 collision_mask = 531
 script = ExtResource("2_2dehs")
 max_duration_between_succesful_hits = 1000
-max_health = 100
+max_health = 20
 type = 0
 duracion_suelo = 300.0
 flight_speed = 300.0
@@ -116,6 +116,7 @@ debug_color = Color(5.7756904e-07, 0.6220253, 0.5521854, 0.41960785)
 monitoring = false
 
 [node name="GunSprite" parent="." index="8" unique_id=378956244]
+visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("25_qmkn0")
 offset = Vector2(0, -70)

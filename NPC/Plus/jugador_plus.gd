@@ -47,7 +47,12 @@ func handle_input() -> void:
 					ammo_left -= 1
 				else:
 					state = State.Throw_lanza
+			elif has_baston or has_espada or has_paraguas or has_martillo:
+					anim_attack = ["Golpe_arma"]
+					state = State.Golpe
+					SoundPlayer.play(SoundManager.Sound.SWOOSH)
 			else: #sino tiene armas golpe normal
+				anim_attack = ["Golpe","Golpe_2","Golpe_3","Golpe_4"]
 				state = State.Golpe
 				SoundPlayer.play(SoundManager.Sound.SWOOSH)
 				if is_ultimo_hit_acertado:

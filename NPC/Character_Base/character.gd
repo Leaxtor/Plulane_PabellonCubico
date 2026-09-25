@@ -362,18 +362,22 @@ func recogiendo_proyectil_accion(collectible : Collectible) ->void:
 	if collectible.type == Collectible.Type.BASTON and not has_baston:
 		has_baston = true
 		animation_map[State.Reposo] = "Idle_arma"
+		animation_map[State.Caminar] = "Caminar_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	if collectible.type == Collectible.Type.ESPADA and not has_espada:
 		has_espada = true
 		animation_map[State.Reposo] = "Idle_arma"
+		animation_map[State.Caminar] = "Caminar_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	if collectible.type == Collectible.Type.MARTILLO and not has_martillo:
 		has_martillo = true
 		animation_map[State.Reposo] = "Idle_arma"
+		animation_map[State.Caminar] = "Caminar_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	if collectible.type == Collectible.Type.PARAGUAS and not has_paraguas:
 		has_paraguas = true
 		animation_map[State.Reposo] = "Idle_arma"
+		animation_map[State.Caminar] = "Caminar_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	if collectible.type == Collectible.Type.KNIFE and not has_knife:
 		has_knife = true
@@ -505,15 +509,23 @@ func soltar_arma()-> void :
 		EntityManager.spawn_collectible.emit(Collectible.Type.GUN, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
 	if has_espada:
 		has_espada = false
+		animation_map[State.Reposo] = "Reposo"
+		animation_map[State.Caminar] = "Caminar"
 		EntityManager.spawn_collectible.emit(Collectible.Type.ESPADA, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
 	if has_baston:
 		has_baston = false
+		animation_map[State.Reposo] = "Reposo"
+		animation_map[State.Caminar] = "Caminar"
 		EntityManager.spawn_collectible.emit(Collectible.Type.BASTON, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
 	if has_paraguas:
 		has_paraguas = false
+		animation_map[State.Reposo] = "Reposo"
+		animation_map[State.Caminar] = "Caminar"
 		EntityManager.spawn_collectible.emit(Collectible.Type.PARAGUAS, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
 	if has_martillo:
 		has_martillo = false
+		animation_map[State.Reposo] = "Reposo"
+		animation_map[State.Caminar] = "Caminar"
 		EntityManager.spawn_collectible.emit(Collectible.Type.MARTILLO, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
 
 func set_health(health: int, is_emit_signal: bool = true) -> void:

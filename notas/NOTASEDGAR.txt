@@ -3,8 +3,12 @@ git add .
 git commit -m "nombre"
 git push
 
-
+///PLUS DE PRUEBA
 tener un enemigo plus para probar animaciones.
-Truco para duplicar
+Truco para duplicar animaciones
 >Animacion / Gestionar animaciones/ GUARDAR COMO / .res
 >EN el enemigo GESTIONAR ANIMACIONES / CARGAR / luego borrar el global y el nombre a la nueva libreria
+
+///DIFERENTES HITBOXES
+Cada arma de animacion de plus golpeando tendra una hitbox más pequeña
+el martillo, y una 2da hitbox que se activaran por los condicionales
