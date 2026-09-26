@@ -135,14 +135,12 @@ hframes = 4
 vframes = 2
 
 [node name="Espada" parent="." index="10" unique_id=2026693454]
-visible = false
 texture = ExtResource("8_0rflr")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
 
 [node name="Paraguas" parent="." index="11" unique_id=1846004306]
-visible = false
 texture = ExtResource("8_61wkc")
 offset = Vector2(0, -100)
 hframes = 5
