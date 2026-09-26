@@ -30,7 +30,7 @@ func on_receive_damage(damage: int, dirrecion: Vector2, _hit_Type: ReceptorDamag
 		height_speed = knockball
 		state = State.DESTROY
 		velocity = dirrecion * knockball
-		EntityManager.spawn_collectible.emit(content_type, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, false)
+		EntityManager.spawn_collectible.emit(content_type, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, false, -1)
 		SoundPlayer.play(SoundManager.Sound.HIT1, true)
 
 func handle_air_time(delta: float) -> void:

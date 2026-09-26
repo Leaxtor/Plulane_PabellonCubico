@@ -35,13 +35,14 @@ func _init () -> void:
 	EntityManager.spawn_spark.connect(on_spawn_spark.bind())
 	DamageManager.player_revive.connect(on_player_revive.bind())
 	
-func on_spawn_collectible(type: Collectible.Type, initial_state: Collectible.State, collectible_global_position: Vector2, collectible_direction: Vector2, initial_height: float, autodestroy: bool) -> void:
+func on_spawn_collectible(type: Collectible.Type, initial_state: Collectible.State, collectible_global_position: Vector2, collectible_direction: Vector2, initial_height: float, autodestroy: bool, usos_restantes: int) -> void:
 	var collectible : Collectible = PREFAB_MAP[type].instantiate()
 	collectible.state = initial_state
 	collectible.height = initial_height
 	collectible.global_position = collectible_global_position
 	collectible.direction = collectible_direction
 	collectible.autodestroy = autodestroy
+	collectible.usos = usos_restantes
 	add_child.call_deferred(collectible) #add child pero se ejecuta luego de calcular la fisica
 	#call_deferred("add_child", collectible) forma vieja del tutorial
 	

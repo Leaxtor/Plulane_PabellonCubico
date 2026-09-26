@@ -11,7 +11,8 @@ const gravedad := 600.0
 @export var damage : int
 @export var knockdown_intensity : float
 @export var speed : float
-@export var usos : int
+@export var default_usos : int
+#@export var usos : int
 @export var type : Type
 
 enum State {FALL, GROUNDED, FLY}
@@ -24,6 +25,7 @@ var anim_map := {
 	State.FLY: "fly"
 }
 
+var usos := -1 
 var direction := Vector2.ZERO
 var height := 0.0
 var height_speed := 0.0
@@ -31,6 +33,8 @@ var state := State.FALL
 var velocity := Vector2.ZERO
 
 func _ready()-> void:
+	if usos == -1:
+		usos = default_usos
 	height_speed = knockdown_intensity
 	if state == State.FLY:
 		velocity = direction * speed

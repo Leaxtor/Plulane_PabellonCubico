@@ -116,7 +116,7 @@ shape = SubResource("RectangleShape2D_ni4n4")
 debug_color = Color(0.98816246, 0, 0.31021056, 0.41960785)
 
 [node name="ReceptorDaño" parent="." index="7" unique_id=1523650532]
-collision_layer = 192
+collision_layer = 128
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]

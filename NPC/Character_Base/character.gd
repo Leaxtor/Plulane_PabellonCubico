@@ -372,8 +372,6 @@ func recogiendo_proyectil() ->void:
 			recogiendo_proyectil_accion(collectible)
 			
 func recogiendo_proyectil_accion(collectible : Collectible) ->void:
-	print("EL COLECCIONABLE USOS")
-	print(collectible.usos)
 	if collectible.type == Collectible.Type.BASTON and not has_baston:
 		has_baston = true
 		usos_sobrantes = collectible.usos
@@ -480,7 +478,7 @@ func on_throw_lanzado() -> void:
 	SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	var collectible_global_position := Vector2(weapon_position.global_position.x, global_position.y)
 	var collectible_height := weapon_position.position.y 
-	EntityManager.spawn_collectible.emit(collectible_type, Collectible.State.FLY, collectible_global_position, heading, collectible_height, false)
+	EntityManager.spawn_collectible.emit(collectible_type, Collectible.State.FLY, collectible_global_position, heading, collectible_height, false, 0)
 
 func bloque_completo() -> void:
 	state = State.Reposo
@@ -552,31 +550,31 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 func soltar_arma()-> void :
 	if has_knife:
 		has_knife = false
-		EntityManager.spawn_collectible.emit(Collectible.Type.KNIFE, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+		EntityManager.spawn_collectible.emit(Collectible.Type.KNIFE, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop, usos_sobrantes)
 		time_since_knife_dissmiss = Time.get_ticks_msec()
 	if has_gun:
 		has_gun = false
-		EntityManager.spawn_collectible.emit(Collectible.Type.GUN, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+		EntityManager.spawn_collectible.emit(Collectible.Type.GUN, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop, usos_sobrantes)
 	if has_espada:
 		has_espada = false
 		animation_map[State.Reposo] = "Reposo"
 		animation_map[State.Caminar] = "Caminar"
-		EntityManager.spawn_collectible.emit(Collectible.Type.ESPADA, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+		EntityManager.spawn_collectible.emit(Collectible.Type.ESPADA, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop, usos_sobrantes)
 	if has_baston:
 		has_baston = false
 		animation_map[State.Reposo] = "Reposo"
 		animation_map[State.Caminar] = "Caminar"
-		EntityManager.spawn_collectible.emit(Collectible.Type.BASTON, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+		EntityManager.spawn_collectible.emit(Collectible.Type.BASTON, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop, usos_sobrantes)
 	if has_paraguas:
 		has_paraguas = false
 		animation_map[State.Reposo] = "Reposo"
 		animation_map[State.Caminar] = "Caminar"
-		EntityManager.spawn_collectible.emit(Collectible.Type.PARAGUAS, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+		EntityManager.spawn_collectible.emit(Collectible.Type.PARAGUAS, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop, usos_sobrantes)
 	if has_martillo:
 		has_martillo = false
 		animation_map[State.Reposo] = "Reposo"
 		animation_map[State.Caminar] = "Caminar"
-		EntityManager.spawn_collectible.emit(Collectible.Type.MARTILLO, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop)
+		EntityManager.spawn_collectible.emit(Collectible.Type.MARTILLO, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_drop, usos_sobrantes)
 
 func set_health(health: int, is_emit_signal: bool = true) -> void:
 	current_health = clamp(health, 0, max_health)

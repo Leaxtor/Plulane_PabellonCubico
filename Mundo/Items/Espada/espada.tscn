@@ -8,7 +8,7 @@
 size = Vector2(41, 32.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkxvd"]
-size = Vector2(77, 20)
+size = Vector2(51, 41)
 
 [sub_resource type="Animation" id="Animation_t3ijl"]
 length = 0.001
@@ -280,7 +280,7 @@ _data = {
 damage = 5
 knockdown_intensity = 200.0
 speed = 600.0
-usos = 5
+default_usos = 5
 type = 4
 
 [node name="Sombra" parent="." index="0" unique_id=778261327]
@@ -299,7 +299,7 @@ collision_layer = 0
 collision_mask = 192
 
 [node name="CollisionShape2D" parent="EmitidorDaño" index="0" unique_id=1521075572]
-position = Vector2(0.5, 0)
+position = Vector2(-1.5, -0.5)
 shape = SubResource("RectangleShape2D_mkxvd")
 debug_color = Color(0.9570816, 1.0588765e-06, 0.5370912, 0.41960785)
 
