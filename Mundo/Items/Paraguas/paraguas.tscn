@@ -282,7 +282,6 @@ damage = 3
 knockdown_intensity = 300.0
 speed = 500.0
 default_usos = 5
-usos = 5
 type = 5
 
 [node name="Sombra" parent="." index="0" unique_id=778261327]

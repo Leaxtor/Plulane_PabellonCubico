@@ -66,7 +66,7 @@ shape = SubResource("CapsuleShape2D_kg235")
 
 [node name="EmitidorDaño" parent="." index="4" unique_id=771478216]
 collision_layer = 0
-collision_mask = 388
+collision_mask = 384
 monitoring = false
 
 [node name="CollisionShape2D" parent="EmitidorDaño" index="0" unique_id=1521075572]
@@ -108,7 +108,7 @@ texture = ExtResource("24_jvw74")
 
 [node name="EmitidorDañoSecundario" parent="." index="6" unique_id=203389400]
 collision_layer = 0
-collision_mask = 388
+collision_mask = 384
 
 [node name="CollisionShape2D" parent="EmitidorDañoSecundario" index="0" unique_id=1521075572]
 position = Vector2(0, -50)
@@ -116,7 +116,7 @@ shape = SubResource("RectangleShape2D_ni4n4")
 debug_color = Color(0.98816246, 0, 0.31021056, 0.41960785)
 
 [node name="ReceptorDaño" parent="." index="7" unique_id=1523650532]
-collision_layer = 128
+collision_layer = 64
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]

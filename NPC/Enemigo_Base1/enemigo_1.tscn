@@ -62,7 +62,7 @@ shape = SubResource("CapsuleShape2D_wrc1r")
 
 [node name="EmitidorDaño" parent="." index="4" unique_id=771478216]
 collision_layer = 0
-collision_mask = 128
+collision_mask = 192
 monitoring = false
 
 [node name="CollisionShape2D" parent="EmitidorDaño" index="0" unique_id=1521075572]
@@ -70,12 +70,16 @@ position = Vector2(61, -99)
 shape = SubResource("RectangleShape2D_exf3q")
 debug_color = Color(0.9508149, 1.8289685e-06, 0.56915855, 0.41960785)
 
-[node name="CollisionShape2D" parent="EmitidorDañoSecundario" parent_id_path=PackedInt32Array(203389400) index="0" unique_id=1521075572]
+[node name="EmitidorDañoSecundario" parent="." index="5" unique_id=203389400]
+collision_layer = 0
+collision_mask = 192
+
+[node name="CollisionShape2D" parent="EmitidorDañoSecundario" index="0" unique_id=1521075572]
 position = Vector2(0, -50)
 
 [node name="ReceptorDaño" parent="." index="6" unique_id=1523650532]
-collision_layer = 128
-collision_mask = 128
+collision_layer = 192
+collision_mask = 64
 
 [node name="CollisionShape2D" parent="ReceptorDaño" index="0" unique_id=1663036646]
 position = Vector2(-2, -98)
