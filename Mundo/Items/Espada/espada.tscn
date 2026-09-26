@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c6fs"]
 size = Vector2(41, 32.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkxvd"]
+size = Vector2(77, 20)
+
 [sub_resource type="Animation" id="Animation_t3ijl"]
 length = 0.001
 step = 0.041666668
@@ -202,7 +205,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_umbxd"]
 resource_name = "grounded"
-length = 0.041670834575220944
+length = 0.04167083457522094
 step = 0.041666668
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -277,6 +280,7 @@ _data = {
 damage = 5
 knockdown_intensity = 200.0
 speed = 600.0
+usos = 5
 type = 4
 
 [node name="Sombra" parent="." index="0" unique_id=778261327]
@@ -289,6 +293,15 @@ texture = ExtResource("3_e07rc")
 [node name="CollisionShape2D" parent="." index="2" unique_id=491602718]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_7c6fs")
+
+[node name="EmitidorDaño" parent="." index="3" unique_id=771478216]
+collision_layer = 0
+collision_mask = 192
+
+[node name="CollisionShape2D" parent="EmitidorDaño" index="0" unique_id=1521075572]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_mkxvd")
+debug_color = Color(0.9570816, 1.0588765e-06, 0.5370912, 0.41960785)
 
 [node name="AnimationPlayer" parent="." index="4" unique_id=146327165]
 libraries/ = SubResource("AnimationLibrary_t3ijl")

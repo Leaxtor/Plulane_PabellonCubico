@@ -44,6 +44,7 @@ const GRAVEDAD := 600.0
 @onready var collectible_sensor : Area2D = $CollectibleSensor
 @onready var collision_shape := $CollisionShape2D2
 @onready var emitidor_daño := $"EmitidorDaño"
+@onready var emitidor_daño_arma_secundario := $"EmitidorDañoSecundario"
 
 @onready var knife_sprite := $"Cuchillo"
 @onready var gun_sprite := $"GunSprite"
@@ -89,6 +90,7 @@ enum State {
 enum Type {PLAYER, ENEMIGO_1, ENEMIGO_GOON, THUG_ENEMIGO, BOSS_TUTORIAL}
 
 var ammo_left := 0
+var usos_sobrantes := 0
 var anim_attack := []
 
 var animation_map := {
@@ -129,7 +131,10 @@ var time_since_knife_dissmiss := Time.get_ticks_msec()
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready() ->void:
+	#DAÑO SECUNDARIO
 	emitidor_daño.area_entered.connect(on_emit_damage.bind())
+	emitidor_daño_arma_secundario.area_entered.connect(on_emit_damage.bind())
+	
 	receptor_daño.damage_received.connect(on_receive_damage.bind())
 	collateral_damage_emmiter.area_entered.connect(on_emit_collateral_damage.bind())
 	collateral_damage_emmiter.body_entered.connect(on_wall_hit.bind())
@@ -177,6 +182,7 @@ func set_sprite_height_position() -> void:
 func setup_collision() -> void:
 	collision_shape.disabled = is_collision_disable()
 	emitidor_daño.monitoring = is_attacking()
+	emitidor_daño_arma_secundario.monitoring = is_attacking_con_arma()
 	receptor_daño.monitorable = can_get_hurt()
 	collateral_damage_emmiter.monitoring = state == State.Fly
 
@@ -220,7 +226,8 @@ func handle_death(delta: float) ->void:
 
 func handle_animation() -> void:
 	if state == State.Golpe:
-		animation_player.play(anim_attack[attack_combo_index])
+		#SI EL attack_combo_index SE PASA REGRESA A 0
+		animation_player.play(anim_attack[attack_combo_index % anim_attack.size()]) 
 	#Reemplaza tener que hacer in elseif para cada estado
 	elif animation_player.has_animation(animation_map[state]):
 		animation_player.play(animation_map[state])
@@ -244,6 +251,7 @@ func voltear_sprite() -> void:
 		Baston_sprite.scale.x = 1
 		proyectil_lanzable.scale.x = 1
 		emitidor_daño.scale.x = 1
+		emitidor_daño_arma_secundario.scale.x = 1
 	else:
 		character_sprite.flip_h = true
 		knife_sprite.scale.x = -1
@@ -254,6 +262,7 @@ func voltear_sprite() -> void:
 		Baston_sprite.scale.x = -1
 		proyectil_lanzable.scale.x = -1
 		emitidor_daño.scale.x = -1
+		emitidor_daño_arma_secundario.scale.x = -1
 		
 func can_accion() -> bool:
 	return state == State.Reposo or state== State.Caminar
@@ -276,6 +285,7 @@ func can_get_hurt() ->bool:
 	State.Caminar,
 	State.Preparar_Ataque,
 	State.Prep_shoot,
+	State.Hurt, #Poner una condicional para quitarselo a plus
 	#State.Bloqueo,
 	#State.Salto_Medio,
 	#State.Salto_Fin,
@@ -290,6 +300,9 @@ func can_get_hurt() ->bool:
 
 func  is_attacking() -> bool:
 	return [State.Golpe, State.Salto_Patada, State.Salto_Patada_Cayendo].has(state)
+
+func  is_attacking_con_arma() -> bool: #No funcionara con el martillo
+	return (has_baston or has_espada or has_paraguas) and is_attacking()
 
 
 func shoot_gun() -> void:
@@ -359,23 +372,29 @@ func recogiendo_proyectil() ->void:
 			recogiendo_proyectil_accion(collectible)
 			
 func recogiendo_proyectil_accion(collectible : Collectible) ->void:
+	print("EL COLECCIONABLE USOS")
+	print(collectible.usos)
 	if collectible.type == Collectible.Type.BASTON and not has_baston:
 		has_baston = true
+		usos_sobrantes = collectible.usos
 		animation_map[State.Reposo] = "Idle_arma"
 		animation_map[State.Caminar] = "Caminar_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	if collectible.type == Collectible.Type.ESPADA and not has_espada:
 		has_espada = true
+		usos_sobrantes = collectible.usos
 		animation_map[State.Reposo] = "Idle_arma"
 		animation_map[State.Caminar] = "Caminar_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	if collectible.type == Collectible.Type.MARTILLO and not has_martillo:
 		has_martillo = true
+		usos_sobrantes = collectible.usos
 		animation_map[State.Reposo] = "Idle_arma"
 		animation_map[State.Caminar] = "Caminar_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	if collectible.type == Collectible.Type.PARAGUAS and not has_paraguas:
 		has_paraguas = true
+		usos_sobrantes = collectible.usos
 		animation_map[State.Reposo] = "Idle_arma"
 		animation_map[State.Caminar] = "Caminar_arma"
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
@@ -416,17 +435,48 @@ func ataque_salto_patada_complesto() -> void: #on_action_complete
 func on_throw_complete() -> void:
 	state = State.Reposo
 	var collectible_type := Collectible.Type.KNIFE
+	#AAAA
 	if has_gun:
 		collectible_type = Collectible.Type.GUN
 		has_gun = false
-	else:
+	if has_baston:
+		collectible_type = Collectible.Type.BASTON
+		animation_map[State.Reposo] = "Reposo"
+		animation_map[State.Caminar] = "Caminar"
+		has_baston = false
+	if has_espada:
+		collectible_type = Collectible.Type.ESPADA
+		animation_map[State.Reposo] = "Reposo"
+		animation_map[State.Caminar] = "Caminar"
+		has_espada = false
+	if has_martillo:
+		collectible_type = Collectible.Type.MARTILLO
+		animation_map[State.Reposo] = "Reposo"
+		animation_map[State.Caminar] = "Caminar"
+		has_martillo = false
+	if has_paraguas:
+		collectible_type = Collectible.Type.PARAGUAS
+		animation_map[State.Reposo] = "Reposo"
+		animation_map[State.Caminar] = "Caminar"
+		has_paraguas = false
+	elif has_knife:
 		has_knife = false
+	state = State.Reposo
+
 
 #LANZA A MITAD DE LA ANIMACION
 func on_throw_lanzado() -> void:
 	var collectible_type := Collectible.Type.KNIFE
 	if has_gun:
 		collectible_type = Collectible.Type.GUN
+	if has_baston:
+		collectible_type = Collectible.Type.BASTON
+	if has_espada:
+		collectible_type = Collectible.Type.ESPADA
+	if has_paraguas:
+		collectible_type = Collectible.Type.PARAGUAS
+	if has_martillo:
+		collectible_type = Collectible.Type.MARTILLO
 	SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	var collectible_global_position := Vector2(weapon_position.global_position.x, global_position.y)
 	var collectible_height := weapon_position.position.y 
@@ -495,7 +545,7 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 			state = State.Fly
 			velocity = direccion * flight_speed #No esta funcionando al velocidad
 			DamageManager.heavy_blow_received.emit()
-		else:
+		else: #NORMAL
 			state = State.Hurt 
 			velocity = direccion * knockback_intensidad
 

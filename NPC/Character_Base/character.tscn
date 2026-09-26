@@ -26,6 +26,8 @@ texture = ExtResource("4_70oay")
 
 [node name="EmitidorDaño" parent="." unique_id=771478216 instance=ExtResource("1_oysyt")]
 
+[node name="EmitidorDañoSecundario" parent="." unique_id=203389400 instance=ExtResource("1_oysyt")]
+
 [node name="ReceptorDaño" parent="." unique_id=1523650532 instance=ExtResource("3_np3df")]
 
 [node name="CollateralEmitidorDaño" parent="." unique_id=1093273836 instance=ExtResource("1_oysyt")]
@@ -55,5 +57,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleSensor" unique_id=2127295643]
 
 [editable path="EmitidorDaño"]
+[editable path="EmitidorDañoSecundario"]
 [editable path="ReceptorDaño"]
 [editable path="CollateralEmitidorDaño"]

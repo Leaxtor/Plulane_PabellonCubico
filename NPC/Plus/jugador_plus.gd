@@ -48,16 +48,21 @@ func handle_input() -> void:
 				else:
 					state = State.Throw_lanza
 			elif has_baston or has_espada or has_paraguas or has_martillo:
+				#usos_sobrantes
+				if usos_sobrantes > 0:
+					usos_sobrantes -= 1
 					anim_attack = ["Golpe_arma"]
 					state = State.Golpe
 					SoundPlayer.play(SoundManager.Sound.SWOOSH)
+				else:
+					state = State.Throw_lanza
 			else: #sino tiene armas golpe normal
 				anim_attack = ["Golpe","Golpe_2","Golpe_3","Golpe_4"]
 				state = State.Golpe
 				SoundPlayer.play(SoundManager.Sound.SWOOSH)
 				if is_ultimo_hit_acertado:
 					time_since_last_succesful_attack = Time.get_ticks_msec()
-					#Avanza 1 x 1 en la lista de animaciones de ataque y obtiene el resto, dando la vuelta si se pasa
+					#EVITA ERROR DE ENEMIGO AGARRANDO ARMA POR EL MOMENTO
 					attack_combo_index = (attack_combo_index+1) % anim_attack.size()
 					is_ultimo_hit_acertado = false
 				else:
@@ -75,11 +80,16 @@ func handle_input() -> void:
 		state = State.Salto_Patada
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
 
-func set_heading() -> void:
+func set_heading() -> void: #PLUS MIRARA HACIA DONDE LA GOLPEAN
 	if can_move():
 		if velocity.x > 0:
 			heading = Vector2.RIGHT
 		elif velocity.x < 0:
+			heading = Vector2.LEFT
+	elif state == State.Hurt:
+		if velocity.x < 0:
+			heading = Vector2.RIGHT
+		elif velocity.x > 0:
 			heading = Vector2.LEFT
 
 func reserve_slot(enemy: Enemigo_1) -> EnemigoSlot:

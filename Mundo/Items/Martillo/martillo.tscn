@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgk1o"]
 size = Vector2(44, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e07rc"]
+size = Vector2(20, 35)
+
 [sub_resource type="Animation" id="Animation_pxt0l"]
 length = 0.001
 step = 0.041666668
@@ -266,6 +269,7 @@ _data = {
 damage = 10
 knockdown_intensity = 300.0
 speed = 800.0
+usos = 5
 type = 6
 
 [node name="Sombra" parent="." index="0" unique_id=778261327]
@@ -279,6 +283,15 @@ texture = ExtResource("3_j3aec")
 [node name="CollisionShape2D" parent="." index="2" unique_id=491602718]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_fgk1o")
+
+[node name="EmitidorDaño" parent="." index="3" unique_id=771478216]
+collision_layer = 0
+collision_mask = 192
+
+[node name="CollisionShape2D" parent="EmitidorDaño" index="0" unique_id=1521075572]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_e07rc")
+debug_color = Color(0.9408043, 1.0396242e-05, 0.6155819, 0.41960785)
 
 [node name="AnimationPlayer" parent="." index="4" unique_id=146327165]
 libraries/ = SubResource("AnimationLibrary_pxt0l")

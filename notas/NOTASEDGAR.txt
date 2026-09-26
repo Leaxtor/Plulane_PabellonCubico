@@ -12,3 +12,5 @@ Truco para duplicar animaciones
 ///DIFERENTES HITBOXES
 Cada arma de animacion de plus golpeando tendra una hitbox más pequeña
 el martillo, y una 2da hitbox que se activaran por los condicionales
+
+AUNQUE GOLPEEN 2 AL MISMO TIEMPO SOLO UNO EMITE

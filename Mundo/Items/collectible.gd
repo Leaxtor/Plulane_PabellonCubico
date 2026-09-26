@@ -11,6 +11,7 @@ const gravedad := 600.0
 @export var damage : int
 @export var knockdown_intensity : float
 @export var speed : float
+@export var usos : int
 @export var type : Type
 
 enum State {FALL, GROUNDED, FLY}
