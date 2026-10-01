@@ -23,6 +23,8 @@ position = Vector2(498.5, 260.5)
 shape = SubResource("RectangleShape2D_bhunq")
 
 [node name="CheckpointPlayerArea" type="Area2D" parent="." unique_id=192106489]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckpointPlayerArea" unique_id=1349556189]
 position = Vector2(481.5, 276)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0mkbqdtek1il"
-path="res://.godot/imported/plus_daño.png-788140051d6dfdd38d6e0f7ff880d242.ctex"
+uid="uid://b7gs8us3vvb36"
+path="res://.godot/imported/plus_daño_sincro.png-cfc36039bc546b9b838ecde9da9e5a9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/Plus/Plus_Sprites/plus_daño.png"
-dest_files=["res://.godot/imported/plus_daño.png-788140051d6dfdd38d6e0f7ff880d242.ctex"]
+source_file="res://NPC/Plus/Plus_Sprites/plus_daño_sincro.png"
+dest_files=["res://.godot/imported/plus_daño_sincro.png-cfc36039bc546b9b838ecde9da9e5a9c.ctex"]
 
 [params]
 

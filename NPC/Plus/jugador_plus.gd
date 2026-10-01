@@ -26,7 +26,7 @@ func on_player_revive() -> void:
 	state = State.Salto_Inicio
 	height = REVIVE_HEIGHT
 
-func handle_input() -> void:
+func handle_input(_delta: float) -> void:
 	if can_move():
 		var direction := Input.get_vector("move_left","move_right","move_up","move_down")
 		velocity = direction * move_speed
@@ -96,6 +96,7 @@ func reserve_slot(enemy: Enemigo_1) -> EnemigoSlot:
 	var available_slots := enemy_slots.filter(
 		func(slot): return slot.is_free()
 	)
+	print(available_slots.size())
 	if available_slots.size() == 0:
 		return null
 	available_slots.sort_custom(

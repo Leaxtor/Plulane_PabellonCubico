@@ -141,7 +141,7 @@ func _ready() ->void:
 	set_health(max_health, type == Character.Type.PLAYER)
 	set_sprite_height_position() #detemina si esta flotando o no antes de dibujarse
 func _process(delta: float) ->void :
-	handle_input()
+	handle_input(delta)
 	handle_movement()
 	handle_animation()
 	handle_grounded()
@@ -198,7 +198,7 @@ func handle_movement() -> void:
 		velocity = Vector2.ZERO
 	
 
-func handle_input() -> void:
+func handle_input(delta: float) -> void:
 	pass
 
 func handle_prep_attack() -> void:

@@ -39,12 +39,12 @@ func process_appear() -> void:
 			modulate.a = 1
 			state = State.Reposo
 
-func handle_input() -> void:
+func handle_input(delta: float) -> void:
 	if player != null and can_move() :
 		if can_respawn_knife or has_knife or has_gun:
 			go_to_range_position()
 		else: 
-			go_to_melee_position()
+			go_to_melee_position(delta)
 
 func go_to_range_position() -> void:
 	var camera := get_viewport().get_camera_2d()
@@ -102,7 +102,7 @@ func handle_prep_attack() -> void:
 		anim_attack.shuffle()
 
 
-func go_to_melee_position() -> void:
+func go_to_melee_position(delta: float) -> void:
 	var collectible_areas := collectible_sensor.get_overlapping_areas()
 	if collectible_areas.size() > 0:
 		var collectible : Collectible = collectible_areas[0]
@@ -112,20 +112,32 @@ func go_to_melee_position() -> void:
 				player.free_slot(self)
 	elif player_slot == null:
 		player_slot = player.reserve_slot(self)
-		
+	
 	if player_slot != null:
-		var direction := (player_slot.global_position - position).normalized()
-		if is_player_within_range():
+		var to_target := player_slot.global_position - global_position
+		var distance := to_target.length()
+		
+		#DESOCUPA EN CASO QUEDE OBSTRUIDO
+		if !player_slot.Desocupado:
+			print("TENGO QUE DESOCUPAR")
+			player.free_slot(self)
+			player_slot = player.reserve_slot(self)
+	
+		if distance < 1.0:
 			velocity = Vector2.ZERO
-			if can_accion() :
+			global_position = player_slot.global_position
+			if can_accion():
 				state = State.Preparar_Ataque
 				time_since_prep_melee_attack = Time.get_ticks_msec()
 		else:
-			velocity = direction * move_speed 
+			# Clamp para evitar avanzar más de la distancia que falta en este frame
+			#Determina cuántos píxeles como máximo debe avanzar el personaje en este frame actual.
+			# ejemplo avanzara 50 cm, y la distancia es 40cm, devolvera el minimo 40cm.
+			var step := minf(move_speed * delta, distance)
+			#La velocidad es delta * velocidad, al dividirlo entra la distancia se asegura
+			#que recorra menos si el stem es menor de lo normal y de ese modo no se pase
+			velocity = to_target.normalized() * (step / delta)
 
-
-func is_player_within_range():
-	return (player_slot.global_position - global_position).length() < 3
 
 func can_accion() -> bool:
 	if Time.get_ticks_msec() - time_since_last_melee_attack < duration_between_melee_attacks:

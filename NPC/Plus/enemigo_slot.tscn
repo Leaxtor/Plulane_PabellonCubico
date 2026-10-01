@@ -2,5 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c7wcmnhlti4u7" path="res://NPC/Plus/enemigo_slot.gd" id="1_bsv6f"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(6, 6)
+
 [node name="EnemigoSlot" type="Node2D" unique_id=1814701161]
 script = ExtResource("1_bsv6f")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1063359403]
+collision_layer = 0
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=725296511]
+shape = SubResource("RectangleShape2D_bhunq")

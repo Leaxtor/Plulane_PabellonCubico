@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://r4y0t3l2jfxa" path="res://Mundo/Items/Assets_anim/cuchillo.png" id="15_c8wjn"]
 [ext_resource type="Texture2D" uid="uid://cdojfvvdycuel" path="res://NPC/Plus/Plus_Sprites/plus_idle.png" id="16_cygpa"]
 [ext_resource type="PackedScene" uid="uid://dddbyf155sudu" path="res://NPC/Plus/enemigo_slot.tscn" id="23_xsnqb"]
-[ext_resource type="Texture2D" uid="uid://cbkkkomb3l6" path="res://Mundo/Objetos/silla_arcade.png" id="24_jvw74"]
 [ext_resource type="Texture2D" uid="uid://cyrtcjv5i050v" path="res://Mundo/Items/Assets/pistola.png" id="25_qmkn0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kg235"]
@@ -78,33 +77,16 @@ debug_color = Color(0.91617966, 8.490265e-05, 0.715479, 0.41960785)
 position = Vector2(0, -50)
 
 [node name="EnemigoSlot" parent="EnemySlots" index="0" unique_id=1814701161 instance=ExtResource("23_xsnqb")]
-position = Vector2(55, 27)
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot" index="0" unique_id=1320849147]
-position = Vector2(-0.9999999, -9.999999)
-scale = Vector2(0.3958333, 0.33783787)
-texture = ExtResource("24_jvw74")
+position = Vector2(55, 30)
 
 [node name="EnemigoSlot2" parent="EnemySlots" index="1" unique_id=2030278729 instance=ExtResource("23_xsnqb")]
-position = Vector2(55, 38)
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot2" index="0" unique_id=948909322]
-scale = Vector2(0.3958333, 0.33783787)
-texture = ExtResource("24_jvw74")
+position = Vector2(55, 50)
 
 [node name="EnemigoSlot3" parent="EnemySlots" index="2" unique_id=1633405638 instance=ExtResource("23_xsnqb")]
-position = Vector2(-54, 18)
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot3" index="0" unique_id=1055207842]
-scale = Vector2(0.3958333, 0.33783787)
-texture = ExtResource("24_jvw74")
+position = Vector2(-55, 30)
 
 [node name="EnemigoSlot4" parent="EnemySlots" index="3" unique_id=1919209562 instance=ExtResource("23_xsnqb")]
-position = Vector2(-54, 38)
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemySlots/EnemigoSlot4" index="0" unique_id=615215373]
-scale = Vector2(0.3958333, 0.33783787)
-texture = ExtResource("24_jvw74")
+position = Vector2(-55, 50)
 
 [node name="EmitidorDañoSecundario" parent="." index="6" unique_id=203389400]
 collision_layer = 0

@@ -39,39 +39,40 @@ func handle_grounded() ->void:
 		time_last_attack = Time.get_ticks_msec()
 
 
-func handle_input() -> void:
+func handle_input(delta: float) -> void:
 	if player != null and can_move():
 		if can_accion() and proyectil_lanzable.is_colliding():
 			state = State.Fly
 			velocity = heading * flight_speed
 		else:
+			var to_target := player.global_position - global_position
+			var distance := to_target.length()
 			if is_player_within_range():
 				velocity = Vector2.ZERO
 				state = State.Reposo
 			else:
 				var target_destination := get_target_destination()
 				var direction := (target_destination - position).normalized()
-				velocity = (direction + knockback_force) * move_speed  
+				velocity = (direction + knockback_force) * move_speed 
+				#EL PROBLEMA ES QUE VA DIRECTO AL JUGADOR
+				# TAMPOCO TIENE EL RESTROCESO POR GOLPE 
+				#var step := minf(move_speed * delta, distance)
+				#velocity = to_target.normalized() * (step / delta) 
 				state = State.Caminar
 
-#SOLUCION ALTERNATIVA
-# position.distance_to(target) reemplaza a (target - position).length()
+		#var to_target := player_slot.global_position - global_position
+		#var distance := to_target.length()
 
-#func handle_input2(delta: float) -> void:
-#	if player != null and can_move():
-#		var target_destination := get_target_destination()
-#		var distance_to_target := position.distance_to(target_destination)
-#		
-#		# Calculamos cuánto se movería el objeto este frame
-#		var movement_this_frame := move_speed * delta
-#		
-#		# Si la distancia es menor de lo que nos vamos a mover, ya llegamos
-#		if distance_to_target <= movement_this_frame:
-#			position = target_destination # Teletransportamos justo al centro para evitar desfases
-#			velocity = Vector2.ZERO
-#		else:
-#			var direction := (target_destination - position).normalized()
-#			velocity = direction * move_speed
+		#if distance < 1.0:
+		#	velocity = Vector2.ZERO
+		#	global_position = player_slot.global_position
+		#	if can_accion():
+		#		state = State.Preparar_Ataque
+		#		time_since_prep_melee_attack = Time.get_ticks_msec()
+		#else:
+		#	var step := minf(move_speed * delta, distance)
+		#	velocity = to_target.normalized() * (step / delta)
+
 
 func ataque_completo() -> void:
 	print("COMPLETO ATAQUE")
