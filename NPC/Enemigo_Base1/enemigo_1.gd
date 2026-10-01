@@ -119,7 +119,6 @@ func go_to_melee_position(delta: float) -> void:
 		
 		#DESOCUPA EN CASO QUEDE OBSTRUIDO
 		if !player_slot.Desocupado:
-			print("TENGO QUE DESOCUPAR")
 			player.free_slot(self)
 			player_slot = player.reserve_slot(self)
 	

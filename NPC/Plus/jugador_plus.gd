@@ -4,9 +4,17 @@ extends Character
 const REVIVE_HEIGHT := 100
 
 @export var max_duration_between_succesful_hits : int
+@export var Attack_Buffer_time: float = .15
+@export var Jump_Buffer_time: float = .15
+
 @onready var enemy_slots : Array =$EnemySlots.get_children()
 
+var Attack_Buffer: bool = false
+var Jump_Buffer: bool = false
+
 var time_since_last_succesful_attack := Time.get_ticks_msec()
+
+
 
 func _ready() ->void:
 	super._ready()
@@ -30,55 +38,79 @@ func handle_input(_delta: float) -> void:
 	if can_move():
 		var direction := Input.get_vector("move_left","move_right","move_up","move_down")
 		velocity = direction * move_speed
-	if can_accion() and Input.is_action_just_pressed("ataque_golpear"):
-		velocity = Vector2.ZERO
-		
-		var collectible_areas := collectible_sensor.get_overlapping_areas()
-		if collectible_areas.size() > 0:
-			var collectible : Collectible = collectible_areas[0]
-			if can_recogiendo_proyectil(collectible) or can_intercambiando_arma(collectible) :
-				state = State.Recogiendo
+	if Input.is_action_just_pressed("ataque_golpear"):
+		if can_accion():
+			accion_btn_golpe()
 		else:
-			if has_knife:
-				state = State.Throw_lanza
-			elif has_gun:
-				if ammo_left > 0:
-					shoot_gun()
-					ammo_left -= 1
-				else:
-					state = State.Throw_lanza
-			elif has_baston or has_espada or has_paraguas or has_martillo:
-				#usos_sobrantes
-				if usos_sobrantes > 0:
-					usos_sobrantes -= 1
-					anim_attack = ["Golpe_arma"]
-					state = State.Golpe
-					SoundPlayer.play(SoundManager.Sound.SWOOSH)
-				else:
-					state = State.Throw_lanza
-			else: #sino tiene armas golpe normal
-				anim_attack = ["Golpe","Golpe_2","Golpe_3","Golpe_4"]
-				state = State.Golpe
-				SoundPlayer.play(SoundManager.Sound.SWOOSH)
-				if is_ultimo_hit_acertado:
-					time_since_last_succesful_attack = Time.get_ticks_msec()
-					#EVITA ERROR DE ENEMIGO AGARRANDO ARMA POR EL MOMENTO
-					attack_combo_index = (attack_combo_index+1) % anim_attack.size()
-					is_ultimo_hit_acertado = false
-				else:
-					attack_combo_index = 0
+			Jump_Buffer = false
+			Attack_Buffer = true
+			get_tree().create_timer(Attack_Buffer_time).timeout.connect(on_attack_buffer_timeout)
 
 
 	if can_accion() and Input.is_action_just_pressed("move_bloqueo"):
 		state = State.Bloqueo
 		attack_combo_index = 0
-	if can_jump() and Input.is_action_just_pressed("move_saltar"):
-		state = State.Salto_Inicio
-		velocity = Vector2.ZERO
-		attack_combo_index = 0
+		
+	if  Input.is_action_just_pressed("move_saltar"):
+		if can_jump():
+			Saltar() 
+		else: 
+			Jump_Buffer = true
+			Attack_Buffer = false
+			get_tree().create_timer(Jump_Buffer_time).timeout.connect(on_jump_buffer_timeout)
+		
 	if can_jump_patada() and Input.is_action_just_pressed("ataque_golpear"):
 		state = State.Salto_Patada
 		SoundPlayer.play(SoundManager.Sound.SWOOSH)
+		
+	if can_jump() and Jump_Buffer:
+		print("SALTO AUTOMATICO")
+		Saltar() 
+	if can_accion() and Attack_Buffer:
+		print("GOLPE AUTOMATICO")
+		accion_btn_golpe()
+
+func Saltar() -> void:
+	state = State.Salto_Inicio
+	velocity = Vector2.ZERO
+	attack_combo_index = 0
+	
+func accion_btn_golpe() -> void:
+	velocity = Vector2.ZERO
+	var collectible_areas := collectible_sensor.get_overlapping_areas()
+	if collectible_areas.size() > 0:
+		var collectible : Collectible = collectible_areas[0]
+		if can_recogiendo_proyectil(collectible) or can_intercambiando_arma(collectible) :
+			state = State.Recogiendo
+	else:
+		if has_knife:
+			state = State.Throw_lanza
+		elif has_gun:
+			if ammo_left > 0:
+				shoot_gun()
+				ammo_left -= 1
+			else:
+				state = State.Throw_lanza
+		elif has_baston or has_espada or has_paraguas or has_martillo:
+			#usos_sobrantes
+			if usos_sobrantes > 0:
+				usos_sobrantes -= 1
+				anim_attack = ["Golpe_arma"]
+				state = State.Golpe
+				SoundPlayer.play(SoundManager.Sound.SWOOSH)
+			else:
+				state = State.Throw_lanza
+		else: #sino tiene armas golpe normal
+			anim_attack = ["Golpe","Golpe_2","Golpe_3","Golpe_4"]
+			state = State.Golpe
+			SoundPlayer.play(SoundManager.Sound.SWOOSH)
+			if is_ultimo_hit_acertado:
+				time_since_last_succesful_attack = Time.get_ticks_msec()
+				#EVITA ERROR DE ENEMIGO AGARRANDO ARMA POR EL MOMENTO
+				attack_combo_index = (attack_combo_index+1) % anim_attack.size()
+				is_ultimo_hit_acertado = false
+			else:
+				attack_combo_index = 0
 
 func set_heading() -> void: #PLUS MIRARA HACIA DONDE LA GOLPEAN
 	if can_move():
@@ -96,7 +128,6 @@ func reserve_slot(enemy: Enemigo_1) -> EnemigoSlot:
 	var available_slots := enemy_slots.filter(
 		func(slot): return slot.is_free()
 	)
-	print(available_slots.size())
 	if available_slots.size() == 0:
 		return null
 	available_slots.sort_custom(
@@ -114,3 +145,9 @@ func free_slot(enemy: Enemigo_1) -> void:
 	)
 	if target_slots.size() == 1:
 		target_slots[0].free_up()
+
+func on_attack_buffer_timeout() -> void:
+	Attack_Buffer = false
+	
+func on_jump_buffer_timeout() -> void:
+	Jump_Buffer = false

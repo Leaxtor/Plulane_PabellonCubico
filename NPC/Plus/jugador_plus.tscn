@@ -32,6 +32,8 @@ collision_layer = 2
 collision_mask = 531
 script = ExtResource("2_2dehs")
 max_duration_between_succesful_hits = 1000
+Attack_Buffer_time = 0.1
+Jump_Buffer_time = 0.1
 max_health = 50
 type = 0
 duracion_suelo = 300.0
@@ -146,7 +148,7 @@ scale = Vector2(0.58, 0.6)
 texture = ExtResource("15_c8wjn")
 centered = false
 hframes = 3
-frame = 2
+frame = 1
 
 [node name="WeaponPosition" parent="Cuchillo" index="0" unique_id=983036064]
 position = Vector2(17.241379, 126.66666)
