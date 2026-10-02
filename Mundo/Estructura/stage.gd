@@ -4,7 +4,10 @@ extends Node2D
 @onready var containers : Node2D = $Containers
 @onready var checkpoints :  Node2D = $Chechpoints #Checkpoints
 @onready var doors : Node2D = $Doors
+
 @onready var player_spawn_location : Node2D = $PlayerSpawnLocation
+@onready var camara_ancla_y : Node2D = $CamaraAnclaY
+
 @export var music: MusicManager.Music
 
 func _init() -> void:
@@ -29,6 +32,9 @@ func _ready() -> void:
 
 func get_player_spawn_location() -> Vector2:
 	return player_spawn_location.position
+
+func get_camara_ancla_y() -> int:
+	return camara_ancla_y.position.y
 
 func on_checkpoint_complete(_checkpoint : Checkpoint) -> void:
 	#StageManager.stage_complete.emit()

@@ -27,6 +27,8 @@ func _process(_delta: float) -> void:
 		actors_container.add_child(player)
 		camara.jugador = player
 		player.position = stage.get_player_spawn_location()
+		camara.position.y = stage.get_camara_ancla_y()
+		camara.camara_ancla = stage.get_camara_ancla_y()
 		actors_container.player = player
 		camara.position = camera_initial_position
 		camara.reset_smoothing()

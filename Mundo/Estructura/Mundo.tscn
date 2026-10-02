@@ -13,7 +13,8 @@ script = ExtResource("1_fgc2t")
 [node name="StageContainers" type="Node2D" parent="." unique_id=1167865393]
 
 [node name="CamaraJugador" parent="." unique_id=171648781 instance=ExtResource("3_xm5i6")]
-position = Vector2(295, 325)
+position = Vector2(492, 268)
+camara_ancla = null
 duration_shake = 100
 shake_intensity = 20
 
@@ -22,6 +23,3 @@ y_sort_enabled = true
 script = ExtResource("4_rbgi5")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=914154982]
-
-[node name="ANCLA" type="Node2D" parent="." unique_id=1991106379]
-position = Vector2(143, -251)

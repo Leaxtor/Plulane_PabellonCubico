@@ -89,7 +89,10 @@ position = Vector2(1324, 471)
 enemies = [NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_2"), NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_3")]
 
 [node name="PlayerSpawnLocation" parent="." index="5" unique_id=1232413828]
-position = Vector2(860, 562)
+position = Vector2(1122, 534)
+
+[node name="CamaraAnclaY" parent="." index="6" unique_id=283432410]
+position = Vector2(2945, 325)
 
 [editable path="Chechpoints/Checkpoint"]
 [editable path="Chechpoints/Checkpoint2"]

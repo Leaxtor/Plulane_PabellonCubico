@@ -120,7 +120,9 @@ func go_to_melee_position(delta: float) -> void:
 		#DESOCUPA EN CASO QUEDE OBSTRUIDO
 		if !player_slot.Desocupado:
 			player.free_slot(self)
+			print("PERDI EL SLOT CAMBIO")
 			player_slot = player.reserve_slot(self)
+			
 	
 		if distance < 1.0:
 			velocity = Vector2.ZERO

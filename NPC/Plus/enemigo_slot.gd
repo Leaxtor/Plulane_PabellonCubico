@@ -11,11 +11,7 @@ var Desocupado : bool = true
 
 func _process(delta: float) ->void :
 	var cuerpos_dentro = area_2d.get_overlapping_bodies()
-	for body in cuerpos_dentro:
-		if body is StaticBody2D:
-			Desocupado = false
-		else: 
-			Desocupado = true
+	Desocupado = cuerpos_dentro.is_empty()
 
 
 func is_free() -> bool:
