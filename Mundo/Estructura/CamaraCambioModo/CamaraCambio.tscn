@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://doxmwyjxg17u6"]
+
+[ext_resource type="Script" uid="uid://dyb1bnncgtgy5" path="res://Mundo/Estructura/CamaraCambioModo/camara_cambio.gd" id="1_2a6hn"]
+
+[node name="CamaraCambio" type="Area2D" unique_id=376345166]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_2a6hn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=346423614]

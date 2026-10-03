@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var containers : Node2D = $Containers
 @onready var checkpoints :  Node2D = $Chechpoints #Checkpoints
+@onready var camaraModoColisiones : Node2D = $CamaraModoColisiones
 @onready var doors : Node2D = $Doors
 
 @onready var player_spawn_location : Node2D = $PlayerSpawnLocation
@@ -27,7 +28,8 @@ func _ready() -> void:
 		
 	for checkpoint : Checkpoint in checkpoints.get_children():
 		checkpoint.create_enemy_data()
-		
+	
+	
 	MusicPlayer.play(music)
 
 func get_player_spawn_location() -> Vector2:

@@ -22,6 +22,7 @@ func _init() -> void:
 
 func _ready() -> void:
 	StageManager.checkpoint_start.connect(on_checkpoint_start.bind())
+	StageManager.camara_modo.connect(on_camara_modo.bind())
 	StageManager.checkpoint_complete.connect(on_checkpoint_complete.bind())
 
 
@@ -82,3 +83,9 @@ func timer_enderezar_camara() -> void:
 	timer.wait_time = 5.0
 	timer.one_shot = true
 	timer.start()
+
+func on_camara_modo(modo: CamaraCambio.Modo) -> void:
+	if modo == CamaraCambio.Modo.LIBRE:
+		camara_libre = true
+	if modo == CamaraCambio.Modo.FIJO:
+		camara_libre = false
