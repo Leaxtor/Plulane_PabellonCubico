@@ -8,9 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Mundo/Objetos/Carrito.tscn" id="5_tehcr"]
 [ext_resource type="PackedScene" uid="uid://13u7bx6lwxod" path="res://NPC/Sigma/boss_tutorial.tscn" id="5_tkq2i"]
 [ext_resource type="PackedScene" uid="uid://4glibyt812qp" path="res://Mundo/Estructura/Gimmicks/Door.tscn" id="6_rl63f"]
+[ext_resource type="Texture2D" uid="uid://7iwpqc4s3y72" path="res://Mundo/Items/Paraguas/paraguas.png" id="9_pe7ru"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqcl6"]
 size = Vector2(119, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(168.5, 38)
 
 [node name="StageTest2_1" unique_id=520458551 instance=ExtResource("1_o3pk0")]
 music = 3
@@ -93,20 +97,34 @@ position = Vector2(3307, 603)
 modo = 1
 
 [node name="CollisionShape2D" parent="CamaraModoColisiones/CamaraCambio" index="0" unique_id=346423614]
-position = Vector2(-188, -22)
+position = Vector2(-200, -3)
 shape = SubResource("RectangleShape2D_tqcl6")
 debug_color = Color(0.92482716, 0.06767778, 0.65130615, 0.41960785)
+
+[node name="CamaraCambio2" parent="CamaraModoColisiones" parent_id_path=PackedInt32Array(732308781) index="1" unique_id=1832320720 instance=ExtResource("2_1c47i")]
+modificar_altura = true
+altura = 325
+
+[node name="CollisionShape2D" parent="CamaraModoColisiones/CamaraCambio2" index="0" unique_id=346423614]
+position = Vector2(3129.75, 558)
+shape = SubResource("RectangleShape2D_bhunq")
+debug_color = Color(0.9307911, 2.8974711e-05, 0.6573745, 0.41960785)
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(810179608) index="0" unique_id=1281635078 node_paths=PackedStringArray("enemies") instance=ExtResource("6_rl63f")]
 position = Vector2(1324, 471)
 enemies = [NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_2"), NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_3")]
 
 [node name="PlayerSpawnLocation" parent="." index="6" unique_id=1232413828]
-position = Vector2(2910, 534)
+position = Vector2(3097, 491)
 
 [node name="CamaraAnclaY" parent="." index="7" unique_id=283432410]
 position = Vector2(2945, 325)
 
+[node name="Sprite2D" type="Sprite2D" parent="CamaraAnclaY" index="0" unique_id=2075562172]
+position = Vector2(0, -2)
+texture = ExtResource("9_pe7ru")
+
 [editable path="Chechpoints/Checkpoint"]
 [editable path="Chechpoints/Checkpoint2"]
 [editable path="CamaraModoColisiones/CamaraCambio"]
+[editable path="CamaraModoColisiones/CamaraCambio2"]

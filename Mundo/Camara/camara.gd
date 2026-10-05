@@ -24,11 +24,13 @@ func _ready() -> void:
 	StageManager.checkpoint_start.connect(on_checkpoint_start.bind())
 	StageManager.camara_modo.connect(on_camara_modo.bind())
 	StageManager.checkpoint_complete.connect(on_checkpoint_complete.bind())
+	StageManager.camara_ancla_update.connect(on_camara_ancla_update.bind())
 
 
 func _process(delta: float) -> void:
 	if !camara_libre:
-		position.y = camara_ancla
+		#el mundo fija la camara_ancla al inicializar
+		target_y = camara_ancla
 	
 	if jugador != null:
 		if not is_camera_locked and jugador.position.x > position.x:
@@ -60,7 +62,7 @@ func _process(delta: float) -> void:
 	#Fija la camara
 func _on_timer_timeout() -> void:
 	if camara_ancla != null:
-		print("CAMARA ANCLA")
+		print("CAMARA ANCLA " +str(camara_ancla))
 		target_y = camara_ancla
 	elif jugador != null:
 		print("CAMARA JUGADOR")
@@ -84,8 +86,12 @@ func timer_enderezar_camara() -> void:
 	timer.one_shot = true
 	timer.start()
 
-func on_camara_modo(modo: CamaraCambio.Modo) -> void:
+func on_camara_modo(modo: CamaraCambio.Modo, _altura: Variant) -> void:
 	if modo == CamaraCambio.Modo.LIBRE:
 		camara_libre = true
 	if modo == CamaraCambio.Modo.FIJO:
 		camara_libre = false
+		
+func on_camara_ancla_update(altura: float) -> void:
+	camara_ancla = altura
+	print("CAMARA ANCLA " +str(altura))

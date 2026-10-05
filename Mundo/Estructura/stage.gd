@@ -5,14 +5,13 @@ extends Node2D
 @onready var checkpoints :  Node2D = $Chechpoints #Checkpoints
 @onready var camaraModoColisiones : Node2D = $CamaraModoColisiones
 @onready var doors : Node2D = $Doors
-
 @onready var player_spawn_location : Node2D = $PlayerSpawnLocation
 @onready var camara_ancla_y : Node2D = $CamaraAnclaY
-
 @export var music: MusicManager.Music
 
 func _init() -> void:
 	StageManager.checkpoint_complete.connect(on_checkpoint_complete.bind())
+	StageManager.camara_modo.connect(on_camara_modo.bind())
 
 func _ready() -> void:
 	for container : Node2D in containers.get_children():
@@ -44,4 +43,9 @@ func on_checkpoint_complete(_checkpoint : Checkpoint) -> void:
 	if checkpoints.get_children().size() < 2: #Personalizar para que no siempre se cumpla
 	#if checkpoints.get_child(-1) == checkpoint:
 		StageManager.stage_complete.emit()
-	
+
+func on_camara_modo(_modo: CamaraCambio.Modo, altura: Variant) -> void:
+	if typeof(altura) == TYPE_INT:
+		camara_ancla_y.position.y = altura
+		#enviar señal a la camara
+		StageManager.camara_ancla_update.emit(camara_ancla_y.position.y)
