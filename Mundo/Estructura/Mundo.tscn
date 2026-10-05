@@ -14,7 +14,6 @@ script = ExtResource("1_fgc2t")
 
 [node name="CamaraJugador" parent="." unique_id=171648781 instance=ExtResource("3_xm5i6")]
 position = Vector2(492, 268)
-camara_ancla = null
 duration_shake = 100
 shake_intensity = 20
 

@@ -66,9 +66,9 @@ func handle_input(_delta: float) -> void:
 	if can_jump() and Jump_Buffer:
 		print("SALTO AUTOMATICO")
 		Saltar() 
-	if can_accion() and Attack_Buffer:
-		print("GOLPE AUTOMATICO")
-		accion_btn_golpe()
+	#if can_accion() and Attack_Buffer:
+	#	print("GOLPE AUTOMATICO")
+	#	accion_btn_golpe()
 
 func Saltar() -> void:
 	state = State.Salto_Inicio

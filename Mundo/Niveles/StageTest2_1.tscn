@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cdxyt2lufjjyc" path="res://Mundo/Objetos/Carrito.tscn" id="5_tehcr"]
 [ext_resource type="PackedScene" uid="uid://13u7bx6lwxod" path="res://NPC/Sigma/boss_tutorial.tscn" id="5_tkq2i"]
 [ext_resource type="PackedScene" uid="uid://4glibyt812qp" path="res://Mundo/Estructura/Gimmicks/Door.tscn" id="6_rl63f"]
-[ext_resource type="Texture2D" uid="uid://7iwpqc4s3y72" path="res://Mundo/Items/Paraguas/paraguas.png" id="9_pe7ru"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqcl6"]
 size = Vector2(119, 35)
@@ -32,7 +31,6 @@ position = Vector2(1326, 607)
 
 [node name="Checkpoint" parent="Chechpoints" parent_id_path=PackedInt32Array(124746635) index="0" unique_id=904931730 instance=ExtResource("3_7kqje")]
 position = Vector2(545, -1)
-nb_simultaneous_enemy = 2
 
 [node name="Enemigo_1" parent="Chechpoints/Checkpoint/Enemies" parent_id_path=PackedInt32Array(904931730, 1021542459) index="0" unique_id=106214172 instance=ExtResource("4_tehcr")]
 position = Vector2(473, -57)
@@ -115,14 +113,10 @@ position = Vector2(1324, 471)
 enemies = [NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_2"), NodePath("../../Chechpoints/Checkpoint/Enemies/Enemigo_3")]
 
 [node name="PlayerSpawnLocation" parent="." index="6" unique_id=1232413828]
-position = Vector2(3097, 491)
+position = Vector2(979, 565)
 
 [node name="CamaraAnclaY" parent="." index="7" unique_id=283432410]
 position = Vector2(2945, 325)
-
-[node name="Sprite2D" type="Sprite2D" parent="CamaraAnclaY" index="0" unique_id=2075562172]
-position = Vector2(0, -2)
-texture = ExtResource("9_pe7ru")
 
 [editable path="Chechpoints/Checkpoint"]
 [editable path="Chechpoints/Checkpoint2"]

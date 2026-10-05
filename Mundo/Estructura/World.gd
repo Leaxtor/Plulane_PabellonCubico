@@ -19,6 +19,7 @@ var is_stage_ready_for_loading := false
 var  player : Player = null
 
 func _process(_delta: float) -> void:
+	#Engine.time_scale = 0.5 #RALENTIZAR TIEMPO
 	if is_stage_ready_for_loading:
 		is_stage_ready_for_loading = false
 		var stage : Stage = STAGE_PREFAB[current_stage_index].instantiate()

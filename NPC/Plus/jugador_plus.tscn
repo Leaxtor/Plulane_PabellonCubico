@@ -25,6 +25,9 @@ size = Vector2(0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg235"]
 size = Vector2(37, 33)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj2t7"]
+size = Vector2(7, 34)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8clm"]
 
 [node name="Jugador_Plus" unique_id=106214172 instance=ExtResource("1_jvw74")]
@@ -46,7 +49,6 @@ can_respawn = true
 damage = 2
 damage_power = 6
 damage_gunshot = 3
-has_knife = true
 
 [node name="Sombra" parent="." index="0" unique_id=813121135]
 position = Vector2(3, -73)
@@ -78,17 +80,23 @@ debug_color = Color(0.91617966, 8.490265e-05, 0.715479, 0.41960785)
 [node name="EnemySlots" type="Node2D" parent="." index="5" unique_id=350338050]
 position = Vector2(0, -50)
 
-[node name="EnemigoSlot" parent="EnemySlots" index="0" unique_id=1814701161 instance=ExtResource("23_xsnqb")]
-position = Vector2(55, 30)
-
-[node name="EnemigoSlot2" parent="EnemySlots" index="1" unique_id=2030278729 instance=ExtResource("23_xsnqb")]
-position = Vector2(55, 50)
-
-[node name="EnemigoSlot3" parent="EnemySlots" index="2" unique_id=1633405638 instance=ExtResource("23_xsnqb")]
+[node name="EnemigoSlot1" parent="EnemySlots" index="0" unique_id=1633405638 instance=ExtResource("23_xsnqb")]
 position = Vector2(-55, 30)
 
-[node name="EnemigoSlot4" parent="EnemySlots" index="3" unique_id=1919209562 instance=ExtResource("23_xsnqb")]
+[node name="EnemigoSlot2" parent="EnemySlots" index="1" unique_id=1814701161 instance=ExtResource("23_xsnqb")]
+position = Vector2(55, 30)
+
+[node name="EnemigoSlot3" parent="EnemySlots" index="2" unique_id=1919209562 instance=ExtResource("23_xsnqb")]
 position = Vector2(-55, 50)
+
+[node name="EnemigoSlot4" parent="EnemySlots" index="3" unique_id=2030278729 instance=ExtResource("23_xsnqb")]
+position = Vector2(55, 50)
+
+[node name="EnemigoSlot5" parent="EnemySlots" index="4" unique_id=1747757290 instance=ExtResource("23_xsnqb")]
+position = Vector2(-65, 39)
+
+[node name="EnemigoSlot6" parent="EnemySlots" index="5" unique_id=587809981 instance=ExtResource("23_xsnqb")]
+position = Vector2(60, 39)
 
 [node name="EmitidorDañoSecundario" parent="." index="6" unique_id=203389400]
 collision_layer = 0
@@ -111,38 +119,43 @@ debug_color = Color(5.7756904e-07, 0.6220253, 0.5521854, 0.41960785)
 [node name="CollateralEmitidorDaño" parent="." index="8" unique_id=1093273836]
 monitoring = false
 
-[node name="GunSprite" parent="." index="9" unique_id=378956244]
+[node name="CollisionShape2D" parent="RayCastVerificar" parent_id_path=PackedInt32Array(1573290954) index="0" unique_id=1521075572]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_oj2t7")
+debug_color = Color(0, 0.6358429, 0.4161163, 0.41960785)
+
+[node name="GunSprite" parent="." index="10" unique_id=378956244]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("25_qmkn0")
 offset = Vector2(0, -70)
 hframes = 4
 vframes = 2
 
-[node name="Espada" parent="." index="10" unique_id=2026693454]
+[node name="Espada" parent="." index="11" unique_id=2026693454]
 texture = ExtResource("8_0rflr")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
 
-[node name="Paraguas" parent="." index="11" unique_id=1846004306]
+[node name="Paraguas" parent="." index="12" unique_id=1846004306]
 texture = ExtResource("8_61wkc")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
 
-[node name="Martillo" parent="." index="12" unique_id=1078172413]
+[node name="Martillo" parent="." index="13" unique_id=1078172413]
 texture = ExtResource("10_ee3ov")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
 
-[node name="Baston" parent="." index="13" unique_id=2131934695]
+[node name="Baston" parent="." index="14" unique_id=2131934695]
 texture = ExtResource("10_bxsks")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
 
-[node name="Cuchillo" parent="." index="14" unique_id=313798195]
+[node name="Cuchillo" parent="." index="15" unique_id=313798195]
 position = Vector2(59, -100)
 scale = Vector2(0.58, 0.6)
 texture = ExtResource("15_c8wjn")
@@ -153,10 +166,7 @@ frame = 1
 [node name="WeaponPosition" parent="Cuchillo" index="0" unique_id=983036064]
 position = Vector2(17.241379, 126.66666)
 
-[node name="ProyectilLanzable" parent="." index="15" unique_id=224289400]
-collision_mask = 20
-
-[node name="CollectibleSensor" parent="." index="16" unique_id=996763328]
+[node name="CollectibleSensor" parent="." index="17" unique_id=996763328]
 collision_mask = 1024
 monitorable = false
 
@@ -169,3 +179,4 @@ debug_color = Color(0.9526914, 1.4439225e-06, 0.5598293, 0.41960785)
 [editable path="EmitidorDañoSecundario"]
 [editable path="ReceptorDaño"]
 [editable path="CollateralEmitidorDaño"]
+[editable path="RayCastVerificar"]

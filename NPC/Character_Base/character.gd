@@ -131,7 +131,6 @@ var time_since_knife_dissmiss := Time.get_ticks_msec()
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready() ->void:
-	#DAÑO SECUNDARIO
 	emitidor_daño.area_entered.connect(on_emit_damage.bind())
 	emitidor_daño_arma_secundario.area_entered.connect(on_emit_damage.bind())
 	
@@ -509,9 +508,20 @@ func on_emit_damage(receiver: ReceptorDamage) -> void:
 	if attack_combo_index == anim_attack.size() -1: #HAY UN ERROR SI HAGO SALTO PATADA NO SE RESETEA
 		hit_type = ReceptorDamage.HitType.POWER
 		current_damage = damage_power
-	receiver.damage_received.emit(damage, dirrecion, hit_type)
-	is_ultimo_hit_acertado = true
-	#print("DAÑO ENVIADO")
+	
+	proyectil_lanzable.force_raycast_update()
+	
+	#RAYCAST VERIFICA QUE ESTEN A UNA ALTURA SIMILAR
+	var target := proyectil_lanzable.get_collider()
+	if target != null:
+		print(target)
+		var enemigo_golpeado: Node = receiver.get_owner()
+		var enemigo_en_linea: Node = target.get_owner()
+		print(str(enemigo_golpeado) + "Y EL DE LA CAJA ES:" + str(enemigo_en_linea))
+			#ENVIAR DAÑO
+		if enemigo_golpeado == enemigo_en_linea:
+			receiver.damage_received.emit(damage, dirrecion, hit_type)
+			is_ultimo_hit_acertado = true
 	
 func on_emit_collateral_damage(receiver: ReceptorDamage) ->void:
 	print("DAÑO COLATERAL")
@@ -545,6 +555,7 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 			DamageManager.heavy_blow_received.emit()
 		else: #NORMAL
 			state = State.Hurt 
+			animation_player.seek(0, true) #resetea la animacion si recibe otro golpe
 			velocity = direccion * knockback_intensidad
 
 func soltar_arma()-> void :

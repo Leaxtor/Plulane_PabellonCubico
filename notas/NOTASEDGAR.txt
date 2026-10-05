@@ -9,6 +9,9 @@ Truco para duplicar animaciones
 >Animacion / Gestionar animaciones/ GUARDAR COMO / .res
 >EN el enemigo GESTIONAR ANIMACIONES / CARGAR / luego borrar el global y el nombre a la nueva libreria
 
+//DAÑO AEREO SI MANDO A VOLAR A UN ENEMIGO, PUEDE RECIBIR DAÑO DE OTRA TRAMPA MÁS ARRIBA
+AGREGAR UN ESPACIO EXCLUSIVO PARA EL RAYCAST
+
 ///DIFERENTES HITBOXES
 Cada arma de animacion de plus golpeando tendra una hitbox más pequeña
 el martillo, y una 2da hitbox que se activaran por los condicionales
@@ -23,3 +26,6 @@ PERO SI UN DIA AGREGAMOS COOPERATIVO CADA JUGADOR TENDRA QUE TENER SU PROPIO
 LAYER DE DAÑO
 
 170 x 200 cada casilla de plus
+
+#ERROR GRAVE HA VECES DURANTE EL COMBO SUENA UN ATAQUE MAS QUE ROMPE LA ANIMACION
+Y NO HACE DAÑO PARA NADA.
