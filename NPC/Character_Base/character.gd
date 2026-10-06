@@ -56,6 +56,7 @@ const GRAVEDAD := 600.0
 
 @onready var proyectil_lanzable : RayCast2D = $ProyectilLanzable #proyectil_aim
 @onready var weapon_position : Node2D = $Cuchillo/WeaponPosition
+@onready var efecto_position : Node2D = $EfectoPosition
 
 #COMENTARIO RANDOMS
 
@@ -519,6 +520,9 @@ func on_emit_damage(receiver: ReceptorDamage) -> void:
 		var enemigo_en_linea: Node = target.get_owner()
 		#ENVIAR DAÑO
 		if enemigo_golpeado == enemigo_en_linea:
+			print(weapon_position.global_position)
+			print(position)
+			EntityManager.spawn_extrellas.emit(efecto_position.global_position) #ARREGLAR ESTO
 			receiver.damage_received.emit(damage, dirrecion, hit_type)
 			is_ultimo_hit_acertado = true
 	

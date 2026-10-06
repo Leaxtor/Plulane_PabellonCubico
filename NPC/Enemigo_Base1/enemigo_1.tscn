@@ -154,6 +154,9 @@ position = Vector2(1, -9)
 shape = SubResource("RectangleShape2D_0x0yl")
 debug_color = Color(0.9477927, 4.5242905e-06, 0.5837393, 0.41960785)
 
+[node name="EfectoPosition" parent="." index="17" unique_id=506465577]
+position = Vector2(68, -100)
+
 [editable path="EmitidorDaño"]
 [editable path="EmitidorDañoSecundario"]
 [editable path="ReceptorDaño"]

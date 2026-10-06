@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://nhy20pkmjgfe"]
+
+[ext_resource type="Script" uid="uid://bqirdhfig0jrw" path="res://Mundo/Efectos/Extrella_golpe/hurt_extrella.gd" id="1_ve1io"]
+[ext_resource type="Texture2D" uid="uid://ceph1kp1bp2a2" path="res://Mundo/Efectos/Extrella_golpe/extrella_hurt_completo.png" id="2_6wimn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_riqys"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_vel"]
+_limits = [0.0, 300.0, 0.0, 1.0]
+_data = [Vector2(0, 320), 0.0, 0.0, 0, 0, Vector2(0.15, 170), 0.0, 0.0, 0, 0, Vector2(0.4, 70), 0.0, 0.0, 0, 0, Vector2(0.75, 20), 0.0, 0.0, 0, 0, Vector2(1, 6), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_vel"]
+curve = SubResource("Curve_vel")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bhunq"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.1, 1, 1)
+angle_min = -89.99999
+angle_max = 90.000015
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 250.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.5
+scale_max = 2.0
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+velocity_limit_curve = SubResource("CurveTexture_vel")
+
+[node name="HurtExtrella" type="Node2D" unique_id=1193250082]
+script = ExtResource("1_ve1io")
+
+[node name="ExtrellaInicio" type="GPUParticles2D" parent="." unique_id=1739733406]
+material = SubResource("CanvasItemMaterial_riqys")
+emitting = false
+amount = 3
+texture = ExtResource("2_6wimn")
+one_shot = true
+fixed_fps = 24
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_bhunq")

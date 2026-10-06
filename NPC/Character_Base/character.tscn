@@ -61,6 +61,8 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleSensor" unique_id=2127295643]
 
+[node name="EfectoPosition" type="Node2D" parent="." unique_id=506465577]
+
 [editable path="EmitidorDaño"]
 [editable path="EmitidorDañoSecundario"]
 [editable path="ReceptorDaño"]

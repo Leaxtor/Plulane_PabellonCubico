@@ -1,8 +1,8 @@
 extends Node2D
 
 const SHOT_PREFAB := preload("res://Mundo/Items/Proyectil/Shot.tscn")
-
 const SPARK_PREFAB := preload("res://Mundo/Items/Proyectil/spark.tscn")
+const EXTRELLA_PREFAB := preload("res://Mundo/Efectos/Extrella_golpe/HurtExtrella.tscn")
 
 const PREFAB_MAP := {
 	Collectible.Type.KNIFE: preload("res://Mundo/Items/Knife.tscn"), 
@@ -33,6 +33,7 @@ func _init () -> void:
 	EntityManager.spawn_enemy.connect(on_spawn_enemy.bind())
 	EntityManager.orphan_actor.connect(on_orphan_actor.bind())
 	EntityManager.spawn_spark.connect(on_spawn_spark.bind())
+	EntityManager.spawn_extrellas.connect(on_spawn_extrella.bind())
 	DamageManager.player_revive.connect(on_player_revive.bind())
 	
 func on_spawn_collectible(type: Collectible.Type, initial_state: Collectible.State, collectible_global_position: Vector2, collectible_direction: Vector2, initial_height: float, autodestroy: bool, usos_restantes: int) -> void:
@@ -68,6 +69,11 @@ func on_spawn_enemy(enemy_data: EnemyData) -> void:
 func on_spawn_spark(spark_position: Vector2) -> void:
 	var spark_instance :=  SPARK_PREFAB.instantiate()
 	spark_instance.position = spark_position
+	add_child(spark_instance)
+
+func on_spawn_extrella(extrella_position: Vector2) -> void:
+	var spark_instance :=  EXTRELLA_PREFAB.instantiate()
+	spark_instance.position = extrella_position
 	add_child(spark_instance)
 
 func on_orphan_actor(orphan: Node2D) -> void:

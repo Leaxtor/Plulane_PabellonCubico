@@ -159,7 +159,7 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_Type: ReceptorDamage
 	super.on_receive_damage(amount, direccion, hit_Type)
 	ComboManager.register_hit.emit()
 	if current_health == 0 or hit_Type == ReceptorDamage.HitType.POWER:
-		EntityManager.spawn_spark.emit(position)
+		EntityManager.spawn_extrellas.emit(position)
 	if current_health == 0:
 			player.free_slot(self)
 			if not is_death:

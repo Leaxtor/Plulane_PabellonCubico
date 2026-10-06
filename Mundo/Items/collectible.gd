@@ -82,7 +82,8 @@ func on_emit_damage(receiver: ReceptorDamage)  -> void:
 		
 		if enemigo_golpeado == enemigo_en_linea:
 			receiver.damage_received.emit(damage, direction, ReceptorDamage.HitType.KNOCKDOWN)
-			EntityManager.spawn_spark.emit(position)
+			#EntityManager.spawn_spark.emit(position)
+			EntityManager.spawn_extrellas.emit(position)
 			queue_free()
 
 
