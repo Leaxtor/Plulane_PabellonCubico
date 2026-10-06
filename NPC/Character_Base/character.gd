@@ -292,6 +292,7 @@ func can_get_hurt() ->bool:
 	#State.Salto_Patada_Cayendo,
 	#State.Hurt,
 	State.Caida,
+	State.Throw_lanza,
 	#State.Suelo_Caida,
 	#State.Parandose,
 	#State.Death
@@ -514,11 +515,9 @@ func on_emit_damage(receiver: ReceptorDamage) -> void:
 	#RAYCAST VERIFICA QUE ESTEN A UNA ALTURA SIMILAR
 	var target := proyectil_lanzable.get_collider()
 	if target != null:
-		print(target)
 		var enemigo_golpeado: Node = receiver.get_owner()
 		var enemigo_en_linea: Node = target.get_owner()
-		print(str(enemigo_golpeado) + "Y EL DE LA CAJA ES:" + str(enemigo_en_linea))
-			#ENVIAR DAÑO
+		#ENVIAR DAÑO
 		if enemigo_golpeado == enemigo_en_linea:
 			receiver.damage_received.emit(damage, dirrecion, hit_type)
 			is_ultimo_hit_acertado = true

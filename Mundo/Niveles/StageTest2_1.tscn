@@ -31,6 +31,7 @@ position = Vector2(1326, 607)
 
 [node name="Checkpoint" parent="Chechpoints" parent_id_path=PackedInt32Array(124746635) index="0" unique_id=904931730 instance=ExtResource("3_7kqje")]
 position = Vector2(545, -1)
+nb_simultaneous_enemy = 2
 
 [node name="Enemigo_1" parent="Chechpoints/Checkpoint/Enemies" parent_id_path=PackedInt32Array(904931730, 1021542459) index="0" unique_id=106214172 instance=ExtResource("4_tehcr")]
 position = Vector2(473, -57)

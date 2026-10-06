@@ -49,6 +49,7 @@ can_respawn = true
 damage = 2
 damage_power = 6
 damage_gunshot = 3
+has_knife = true
 
 [node name="Sombra" parent="." index="0" unique_id=813121135]
 position = Vector2(3, -73)
@@ -119,7 +120,10 @@ debug_color = Color(5.7756904e-07, 0.6220253, 0.5521854, 0.41960785)
 [node name="CollateralEmitidorDaño" parent="." index="8" unique_id=1093273836]
 monitoring = false
 
-[node name="CollisionShape2D" parent="RayCastVerificar" parent_id_path=PackedInt32Array(1573290954) index="0" unique_id=1521075572]
+[node name="RayCastVerificar" parent="." index="9" unique_id=1573290954]
+collision_layer = 4096
+
+[node name="CollisionShape2D" parent="RayCastVerificar" index="0" unique_id=1521075572]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_oj2t7")
 debug_color = Color(0, 0.6358429, 0.4161163, 0.41960785)

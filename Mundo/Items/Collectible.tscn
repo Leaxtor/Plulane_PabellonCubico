@@ -19,3 +19,8 @@ script = ExtResource("1_be4n7")
 [node name="EmitidorDaño" parent="." unique_id=771478216 instance=ExtResource("2_ueu5e")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=146327165]
+
+[node name="Detector" type="RayCast2D" parent="." unique_id=1886522163]
+target_position = Vector2(150, 0)
+collision_mask = 2048
+collide_with_areas = true

@@ -6,6 +6,7 @@ const gravedad := 600.0
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var collectible_sprite : Sprite2D = $CollectibleSprite
 @onready var damage_emitter: Area2D = $"EmitidorDaño"
+@onready var detector_alineado: RayCast2D = $"Detector"
 
 @export var autodestroy : bool
 @export var damage : int
@@ -26,6 +27,7 @@ var anim_map := {
 }
 
 var usos := -1 
+var ray_length: float = 100.0
 var direction := Vector2.ZERO
 var height := 0.0
 var height_speed := 0.0
@@ -46,6 +48,8 @@ func _process(delta: float) -> void:
 	handle_fall(delta)
 	handle_animations()
 	collectible_sprite.flip_h = velocity.x < 0
+	if direction != Vector2.ZERO:
+			detector_alineado.target_position = direction * ray_length
 	collectible_sprite.position = Vector2.UP * height
 	position += velocity * delta
 	monitorable = state == State.GROUNDED
@@ -68,9 +72,20 @@ func handle_fall(delta: float) -> void:
 			height_speed -= gravedad * delta
 
 func on_emit_damage(receiver: ReceptorDamage)  -> void:
-	receiver.damage_received.emit(damage, direction, ReceptorDamage.HitType.KNOCKDOWN)
-	EntityManager.spawn_spark.emit(position)
-	queue_free()
-	
+	#RAYCAST VERIFICA QUE ESTEN A UNA ALTURA SIMILAR
+	var target := detector_alineado.get_collider()
+	if target != null:
+		var enemigo_golpeado: Node = receiver.get_owner()
+		var enemigo_en_linea: Node = target.get_owner()
+		#ENVIAR DAÑO
+		print(str(enemigo_golpeado) + "Y EL DE LA CAJA ES:" + str(enemigo_en_linea))
+		
+		if enemigo_golpeado == enemigo_en_linea:
+			receiver.damage_received.emit(damage, direction, ReceptorDamage.HitType.KNOCKDOWN)
+			EntityManager.spawn_spark.emit(position)
+			queue_free()
+
+
+
 func on_exit_screen(_wall: AnimatableBody2D) -> void:
 	queue_free()

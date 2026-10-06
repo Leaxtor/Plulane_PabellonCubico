@@ -12,9 +12,6 @@ move_speed = 100.0
 can_respawn_knife = true
 has_knife = true
 
-[node name="ProyectilLanzable" parent="." index="15" unique_id=224289400]
-collide_with_areas = false
-
 [editable path="EmitidorDaño"]
 [editable path="EmitidorDañoSecundario"]
 [editable path="ReceptorDaño"]

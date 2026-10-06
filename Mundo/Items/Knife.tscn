@@ -134,4 +134,7 @@ debug_color = Color(0.9604005, 0, 0.5189599, 0.41960785)
 [node name="AnimationPlayer" parent="." index="4" unique_id=146327165]
 libraries/ = SubResource("AnimationLibrary_018fq")
 
+[node name="Detector" parent="." index="5" unique_id=1886522163]
+hit_from_inside = true
+
 [editable path="EmitidorDaño"]

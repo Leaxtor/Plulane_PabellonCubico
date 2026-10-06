@@ -91,7 +91,8 @@ move_bloqueo={
 2d_physics/layer_9="ObjetoDaño"
 2d_physics/layer_10="MurosInvisibles"
 2d_physics/layer_11="Collectibles"
-2d_physics/layer_12="CapaRayCastVerificar"
+2d_physics/layer_12="CapaRayCastDeEnemigosColl"
+2d_physics/layer_13="CapaRayCastDePlus"
 
 [rendering]
 
