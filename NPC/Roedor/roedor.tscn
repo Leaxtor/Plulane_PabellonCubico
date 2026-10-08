@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://bo1xxiu4mbjow"]
+
+[ext_resource type="PackedScene" uid="uid://dp7g2lnnvf0i3" path="res://NPC/Character_Base/character.tscn" id="1_34qw3"]
+[ext_resource type="Script" uid="uid://7v18jcvsg6rl" path="res://NPC/Roedor/roedor.gd" id="2_fai7f"]
+[ext_resource type="Texture2D" uid="uid://q6ap0xgoso2e" path="res://NPC/Roedor/raton_caminando.png" id="3_514dt"]
+[ext_resource type="Texture2D" uid="uid://bsomhctv6kffb" path="res://NPC/Roedor/raton_atacando.png" id="4_xlpil"]
+
+[sub_resource type="Animation" id="Animation_hj4ig"]
+resource_name = "Caida"
+
+[sub_resource type="Animation" id="Animation_514dt"]
+resource_name = "Caminar"
+length = 0.3750041778426617
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.041666668, 0.083333336, 0.125, 0.16666667, 0.20833334, 0.25, 0.2916667, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_514dt")]
+}
+
+[sub_resource type="Animation" id="Animation_8qswt"]
+resource_name = "Fly"
+
+[sub_resource type="Animation" id="Animation_efxmt"]
+resource_name = "Golpe"
+length = 1.1250042001944036
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_xlpil")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.041666668, 0.083333336, 0.125, 0.16666667, 0.20833334, 0.25, 0.2916667, 0.33333334, 0.375, 0.4166667, 0.45833334, 0.5, 0.5416667, 0.5833334, 0.625, 0.6666667, 0.7083334, 0.75, 0.7916667, 0.8333334, 0.875, 0.9166667, 0.9583334, 1, 1.0416667, 1.0833334, 1.125),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_2o6wo"]
+resource_name = "Hurt"
+
+[sub_resource type="Animation" id="Animation_25kb8"]
+resource_name = "Kick"
+
+[sub_resource type="Animation" id="Animation_udawq"]
+resource_name = "Parandose"
+
+[sub_resource type="Animation" id="Animation_q1yr5"]
+length = 0.041670834575220944
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_514dt")]
+}
+
+[sub_resource type="Animation" id="Animation_26g6r"]
+resource_name = "Reposo"
+length = 0.041670834575220944
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_514dt")]
+}
+
+[sub_resource type="Animation" id="Animation_xeyug"]
+resource_name = "Suelo_Caida"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8v1n4"]
+_data = {
+&"Caida": SubResource("Animation_hj4ig"),
+&"Caminar": SubResource("Animation_514dt"),
+&"Fly": SubResource("Animation_8qswt"),
+&"Golpe": SubResource("Animation_efxmt"),
+&"Hurt": SubResource("Animation_2o6wo"),
+&"Kick": SubResource("Animation_25kb8"),
+&"Parandose": SubResource("Animation_udawq"),
+&"RESET": SubResource("Animation_q1yr5"),
+&"Reposo": SubResource("Animation_26g6r"),
+&"Suelo_Caida": SubResource("Animation_xeyug")
+}
+
+[node name="Roedor" unique_id=106214172 instance=ExtResource("1_34qw3")]
+script = ExtResource("2_fai7f")
+duration_between_melee_attacks = 0
+duration_between_range_attacks = 0
+duration_prep_melee_attack = 0
+duration_prep_range_attack = 0
+
+[node name="Sombra" parent="." index="0" unique_id=813121135]
+offset = Vector2(0, -50)
+
+[node name="Sprite2D" parent="." index="1" unique_id=570534983]
+texture = ExtResource("3_514dt")
+offset = Vector2(0, -100)
+hframes = 5
+vframes = 2
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=1210923462]
+libraries/ = SubResource("AnimationLibrary_8v1n4")
+
+[node name="EfectoPosition" parent="." index="17" unique_id=506465577]
+position = Vector2(0, -24)
+
+[editable path="EmitidorDaño"]
+[editable path="EmitidorDañoSecundario"]
+[editable path="ReceptorDaño"]
+[editable path="CollateralEmitidorDaño"]
+[editable path="RayCastVerificar"]

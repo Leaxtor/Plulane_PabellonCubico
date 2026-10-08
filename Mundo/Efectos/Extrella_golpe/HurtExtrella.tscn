@@ -26,12 +26,12 @@ angle_max = 90.000015
 direction = Vector3(0, -1, 0)
 initial_velocity_min = 250.0
 initial_velocity_max = 300.0
+velocity_limit_curve = SubResource("CurveTexture_vel")
 gravity = Vector3(0, 150, 0)
 scale_min = 0.5
 scale_max = 2.0
 anim_speed_min = 1.0
 anim_speed_max = 1.0
-velocity_limit_curve = SubResource("CurveTexture_vel")
 
 [node name="HurtExtrella" type="Node2D" unique_id=1193250082]
 script = ExtResource("1_ve1io")
@@ -39,7 +39,7 @@ script = ExtResource("1_ve1io")
 [node name="ExtrellaInicio" type="GPUParticles2D" parent="." unique_id=1739733406]
 material = SubResource("CanvasItemMaterial_riqys")
 emitting = false
-amount = 3
+amount = 2
 texture = ExtResource("2_6wimn")
 one_shot = true
 fixed_fps = 24

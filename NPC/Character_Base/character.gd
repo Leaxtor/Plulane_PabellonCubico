@@ -520,9 +520,6 @@ func on_emit_damage(receiver: ReceptorDamage) -> void:
 		var enemigo_en_linea: Node = target.get_owner()
 		#ENVIAR DAÑO
 		if enemigo_golpeado == enemigo_en_linea:
-			print(weapon_position.global_position)
-			print(position)
-			EntityManager.spawn_extrellas.emit(efecto_position.global_position) #ARREGLAR ESTO
 			receiver.damage_received.emit(damage, dirrecion, hit_type)
 			is_ultimo_hit_acertado = true
 	
@@ -557,7 +554,9 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_type: ReceptorDamage
 			velocity = direccion * flight_speed #No esta funcionando al velocidad
 			DamageManager.heavy_blow_received.emit()
 		else: #NORMAL
-			state = State.Hurt 
+			state = State.Hurt
+			#CAMBIARLO A FUTURO PARA PLUS
+			EntityManager.spawn_extrellas.emit(efecto_position.global_position) 
 			animation_player.seek(0, true) #resetea la animacion si recibe otro golpe
 			velocity = direccion * knockback_intensidad
 

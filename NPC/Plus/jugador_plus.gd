@@ -124,7 +124,7 @@ func set_heading() -> void: #PLUS MIRARA HACIA DONDE LA GOLPEAN
 		elif velocity.x > 0:
 			heading = Vector2.LEFT
 
-func reserve_slot(enemy: Enemigo_1) -> EnemigoSlot:
+func reserve_slot(enemy: Character) -> EnemigoSlot:
 	var available_slots := enemy_slots.filter(
 		func(slot): return slot.is_free()
 	)
@@ -139,12 +139,21 @@ func reserve_slot(enemy: Enemigo_1) -> EnemigoSlot:
 	available_slots[0].occupy(enemy)
 	return available_slots[0]
 	
-func free_slot(enemy: Enemigo_1) -> void:
+#CAMBIE ENEMIGO A CHARACTER
+func free_slot(enemy: Character) -> void:
 	var target_slots := enemy_slots.filter(
 		func(slot: EnemigoSlot): return slot.occupant == enemy
 	)
 	if target_slots.size() == 1:
 		target_slots[0].free_up()
+
+func free_slot_laterales(enemy: Roedor) -> void:
+	var target_slots := enemy_slots.filter(
+		func(slot: EnemigoSlot): return slot.occupant == enemy
+	)
+	if target_slots.size() == 1:
+		target_slots[0].free_up()
+
 
 func on_attack_buffer_timeout() -> void:
 	Attack_Buffer = false

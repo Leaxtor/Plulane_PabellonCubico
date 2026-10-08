@@ -180,7 +180,7 @@ shape = SubResource("RectangleShape2D_a8clm")
 debug_color = Color(0.9526914, 1.4439225e-06, 0.5598293, 0.41960785)
 
 [node name="EfectoPosition" parent="." index="18" unique_id=506465577]
-position = Vector2(65, -99)
+position = Vector2(-1, -113)
 
 [editable path="EmitidorDaño"]
 [editable path="EmitidorDañoSecundario"]

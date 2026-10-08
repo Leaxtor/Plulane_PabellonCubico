@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccklk5r5cwtnb"
-path="res://.godot/imported/extrella_hurt_inicio.png-363842cd7521b344d43eaaa0a51671e4.ctex"
+uid="uid://q6ap0xgoso2e"
+path="res://.godot/imported/raton_caminando.png-f74988ce1728252cdf1520b7e6542d81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mundo/Efectos/Extrella_golpe/extrella_hurt_inicio.png"
-dest_files=["res://.godot/imported/extrella_hurt_inicio.png-363842cd7521b344d43eaaa0a51671e4.ctex"]
+source_file="res://NPC/Roedor/raton_caminando.png"
+dest_files=["res://.godot/imported/raton_caminando.png-f74988ce1728252cdf1520b7e6542d81.ctex"]
 
 [params]
 

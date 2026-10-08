@@ -42,11 +42,11 @@ func process_appear() -> void:
 func handle_input(delta: float) -> void:
 	if player != null and can_move() :
 		if can_respawn_knife or has_knife or has_gun:
-			go_to_range_position()
+			go_to_range_position(delta)
 		else: 
 			go_to_melee_position(delta)
 
-func go_to_range_position() -> void:
+func go_to_range_position(delta: float) -> void:
 	var camera := get_viewport().get_camera_2d()
 	var screen_width := get_viewport_rect().size.x
 	var screen_left_edge := camera.position.x - screen_width/2
@@ -59,10 +59,16 @@ func go_to_range_position() -> void:
 	else:
 		closest_destination = right_destination
 		
-	if (closest_destination - position).length() < 3:
+	#DESTINO
+	var to_target := closest_destination - global_position
+	var distance := to_target.length()
+	
+	if distance < 1:
 		velocity = Vector2.ZERO
+		global_position = closest_destination
 	else:
-		velocity = (closest_destination - position).normalized() * move_speed
+		var step := minf(move_speed * delta, distance)
+		velocity = to_target.normalized() * (step / delta)
 		
 	if can_range_attack() and has_knife and proyectil_lanzable.is_colliding():
 		state = State.Throw_lanza
@@ -71,12 +77,43 @@ func go_to_range_position() -> void:
 		time_since_last_range_attack = Time.get_ticks_msec()
 		
 	if can_range_attack() and has_gun and proyectil_lanzable.is_colliding():
-		#shoot_gun()
-		#time_since_knife_dissmiss = Time.get_ticks_msec()
-		#time_since_last_range_attack = Time.get_ticks_msec()
 		state = State.Prep_shoot
 		time_since_prep_range_attack = Time.get_ticks_msec()
 
+func go_to_melee_position(delta: float) -> void:
+	var collectible_areas := collectible_sensor.get_overlapping_areas()
+	if collectible_areas.size() > 0:
+		var collectible : Collectible = collectible_areas[0]
+		if can_recogiendo_proyectil(collectible):
+			state = State.Recogiendo
+			if player_slot != null:
+				player.free_slot(self)
+	elif player_slot == null:
+		player_slot = player.reserve_slot(self)
+	
+	if player_slot != null:
+		var to_target := player_slot.global_position - global_position
+		var distance := to_target.length()
+		
+		#DESOCUPA EN CASO QUEDE OBSTRUIDO
+		if !player_slot.Desocupado:
+			player.free_slot(self)
+			player_slot = player.reserve_slot(self)
+			
+		if distance < 1.0:
+			velocity = Vector2.ZERO
+			global_position = player_slot.global_position
+			if can_accion():
+				state = State.Preparar_Ataque
+				time_since_prep_melee_attack = Time.get_ticks_msec()
+		else:
+			# Clamp para evitar avanzar más de la distancia que falta en este frame
+			#Determina cuántos píxeles como máximo debe avanzar el personaje en este frame actual.
+			# ejemplo avanzara 50 cm, y la distancia es 40cm, devolvera el minimo 40cm.
+			var step := minf(move_speed * delta, distance)
+			#La velocidad es delta * velocidad, al dividirlo entra la distancia se asegura
+			#que recorra menos si el stem es menor de lo normal y de ese modo no se pase
+			velocity = to_target.normalized() * (step / delta)
 
 
 
@@ -102,41 +139,6 @@ func handle_prep_attack() -> void:
 		anim_attack.shuffle()
 
 
-func go_to_melee_position(delta: float) -> void:
-	var collectible_areas := collectible_sensor.get_overlapping_areas()
-	if collectible_areas.size() > 0:
-		var collectible : Collectible = collectible_areas[0]
-		if can_recogiendo_proyectil(collectible):
-			state = State.Recogiendo
-			if player_slot != null:
-				player.free_slot(self)
-	elif player_slot == null:
-		player_slot = player.reserve_slot(self)
-	
-	if player_slot != null:
-		var to_target := player_slot.global_position - global_position
-		var distance := to_target.length()
-		
-		#DESOCUPA EN CASO QUEDE OBSTRUIDO
-		if !player_slot.Desocupado:
-			player.free_slot(self)
-			player_slot = player.reserve_slot(self)
-			
-	
-		if distance < 1.0:
-			velocity = Vector2.ZERO
-			global_position = player_slot.global_position
-			if can_accion():
-				state = State.Preparar_Ataque
-				time_since_prep_melee_attack = Time.get_ticks_msec()
-		else:
-			# Clamp para evitar avanzar más de la distancia que falta en este frame
-			#Determina cuántos píxeles como máximo debe avanzar el personaje en este frame actual.
-			# ejemplo avanzara 50 cm, y la distancia es 40cm, devolvera el minimo 40cm.
-			var step := minf(move_speed * delta, distance)
-			#La velocidad es delta * velocidad, al dividirlo entra la distancia se asegura
-			#que recorra menos si el stem es menor de lo normal y de ese modo no se pase
-			velocity = to_target.normalized() * (step / delta)
 
 
 func can_accion() -> bool:
@@ -159,7 +161,9 @@ func on_receive_damage(amount: int, direccion: Vector2, hit_Type: ReceptorDamage
 	super.on_receive_damage(amount, direccion, hit_Type)
 	ComboManager.register_hit.emit()
 	if current_health == 0 or hit_Type == ReceptorDamage.HitType.POWER:
-		EntityManager.spawn_extrellas.emit(position)
+		#CAMBIAR POR OTRO EFECTO
+		print("Salio volando agregar efecto")
+		#EntityManager.spawn_extrellas.emit(efecto_position.global_position) #PONER NUEVO EFECTO
 	if current_health == 0:
 			player.free_slot(self)
 			if not is_death:
