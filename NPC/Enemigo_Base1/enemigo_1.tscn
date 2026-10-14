@@ -145,7 +145,10 @@ position = Vector2(-7.407407, 24.999998)
 position = Vector2(0, -5)
 collision_mask = 4096
 
-[node name="CollectibleSensor" parent="." index="16" unique_id=996763328]
+[node name="DetectorSecundario" parent="PivoteRaycast" parent_id_path=PackedInt32Array(1540299098) index="0" unique_id=809855159]
+position = Vector2(-7, 0)
+
+[node name="CollectibleSensor" parent="." index="17" unique_id=996763328]
 collision_mask = 1024
 
 [node name="CollisionShape2D" parent="CollectibleSensor" index="0" unique_id=2127295643]
@@ -153,7 +156,7 @@ position = Vector2(1, -9)
 shape = SubResource("RectangleShape2D_0x0yl")
 debug_color = Color(0.9477927, 4.5242905e-06, 0.5837393, 0.41960785)
 
-[node name="EfectoPosition" parent="." index="17" unique_id=506465577]
+[node name="EfectoPosition" parent="." index="18" unique_id=506465577]
 position = Vector2(0, -111)
 
 [editable path="EmitidorDaño"]

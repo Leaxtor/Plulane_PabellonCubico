@@ -18,6 +18,7 @@ var time_since_last_succesful_attack := Time.get_ticks_msec()
 
 func _ready() ->void:
 	super._ready()
+	detector_secundario.enabled = false #SIRVE PARA CUANDO LA MANDAN A VOLAR
 	anim_attack = ["Golpe","Golpe_2","Golpe_3","Golpe_4"]
 	DamageManager.player_revive.connect(on_player_revive.bind())
 

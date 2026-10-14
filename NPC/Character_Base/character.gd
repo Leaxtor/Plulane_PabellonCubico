@@ -55,6 +55,9 @@ const GRAVEDAD := 600.0
 
 
 @onready var proyectil_lanzable : RayCast2D = $ProyectilLanzable #proyectil_aim
+@onready var detector_secundario : RayCast2D = $PivoteRaycast/DetectorSecundario
+@onready var pivote_secundario_aux : Node2D = $PivoteRaycast
+
 @onready var weapon_position : Node2D = $Cuchillo/WeaponPosition
 @onready var efecto_position : Node2D = $EfectoPosition
 
@@ -136,10 +139,11 @@ func _ready() ->void:
 	emitidor_daño_arma_secundario.area_entered.connect(on_emit_damage.bind())
 	
 	receptor_daño.damage_received.connect(on_receive_damage.bind())
-	collateral_damage_emmiter.area_entered.connect(on_emit_collateral_damage.bind())
+	collateral_damage_emmiter.area_entered.connect(on_emit_collateral_damage.bind()) 
 	collateral_damage_emmiter.body_entered.connect(on_wall_hit.bind())
 	set_health(max_health, type == Character.Type.PLAYER)
 	set_sprite_height_position() #detemina si esta flotando o no antes de dibujarse
+
 func _process(delta: float) ->void :
 	handle_input(delta)
 	handle_movement()
@@ -250,6 +254,7 @@ func voltear_sprite() -> void:
 		Martillo_sprite.scale.x = 1
 		Baston_sprite.scale.x = 1
 		proyectil_lanzable.scale.x = 1
+		pivote_secundario_aux.scale.x = 1 #ESCALO EL PIVOTE PARA QUE SEA COMO UN ESPEJO
 		emitidor_daño.scale.x = 1
 		emitidor_daño_arma_secundario.scale.x = 1
 	else:
@@ -261,6 +266,7 @@ func voltear_sprite() -> void:
 		Martillo_sprite.scale.x = -1
 		Baston_sprite.scale.x = -1
 		proyectil_lanzable.scale.x = -1
+		pivote_secundario_aux.scale.x = -1 #ESCALO EL PIVOTE PARA QUE SEA COMO UN ESPEJO
 		emitidor_daño.scale.x = -1
 		emitidor_daño_arma_secundario.scale.x = -1
 		
@@ -523,11 +529,19 @@ func on_emit_damage(receiver: ReceptorDamage) -> void:
 			receiver.damage_received.emit(damage, dirrecion, hit_type)
 			is_ultimo_hit_acertado = true
 	
-func on_emit_collateral_damage(receiver: ReceptorDamage) ->void:
-	print("DAÑO COLATERAL")
-	if receiver != receptor_daño:
-		var dirrecion := Vector2.LEFT if receiver.global_position.x < global_position.x else Vector2.RIGHT
-		receiver.damage_received.emit(damage, dirrecion, ReceptorDamage.HitType.KNOCKDOWN)
+func on_emit_collateral_damage(receiver: ReceptorDamage) ->void: #PONER CONDICIONAL
+	detector_secundario.force_raycast_update()
+	#RAYCAST VERIFICA QUE ESTEN A UNA ALTURA SIMILAR
+	var target := detector_secundario.get_collider()
+	if target != null:
+		var enemigo_volando: Node = receiver.get_owner()
+		var enemigo_en_linea: Node = target.get_owner()
+		#ENVIAR DAÑO
+		if enemigo_volando == enemigo_en_linea:
+			if receiver != receptor_daño:
+				var dirrecion := Vector2.LEFT if receiver.global_position.x < global_position.x else Vector2.RIGHT
+				receiver.damage_received.emit(damage, dirrecion, ReceptorDamage.HitType.KNOCKDOWN)
+			
 	
 func on_wall_hit(_wall: AnimatableBody2D) ->void:
 	print("WALL")

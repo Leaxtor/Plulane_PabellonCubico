@@ -55,6 +55,14 @@ target_position = Vector2(900, 0)
 collision_mask = 2048
 collide_with_areas = true
 
+[node name="PivoteRaycast" type="Node2D" parent="." unique_id=1540299098]
+
+[node name="DetectorSecundario" type="RayCast2D" parent="PivoteRaycast" unique_id=809855159]
+target_position = Vector2(-500, 0)
+collision_mask = 2048
+hit_from_inside = true
+collide_with_areas = true
+
 [node name="CollectibleSensor" type="Area2D" parent="." unique_id=996763328]
 collision_layer = 0
 collision_mask = 0
