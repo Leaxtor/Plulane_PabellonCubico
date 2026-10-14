@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv4bdwo486wi1"
-path="res://.godot/imported/plus_parado.png-1f3ede0163d7f51afe9e21e293a66937.ctex"
+uid="uid://krn6ps8086ho"
+path="res://.godot/imported/plus_golpe_bajo.png-37cd58d51082cff2ad57c6c722517c24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/Plus/Plus_Sprites/plus_parado.png"
-dest_files=["res://.godot/imported/plus_parado.png-1f3ede0163d7f51afe9e21e293a66937.ctex"]
+source_file="res://NPC/Plus/Plus_Sprites/plus_golpe_bajo.png"
+dest_files=["res://.godot/imported/plus_golpe_bajo.png-37cd58d51082cff2ad57c6c722517c24.ctex"]
 
 [params]
 

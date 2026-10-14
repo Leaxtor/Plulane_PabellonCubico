@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdp5l6rcqxxq0"
-path="res://.godot/imported/SaltoPatada.png-ee23df6e00db25d829b04ec8b906cea7.ctex"
+uid="uid://34f8ihodw5ye"
+path="res://.godot/imported/plus_lanzar_objeto_pesado.png-e4148bc3040b58bcc00eefff623f397d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/Plus/Plus_Sprites/SaltoPatada.png"
-dest_files=["res://.godot/imported/SaltoPatada.png-ee23df6e00db25d829b04ec8b906cea7.ctex"]
+source_file="res://NPC/Plus/Plus_Sprites/plus_lanzar_objeto_pesado.png"
+dest_files=["res://.godot/imported/plus_lanzar_objeto_pesado.png-e4148bc3040b58bcc00eefff623f397d.ctex"]
 
 [params]
 

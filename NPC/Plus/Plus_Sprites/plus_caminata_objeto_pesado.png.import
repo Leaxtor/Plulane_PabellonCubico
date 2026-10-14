@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://su8vy1wgeul4"
-path="res://.godot/imported/plus_preparar.png-3a93a0e7bdc3430c14e6ee56f77248dd.ctex"
+uid="uid://crc7bjdc4omh7"
+path="res://.godot/imported/plus_caminata_objeto_pesado.png-7be6cd840aa056567168acf4728665a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/Plus/Plus_Sprites/plus_preparar.png"
-dest_files=["res://.godot/imported/plus_preparar.png-3a93a0e7bdc3430c14e6ee56f77248dd.ctex"]
+source_file="res://NPC/Plus/Plus_Sprites/plus_caminata_objeto_pesado.png"
+dest_files=["res://.godot/imported/plus_caminata_objeto_pesado.png-7be6cd840aa056567168acf4728665a2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn3umrosbuiih"
-path="res://.godot/imported/plus_suelocaida.png-ab55d91fa373ee3a318dfd62fe93b162.ctex"
+uid="uid://cwoatsavrom7x"
+path="res://.godot/imported/plus_levantar_objeto_pesado.png-af8a17573de49bdd3940afc27e18b1ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/Plus/Plus_Sprites/plus_suelocaida.png"
-dest_files=["res://.godot/imported/plus_suelocaida.png-ab55d91fa373ee3a318dfd62fe93b162.ctex"]
+source_file="res://NPC/Plus/Plus_Sprites/plus_levantar_objeto_pesado.png"
+dest_files=["res://.godot/imported/plus_levantar_objeto_pesado.png-af8a17573de49bdd3940afc27e18b1ee.ctex"]
 
 [params]
 

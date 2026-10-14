@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm8enmiif0emm"
-path="res://.godot/imported/plus_damage.png-d97cf8d76895755611f733b4dc8285b6.ctex"
+uid="uid://dituuk4kwc5ej"
+path="res://.godot/imported/plus_levantándose.png-cabace79b2b89e24e81b37986284bff7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/Plus/Plus_Sprites/plus_damage.png"
-dest_files=["res://.godot/imported/plus_damage.png-d97cf8d76895755611f733b4dc8285b6.ctex"]
+source_file="res://NPC/Plus/Plus_Sprites/plus_levantándose.png"
+dest_files=["res://.godot/imported/plus_levantándose.png-cabace79b2b89e24e81b37986284bff7.ctex"]
 
 [params]
 
