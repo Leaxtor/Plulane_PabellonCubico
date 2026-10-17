@@ -19,7 +19,7 @@ var time_since_last_succesful_attack := Time.get_ticks_msec()
 func _ready() ->void:
 	super._ready()
 	detector_secundario.enabled = false #SIRVE PARA CUANDO LA MANDAN A VOLAR
-	anim_attack = ["Golpe","Golpe_2","Golpe_3","Golpe_4"]
+	anim_attack = ["Golpe","Golpe_2","Golpe_3"]
 	DamageManager.player_revive.connect(on_player_revive.bind())
 
 func _process(delta: float) -> void:
@@ -102,8 +102,12 @@ func accion_btn_golpe() -> void:
 			else:
 				state = State.Throw_lanza
 		else: #sino tiene armas golpe normal
-			anim_attack = ["Golpe","Golpe_2","Golpe_3","Golpe_4"]
+			anim_attack = ["Golpe","Golpe_2","Golpe_3"]
 			state = State.Golpe
+			### EN PERFECT NO PASA POR IDLE ASI QUE HAY QUE REINICIAR EL EMITIDOR DAÑO
+			if(emitidor_daño.monitoring):
+				emitidor_daño.monitoring = false
+			#############
 			SoundPlayer.play(SoundManager.Sound.SWOOSH)
 			if is_ultimo_hit_acertado:
 				time_since_last_succesful_attack = Time.get_ticks_msec()

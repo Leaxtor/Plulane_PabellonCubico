@@ -49,7 +49,6 @@ can_respawn = true
 damage = 2
 damage_power = 6
 damage_gunshot = 3
-has_knife = true
 
 [node name="Sombra" parent="." index="0" unique_id=813121135]
 position = Vector2(3, -73)
@@ -129,7 +128,6 @@ shape = SubResource("RectangleShape2D_oj2t7")
 debug_color = Color(0, 0.6358429, 0.4161163, 0.41960785)
 
 [node name="GunSprite" parent="." index="10" unique_id=378956244]
-visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("25_qmkn0")
 offset = Vector2(0, -70)
@@ -137,41 +135,35 @@ hframes = 4
 vframes = 2
 
 [node name="Espada" parent="." index="11" unique_id=2026693454]
-visible = false
 texture = ExtResource("8_0rflr")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
 
 [node name="Paraguas" parent="." index="12" unique_id=1846004306]
-visible = false
 texture = ExtResource("8_61wkc")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
 
 [node name="Martillo" parent="." index="13" unique_id=1078172413]
-visible = false
 texture = ExtResource("10_ee3ov")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
 
 [node name="Baston" parent="." index="14" unique_id=2131934695]
-visible = false
 texture = ExtResource("10_bxsks")
 offset = Vector2(0, -100)
 hframes = 5
 vframes = 7
 
 [node name="Cuchillo" parent="." index="15" unique_id=313798195]
-visible = false
 position = Vector2(59, -100)
 scale = Vector2(0.58, 0.6)
 texture = ExtResource("15_c8wjn")
 centered = false
 hframes = 3
-frame = 1
 
 [node name="WeaponPosition" parent="Cuchillo" index="0" unique_id=983036064]
 position = Vector2(17.241379, 126.66666)
